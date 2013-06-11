@@ -165,13 +165,20 @@ extern uint8 macMcuTimerProcessFallingEdgeSFDSync;
 
 
 /* ------------------------------------------------------------------------------------------------
- *                                  RESETN Pin Configuration
- * ------------------------------------------------------------------------------------------------
- */
+*                                  RESETN Pin Configuration
+* ------------------------------------------------------------------------------------------------
+*/
+#ifdef LSR_CODE
+#define HAL_MAC_RESETN_GPIO_BIT                 6
+#define HAL_MAC_DRIVE_RESETN_PIN_HIGH()         st( P7OUT |=  BV(HAL_MAC_RESETN_GPIO_BIT); ) /* atomic operation */
+#define HAL_MAC_DRIVE_RESETN_PIN_LOW()          st( P7OUT &= ~BV(HAL_MAC_RESETN_GPIO_BIT); ) /* atomic operation */
+#define HAL_MAC_CONFIG_RESETN_PIN_AS_OUTPUT()   st( P7DIR |=  BV(HAL_MAC_RESETN_GPIO_BIT); )
+#else
 #define HAL_MAC_RESETN_GPIO_BIT                 2
 #define HAL_MAC_DRIVE_RESETN_PIN_HIGH()         st( P1OUT |=  BV(HAL_MAC_RESETN_GPIO_BIT); ) /* atomic operation */
 #define HAL_MAC_DRIVE_RESETN_PIN_LOW()          st( P1OUT &= ~BV(HAL_MAC_RESETN_GPIO_BIT); ) /* atomic operation */
 #define HAL_MAC_CONFIG_RESETN_PIN_AS_OUTPUT()   st( P1DIR |=  BV(HAL_MAC_RESETN_GPIO_BIT); )
+#endif
 
 
 /* ------------------------------------------------------------------------------------------------

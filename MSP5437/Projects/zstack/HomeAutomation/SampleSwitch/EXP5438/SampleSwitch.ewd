@@ -57,7 +57,7 @@
         </option>
         <option>
           <name>DdfFileName</name>
-          <state>$TOOLKIT_DIR$\config\MSP430F5438.ddf</state>
+          <state>$TOOLKIT_DIR$\config\MSP430F5437.ddf</state>
         </option>
         <option>
           <name>ProcTMS</name>
@@ -365,6 +365,10 @@
       <plugin>
         <file>$EW_DIR$\common\plugins\SymList\SymList.ENU.ewplugin</file>
         <loadFlag>1</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$EW_DIR$\common\plugins\uCProbe\uCProbePlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
     </debuggerPlugins>
   </configuration>
@@ -732,6 +736,10 @@
         <file>$EW_DIR$\common\plugins\SymList\SymList.ENU.ewplugin</file>
         <loadFlag>1</loadFlag>
       </plugin>
+      <plugin>
+        <file>$EW_DIR$\common\plugins\uCProbe\uCProbePlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
     </debuggerPlugins>
   </configuration>
   <configuration>
@@ -1097,6 +1105,10 @@
       <plugin>
         <file>$EW_DIR$\common\plugins\SymList\SymList.ENU.ewplugin</file>
         <loadFlag>1</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$EW_DIR$\common\plugins\uCProbe\uCProbePlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
     </debuggerPlugins>
   </configuration>

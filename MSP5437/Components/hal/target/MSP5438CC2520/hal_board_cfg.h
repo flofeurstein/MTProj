@@ -91,24 +91,25 @@
 #define HAL_LED_BLINK_DELAY()   st( { volatile uint32 i; for (i=0; i<0x34000; i++) { }; } )
 
 /* LED1 - GREEN */
-#define LED1_BV           BV(0)
-#define LED1_PORT         P1OUT
-#define LED1_DDR          P1DIR
+#define LED1_BV           BV(7)
+#define LED1_PORT         P4OUT
+#define LED1_DDR          P4DIR
 
-/* LED2 - RED */
-#define LED2_BV           BV(1)
-#define LED2_PORT         P1OUT
-#define LED2_DDR          P1DIR
+/* LED2 - ORANGE */
+#define LED2_BV           BV(6)
+#define LED2_PORT         P4OUT
+#define LED2_DDR          P4DIR
 
-/* LED3 - not supported - set to LED 1 for now */
-#define LED3_BV           LED1_BV
-#define LED3_PORT         LED1_PORT
-#define LED3_DDR          LED1_DDR
+/* LED3 - RED*/
+#define LED3_BV           BV(5)
+#define LED3_PORT         P4OUT
+#define LED3_DDR          P4DIR
 
-/* LED4 - not supported - set to LED 2 for now */
-#define LED4_BV           LED2_BV
-#define LED4_PORT         LED2_PORT
-#define LED4_DDR          LED2_DDR
+/* LED4 - not supported - set to LED2 for now */
+#define LED4_BV           LED3_BV
+#define LED4_PORT         LED3_PORT
+#define LED4_DDR          LED3_DDR
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,14 +122,15 @@
 
 /* UP */
 #define PUSH1_BV          BV(4)
-#define PUSH1_PORT        P2IN
+#define PUSH1_PORT        P4IN
 #define PUSH1_POLARITY    ACTIVE_LOW
 
 /* RIGHT */
-#define PUSH2_BV          BV(2)
-#define PUSH2_PORT        P2IN
+#define PUSH2_BV          BV(3)
+#define PUSH2_PORT        P4IN
 #define PUSH2_POLARITY    ACTIVE_LOW
 
+/* not supported */
 /* DOWN */
 #define PUSH3_BV          BV(5)
 #define PUSH3_PORT        P2IN
@@ -306,7 +308,7 @@
 
 /* Set to TRUE enable LCD usage, FALSE disable it */
 #ifndef HAL_LCD
-#define HAL_LCD TRUE
+#define HAL_LCD FALSE
 #endif
 
 /* Set to TRUE enable LED usage, FALSE disable it */
