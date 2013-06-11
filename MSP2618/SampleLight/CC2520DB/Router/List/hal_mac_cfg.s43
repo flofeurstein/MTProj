@@ -1,0 +1,817 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:27:31 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\h /
+//                     al\target\MSP2618CC2520\hal_mac_cfg.c                  /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\T /
+//                     ools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0    /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wRouter.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE= /
+//                     TRUE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC        /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\hal\target /
+//                     \MSP2618CC2520\hal_mac_cfg.c" -D MSP430F2618 -D        /
+//                     ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D   /
+//                     LCD_SUPPORTED -lC "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\Router\List\" -lA       /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Router\List\" /
+//                      --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826 -o  /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Router\Obj\"  /
+//                     --debug -D__MSP430F2618__ -e --double=32 --clib -I     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\" -I          /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\Source\"   /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\Sour /
+//                     ce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro /
+//                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\.. /
+//                     \..\ZMain\MSP2618\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\target\MSP2618CC2520\" -I "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\high_level\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\" -I "C:\Texas                  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\dual_chip\" -I "C:\Texas        /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ /
+//                     Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. /
+//                     \..\..\..\..\Components\osal\include\" -I "C:\Texas    /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\osal\mcu\msp430\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\saddr\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\sdata\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\af\" -I "C:\Texas                             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\nwk\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sec\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sapi\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sys\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zcl\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zdo\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5. /
+//                     1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ /
+//                     ..\..\..\..\..\Components\zmac\f8w\" --core=430X       /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleLight\CC2520DB\Router\List\ha /
+//                     l_mac_cfg.s43                                          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_mac_cfg
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK `??halMacFifopIsr??INTVEC 36`
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBWEAK CAPD
+        PUBWEAK P1DIR
+        PUBWEAK P1IE
+        PUBWEAK P1IES
+        PUBWEAK P1IFG
+        PUBWEAK P1IN
+        PUBWEAK P1SEL
+        PUBWEAK P5DIR
+        PUBWEAK P5SEL
+        PUBLIC halMacFifopIsr
+        FUNCTION halMacFifopIsr,021233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC halMacInit
+        FUNCTION halMacInit,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC or(load(2, DATA, add(CFA, literal(-2))), lshift(and(load(2, DATA, add(CFA, literal(-4))), 61440), 4))
+          CFI SR Frame(CFA, -4)
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+halMacFifopIsr      SYMBOL "halMacFifopIsr"
+`??halMacFifopIsr??INTVEC 36` SYMBOL "??INTVEC 36", halMacFifopIsr
+
+        EXTERN halAssertHandler
+        FUNCTION halAssertHandler,0202H
+        EXTERN macSpiReadReg
+        FUNCTION macSpiReadReg,0202H
+        EXTERN macDualchipTxAckDoneIsr
+        FUNCTION macDualchipTxAckDoneIsr,0202H
+        EXTERN macDualchipTxFrmDoneIsr
+        FUNCTION macDualchipTxFrmDoneIsr,0202H
+        EXTERN macSpiWriteReg
+        FUNCTION macSpiWriteReg,0202H
+        EXTERN macRxActive
+        EXTERN macRxThresholdIsr
+        FUNCTION macRxThresholdIsr,0202H
+        EXTERN macRxFifoOverflowIsr
+        FUNCTION macRxFifoOverflowIsr,0202H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\hal\target\MSP2618CC2520\hal_mac_cfg.c
+//    1 /**************************************************************************************************
+//    2   Filename:       hal_mac_cfg.c
+//    3   Revised:        $Date: 2011-05-09 13:22:48 -0700 (Mon, 09 May 2011) $
+//    4   Revision:       $Revision: 25921 $
+//    5 
+//    6   Description:    Describe the purpose and contents of the file.
+//    7 
+//    8 
+//    9   Copyright 2009-2011 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*
+//   41  *   Board Configuration File for low-level MAC
+//   42  *  --------------------------------------------
+//   43  *   Manufacturer : Generic
+//   44  *   Part Number  : -
+//   45  *   Processor    : Texas Instruments MSP430 variants
+//   46  *
+//   47  */
+//   48 
+//   49 
+//   50 /* ------------------------------------------------------------------------------------------------
+//   51  *                                           Includes
+//   52  * ------------------------------------------------------------------------------------------------
+//   53  */
+//   54 #include "hal_mac_cfg.h"
+
+        ASEGN DATA16_AN:DATA:NOROOT,05bH
+// unsigned char volatile CAPD
+CAPD:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,020H
+// unsigned char const volatile P1IN
+P1IN:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,022H
+// unsigned char volatile P1DIR
+P1DIR:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,023H
+// unsigned char volatile P1IFG
+P1IFG:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,024H
+// unsigned char volatile P1IES
+P1IES:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,025H
+// unsigned char volatile P1IE
+P1IE:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,026H
+// unsigned char volatile P1SEL
+P1SEL:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,032H
+// unsigned char volatile P5DIR
+P5DIR:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,033H
+// unsigned char volatile P5SEL
+P5SEL:
+        DS8 1
+//   55 #include "mac_assert.h"
+//   56 #include "mac_rx.h"
+//   57 #include "mac_tx.h"
+//   58 #include "mac_radio_defs.h"
+//   59 
+//   60 
+//   61 /* ------------------------------------------------------------------------------------------------
+//   62  *                                           Defines
+//   63  * ------------------------------------------------------------------------------------------------
+//   64  */
+//   65 
+//   66 /* Macro and Defines for FIFOP interrupt */
+//   67 #define FIFOP_VECTOR()      HAL_MAC_FIFOP_INT_VECTOR()
+//   68 #if (FIFOP_VECTOR() == PORT1_VECTOR)
+//   69 #define PXIE    P1IE
+//   70 #define PXIFG   P1IFG
+//   71 #elif (FIFOP_VECTOR() == PORT2_VECTOR)
+//   72 #define PXIE    P2IE
+//   73 #define PXIFG   P2IFG
+//   74 #else
+//   75 #error "ERROR: Unknown or unsupported vector specified for FIFOP interrupt."
+//   76 #endif
+//   77 
+//   78 
+//   79 /**************************************************************************************************
+//   80  * @fn          halMacInit
+//   81  *
+//   82  * @brief       Transiver interface initializations.
+//   83  *
+//   84  * @param       none
+//   85  *
+//   86  * @return      none
+//   87  **************************************************************************************************
+//   88  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//   89 void halMacInit(void)
+halMacInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function halMacInit
+//   90 {
+//   91   /* configure GPIO pins */
+//   92   HAL_MAC_CONFIG_FIFOP_PIN_AS_INPUT();
+        FUNCALL halMacInit, halAssertHandler
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL halMacInit, halAssertHandler
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL halMacInit, halAssertHandler
+        LOCFRAME CSTACK, 4, STACK
+        BIT.B   #0x40, &0x22
+        JNC     ??halMacInit_0
+        CALLA   #halAssertHandler
+//   93   HAL_MAC_CONFIG_FIFO_PIN_AS_INPUT();
+??halMacInit_0:
+        BIT.B   #0x20, &0x22
+        JNC     ??halMacInit_1
+        CALLA   #halAssertHandler
+//   94   HAL_MAC_CONFIG_TX_ACK_DONE_PIN_AS_INPUT();
+??halMacInit_1:
+        BIC.B   #0x8, &0x22
+//   95   HAL_MAC_CONFIG_CCA_PIN_AS_INPUT();
+        BIC.B   #0x2, &0x22
+        BIC.B   #0x2, &0x26
+        BIC.B   #0x2, &0x5b
+//   96 
+//   97   /* The trigger pin is configured dynamically per beacon mode */
+//   98 
+//   99   HAL_MAC_CONFIG_VREG_EN_PIN_AS_OUTPUT();
+        BIS.B   #0x1, &0x22
+//  100   HAL_MAC_CONFIG_RESETN_PIN_AS_OUTPUT();
+        BIS.B   #0x80, &0x32
+//  101 
+//  102   /* configure input capture */
+//  103   HAL_MAC_CONFIG_SFD_PIN_AS_INPUT();
+        BIC.B   #0x4, &0x22
+        BIS.B   #0x4, &0x26
+//  104 
+//  105   /* configure interrupts */
+//  106   HAL_MAC_CONFIG_FIFOP_RISING_EDGE_INT();
+        BIC.B   #0x40, &0x24
+//  107   HAL_MAC_CONFIG_TX_ACK_DONE_RISING_EDGE_INT();
+        BIC.B   #0x8, &0x24
+//  108 
+//  109   /* configure SPI pins */
+//  110   HAL_MAC_SPI_CONFIG_CSN_PIN_AS_OUTPUT();
+        BIS.B   #0x1, &0x32
+//  111   HAL_MAC_SPI_CONFIG_SCLK_PIN_AS_OUTPUT();
+        BIS.B   #0x8, &0x32
+        BIS.B   #0x8, &0x33
+//  112   HAL_MAC_SPI_CONFIG_SI_PIN_AS_OUTPUT();
+        BIS.B   #0x2, &0x32
+        BIS.B   #0x2, &0x33
+//  113   HAL_MAC_SPI_CONFIG_SO_PIN_AS_INPUT();
+        BIT.B   #0x4, &0x32
+        JNC     ??halMacInit_2
+        CALLA   #halAssertHandler
+??halMacInit_2:
+        BIS.B   #0x4, &0x33
+//  114 }
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE P1DIR
+        REQUIRE P1SEL
+        REQUIRE CAPD
+        REQUIRE P5DIR
+        REQUIRE P1IES
+        REQUIRE P5SEL
+//  115 
+//  116 
+//  117 /**************************************************************************************************
+//  118  * @fn          halMacIoPortIsr
+//  119  *
+//  120  * @brief       Radio interrupt service routine.
+//  121  *
+//  122  * @param       none
+//  123  *
+//  124  * @return      none
+//  125  **************************************************************************************************
+//  126  */
+
+        RSEG ISR_CODE:CODE:REORDER:NOROOT(1)
+//  127 HAL_ISR_FUNCTION( halMacFifopIsr, FIFOP_VECTOR() )
+halMacFifopIsr:
+          CFI Block cfiBlock1 Using cfiCommon1
+          CFI Function halMacFifopIsr
+//  128 {
+        FUNCALL halMacFifopIsr, halAssertHandler
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macSpiReadReg
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macDualchipTxAckDoneIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macDualchipTxFrmDoneIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macSpiWriteReg
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macDualchipTxAckDoneIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macSpiWriteReg
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macDualchipTxFrmDoneIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macSpiWriteReg
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macRxThresholdIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macRxFifoOverflowIsr
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL halMacFifopIsr, macSpiWriteReg
+        LOCFRAME CSTACK, 20, STACK
+        PUSHM.W #0x8, R15
+          CFI R8L Frame(CFA, -20)
+          CFI R9L Frame(CFA, -18)
+          CFI R10L Frame(CFA, -16)
+          CFI R11L Frame(CFA, -14)
+          CFI R12L Frame(CFA, -12)
+          CFI R13L Frame(CFA, -10)
+          CFI R14L Frame(CFA, -8)
+          CFI R15L Frame(CFA, -6)
+          CFI CFA SP+20
+//  129   uint8 pxie, excflag0;
+//  130 
+//  131   /*
+//  132    *  Copy interrupt enable register.  Used to avoid compiler warning regarding
+//  133    *  undefined order of volatile acesses.
+//  134    */
+//  135   pxie = PXIE;
+        MOV.B   &0x25, R11
+//  136 
+//  137   /* currently FIFO, FIFOP, and TX_ACK_DONE are the only signals that cause an interrupt on this port */
+//  138   MAC_ASSERT(pxie & PXIFG & (BV(HAL_MAC_FIFOP_GPIO_BIT) | BV(HAL_MAC_TX_ACK_DONE_GPIO_BIT) | BV(HAL_MAC_FIFO_GPIO_BIT))); /* unrecognized interrupt */
+        MOV.W   #0x23, R10
+        MOV.B   R11, R14
+        AND.B   @R10, R14
+        BIT.B   #0x68, R14
+        JNE     ??halMacFifopIsr_3
+        CALLA   #halAssertHandler
+//  139 
+//  140   /*
+//  141    *  Test all bits in port that are used as interrupts.  If the enable flag is set and
+//  142    *  the interrupt pending flag is set, call the corresponding ISR.
+//  143    *
+//  144    *  Note: the MSP430 requires that the software clear the interrupt pending flag.
+//  145    *  This logic design of the ISR's themselves handles this.
+//  146    */
+//  147 
+//  148   /* TX_ACK_DONE interrupt - processes TX_ACK_DONE before FIFOP when interrupts are simultaneous */
+//  149   if (pxie & PXIFG & BV(HAL_MAC_TX_ACK_DONE_GPIO_BIT))
+??halMacFifopIsr_3:
+        MOV.B   #0x10, R8
+        MOV.B   R11, R14
+        AND.B   @R10, R14
+        BIT.B   #0x8, R14
+        JEQ     ??halMacFifopIsr_4
+//  150   {
+//  151     excflag0 = macSpiReadReg(EXCFLAG0);
+        MOV.B   R8, R12
+        CALLA   #macSpiReadReg
+//  152 
+//  153     /* Determine what caused the GPIO to go high */
+//  154     if (MAC_RADIO_TX_ACK_AND_TX_FRM_DONE_EXCEPTION(excflag0))
+        MOV.B   R12, R14
+        AND.B   #0x6, R14
+        CMP.B   #0x6, R14
+        JNE     ??halMacFifopIsr_5
+//  155     {
+//  156       macDualchipTxAckDoneIsr();
+        CALLA   #macDualchipTxAckDoneIsr
+//  157       macDualchipTxFrmDoneIsr();
+        CALLA   #macDualchipTxFrmDoneIsr
+//  158       MAC_RADIO_CLEAR_TX_ACK_AND_TX_FRM_DONE_PIN();
+        MOV.B   #0xf9, R13
+        JMP     ??halMacFifopIsr_1
+//  159     }
+//  160     else
+//  161     {
+//  162       if (MAC_RADIO_TX_ACK_DONE_EXCEPTION(excflag0))
+??halMacFifopIsr_5:
+        BIT.B   #0x4, R12
+        JNC     ??halMacFifopIsr_6
+//  163       {
+//  164         macDualchipTxAckDoneIsr();
+        CALLA   #macDualchipTxAckDoneIsr
+//  165         MAC_RADIO_CLEAR_TX_ACK_DONE_PIN();
+        MOV.B   #0xfb, R13
+        JMP     ??halMacFifopIsr_1
+//  166       }
+//  167       else
+//  168       if (MAC_RADIO_TX_FRM_DONE_EXCEPTION(excflag0))
+??halMacFifopIsr_6:
+        BIT.B   #0x2, R12
+        JNC     ??halMacFifopIsr_7
+//  169       {
+//  170         macDualchipTxFrmDoneIsr();
+        CALLA   #macDualchipTxFrmDoneIsr
+//  171         MAC_RADIO_CLEAR_TX_FRM_DONE_PIN();
+        MOV.B   #0xfd, R13
+??halMacFifopIsr_1:
+        MOV.B   R8, R12
+        CALLA   #macSpiWriteReg
+//  172       }
+//  173     }
+//  174 
+//  175     if ( !HAL_MAC_READ_TX_ACK_DONE_PIN() )
+??halMacFifopIsr_7:
+        BIT.B   #0x8, &0x20
+        JC      ??halMacFifopIsr_8
+//  176     {
+//  177       /* Clear the flag only when the pin is phisically low */
+//  178       HAL_MAC_CLEAR_TX_ACK_DONE_INT_FLAG();
+        BIC.B   #0x8, &0x23
+        JMP     ??halMacFifopIsr_8
+//  179     }
+//  180   }
+//  181 
+//  182   /* 
+//  183    * TX interrupt is very time consuming and it may trigger more transmissions. 
+//  184    * Don't let RX run until all TXs are completed. 
+//  185    */
+//  186   else if (pxie & PXIFG & BV(HAL_MAC_FIFOP_GPIO_BIT)) /* FIFOP interrupt */
+??halMacFifopIsr_4:
+        MOV.B   R11, R14
+        AND.B   @R10, R14
+        BIT.B   #0x40, R14
+        JEQ     ??halMacFifopIsr_8
+//  187   {
+//  188     /* To get here: FIFOP = 1, FIFO = X
+//  189      * See CC2520 Errata Note Bug 2, Glitches on the FIFOP Signal.
+//  190      */
+//  191     if (!HAL_MAC_READ_FIFOP_PIN() && HAL_MAC_READ_FIFO_PIN())
+        BIT.B   #0x40, &0x20
+        JC      ??halMacFifopIsr_9
+        BIT.B   #0x20, &0x20
+        JNC     ??halMacFifopIsr_9
+//  192     {
+//  193       /* To get here: FIFOP = 0, FIFO = 1
+//  194        * It appears that after rxPayloadIsr(), a FIFOP glitch can occur. If
+//  195        * this is happening, the FIFOP interrupt flag should not be cleared.
+//  196        * Instead, do nothing so that the FIFOP interrupt can be triggered
+//  197        * again when the RX FIFO threshold is reached. FIFOP pin should stay
+//  198        * high for the real FOFOP interrupt.
+//  199        */
+//  200       if (!macRxActive)
+        CMP.B   #0x0, &macRxActive
+        JNE     ??halMacFifopIsr_8
+//  201       {
+//  202         /* If the FIFOP glitch occurs before RX is active, go ahead and
+//  203          * clear the FIFOP interrupt flag as if the glitch has never happened.
+//  204          */
+//  205         HAL_MAC_CLEAR_FIFOP_INT_FLAG();
+        JMP     ??halMacFifopIsr_2
+//  206       }
+//  207     }
+//  208     else if (HAL_MAC_READ_FIFOP_PIN())
+??halMacFifopIsr_9:
+        BIT.B   #0x40, &0x20
+        JNC     ??halMacFifopIsr_2
+//  209     {
+//  210       /* To get here: FIFOP = 1, FIFO = X */
+//  211       do
+//  212       {
+//  213         /* Clear the FIFOP int flag. */
+//  214         HAL_MAC_CLEAR_FIFOP_INT_FLAG();
+??halMacFifopIsr_0:
+        BIC.B   #0x40, &0x23
+//  215 
+//  216         macRxThresholdIsr();
+        CALLA   #macRxThresholdIsr
+//  217 
+//  218       } while(HAL_MAC_READ_FIFOP_PIN());
+        BIT.B   #0x40, &0x20
+        JNC     ??halMacFifopIsr_8
+        JMP     ??halMacFifopIsr_0
+//  219     }
+//  220     else
+//  221     {
+//  222       /* To get here: FIFOP = 0, FIFO = 0
+//  223        * This is the second half of the FIFOP glitch workaround.
+//  224        * Need to clear FIFOP interrupt so that the FIFOP interrupt will be 
+//  225        * fired on the next rising edge. 
+//  226        */
+//  227       HAL_MAC_CLEAR_FIFOP_INT_FLAG();
+??halMacFifopIsr_2:
+        BIC.B   #0x40, &0x23
+//  228     }
+//  229   }
+//  230   
+//  231   /* The RXFIFO overflow must be checked last to ensure new FIFOP interrupt */
+//  232   if (pxie & PXIFG & BV(HAL_MAC_FIFO_GPIO_BIT)) /* FIFO interrupt */
+??halMacFifopIsr_8:
+        AND.B   @R10, R11
+        BIT.B   #0x20, R11
+        JEQ     ??halMacFifopIsr_10
+//  233   {
+//  234     /* Handle RX FIFO overflow */
+//  235     if (MAC_RADIO_RX_FIFO_HAS_OVERFLOWED())
+        BIT.B   #0x40, &0x20
+        JNC     ??halMacFifopIsr_11
+        BIT.B   #0x20, &0x20
+        JC      ??halMacFifopIsr_11
+//  236     {
+//  237       macRxFifoOverflowIsr();
+        CALLA   #macRxFifoOverflowIsr
+//  238  
+//  239       /* Clear RX FIFO overflow exception flag */
+//  240       macSpiWriteReg(EXCFLAG0, RX_OVERFLOW_FLAG);
+        MOV.B   #0xbf, R13
+        MOV.B   R8, R12
+        CALLA   #macSpiWriteReg
+//  241     }
+//  242     
+//  243     /* clear interrupt */
+//  244     HAL_MAC_CLEAR_FIFO_INT_FLAG();
+??halMacFifopIsr_11:
+        BIC.B   #0x20, &0x23
+//  245   }
+//  246 }
+??halMacFifopIsr_10:
+        POPM.W  #0x8, R15
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R12L SameValue
+          CFI R13L SameValue
+          CFI R14L SameValue
+          CFI R15L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETI
+          CFI EndBlock cfiBlock1
+        REQUIRE P1IE
+        REQUIRE P1IFG
+        REQUIRE P1IN
+
+        COMMON INTVEC:CONST:ROOT(1)
+        ORG 36
+`??halMacFifopIsr??INTVEC 36`:
+        DC16    halMacFifopIsr
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  247 
+//  248 
+//  249 
+//  250 
+// 
+// 104 bytes in segment CODE
+//   9 bytes in segment DATA16_AN
+//   2 bytes in segment INTVEC
+// 228 bytes in segment ISR_CODE
+// 
+// 332 bytes of CODE  memory
+//   0 bytes of CONST memory (+ 2 bytes shared)
+//   0 bytes of DATA  memory (+ 9 bytes shared)
+//
+//Errors: none
+//Warnings: none

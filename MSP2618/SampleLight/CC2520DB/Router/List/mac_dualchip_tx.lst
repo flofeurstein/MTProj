@@ -1,0 +1,992 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  16:27:32 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\ma #
+#                     c\low_level\srf04\dual_chip\mac_dualchip_tx.c           #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\Too #
+#                     ls\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0       #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\f8 #
+#                     wRouter.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                     E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8            #
+#                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\f8 #
+#                     wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC           #
+#                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH         #
+#                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4          #
+#                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10         #
+#                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10        #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_lev #
+#                     el\srf04\dual_chip\mac_dualchip_tx.c" -D MSP430F2618    #
+#                     -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC    #
+#                     -D LCD_SUPPORTED -lC "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\Router\List\" -lA         #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\Router\List\"   #
+#                     --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826 -o    #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\Router\Obj\"    #
+#                     --debug -D__MSP430F2618__ -e --double=32 --clib -I      #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\" -I "C:\Texas  #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\Source\" -I "C:\Texas  #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\Source\" -I         #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\..\..\..\ZMain\ #
+#                     MSP2618\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 #
+#                     \Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. #
+#                     \..\..\..\..\Components\hal\include\" -I "C:\Texas      #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \hal\target\MSP2618CC2520\" -I "C:\Texas                #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\include\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\high_level\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\low_level\srf04\" -I "C:\Texas                     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\low_level\srf04\dual_chip\" -I "C:\Texas           #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro #
+#                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\..\ #
+#                     ..\..\..\Components\osal\include\" -I "C:\Texas         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \osal\mcu\msp430\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \services\saddr\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \services\sdata\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 #
+#                     .1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ #
+#                     ..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas      #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\sec\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\stack\sapi\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\sys\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\stack\zcl\" -I "C:\Texas     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\zdo\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\zmac\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \zmac\f8w\" --core=430X --data_model=small -Ohz         #
+#                     --multiplier=16s --require_prototypes                   #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleLight\CC2520DB\Router\List\mac_ #
+#                     dualchip_tx.lst                                         #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleLight\CC2520DB\Router\Obj\mac_d #
+#                     ualchip_tx.r43                                          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_level\srf04\dual_chip\mac_dualchip_tx.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_dualchip_tx.c
+      3            Revised:        $Date: 2007-10-29 19:11:44 -0700 (Mon, 29 Oct 2007) $
+      4            Revision:       $Revision: 15810 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          #include "hal_defs.h"
+     48          #include "hal_mac_cfg.h"
+
+   \                                 In  segment DATA16_AN, at 0x20
+   \   unsigned char const volatile P1IN
+   \                     P1IN:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x22
+   \   unsigned char volatile P1DIR
+   \                     P1DIR:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x26
+   \   unsigned char volatile P1SEL
+   \                     P1SEL:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x166
+   \   unsigned short volatile TACCTL2
+   \                     TACCTL2:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x170
+   \   unsigned short volatile TAR
+   \                     TAR:
+   \   000000                DS8 2
+     49          
+     50          /* high-level */
+     51          #include "mac_spec.h"
+     52          #include "mac_pib.h"
+     53          #include "mac_main.h"
+     54          
+     55          /* exported low-level */
+     56          #include "mac_low_level.h"
+     57          
+     58          /* low-level specific */
+     59          #include "mac_dualchip.h"
+     60          #include "mac_dualchip_tx.h"
+     61          #include "mac_mcu_timer.h"
+     62          #include "mac_tx.h"
+     63          #include "mac_rx.h"
+     64          #include "mac_rx_onoff.h"
+     65          
+     66          /* target specific */
+     67          #include "mac_radio_defs.h"
+     68          
+     69          /* debug */
+     70          #include "mac_assert.h"
+     71          #include "hal_board.h"
+     72          
+     73          
+     74          /* ------------------------------------------------------------------------------------------------
+     75           *                                         Local Prototypes
+     76           * ------------------------------------------------------------------------------------------------
+     77           */
+     78          static void dualchipTxUnslottedCsmaRxOn(void);
+     79          static void dualchipTxUnslottedCsmaCca(void);
+     80          static void dualchipTxSlotted(void);
+     81          static void dualchipTxSlottedCollisionDetection(void);
+     82          static void dualchipTxSlottedCsmaCca(void);
+     83          static void dualchipTxSlottedCsma(void);
+     84          
+     85          
+     86          /**************************************************************************************************
+     87           * @fn          macDualchipTxReset
+     88           *
+     89           * @brief       Initialize all code in this 'C' module.
+     90           *
+     91           * @param       none
+     92           *
+     93           * @return      none
+     94           **************************************************************************************************
+     95           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   B2C010006601 BIC.W   #0x10, &0x166
+   \   000006   1001         RETA
+
+   \                                 In  segment CODE, align 2
+     96          void macDualchipTxReset(void)
+   \                     macDualchipTxReset:
+     97          {
+     98            MAC_MCU_TIMER_CANCEL();
+   \   000000   ....         JMP     ?Subroutine0
+   \   000002                REQUIRE TACCTL2
+     99            MAC_RADIO_CANCEL_ACK_TX_DONE_CALLBACK();
+    100          }
+    101          
+    102          
+    103          /**************************************************************************************************
+    104           * @fn          macDualchipTxGoCsma
+    105           *
+    106           * @brief       Starts unslotted CSMA transmit algorithm.  Receiver is turned on (it must be on
+    107           *              for at least one backoff for CCA to be valid) and then a timer is set for CSMA
+    108           *              delay time.
+    109           *
+    110           * @param       none
+    111           *
+    112           * @return      none
+    113           **************************************************************************************************
+    114           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    115          void macDualchipTxGoCsma(void)
+   \                     macDualchipTxGoCsma:
+    116          {
+    117            MAC_ASSERT(macTxType == MAC_TX_TYPE_UNSLOTTED_CSMA);  /* only unslotted CSMA is supported */
+   \   000000   D293....     CMP.B   #0x1, &macTxType
+   \   000004   0224         JEQ     ??macDualchipTxGoCsma_0
+   \   000006   ........     CALLA   #halAssertHandler
+    118          
+    119            /* Turn off RX to save power even if RX falg is enabled for MAC_RX_POLL */
+    120            if (!macRxEnableFlags || (macRxEnableFlags | MAC_RX_POLL) == MAC_RX_POLL)
+   \                     ??macDualchipTxGoCsma_0:
+   \   00000A   C293....     CMP.B   #0x0, &macRxEnableFlags
+   \   00000E   0524         JEQ     ??macDualchipTxGoCsma_1
+   \   000010   5E42....     MOV.B   &macRxEnableFlags, R14
+   \   000014   5ED3         BIS.B   #0x1, R14
+   \   000016   5E93         CMP.B   #0x1, R14
+   \   000018   0220         JNE     ??macDualchipTxGoCsma_2
+    121            {
+    122              macRxOff();
+   \                     ??macDualchipTxGoCsma_1:
+   \   00001A   ........     CALLA   #macRxOff
+    123            }
+    124            
+    125            /*
+    126             *  Delay will break into two parts, dealy and delay with Rx on for one backoff period. The 
+    127             *  receiver must be on for at least one backoff for CCA to be valid.
+    128             */
+    129            if (macTxCsmaBackoffDelay < 2)
+   \                     ??macDualchipTxGoCsma_2:
+   \   00001E   E293....     CMP.B   #0x2, &macTxCsmaBackoffDelay
+   \   000022   022C         JC      ??macDualchipTxGoCsma_3
+    130            {
+    131              /* Delay is zero or one backoff, turn on the RX for one backoff */
+    132              dualchipTxUnslottedCsmaRxOn();
+   \   000024   ........     BRA     #dualchipTxUnslottedCsmaRxOn
+    133            }
+    134            else
+    135            {
+    136              /* 
+    137               *  Delay is two or more backoffs, request callback for the CSMA delay - 1, then turn on 
+    138               *  the RX for one backoff.
+    139               */
+    140              MAC_MCU_TIMER_UNSLOTTED_BACKOFFS(macTxCsmaBackoffDelay - 1, &dualchipTxUnslottedCsmaRxOn);
+   \                     ??macDualchipTxGoCsma_3:
+   \   000028   92427001.... MOV.W   &0x170, &macMcuTimerCount
+   \   00002E   B240........ MOV.W   #LWRD(dualchipTxUnslottedCsmaRxOn), &pFuncMacMcuTimerCallback
+   \   000034   B240........ MOV.W   #HWRD(dualchipTxUnslottedCsmaRxOn), &pFuncMacMcuTimerCallback + 2
+   \   00003A   5C42....     MOV.B   &macTxCsmaBackoffDelay, R12
+   \   00003E   7C53         ADD.B   #0xff, R12
+   \   000040   ........     BRA     #macMcuTimerUnslottedBackoffs
+   \   000044                REQUIRE TAR
+    141            }
+    142          }
+    143          
+    144          
+    145          /**************************************************************************************************
+    146           * @fn          dualchipTxUnslottedCsmaRxOn
+    147           *
+    148           * @brief       Turn on RX before starting unslotted CSMA transmit algorithm and then a timer is 
+    149           *              set for one backoff.
+    150           *
+    151           * @param       none
+    152           *
+    153           * @return      none
+    154           **************************************************************************************************
+    155           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    156          static void dualchipTxUnslottedCsmaRxOn(void)
+   \                     dualchipTxUnslottedCsmaRxOn:
+    157          {
+    158            /* turn on receiver and request callback for the CSMA delay for one backoff */
+    159            macRxOn();
+   \   000000   ........     CALLA   #macRxOn
+    160            MAC_MCU_TIMER_UNSLOTTED_BACKOFFS(1, &dualchipTxUnslottedCsmaCca);
+   \   000004   92427001.... MOV.W   &0x170, &macMcuTimerCount
+   \   00000A   B240........ MOV.W   #LWRD(dualchipTxUnslottedCsmaCca), &pFuncMacMcuTimerCallback
+   \   000010   B240........ MOV.W   #HWRD(dualchipTxUnslottedCsmaCca), &pFuncMacMcuTimerCallback + 2
+   \   000016   5C43         MOV.B   #0x1, R12
+   \   000018   ........     BRA     #macMcuTimerUnslottedBackoffs
+   \   00001C                REQUIRE TAR
+    161          }
+    162          
+    163          
+    164          /*=================================================================================================
+    165           * @fn          dualchipTxUnslottedCsmaCca
+    166           *
+    167           * @brief       Performs CCA for unslotted CSMA transmit.
+    168           *              If channel is clear, transmit is started.
+    169           *              If channel is not clear, "channel busy" callback is executed.
+    170           *
+    171           * @param       none
+    172           *
+    173           * @return      none
+    174           *=================================================================================================
+    175           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    176          static void dualchipTxUnslottedCsmaCca(void)
+   \                     dualchipTxUnslottedCsmaCca:
+    177          {
+   \   000000   0A12         PUSH.W  R10
+    178            halIntState_t  s;
+    179          
+    180            /* peform CCA */
+    181            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000002   0A42         MOV.W   SR, R10
+   \   000004   32C2         dint
+   \   000006   0343         nop
+    182          
+    183            macSpiCmdStrobe(STXONCCA);
+   \   000008   7C404400     MOV.B   #0x44, R12
+   \   00000C   ........     CALLA   #macSpiCmdStrobe
+    184          
+    185            if (MAC_RADIO_READ_SAMPLED_CCA())
+   \   000010   7C403300     MOV.B   #0x33, R12
+   \   000014   ........     CALLA   #macSpiReadReg
+   \   000018   7CB2         BIT.B   #0x8, R12
+   \   00001A   0428         JNC     ??dualchipTxUnslottedCsmaCca_0
+    186            {
+    187              /* CCA succeeded - request TX done interrupt, flag receiver as forced on */
+    188              HAL_MAC_CLEAR_SFD_INT_FLAG();
+    189              HAL_MAC_ENABLE_SFD_INT();
+   \   00001C   ........     CALLA   #?Subroutine2
+    190              MAC_RX_WAS_FORCED_ON();
+    191              HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??CrossCallReturnLabel_3:
+   \   000020   024A         MOV.W   R10, SR
+    192              return;
+   \   000022   033C         JMP     ??dualchipTxUnslottedCsmaCca_1
+    193            }
+    194          
+    195            HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??dualchipTxUnslottedCsmaCca_0:
+   \   000024   024A         MOV.W   R10, SR
+    196          
+    197            /* CCA failed */
+    198            macTxChannelBusyCallback();
+   \   000026   ........     CALLA   #macTxChannelBusyCallback
+    199          }
+   \                     ??dualchipTxUnslottedCsmaCca_1:
+   \   00002A   3A41         POP.W   R10
+   \   00002C   1001         RETA
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine2:
+   \   000000   D243....     MOV.B   #0x1, &macMcuTimerProcessFallingEdgeSFDSync
+   \   000004   D243....     MOV.B   #0x1, &macRxOnFlag
+   \   000008   1001         RETA
+    200          
+    201          /*=================================================================================================
+    202           * @fn          macDualchipTxPrepCsmaSlotted
+    203           *
+    204           * @brief       This function prepares CC2520 for a slotted csma transmission.
+    205           *
+    206           * @param       none
+    207           *
+    208           * @return      none
+    209           *=================================================================================================
+    210           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    211          void macDualchipTxPrepCsmaSlotted(void)
+   \                     macDualchipTxPrepCsmaSlotted:
+    212          {
+    213            /* Configure the Trigger and CCA pins for slotted transmission */
+    214            MAC_RADIO_CONFIG_TRIGGER_CCA();
+   \   000000   ........     CALLA   #?Subroutine1
+   \                     ??CrossCallReturnLabel_1:
+   \   000004   ........     BRA     #macSpiWriteReg
+   \   000008                REQUIRE P1DIR
+   \   000008                REQUIRE P1SEL
+    215          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   F2D080002200 BIS.B   #0x80, &0x22
+   \   000006   F2D080002600 BIS.B   #0x80, &0x26
+   \   00000C   7D402900     MOV.B   #0x29, R13
+   \   000010   7C402300     MOV.B   #0x23, R12
+   \   000014   1001         RETA
+    216          
+    217          
+    218          /*=================================================================================================
+    219           * @fn          macDualchipTxPrepSlotted
+    220           *
+    221           * @brief       This function prepares CC2520 for a slotted transmission.
+    222           *
+    223           * @param       none
+    224           *
+    225           * @return      none
+    226           *=================================================================================================
+    227           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    228          void macDualchipTxPrepSlotted(void)
+   \                     macDualchipTxPrepSlotted:
+    229          {
+    230            /* Configure the Trigger and CCA pins for slotted transmission */
+    231            MAC_RADIO_CONFIG_TRIGGER_CCA();
+   \   000000   ........     CALLA   #?Subroutine1
+   \                     ??CrossCallReturnLabel_0:
+   \   000004   ........     CALLA   #macSpiWriteReg
+    232          
+    233            /* Set compare output trigger setting to strobe STXONCCA */
+    234            MAC_RADIO_SET_TRIGGER_STXON();
+   \   000008   7D408800     MOV.B   #0x88, R13
+   \   00000C   7C402500     MOV.B   #0x25, R12
+   \   000010   ........     BRA     #macSpiWriteReg
+   \   000014                REQUIRE P1DIR
+   \   000014                REQUIRE P1SEL
+    235          }
+    236          
+    237          
+    238          /*=================================================================================================
+    239           * @fn          macDualchipTxGoSlotted
+    240           *
+    241           * @brief       This function starts a backoff timer. When the backoff countdown reaches 0,
+    242           *              a "trigger" GPIO is toggled. The "trigger" GPIO pin will cause the CC2520
+    243           *              to transmit per slotted timing.
+    244           *
+    245           * @param       none
+    246           *
+    247           * @return      none
+    248           *=================================================================================================
+    249           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    250          void macDualchipTxGoSlotted(void)
+   \                     macDualchipTxGoSlotted:
+    251          {
+    252          #if (defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590)
+    253            /*
+    254             * Cannot support beacon enabled network when PA/LNA is installed in EM board.
+    255             * CC2520 GPIO4 is uesed to control PA/LNA and not available for SFD.
+    256             * Beacon enabled network need SFD to capture beacon time base.
+    257             */
+    258            MAC_ASSERT(0);
+    259          #endif
+    260          
+    261            /* Disable Rx and flush RXFIFO due to chip bug #1546 */
+    262            if (macChipVersion == REV_A)
+   \   000000   C293....     CMP.B   #0x0, &macChipVersion
+   \   000004   0220         JNE     ??macDualchipTxGoSlotted_0
+    263            {
+    264              macRxHardDisable();
+   \   000006   ........     CALLA   #macRxHardDisable
+    265            }
+    266            macRxOn();
+   \                     ??macDualchipTxGoSlotted_0:
+   \   00000A   ........     CALLA   #macRxOn
+    267          
+    268            MAC_MCU_TIMER_SLOTTED_BACKOFFS(macTxSlottedDelay - 1, &dualchipTxSlotted);
+   \   00000E   B240........ MOV.W   #LWRD(dualchipTxSlotted), &pFuncMacMcuTimerCallback
+   \   000014   B240........ MOV.W   #HWRD(dualchipTxSlotted), &pFuncMacMcuTimerCallback + 2
+   \   00001A   5C42....     MOV.B   &macTxSlottedDelay, R12
+   \   00001E   7C53         ADD.B   #0xff, R12
+   \   000020   ........     BRA     #macMcuTimerSlottedBackoffs
+    269          }
+    270          
+    271          
+    272          /*=================================================================================================
+    273           * @fn          macDualchipTxGoSlottedCsma
+    274           *
+    275           * @brief       This function prepares CC2520 for a slotted CSMA transmission.
+    276           *
+    277           * @param       none
+    278           *
+    279           * @return      none
+    280           *=================================================================================================
+    281           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    282          void macDualchipTxGoSlottedCsma(void)
+   \                     macDualchipTxGoSlottedCsma:
+    283          {
+    284            MAC_ASSERT(macTxType == MAC_TX_TYPE_SLOTTED_CSMA);  /* only slotted CSMA is supported */
+   \   000000   C293....     CMP.B   #0x0, &macTxType
+   \   000004   0224         JEQ     ??macDualchipTxGoSlottedCsma_0
+   \   000006   ........     CALLA   #halAssertHandler
+    285          
+    286            /*
+    287             *  Delay of zero is not possible as receiver must be on for at least one backoff for
+    288             *  CCA to be valid.
+    289             */
+    290            if (macTxCsmaBackoffDelay == 0)
+   \                     ??macDualchipTxGoSlottedCsma_0:
+   \   00000A   C293....     CMP.B   #0x0, &macTxCsmaBackoffDelay
+   \   00000E   0220         JNE     ??macDualchipTxGoSlottedCsma_1
+    291            {
+    292              macTxCsmaBackoffDelay = 1;
+   \   000010   D243....     MOV.B   #0x1, &macTxCsmaBackoffDelay
+    293            }
+    294          
+    295            /* turn on receiver and request callback for the CSMA delay */
+    296            macRxOn();
+   \                     ??macDualchipTxGoSlottedCsma_1:
+   \   000014   ........     CALLA   #macRxOn
+    297            MAC_MCU_TIMER_SLOTTED_BACKOFFS(macTxCsmaBackoffDelay, &dualchipTxSlottedCsmaCca);
+   \   000018   B240........ MOV.W   #LWRD(dualchipTxSlottedCsmaCca), &pFuncMacMcuTimerCallback
+   \   00001E   B240........ MOV.W   #HWRD(dualchipTxSlottedCsmaCca), &pFuncMacMcuTimerCallback + 2
+   \   000024   5C42....     MOV.B   &macTxCsmaBackoffDelay, R12
+   \   000028   ........     BRA     #macMcuTimerSlottedBackoffs
+    298          }
+    299          
+    300          
+    301          /**************************************************************************************************
+    302           * @fn          macDualchipTxRequestAckTimeoutCallback
+    303           *
+    304           * @brief       Requests a callback to function macTxAckNotReceivedCallback() after the timeout
+    305           *              period for receiving an ACK expires.
+    306           *
+    307           * @param       none
+    308           *
+    309           * @return      none
+    310           **************************************************************************************************
+    311           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    312          void macDualchipTxRequestAckTimeoutCallback(void)
+   \                     macDualchipTxRequestAckTimeoutCallback:
+    313          {
+    314            MAC_MCU_TIMER_USECS(macPib.ackWaitDuration * MAC_SPEC_USECS_PER_SYMBOL, &macTxAckNotReceivedCallback);
+   \   000000   92427001.... MOV.W   &0x170, &macMcuTimerCount
+   \   000006   B240........ MOV.W   #LWRD(macTxAckNotReceivedCallback), &pFuncMacMcuTimerCallback
+   \   00000C   B240........ MOV.W   #HWRD(macTxAckNotReceivedCallback), &pFuncMacMcuTimerCallback + 2
+   \   000012   5C42....     MOV.B   &macPib, R12
+   \   000016   5C0E         RLAM.W  #0x4, R12
+   \   000018   ........     BRA     #macMcuTimerUsecs
+   \   00001C                REQUIRE TAR
+    315          }
+    316          
+    317          
+    318          /**************************************************************************************************
+    319           * @fn          macDualchipTxCancelAckTimeoutCallback
+    320           *
+    321           * @brief       Cancels ACK timeout callback.
+    322           *
+    323           * @param       none
+    324           *
+    325           * @return      none
+    326           **************************************************************************************************
+    327           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    328          void macDualchipTxCancelAckTimeoutCallback(void)
+   \                     macDualchipTxCancelAckTimeoutCallback:
+    329          {
+    330            MAC_MCU_TIMER_CANCEL();
+   \   000000                REQUIRE ?Subroutine0
+   \   000000                REQUIRE TACCTL2
+   \   000000                // Fall through to label ?Subroutine0
+    331          }
+    332          
+    333          
+    334          /**************************************************************************************************
+    335           * @fn          macDualchipTxForceTxDoneIfPending
+    336           *
+    337           * @brief       If a 'transmit done' callback is pending, execute it here immediately
+    338           *              Cancel the interrupt as well so the callback won't execute twice.
+    339           *              (Note however, it is possible it could execute twice or rare timing situations.)
+    340           *
+    341           * @param       none
+    342           *
+    343           * @return      none
+    344           **************************************************************************************************
+    345           */
+
+   \                                 In  segment CODE, align 2
+    346          void macDualchipTxForceTxDoneIfPending(void)
+   \                     macDualchipTxForceTxDoneIfPending:
+    347          {
+    348            if (HAL_MAC_SFD_INT_IS_ENABLED())
+   \   000000   C293....     CMP.B   #0x0, &macMcuTimerProcessFallingEdgeSFDSync
+   \   000004   0424         JEQ     ??macDualchipTxForceTxDoneIfPending_0
+    349            {
+    350              HAL_MAC_DISABLE_SFD_INT();
+   \   000006   C243....     MOV.B   #0x0, &macMcuTimerProcessFallingEdgeSFDSync
+    351          
+    352              /* execute the transmit complete callback */
+    353              macTxDoneCallback();
+   \   00000A   ........     CALLA   #macTxDoneCallback
+    354            }
+    355          }
+   \                     ??macDualchipTxForceTxDoneIfPending_0:
+   \   00000E   1001         RETA
+    356          
+    357          
+    358          /**************************************************************************************************
+    359           * @fn          macDualchipTxAckDoneIsr
+    360           *
+    361           * @brief       Interrupt service routine for TX_ACK_DONE interrupts.  The function pointer variable
+    362           *              pFuncSfdIsr is used as state variable to execute the needed functionality.
+    363           *
+    364           * @param       none
+    365           *
+    366           * @return      none
+    367           **************************************************************************************************
+    368           */
+
+   \                                 In  segment CODE, align 2
+    369          void macDualchipTxAckDoneIsr(void)
+   \                     macDualchipTxAckDoneIsr:
+    370          {
+    371            MAC_RADIO_CANCEL_ACK_TX_DONE_CALLBACK();
+    372          
+    373            /* call the ACK transmit complete logic */
+    374            macRxAckTxDoneCallback();
+   \   000000   ........     BRA     #macRxAckTxDoneCallback
+    375          }
+    376          
+    377          
+    378          /**************************************************************************************************
+    379           * @fn          macDualchipTxFrmDoneIsr
+    380           *
+    381           * @brief       Interrupt service routine for TX_FRM_DONE interrupts.
+    382           *
+    383           * @param       none
+    384           *
+    385           * @return      none
+    386           **************************************************************************************************
+    387           */
+
+   \                                 In  segment CODE, align 2
+    388          void macDualchipTxFrmDoneIsr(void)
+   \                     macDualchipTxFrmDoneIsr:
+    389          {
+    390            /* call the TX frame transmit complete logic */
+    391            macTxDoneCallback();
+   \   000000   ........     BRA     #macTxDoneCallback
+    392          }
+    393          
+    394          
+    395          /*=================================================================================================
+    396           * @fn          dualchipTxSlotted
+    397           *
+    398           * @brief       This is called one backoff period before slotted TX.
+    399           *
+    400           * @param       none
+    401           *
+    402           * @return      none
+    403           *=================================================================================================
+    404           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    405          static void dualchipTxSlotted(void)
+   \                     dualchipTxSlotted:
+    406          {
+    407            HAL_MAC_CLEAR_SFD_INT_FLAG();
+    408            HAL_MAC_ENABLE_SFD_INT();
+   \   000000   ........     CALLA   #?Subroutine2
+    409            MAC_RX_WAS_FORCED_ON();
+    410          
+    411            /* Start the timer to expire on the backoff boundary.
+    412             * At the backoff boundary (rollover) the timer compare output will toggle
+    413             * from low to high. This transition will trigger the RF chip to start
+    414             * data transmission.
+    415             */
+    416            HAL_MAC_TIMER_ENABLE_OUTPUT_COMPARE();
+   \                     ??CrossCallReturnLabel_2:
+   \   000004   B2D020006601 BIS.W   #0x20, &0x166
+    417            MAC_MCU_TIMER_SLOTTED_BACKOFFS(1, &dualchipTxSlottedCollisionDetection);
+   \   00000A   B240........ MOV.W   #LWRD(dualchipTxSlottedCollisionDetection), &pFuncMacMcuTimerCallback
+   \   000010   B240........ MOV.W   #HWRD(dualchipTxSlottedCollisionDetection), &pFuncMacMcuTimerCallback + 2
+   \   000016   5C43         MOV.B   #0x1, R12
+   \   000018   ........     BRA     #macMcuTimerSlottedBackoffs
+   \   00001C                REQUIRE TACCTL2
+    418          }
+    419          
+    420          
+    421          /*=================================================================================================
+    422           * @fn          dualchipTxSlottedCollisionDetection
+    423           *
+    424           * @brief       This is called when slotted TX is transimitted.
+    425           *
+    426           * @param       none
+    427           *
+    428           * @return      none
+    429           *=================================================================================================
+    430           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    431          static void dualchipTxSlottedCollisionDetection(void)
+   \                     dualchipTxSlottedCollisionDetection:
+    432          {
+    433            /* Disable the output compare here now that we have already triggered the
+    434             * transmission.
+    435             */
+    436            HAL_MAC_TIMER_DISABLE_OUTPUT_COMPARE();
+   \   000000   82436601     MOV.W   #0x0, &0x166
+    437          
+    438            /* Let CRC handle the collision detecton */
+    439          }
+   \   000004   1001         RETA
+   \   000006                REQUIRE TACCTL2
+    440          
+    441          
+    442          /*=================================================================================================
+    443           * @fn          dualchipTxSlottedCsmaCca
+    444           *
+    445           * @brief       This is called to perform the first CCA check.
+    446           *
+    447           * @param       none
+    448           *
+    449           * @return      none
+    450           *=================================================================================================
+    451           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    452          static void dualchipTxSlottedCsmaCca(void)
+   \                     dualchipTxSlottedCsmaCca:
+    453          {
+   \   000000   0A12         PUSH.W  R10
+    454            halIntState_t  s;
+    455          
+    456            /* There is a potential improvement on the CCA.
+    457             * Ideally, we should read sampled CCA but the
+    458             * way we setup the timer compare made it difficult.
+    459             */
+    460            if (HAL_MAC_READ_CCA_PIN())
+   \   000002   E2B32000     BIT.B   #0x2, &0x20
+   \   000006   1728         JNC     ??dualchipTxSlottedCsmaCca_0
+    461            {
+    462              HAL_ENTER_CRITICAL_SECTION(s);
+   \   000008   0A42         MOV.W   SR, R10
+   \   00000A   32C2         dint
+   \   00000C   0343         nop
+    463          
+    464              /* Set compare output trigger setting to STXONCCA */
+    465              MAC_RADIO_SET_TRIGGER_STXONCCA();
+   \   00000E   7D408900     MOV.B   #0x89, R13
+   \   000012   7C402500     MOV.B   #0x25, R12
+   \   000016   ........     CALLA   #macSpiWriteReg
+    466          
+    467              /* Start timer to trigger Tx line on the backoff boundary.
+    468               * At the backoff boundary (rollover) the timer compare output will toggle
+    469               * from low to high. This transition will trigger the RF chip to start
+    470               * data transmission.
+    471               */
+    472              HAL_MAC_TIMER_ENABLE_OUTPUT_COMPARE();
+   \   00001A   B2D020006601 BIS.W   #0x20, &0x166
+    473          
+    474              MAC_MCU_TIMER_SLOTTED_BACKOFFS(1, &dualchipTxSlottedCsma);
+   \   000020   B240........ MOV.W   #LWRD(dualchipTxSlottedCsma), &pFuncMacMcuTimerCallback
+   \   000026   B240........ MOV.W   #HWRD(dualchipTxSlottedCsma), &pFuncMacMcuTimerCallback + 2
+   \   00002C   5C43         MOV.B   #0x1, R12
+   \   00002E   ........     CALLA   #macMcuTimerSlottedBackoffs
+    475          
+    476              HAL_EXIT_CRITICAL_SECTION(s);
+   \   000032   024A         MOV.W   R10, SR
+   \   000034   023C         JMP     ??dualchipTxSlottedCsmaCca_1
+    477            }
+    478            else
+    479            {
+    480              /* CCA failed */
+    481              macTxChannelBusyCallback();
+   \                     ??dualchipTxSlottedCsmaCca_0:
+   \   000036   ........     CALLA   #macTxChannelBusyCallback
+    482            }
+    483          }
+   \                     ??dualchipTxSlottedCsmaCca_1:
+   \   00003A   3A41         POP.W   R10
+   \   00003C   1001         RETA
+   \   00003E                REQUIRE P1IN
+   \   00003E                REQUIRE TACCTL2
+    484          
+    485          
+    486          /*=================================================================================================
+    487           * @fn          dualchipTxSlottedCsma
+    488           *
+    489           * @brief       This is called to perform the second CCA check and transmit if CCA passed.
+    490           *
+    491           * @param       none
+    492           *
+    493           * @return      none
+    494           *=================================================================================================
+    495           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    496          static void dualchipTxSlottedCsma(void)
+   \                     dualchipTxSlottedCsma:
+    497          {
+    498            /* Disable the output compare here now that we have already triggered the
+    499             * transmission.
+    500             */
+    501            HAL_MAC_TIMER_DISABLE_OUTPUT_COMPARE();
+   \   000000   82436601     MOV.W   #0x0, &0x166
+    502          
+    503            /* Peform CCA */
+    504            if(MAC_RADIO_READ_SAMPLED_CCA())
+   \   000004   7C403300     MOV.B   #0x33, R12
+   \   000008   ........     CALLA   #macSpiReadReg
+   \   00000C   7CB2         BIT.B   #0x8, R12
+   \   00000E   0228         JNC     ??dualchipTxSlottedCsma_0
+    505            {
+    506              /* CCA succeeded - request TX done interrupt, flag receiver as forced on */
+    507              HAL_MAC_CLEAR_SFD_INT_FLAG();
+    508              HAL_MAC_ENABLE_SFD_INT();
+   \   000010   ........     BRA     #?Subroutine2
+    509              MAC_RX_WAS_FORCED_ON();
+    510            }
+    511            else
+    512            {
+    513              /* CCA failed */
+    514              macTxChannelBusyCallback();
+   \                     ??dualchipTxSlottedCsma_0:
+   \   000014   ........     BRA     #macTxChannelBusyCallback
+   \   000018                REQUIRE TACCTL2
+    515            }
+    516          }
+    517          
+    518          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      4   dualchipTxSlotted
+        4   -> macMcuTimerSlottedBackoffs
+      4   dualchipTxSlottedCollisionDetection
+      4   dualchipTxSlottedCsma
+        4   -> macSpiReadReg
+        4   -> macTxChannelBusyCallback
+      6   dualchipTxSlottedCsmaCca
+        6   -> macMcuTimerSlottedBackoffs
+        6   -> macSpiWriteReg
+        6   -> macTxChannelBusyCallback
+      6   dualchipTxUnslottedCsmaCca
+        6   -> macSpiCmdStrobe
+        6   -> macSpiReadReg
+        6   -> macTxChannelBusyCallback
+      4   dualchipTxUnslottedCsmaRxOn
+        4   -> macMcuTimerUnslottedBackoffs
+        4   -> macRxOn
+      4   macDualchipTxAckDoneIsr
+        4   -> macRxAckTxDoneCallback
+      4   macDualchipTxCancelAckTimeoutCallback
+      4   macDualchipTxForceTxDoneIfPending
+        4   -> macTxDoneCallback
+      4   macDualchipTxFrmDoneIsr
+        4   -> macTxDoneCallback
+      4   macDualchipTxGoCsma
+        4   -> dualchipTxUnslottedCsmaRxOn
+        4   -> halAssertHandler
+        4   -> macMcuTimerUnslottedBackoffs
+        4   -> macRxOff
+      4   macDualchipTxGoSlotted
+        4   -> macMcuTimerSlottedBackoffs
+        4   -> macRxHardDisable
+        4   -> macRxOn
+      4   macDualchipTxGoSlottedCsma
+        4   -> halAssertHandler
+        4   -> macMcuTimerSlottedBackoffs
+        4   -> macRxOn
+      4   macDualchipTxPrepCsmaSlotted
+        4   -> macSpiWriteReg
+      4   macDualchipTxPrepSlotted
+        4   -> macSpiWriteReg
+      4   macDualchipTxRequestAckTimeoutCallback
+        4   -> macMcuTimerUsecs
+      4   macDualchipTxReset
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ?Subroutine0
+      22  ?Subroutine1
+      10  ?Subroutine2
+       1  P1DIR
+       1  P1IN
+       1  P1SEL
+       2  TACCTL2
+       2  TAR
+      28  dualchipTxSlotted
+       6  dualchipTxSlottedCollisionDetection
+      24  dualchipTxSlottedCsma
+      62  dualchipTxSlottedCsmaCca
+      46  dualchipTxUnslottedCsmaCca
+      28  dualchipTxUnslottedCsmaRxOn
+       4  macDualchipTxAckDoneIsr
+       0  macDualchipTxCancelAckTimeoutCallback
+      16  macDualchipTxForceTxDoneIfPending
+       4  macDualchipTxFrmDoneIsr
+      68  macDualchipTxGoCsma
+      36  macDualchipTxGoSlotted
+      44  macDualchipTxGoSlottedCsma
+       8  macDualchipTxPrepCsmaSlotted
+      20  macDualchipTxPrepSlotted
+      28  macDualchipTxRequestAckTimeoutCallback
+       2  macDualchipTxReset
+
+ 
+ 464 bytes in segment CODE
+   7 bytes in segment DATA16_AN
+ 
+ 464 bytes of CODE memory
+   0 bytes of DATA memory (+ 7 bytes shared)
+
+Errors: none
+Warnings: none

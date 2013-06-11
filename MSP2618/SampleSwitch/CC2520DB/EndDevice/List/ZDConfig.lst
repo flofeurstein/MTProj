@@ -1,0 +1,424 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  17:10:38 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\st #
+#                     ack\zdo\ZDConfig.c                                      #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\To #
+#                     ols\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0      #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wEndev.cfg" (-DCPU6MHZ -DMAC_CFG_TX_DATA_MAX=3         #
+#                     -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "C:\Texas     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC          #
+#                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH         #
+#                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4          #
+#                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10         #
+#                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10        #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\stack\zdo\Z #
+#                     DConfig.c" -D MSP430F2618 -D NWK_AUTO_POLL -D ZTOOL_P1  #
+#                     -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D             #
+#                     LCD_SUPPORTED -lC "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\EndDevice\List\" -lA     #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\List #
+#                     \" --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826    #
+#                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\O #
+#                     bj\" --debug -D__MSP430F2618__ -e --double=32 --clib    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\" -I        #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sourc #
+#                     e\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Proje #
+#                     cts\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\. #
+#                     .\ZMain\MSP2618\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\target\MSP2618CC2520\" -I "C:\Texas               #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\high_level\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\" -I "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\dual_chip\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr #
+#                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\. #
+#                     .\..\..\..\Components\osal\include\" -I "C:\Texas       #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\osal\mcu\msp430\" -I "C:\Texas                        #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\saddr\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\sdata\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D #
+#                     B\..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sec\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sapi\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sys\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zcl\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zdo\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ #
+#                     Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\.. #
+#                     \..\..\..\..\Components\zmac\f8w\" --core=430X          #
+#                     --data_model=small -Ohz --multiplier=16s                #
+#                     --require_prototypes                                    #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\List\ #
+#                     ZDConfig.lst                                            #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\Obj\Z #
+#                     DConfig.r43                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\stack\zdo\ZDConfig.c
+      1          /**************************************************************************************************
+      2            Filename:       ZDConfig.c
+      3            Revised:        $Date: 2008-02-12 16:32:50 -0800 (Tue, 12 Feb 2008) $
+      4            Revision:       $Revision: 16393 $
+      5          
+      6          
+      7            Description:    This file contains the configuration attributes for the Zigbee Device Object.
+      8                            These are references to Configuration items that MUST be defined in ZDApp.c.
+      9                            The names mustn't change.
+     10          
+     11          
+     12            Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+     13          
+     14            IMPORTANT: Your use of this Software is limited to those specific rights
+     15            granted under the terms of a software license agreement between the user
+     16            who downloaded the software, his/her employer (which must be your employer)
+     17            and Texas Instruments Incorporated (the "License").  You may not use this
+     18            Software unless you agree to abide by the terms of the License. The License
+     19            limits your use, and you acknowledge, that the Software may not be modified,
+     20            copied or distributed unless embedded on a Texas Instruments microcontroller
+     21            or used solely and exclusively in conjunction with a Texas Instruments radio
+     22            frequency transceiver, which is integrated into your product.  Other than for
+     23            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     24            works of, modify, distribute, perform, display or sell this Software and/or
+     25            its documentation for any purpose.
+     26          
+     27            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     28            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     29            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     30            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     31            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     32            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     33            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     34            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     35            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     36            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     37            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     38          
+     39            Should you have any questions regarding your right to use this Software,
+     40            contact Texas Instruments Incorporated at www.TI.com. 
+     41          **************************************************************************************************/
+     42          
+     43          /*********************************************************************
+     44           * INCLUDES
+     45           */
+     46          #include "ZComdef.h"
+     47          #include "AF.h"
+     48          #include "ZDObject.h"
+     49          #include "ZDConfig.h"
+     50          
+     51           /*********************************************************************
+     52           * MACROS
+     53           */
+     54          
+     55          /*********************************************************************
+     56           * CONSTANTS
+     57           */
+     58          
+     59          /*********************************************************************
+     60           * TYPEDEFS
+     61           */
+     62          
+     63          /*********************************************************************
+     64           * GLOBAL VARIABLES
+     65           */
+
+   \                                 In  segment DATA16_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+     66          NodeDescriptorFormat_t ZDO_Config_Node_Descriptor;
+   \                     ZDO_Config_Node_Descriptor:
+   \   000000                DS8 14
+
+   \                                 In  segment DATA16_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+     67          NodePowerDescriptorFormat_t ZDO_Config_Power_Descriptor;
+   \                     ZDO_Config_Power_Descriptor:
+   \   000000                DS8 2
+     68          
+     69          /*********************************************************************
+     70           * EXTERNAL VARIABLES
+     71           */
+     72          
+     73          /*********************************************************************
+     74           * EXTERNAL FUNCTIONS
+     75           */
+     76          
+     77          /*********************************************************************
+     78           * LOCAL FUNCTIONS
+     79           */
+     80          
+     81          /*********************************************************************
+     82           * LOCAL VARIABLES
+     83           */
+     84          
+     85          /*********************************************************************
+     86           * @fn      ZDConfig_InitDescriptors()
+     87           *
+     88           * @brief   Setup the ZDO descriptors 
+     89           *             Node, Power
+     90           *
+     91           * @param   none
+     92           *
+     93           * @return  none
+     94           */
+
+   \                                 In  segment CODE, align 2
+     95          void ZDConfig_InitDescriptors( void )
+   \                     ZDConfig_InitDescriptors:
+     96          {
+     97            ZDConfig_UpdateNodeDescriptor();
+   \   000000   ........     CALLA   #ZDConfig_UpdateNodeDescriptor
+     98            ZDConfig_UpdatePowerDescriptor();
+   \   000004   ........     BRA     #ZDConfig_UpdatePowerDescriptor
+     99          }
+    100          
+    101          /*********************************************************************
+    102           * @fn      ZDConfig_UpdateNodeDescriptor()
+    103           *
+    104           * @brief   Update the ZDO Node Descriptor 
+    105           *
+    106           * @param   none
+    107           *
+    108           * @return  none
+    109           */
+
+   \                                 In  segment CODE, align 2
+    110          void ZDConfig_UpdateNodeDescriptor( void )
+   \                     ZDConfig_UpdateNodeDescriptor:
+    111          {
+    112            // Build the Node Descriptor
+    113            if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+    114              ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_COORDINATOR;
+    115            else if ( ZSTACK_ROUTER_BUILD )
+    116              ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_ROUTER;
+    117            else if ( ZSTACK_END_DEVICE_BUILD )
+    118              ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_DEVICE;
+    119            
+    120            ZDO_Config_Node_Descriptor.ComplexDescAvail = FALSE;      // set elsewhere
+    121            ZDO_Config_Node_Descriptor.UserDescAvail = FALSE;         // set elsewhere
+    122            ZDO_Config_Node_Descriptor.Reserved = 0;                  // Reserved
+   \   000000   E243....     MOV.B   #0x2, &ZDO_Config_Node_Descriptor
+    123            ZDO_Config_Node_Descriptor.APSFlags = 0;                  // NO APS flags
+    124            ZDO_Config_Node_Descriptor.FrequencyBand = NODEFREQ_2400; // Frequency Band
+   \   000004   F2404000.... MOV.B   #0x40, &ZDO_Config_Node_Descriptor + 1
+    125            
+    126            // MAC Capabilities
+    127            if ( ZSTACK_ROUTER_BUILD )
+    128            {
+    129              ZDO_Config_Node_Descriptor.CapabilityFlags 
+    130                        = (CAPINFO_DEVICETYPE_FFD | CAPINFO_POWER_AC | CAPINFO_RCVR_ON_IDLE);
+    131              
+    132              if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+    133                ZDO_Config_Node_Descriptor.CapabilityFlags |= CAPINFO_ALTPANCOORD;
+    134            }
+    135            else if ( ZSTACK_END_DEVICE_BUILD )
+    136            {
+    137              ZDO_Config_Node_Descriptor.CapabilityFlags = (CAPINFO_DEVICETYPE_RFD
+    138            #if ( RFD_RCVC_ALWAYS_ON == TRUE)
+    139                      | CAPINFO_RCVR_ON_IDLE
+    140            #endif
+    141                  );
+   \   00000A   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 2
+    142            }
+    143            
+    144            // Manufacturer Code - *YOU FILL IN*
+    145            ZDO_Config_Node_Descriptor.ManufacturerCode[0] = 0;
+   \   00000E   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 3
+    146            ZDO_Config_Node_Descriptor.ManufacturerCode[1] = 0;
+   \   000012   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 4
+    147            
+    148            // Maximum Buffer Size
+    149            ZDO_Config_Node_Descriptor.MaxBufferSize = MAX_BUFFER_SIZE;
+   \   000016   F2405000.... MOV.B   #0x50, &ZDO_Config_Node_Descriptor + 5
+    150          
+    151            // Maximum Incoming Transfer Size Field
+    152            ZDO_Config_Node_Descriptor.MaxInTransferSize[0] = LO_UINT16( MAX_TRANSFER_SIZE );
+   \   00001C   F240A000.... MOV.B   #0xa0, &ZDO_Config_Node_Descriptor + 6
+    153            ZDO_Config_Node_Descriptor.MaxInTransferSize[1] = HI_UINT16( MAX_TRANSFER_SIZE );
+   \   000022   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 7
+    154            
+    155            // Maximum Outgoing Transfer Size Field
+    156            ZDO_Config_Node_Descriptor.MaxOutTransferSize[0] = LO_UINT16( MAX_TRANSFER_SIZE );
+   \   000026   F240A000.... MOV.B   #0xa0, &ZDO_Config_Node_Descriptor + 10
+    157            ZDO_Config_Node_Descriptor.MaxOutTransferSize[1] = HI_UINT16( MAX_TRANSFER_SIZE );
+   \   00002C   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 11
+    158            
+    159            // Server Mask
+    160            ZDO_Config_Node_Descriptor.ServerMask = 0;
+   \   000030   8243....     MOV.W   #0x0, &ZDO_Config_Node_Descriptor + 8
+    161            
+    162            // Descriptor Capability Field - extended active endpoint list and 
+    163            // extended simple descriptor are not supported.
+    164            ZDO_Config_Node_Descriptor.DescriptorCapability = 0;
+   \   000034   C243....     MOV.B   #0x0, &ZDO_Config_Node_Descriptor + 12
+    165          }
+   \   000038   1001         RETA
+    166          
+    167          /*********************************************************************
+    168           * @fn      ZDConfig_UpdatePowerDescriptor()
+    169           *
+    170           * @brief   Update the ZDO Power Descriptor 
+    171           *
+    172           * @param   none
+    173           *
+    174           * @return  none
+    175           */
+
+   \                                 In  segment CODE, align 2
+    176          void ZDConfig_UpdatePowerDescriptor( void )
+   \                     ZDConfig_UpdatePowerDescriptor:
+    177          {
+   \   000000   1F42....     MOV.W   &ZDO_Config_Power_Descriptor, R15
+   \   000004   3FF0F0FF     AND.W   #0xfff0, R15
+   \   000008   8293....     CMP.W   #0x0, &zgPollRate
+   \   00000C   0224         JEQ     ??ZDConfig_UpdatePowerDescriptor_0
+    178            // Build the Power Descriptor  
+    179            if ( ZSTACK_ROUTER_BUILD )
+    180            {
+    181              ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_ALWAYS_ON;
+    182              ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_MAINS;
+    183              ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_MAINS;
+    184              ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_100;
+    185            }
+    186            else if ( ZSTACK_END_DEVICE_BUILD )
+    187            {
+    188              if ( zgPollRate )
+    189                ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_AUTO;
+   \   00000E   1FD3         BIS.W   #0x1, R15
+   \   000010   013C         JMP     ??ZDConfig_UpdatePowerDescriptor_1
+    190              else
+    191                ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_STIM;
+   \                     ??ZDConfig_UpdatePowerDescriptor_0:
+   \   000012   2FD3         BIS.W   #0x2, R15
+   \                     ??ZDConfig_UpdatePowerDescriptor_1:
+   \   000014   824F....     MOV.W   R15, &ZDO_Config_Power_Descriptor
+    192                
+    193              ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_RECHARGE;
+    194              ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_RECHARGE;
+    195              ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_66;
+   \   000018   1F42....     MOV.W   &ZDO_Config_Power_Descriptor, R15
+   \   00001C   3FF00F00     AND.W   #0xf, R15
+   \   000020   3FD02082     BIS.W   #0x8220, R15
+   \   000024   824F....     MOV.W   R15, &ZDO_Config_Power_Descriptor
+    196            }
+    197          }
+   \   000028   1001         RETA
+    198          
+    199          /*********************************************************************
+    200          *********************************************************************/
+    201          
+    202          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      4   ZDConfig_InitDescriptors
+        4   -> ZDConfig_UpdateNodeDescriptor
+        4   -> ZDConfig_UpdatePowerDescriptor
+      4   ZDConfig_UpdateNodeDescriptor
+      4   ZDConfig_UpdatePowerDescriptor
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ZDConfig_InitDescriptors
+      58  ZDConfig_UpdateNodeDescriptor
+      42  ZDConfig_UpdatePowerDescriptor
+      14  ZDO_Config_Node_Descriptor
+       2  ZDO_Config_Power_Descriptor
+
+ 
+ 108 bytes in segment CODE
+  16 bytes in segment DATA16_Z
+ 
+ 108 bytes of CODE memory
+  16 bytes of DATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,505 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  16:30:11 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mt #
+#                     \MT_DEBUG.c                                             #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\To #
+#                     ols\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0      #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wRouter.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=TR #
+#                     UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8           #
+#                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC          #
+#                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH         #
+#                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4          #
+#                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10         #
+#                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10        #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\mt\MT_DEBUG #
+#                     .c" -D MSP430F2618 -D ZTOOL_P1 -D MT_TASK -D            #
+#                     MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED -lC         #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\"  #
+#                     -lA "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects #
+#                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\Router\Lis #
+#                     t\" --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826   #
+#                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\Router\Obj\ #
+#                     " --debug -D__MSP430F2618__ -e --double=32 --clib -I    #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\" -I           #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sourc #
+#                     e\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Proje #
+#                     cts\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\. #
+#                     .\ZMain\MSP2618\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\target\MSP2618CC2520\" -I "C:\Texas               #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\high_level\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\" -I "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\dual_chip\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr #
+#                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\. #
+#                     .\..\..\..\Components\osal\include\" -I "C:\Texas       #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\osal\mcu\msp430\" -I "C:\Texas                        #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\saddr\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\sdata\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D #
+#                     B\..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sec\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sapi\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sys\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zcl\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zdo\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ #
+#                     Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\.. #
+#                     \..\..\..\..\Components\zmac\f8w\" --core=430X          #
+#                     --data_model=small -Ohz --multiplier=16s                #
+#                     --require_prototypes                                    #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\Router\List\MT_ #
+#                     DEBUG.lst                                               #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\Router\Obj\MT_D #
+#                     EBUG.r43                                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mt\MT_DEBUG.c
+      1          /***************************************************************************************************
+      2            Filename:       MT.c
+      3            Revised:        $Date: 2011-06-07 14:34:55 -0700 (Tue, 07 Jun 2011) $
+      4            Revision:       $Revision: 26241 $
+      5          
+      6            Description:
+      7          
+      8            Copyright 2007-2011 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38           ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          
+     44          #include "ZComDef.h"
+     45          #include "MT.h"
+     46          #include "MT_DEBUG.h"
+     47          #include "MT_UART.h"
+     48          #include "mac_main.h"
+     49          #include "mac_data.h"
+     50          #include "mac_rx.h"
+     51          #include "mac_tx.h"
+     52          #include "nwk_globals.h"
+     53          
+     54          /***************************************************************************************************
+     55           * LOCAL FUNCTIONs
+     56           ***************************************************************************************************/
+     57          
+     58          #if defined (MT_DEBUG_FUNC)
+     59          static void MT_DebugSetThreshold(uint8 *pBuf);
+     60          static void MT_DebugMacDataDump(void);
+     61          #endif
+     62          
+     63          #if defined (MT_DEBUG_FUNC)
+     64          /***************************************************************************************************
+     65           * @fn      MT_DebugProcessing
+     66           *
+     67           * @brief   Process all the DEBUG commands that are issued by test tool
+     68           *
+     69           * @param   pBuf - pointer to received buffer
+     70           *
+     71           * @return  status
+     72           ***************************************************************************************************/
+     73          uint8 MT_DebugCommandProcessing(uint8 *pBuf)
+     74          {
+     75            uint8 status = MT_RPC_SUCCESS;
+     76          
+     77            switch (pBuf[MT_RPC_POS_CMD1])
+     78            {
+     79              case MT_DEBUG_SET_THRESHOLD:
+     80                MT_DebugSetThreshold(pBuf);
+     81                break;
+     82          
+     83            case MT_DEBUG_MAC_DATA_DUMP:
+     84                MT_DebugMacDataDump();
+     85                break;
+     86          
+     87              default:
+     88                status = MT_RPC_ERR_COMMAND_ID;
+     89                break;
+     90            }
+     91          
+     92            return status;
+     93          }
+     94          
+     95          /***************************************************************************************************
+     96           * @fn      MT_DebugSetThreshold
+     97           *
+     98           * @brief   Process Debug Set Threshold
+     99           *
+    100           * @param   pBuf - pointer to received buffer
+    101           *
+    102           * @return  void
+    103           ***************************************************************************************************/
+    104          static void MT_DebugSetThreshold(uint8 *pBuf)
+    105          {
+    106            uint8 retValue = ZSuccess;
+    107            uint8 cmdId;
+    108          
+    109            /* parse header */
+    110            cmdId = pBuf[MT_RPC_POS_CMD1];
+    111            pBuf += MT_RPC_FRAME_HDR_SZ;
+    112          
+    113            /* Populate info */
+    114            debugCompId = *pBuf++;
+    115            debugThreshold = *pBuf++;
+    116          
+    117            /* Build and send back the response */
+    118            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_DBG), cmdId, 1, &retValue);
+    119          }
+    120          
+    121          /***************************************************************************************************
+    122           * @fn      MT_DebugMacDataDump
+    123           *
+    124           * @brief   Process the debug MAC Data Dump request.
+    125           *
+    126           * @param   pBuf - pointer to received buffer
+    127           *
+    128           * @return  void
+    129           ***************************************************************************************************/
+    130          static void MT_DebugMacDataDump(void)
+    131          {
+    132            uint8 buf[sizeof(mtDebugMacDataDump_t)];
+    133            uint8 *pBuf = buf;
+    134          
+    135          #ifdef PACKET_FILTER_STATS
+    136            *pBuf++ = BREAK_UINT32(nwkInvalidPackets, 0);
+    137            *pBuf++ = BREAK_UINT32(nwkInvalidPackets, 1);
+    138            *pBuf++ = BREAK_UINT32(nwkInvalidPackets, 2);
+    139            *pBuf++ = BREAK_UINT32(nwkInvalidPackets, 3);
+    140            *pBuf++ = BREAK_UINT32(rxCrcFailure, 0);
+    141            *pBuf++ = BREAK_UINT32(rxCrcFailure, 1);
+    142            *pBuf++ = BREAK_UINT32(rxCrcFailure, 2);
+    143            *pBuf++ = BREAK_UINT32(rxCrcFailure, 3);
+    144            *pBuf++ = BREAK_UINT32(rxCrcSuccess, 0);
+    145            *pBuf++ = BREAK_UINT32(rxCrcSuccess, 1);
+    146            *pBuf++ = BREAK_UINT32(rxCrcSuccess, 2);
+    147            *pBuf++ = BREAK_UINT32(rxCrcSuccess, 3);
+    148          #endif
+    149          #if defined HAL_MCU_CC2530
+    150            *pBuf++ = FSMSTAT0;
+    151            *pBuf++ = FSMSTAT1;
+    152          #else
+    153            *pBuf++ = macSpiReadReg(FSMSTAT0);
+    154            *pBuf++ = macSpiReadReg(FSMSTAT1);
+    155          #endif
+    156            *pBuf++ = macData.rxCount;
+    157            *pBuf++ = macData.directCount;
+    158            *pBuf++ = macMain.state;
+    159            *pBuf++ = macRxActive;
+    160            *pBuf   = macTxActive;
+    161          
+    162            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_DBG),
+    163                                                 MT_DEBUG_MAC_DATA_DUMP, sizeof(buf), buf);
+    164          }
+    165          #endif
+    166          
+    167          /***************************************************************************************************
+    168           * @fn      MT_ProcessDebugMsg
+    169           *
+    170           * @brief   Build and send a debug message.
+    171           *
+    172           * @param   byte *data - pointer to the data portion of the debug message
+    173           *
+    174           * @return  void
+    175           ***************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+    176          void MT_ProcessDebugMsg( mtDebugMsg_t *msg )
+   \                     MT_ProcessDebugMsg:
+    177          {
+   \   000000   3B15         PUSHM.W #0x4, R11
+   \   000002   31800C00     SUB.W   #0xc, SP
+   \   000006   0B4C         MOV.W   R12, R11
+    178            byte *msg_ptr;
+    179            byte dataLen;
+    180            uint8 buf[11];
+    181            uint8 *pBuf;
+    182          
+    183            /* Calculate the data length based */
+    184            dataLen = 5 + (msg->numParams * sizeof ( uint16 ));
+   \   000008   5A4C0400     MOV.B   0x4(R12), R10
+   \   00000C   4A5A         RLA.B   R10
+   \   00000E   7A500500     ADD.B   #0x5, R10
+    185          
+    186            /* Get a message buffer to build the debug message */
+    187            msg_ptr = osal_msg_allocate( (byte)(SPI_0DATA_MSG_LEN + dataLen + 1) );
+   \   000012   4C4A         MOV.B   R10, R12
+   \   000014   7C500600     ADD.B   #0x6, R12
+   \   000018   ........     CALLA   #osal_msg_allocate
+   \   00001C   084C         MOV.W   R12, R8
+    188            if ( msg_ptr )
+   \   00001E   0C93         CMP.W   #0x0, R12
+   \   000020   3F24         JEQ     ??MT_ProcessDebugMsg_0
+    189            {
+    190              /* Build the message */
+    191              pBuf = buf;
+    192              *pBuf++ = msg->compID;
+   \   000022   D14B02000000 MOV.B   0x2(R11), 0(SP)
+    193              *pBuf++ = msg->severity;
+   \   000028   D14B03000100 MOV.B   0x3(R11), 0x1(SP)
+    194              *pBuf++ = msg->numParams;
+   \   00002E   D14B04000200 MOV.B   0x4(R11), 0x2(SP)
+   \   000034   0F41         MOV.W   SP, R15
+   \   000036   0F53         ADD.W   #0x0, R15
+   \   000038   0E4F         MOV.W   R15, R14
+   \   00003A   3E500300     ADD.W   #0x3, R14
+    195          
+    196              if ( msg->numParams >= 1 )
+   \   00003E   CB930400     CMP.B   #0x0, 0x4(R11)
+   \   000042   2124         JEQ     ??MT_ProcessDebugMsg_1
+    197              {
+    198                *pBuf++ = LO_UINT16( msg->param1 );
+   \   000044   D14B06000300 MOV.B   0x6(R11), 0x3(SP)
+    199                *pBuf++ = HI_UINT16( msg->param1 );
+   \   00004A   D14B07000400 MOV.B   0x7(R11), 0x4(SP)
+   \   000050   0E4F         MOV.W   R15, R14
+   \   000052   3E500500     ADD.W   #0x5, R14
+    200              }
+    201          
+    202              if ( msg->numParams >= 2 )
+   \   000056   EB930400     CMP.B   #0x2, 0x4(R11)
+   \   00005A   0928         JNC     ??MT_ProcessDebugMsg_2
+    203              {
+    204                *pBuf++ = LO_UINT16( msg->param2 );
+   \   00005C   D14B08000500 MOV.B   0x8(R11), 0x5(SP)
+    205                *pBuf++ = HI_UINT16( msg->param2 );
+   \   000062   D14B09000600 MOV.B   0x9(R11), 0x6(SP)
+   \   000068   0E4F         MOV.W   R15, R14
+   \   00006A   3E500700     ADD.W   #0x7, R14
+    206              }
+    207          
+    208              if ( msg->numParams == 3 )
+   \                     ??MT_ProcessDebugMsg_2:
+   \   00006E   FB9003000400 CMP.B   #0x3, 0x4(R11)
+   \   000074   0820         JNE     ??MT_ProcessDebugMsg_1
+    209              {
+    210                *pBuf++ = LO_UINT16( msg->param3 );
+   \   000076   DE4B0A000000 MOV.B   0xa(R11), 0(R14)
+   \   00007C   1E53         ADD.W   #0x1, R14
+    211                *pBuf++ = HI_UINT16( msg->param3 );
+   \   00007E   DE4B0B000000 MOV.B   0xb(R11), 0(R14)
+   \   000084   1E53         ADD.W   #0x1, R14
+    212              }
+    213          
+    214              *pBuf++ = LO_UINT16( msg->timestamp );
+   \                     ??MT_ProcessDebugMsg_1:
+   \   000086   DE4B0C000000 MOV.B   0xc(R11), 0(R14)
+   \   00008C   1E53         ADD.W   #0x1, R14
+    215              *pBuf++ = HI_UINT16( msg->timestamp );
+   \   00008E   DE4B0D000000 MOV.B   0xd(R11), 0(R14)
+    216          
+    217          #ifdef MT_UART_DEFAULT_PORT
+    218              /* Debug message is set to AREQ CMD 0x80 for now */
+    219              /* Build and send back the response */
+    220              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_DBG), 0x80, dataLen, buf);
+   \   000094   4E4A         MOV.B   R10, R14
+   \   000096   ........     CALLA   #?Subroutine0
+    221          #endif
+    222              osal_msg_deallocate( msg_ptr );
+   \                     ??CrossCallReturnLabel_0:
+   \   00009A   0C48         MOV.W   R8, R12
+   \   00009C   ........     CALLA   #osal_msg_deallocate
+    223            }
+    224          }
+   \                     ??MT_ProcessDebugMsg_0:
+   \   0000A0   31500C00     ADD.W   #0xc, SP
+   \   0000A4   3817         POPM.W  #0x4, R11
+   \   0000A6   1001         RETA
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine0:
+   \   000000   7D408000     MOV.B   #0x80, R13
+   \   000004   7C404800     MOV.B   #0x48, R12
+   \   000008   ........     BRA     #MT_BuildAndSendZToolResponse
+    225          
+    226          /***************************************************************************************************
+    227           * @fn      MT_ProcessDebugStr
+    228           *
+    229           * @brief   Build and send a debug string.
+    230           *
+    231           * @param   byte *dstr - pointer to the data portion of the debug message
+    232           *
+    233           * @return  void
+    234           ***************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+    235          void MT_ProcessDebugStr(mtDebugStr_t *dstr)
+   \                     MT_ProcessDebugStr:
+    236          {
+   \   000000   1B15         PUSHM.W #0x2, R11
+   \   000002   0A4C         MOV.W   R12, R10
+    237            byte *msg_ptr;
+    238          
+    239            /* Get a message buffer to build the debug message */
+    240            msg_ptr = osal_mem_alloc( (byte)(SPI_0DATA_MSG_LEN + dstr->strLen) );
+   \   000004   5C4A0200     MOV.B   0x2(R10), R12
+   \   000008   7C500500     ADD.B   #0x5, R12
+   \   00000C   ........     CALLA   #osal_mem_alloc
+   \   000010   0B4C         MOV.W   R12, R11
+    241            if ( msg_ptr )
+   \   000012   0C93         CMP.W   #0x0, R12
+   \   000014   0924         JEQ     ??MT_ProcessDebugStr_0
+    242            {
+    243          #ifdef MT_UART_DEFAULT_PORT
+    244              /* Debug message is set to AREQ CMD 0x80 for now */
+    245              /* Build and send back the response */
+    246              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_DBG), MT_DEBUG_MSG, dstr->strLen, dstr->pString);
+   \   000016   1F4A0400     MOV.W   0x4(R10), R15
+   \   00001A   5E4A0200     MOV.B   0x2(R10), R14
+   \   00001E   ........     CALLA   #?Subroutine0
+    247          #endif
+    248              osal_mem_free( msg_ptr );
+   \                     ??CrossCallReturnLabel_1:
+   \   000022   0C4B         MOV.W   R11, R12
+   \   000024   ........     CALLA   #osal_mem_free
+    249            }
+    250          }
+   \                     ??MT_ProcessDebugStr_0:
+   \   000028   1A17         POPM.W  #0x2, R11
+   \   00002A   1001         RETA
+    251          
+    252          /**************************************************************************************************
+    253           */
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+     24   MT_ProcessDebugMsg
+       24   -> MT_BuildAndSendZToolResponse
+       24   -> osal_msg_allocate
+       24   -> osal_msg_deallocate
+      8   MT_ProcessDebugStr
+        8   -> MT_BuildAndSendZToolResponse
+        8   -> osal_mem_alloc
+        8   -> osal_mem_free
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      12  ?Subroutine0
+     168  MT_ProcessDebugMsg
+      44  MT_ProcessDebugStr
+
+ 
+ 224 bytes in segment CODE
+ 
+ 224 bytes of CODE memory
+
+Errors: none
+Warnings: none

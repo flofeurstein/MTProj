@@ -1,0 +1,660 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  16:24:32 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\ha #
+#                     l\target\MSP2618CC2520\hal_adc.c                        #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\Too #
+#                     ls\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0       #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\f8 #
+#                     wCoord.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=TRUE #
+#                      -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8             #
+#                     -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK) -f      #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\..\..\..\Tools\ #
+#                     MSP2618\f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE             #
+#                     -DZCL_BASIC -DZCL_IDENTIFY -DZCL_ON_OFF                 #
+#                     -DZCL_KEY_ESTABLISH -DZCL_KEY_ESTABLISHMENT_KEY_GENERAT #
+#                     E_TIMEOUT=4 -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOU #
+#                     T=10 -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10   #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\hal\target\ #
+#                     MSP2618CC2520\hal_adc.c" -D MSP430F2618 -D ZTOOL_P1 -D  #
+#                     MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED  #
+#                     -lC "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects #
+#                     \zstack\HomeAutomation\SampleLight\CC2520DB\Coordinator #
+#                     \List\" -lA "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ #
+#                     Projects\zstack\HomeAutomation\SampleLight\CC2520DB\Coo #
+#                     rdinator\List\" --remarks --diag_suppress               #
+#                     Pe001,Pe193,Pe236,Pe826 -o "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\Coordinator\Obj\"         #
+#                     --debug -D__MSP430F2618__ -e --double=32 --clib -I      #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\" -I "C:\Texas  #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\Source\" -I "C:\Texas  #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\Source\" -I         #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleLight\CC2520DB\..\..\..\ZMain\ #
+#                     MSP2618\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 #
+#                     \Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. #
+#                     \..\..\..\..\Components\hal\include\" -I "C:\Texas      #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \hal\target\MSP2618CC2520\" -I "C:\Texas                #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\include\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\high_level\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\low_level\srf04\" -I "C:\Texas                     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mac\low_level\srf04\dual_chip\" -I "C:\Texas           #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro #
+#                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\..\ #
+#                     ..\..\..\Components\osal\include\" -I "C:\Texas         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \osal\mcu\msp430\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \services\saddr\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \services\sdata\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 #
+#                     .1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ #
+#                     ..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas      #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\sec\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\stack\sapi\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\sys\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\stack\zcl\" -I "C:\Texas     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \stack\zdo\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB #
+#                     \..\..\..\..\..\Components\zmac\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleLight\CC2520DB\..\..\..\..\..\Components #
+#                     \zmac\f8w\" --core=430X --data_model=small -Ohz         #
+#                     --multiplier=16s --require_prototypes                   #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleLight\CC2520DB\Coordinator\List #
+#                     \hal_adc.lst                                            #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleLight\CC2520DB\Coordinator\Obj\ #
+#                     hal_adc.r43                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\hal\target\MSP2618CC2520\hal_adc.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_adc.c
+      3            Revised:        $Date: 2010-02-25 12:33:58 -0800 (Thu, 25 Feb 2010) $
+      4            Revision:       $Revision: 21797 $
+      5          
+      6            Description:    This file contains the interface to the HAL ADC.
+      7          
+      8          
+      9            Copyright 2007-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /**************************************************************************************************
+     41           *                                           INCLUDES
+     42           **************************************************************************************************/
+     43          
+     44          #include "hal_types.h"
+     45          #include "hal_adc.h"
+
+   \                                 In  segment DATA16_AN, at 0x1a0
+   \   unsigned short volatile ADC12CTL0
+   \                     ADC12CTL0:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x1a2
+   \   unsigned short volatile ADC12CTL1
+   \                     ADC12CTL1:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x1a4
+   \   unsigned short volatile ADC12IFG
+   \                     ADC12IFG:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x140
+   \   unsigned short volatile ADC12MEM0
+   \                     ADC12MEM0:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x14c
+   \   unsigned short volatile ADC12MEM6
+   \                     ADC12MEM6:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x154
+   \   unsigned short volatile ADC12MEM10
+   \                     ADC12MEM10:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x80
+   \   unsigned char volatile ADC12MCTL0
+   \                     ADC12MCTL0:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x86
+   \   unsigned char volatile ADC12MCTL6
+   \                     ADC12MCTL6:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x8a
+   \   unsigned char volatile ADC12MCTL10
+   \                     ADC12MCTL10:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x37
+   \   unsigned char volatile P6SEL
+   \                     P6SEL:
+   \   000000                DS8 1
+     46          #include "hal_mcu.h"
+     47          
+     48          /**************************************************************************************************
+     49           *                                            CONSTANTS
+     50           **************************************************************************************************/
+     51          
+     52          /* POT defines */
+     53          #define HAL_ADC_POT_CHANNEL             HAL_ADC_CHANNEL_0
+     54          #define HAL_ADC_POT_CH_BV               BV(0)
+     55          #define HAL_ADC_POT_CONV_STARTADDR      CSTARTADD_0
+     56          #define HAL_ADC_POT_RESULT              ADC12MEM0
+     57          #define HAL_ADC_POT_MEM_CONTROL         ADC12MCTL0
+     58          
+     59          /* TEMP SENSOR defines */
+     60          #define HAL_ADC_TS_CHANNEL              10
+     61          #define HAL_ADC_TS_CH_BV                BV(10)
+     62          #define HAL_ADC_TS_CONV_STARTADDR       CSTARTADD_10
+     63          #define HAL_ADC_TS_RESULT               ADC12MEM10
+     64          #define HAL_ADC_TS_MEM_CONTROL          ADC12MCTL10
+     65          
+     66          /* JOYSTICK Level defines */
+     67          #define HAL_ADC_JOY_CHANNEL             6
+     68          #define HAL_ADC_JOY_CH_BV               BV(6)
+     69          #define HAL_ADC_JOY_CONV_STARTADDR      CSTARTADD_6
+     70          #define HAL_ADC_JOY_RESULT              ADC12MEM6
+     71          #define HAL_ADC_JOY_MEM_CONTROL         ADC12MCTL6
+     72          
+     73          /* ADC port */
+     74          #define HAL_ADC_PORT_SELECT             P6SEL
+     75          
+     76          /**************************************************************************************************
+     77           *                                              MACROS
+     78           **************************************************************************************************/
+     79          /* Enables/disables the ADC macros */
+     80          #define HAL_ADC_ENABLE_12()   { ADC12CTL0 |= ENC; }
+     81          #define HAL_ADC_DISABLE_12()  { ADC12CTL0 &= (ENC ^ 0xFFFF); }
+     82          
+     83          /**************************************************************************************************
+     84           *                                      LOCAL FUNCTIONS
+     85           **************************************************************************************************/
+     86          uint16 HalAdcReadPot(void);
+     87          uint16 HalAdcReadJoyLevel(void);
+     88          uint16 HalAdcReadTS(void);
+     89          
+     90          /**************************************************************************************************
+     91           * @fn      HalAdcInit
+     92           *
+     93           * @brief   Initialize ADC Service
+     94           *
+     95           * @param   None
+     96           *
+     97           * @return  None
+     98           **************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+     99          void HalAdcInit (void)
+   \                     HalAdcInit:
+    100          {
+    101            /* Initialize ADC */
+    102            ADC12CTL0 = 0;
+   \   000000   8243A001     MOV.W   #0x0, &0x1a0
+    103            ADC12CTL1 = 0;
+   \   000004   8243A201     MOV.W   #0x0, &0x1a2
+    104            ADC12MCTL0 = 0;
+   \   000008   C2438000     MOV.B   #0x0, &0x80
+    105          
+    106            /* Enable ADC for POT and KEY */
+    107            HAL_ADC_PORT_SELECT |= HAL_ADC_POT_CH_BV | HAL_ADC_JOY_CH_BV;
+   \   00000C   F2D041003700 BIS.B   #0x41, &0x37
+    108          
+    109          }
+   \   000012   1001         RETA
+   \   000014                REQUIRE ADC12CTL0
+   \   000014                REQUIRE ADC12CTL1
+   \   000014                REQUIRE ADC12MCTL0
+   \   000014                REQUIRE P6SEL
+    110          
+    111          /**************************************************************************************************
+    112           * @fn      HalAdcRead
+    113           *
+    114           * @brief   Read the ADC based on given channel and resolution
+    115           *
+    116           * @param   channel - channel where ADC will be read
+    117           *
+    118           *          resolution - the resolution of the value
+    119           *
+    120           * @return  16 bit value of the ADC
+    121           **************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+    122          uint16 HalAdcRead (uint8 channel, uint8 resolution)
+   \                     HalAdcRead:
+    123          {
+    124            uint16 reading = 0;
+   \   000000   0F43         MOV.W   #0x0, R15
+    125          
+    126            switch (channel)
+   \   000002   4C83         SUB.B   #0x0, R12
+   \   000004   0624         JEQ     ??HalAdcRead_1
+   \   000006   7C800600     SUB.B   #0x6, R12
+   \   00000A   0624         JEQ     ??HalAdcRead_2
+   \   00000C   6C82         SUB.B   #0x4, R12
+   \   00000E   0724         JEQ     ??HalAdcRead_3
+   \   000010   093C         JMP     ??HalAdcRead_4
+    127            {
+    128              case HAL_ADC_POT_CHANNEL:
+    129                reading = HalAdcReadPot();
+   \                     ??HalAdcRead_1:
+   \   000012   ........     CALLA   #HalAdcReadPot
+   \   000016   053C         JMP     ??HalAdcRead_0
+    130                break;
+    131          
+    132              case HAL_ADC_JOY_CHANNEL:
+    133                reading = HalAdcReadJoyLevel();
+   \                     ??HalAdcRead_2:
+   \   000018   ........     CALLA   #HalAdcReadJoyLevel
+   \   00001C   023C         JMP     ??HalAdcRead_0
+    134                break;
+    135          
+    136              case HAL_ADC_TS_CHANNEL:
+    137                reading = HalAdcReadTS();
+   \                     ??HalAdcRead_3:
+   \   00001E   ........     CALLA   #HalAdcReadTS
+   \                     ??HalAdcRead_0:
+   \   000022   0F4C         MOV.W   R12, R15
+    138                break;
+    139          
+    140              default:
+    141                break;
+    142            }
+    143          
+    144            /* Get Sample */
+    145            switch (resolution)
+   \                     ??HalAdcRead_4:
+   \   000024   5D83         SUB.B   #0x1, R13
+   \   000026   0524         JEQ     ??HalAdcRead_5
+   \   000028   5D83         SUB.B   #0x1, R13
+   \   00002A   0524         JEQ     ??HalAdcRead_6
+   \   00002C   6D83         SUB.B   #0x2, R13
+   \   00002E   0524         JEQ     ??HalAdcRead_7
+   \   000030   053C         JMP     ??HalAdcRead_8
+    146            {
+    147              case HAL_ADC_RESOLUTION_12:
+    148                break;
+    149              case HAL_ADC_RESOLUTION_8:
+    150                reading >>= 4;
+   \                     ??HalAdcRead_5:
+   \   000032   5F0F         RRUM.W  #0x4, R15
+    151                break;
+   \   000034   033C         JMP     ??HalAdcRead_8
+    152              case HAL_ADC_RESOLUTION_10:
+    153                reading >>= 2;
+   \                     ??HalAdcRead_6:
+   \   000036   5F07         RRUM.W  #0x2, R15
+    154                break;
+   \   000038   013C         JMP     ??HalAdcRead_8
+    155              case HAL_ADC_RESOLUTION_14:
+    156                reading <<= 2;
+   \                     ??HalAdcRead_7:
+   \   00003A   5F06         RLAM.W  #0x2, R15
+    157              default:
+    158                break;
+    159            }
+    160          
+    161            return (reading);
+   \                     ??HalAdcRead_8:
+   \   00003C   0C4F         MOV.W   R15, R12
+   \   00003E   1001         RETA
+    162          }
+    163          
+    164          /*********************************************************************
+    165           * @fn       HalAdcCheckVdd
+    166           *
+    167           * @brief    Check for minimum Vdd specified.
+    168           *
+    169           * @param   vdd - The board-specific Vdd reading to check for.
+    170           *
+    171           * @return  TRUE if the Vdd measured is greater than the 'vdd' minimum parameter;
+    172           *          FALSE if not.
+    173           *
+    174           *********************************************************************/
+
+   \                                 In  segment CODE, align 2
+    175          bool HalAdcCheckVdd(uint8 vdd)
+   \                     HalAdcCheckVdd:
+    176          {
+    177            ADC12CTL0 = REFON | ADC12ON;
+   \   000000   B2403000A001 MOV.W   #0x30, &0x1a0
+    178            ADC12CTL1 = SHP;
+   \   000006   B2400002A201 MOV.W   #0x200, &0x1a2
+    179            ADC12MCTL0 = SREF_1 | EOS | INCH_11;
+   \   00000C   F2409B008000 MOV.B   #0x9b, &0x80
+    180          
+    181            __delay_cycles(6000);                    // Settling time for internal reference on SmartRF05EB.
+   \   000012                ////////////// Start of 6000 cycles delay.
+   \   000012   0343         NOP
+   \   000014   3F40CE07     MOV.W   #0x7ce, R15
+   \                     ??HalAdcCheckVdd_1:
+   \   000018   3F53         ADD.W   #0xffff, R15
+   \   00001A   FE2F         JC      ??HalAdcCheckVdd_1
+   \   00001C                ////////////// End of delay code.
+    182          
+    183            ADC12CTL0 |= ENC + ADC12SC;              // Sampling and conversion start.
+   \   00001C   B2D00300A001 BIS.W   #0x3, &0x1a0
+    184            while (ADC12IFG == 0);
+   \                     ??HalAdcCheckVdd_0:
+   \   000022   8293A401     CMP.W   #0x0, &0x1a4
+   \   000026   FD27         JEQ     ??HalAdcCheckVdd_0
+    185            ADC12CTL0 = 0;                           // Disable the ADC
+   \   000028   8243A001     MOV.W   #0x0, &0x1a0
+    186            ADC12CTL0 = 0;                           // Turn off reference (must be done AFTER clearing ENC).
+   \   00002C   8243A001     MOV.W   #0x0, &0x1a0
+    187           
+    188            return ((uint8)(ADC12MEM0 >> 4) > vdd);
+   \   000030   1E424001     MOV.W   &0x140, R14
+   \   000034   5E0F         RRUM.W  #0x4, R14
+   \   000036   4C9E         CMP.B   R14, R12
+   \   000038   4C7C         SUBC.B  R12, R12
+   \   00003A   5CF3         AND.B   #0x1, R12
+   \   00003C   1001         RETA
+   \   00003E                REQUIRE ADC12CTL0
+   \   00003E                REQUIRE ADC12CTL1
+   \   00003E                REQUIRE ADC12MCTL0
+   \   00003E                REQUIRE ADC12IFG
+   \   00003E                REQUIRE ADC12MEM0
+    189          }
+    190          
+    191          /**************************************************************************************************
+    192           * @fn      HalAdcReadPot
+    193           *
+    194           * @brief   Read the POT value
+    195           *
+    196           * @param   void
+    197           *
+    198           * @return  16 bit value of the ADC
+    199           **************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine0:
+   \   000000   A2D3A001     BIS.W   #0x2, &0x1a0
+   \   000004   92D3A001     BIS.W   #0x1, &0x1a0
+   \   000008   1001         RETA
+
+   \                                 In  segment CODE, align 2
+    200          uint16 HalAdcReadPot()
+   \                     HalAdcReadPot:
+    201          {
+    202            /* Setup sampling */
+    203            ADC12CTL0 = ADC12ON + SHT0_2;
+   \   000000   B2401002A001 MOV.W   #0x210, &0x1a0
+    204            HAL_ADC_POT_MEM_CONTROL = SREF_0 | HAL_ADC_POT_CHANNEL;
+   \   000006   C2438000     MOV.B   #0x0, &0x80
+    205          
+    206            /* Disable conversions */
+    207            HAL_ADC_DISABLE_12()
+   \   00000A   A2C3A001     BIC.W   #0x2, &0x1a0
+    208            /* Use sampling timer */
+    209            ADC12CTL1 = HAL_ADC_POT_CONV_STARTADDR | SHP;
+   \   00000E   B2400002A201 MOV.W   #0x200, &0x1a2
+    210            /* Enable conversions */
+    211            HAL_ADC_ENABLE_12();
+   \   000014   ........     CALLA   #?Subroutine0
+    212            /* Start Conversion */
+    213            ADC12CTL0 |= ADC12SC;
+    214            /* Wait for conversion to be done */
+    215            while (!(ADC12IFG & HAL_ADC_POT_CH_BV));
+   \                     ??HalAdcReadPot_0:
+   \   000018   92B3A401     BIT.W   #0x1, &0x1a4
+   \   00001C   FD2B         JNC     ??HalAdcReadPot_0
+    216          
+    217            /* Get Result */
+    218            return (HAL_ADC_POT_RESULT);
+   \   00001E   1C424001     MOV.W   &0x140, R12
+   \   000022   1001         RETA
+   \   000024                REQUIRE ADC12CTL0
+   \   000024                REQUIRE ADC12MCTL0
+   \   000024                REQUIRE ADC12CTL1
+   \   000024                REQUIRE ADC12IFG
+   \   000024                REQUIRE ADC12MEM0
+    219          }
+    220          
+    221          /**************************************************************************************************
+    222           * @fn      HalAdcReadJoyLevel
+    223           *
+    224           * @brief   Read the Joystick level
+    225           *
+    226           * @param   NONE
+    227           *
+    228           * @return  16 bit value of the ADC
+    229           **************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+    230          uint16 HalAdcReadJoyLevel()
+   \                     HalAdcReadJoyLevel:
+    231          {
+    232            /* Setup sampling */
+    233            ADC12CTL0 = ADC12ON + SHT0_2;
+   \   000000   B2401002A001 MOV.W   #0x210, &0x1a0
+    234            HAL_ADC_JOY_MEM_CONTROL = SREF_0 | HAL_ADC_JOY_CHANNEL;
+   \   000006   F24006008600 MOV.B   #0x6, &0x86
+    235          
+    236            /* Disable conversions */
+    237            HAL_ADC_DISABLE_12()
+   \   00000C   A2C3A001     BIC.W   #0x2, &0x1a0
+    238            /* Use sampling timer */
+    239            ADC12CTL1 = HAL_ADC_JOY_CONV_STARTADDR | SHP;
+   \   000010   B2400062A201 MOV.W   #0x6200, &0x1a2
+    240            /* Enable conversions */
+    241            HAL_ADC_ENABLE_12();
+   \   000016   ........     CALLA   #?Subroutine0
+    242            /* Start Conversion */
+    243            ADC12CTL0 |= ADC12SC;
+    244            /* Wait for conversion to be done */
+    245            while (!(ADC12IFG & HAL_ADC_JOY_CH_BV));
+   \                     ??HalAdcReadJoyLevel_0:
+   \   00001A   B2B04000A401 BIT.W   #0x40, &0x1a4
+   \   000020   FC2B         JNC     ??HalAdcReadJoyLevel_0
+    246          
+    247            /* Get Result */
+    248            return (HAL_ADC_JOY_RESULT);
+   \   000022   1C424C01     MOV.W   &0x14c, R12
+   \   000026   1001         RETA
+   \   000028                REQUIRE ADC12CTL0
+   \   000028                REQUIRE ADC12MCTL6
+   \   000028                REQUIRE ADC12CTL1
+   \   000028                REQUIRE ADC12IFG
+   \   000028                REQUIRE ADC12MEM6
+    249          }
+    250          
+    251          /**************************************************************************************************
+    252           * @fn      HalAdcReadTS()
+    253           *
+    254           * @brief   Read the Temperature sensor value
+    255           *
+    256           * @param   NONE
+    257           *
+    258           * @return  16 bit value of the ADC
+    259           **************************************************************************************************/
+
+   \                                 In  segment CODE, align 2
+    260          uint16 HalAdcReadTS()
+   \                     HalAdcReadTS:
+    261          {
+    262            /* Setup sampling */
+    263            ADC12CTL0 = ADC12ON + SHT0_2;
+   \   000000   B2401002A001 MOV.W   #0x210, &0x1a0
+    264            HAL_ADC_TS_MEM_CONTROL = SREF_0 | HAL_ADC_TS_CHANNEL;
+   \   000006   F2400A008A00 MOV.B   #0xa, &0x8a
+    265          
+    266            /* Disable conversions */
+    267            HAL_ADC_DISABLE_12()
+   \   00000C   A2C3A001     BIC.W   #0x2, &0x1a0
+    268            /* Use sampling timer */
+    269            ADC12CTL1 = HAL_ADC_TS_CONV_STARTADDR | SHP;
+   \   000010   B24000A2A201 MOV.W   #0xa200, &0x1a2
+    270            /* Enable conversions */
+    271            HAL_ADC_ENABLE_12();
+   \   000016   ........     CALLA   #?Subroutine0
+    272            /* Start Conversion */
+    273            ADC12CTL0 |= ADC12SC;
+    274            /* Wait for conversion to be done */
+    275            while (!(ADC12IFG & HAL_ADC_TS_CH_BV));
+   \                     ??HalAdcReadTS_0:
+   \   00001A   B2B00004A401 BIT.W   #0x400, &0x1a4
+   \   000020   FC2B         JNC     ??HalAdcReadTS_0
+    276          
+    277            /* Get Result */
+    278            return (HAL_ADC_TS_RESULT);
+   \   000022   1C425401     MOV.W   &0x154, R12
+   \   000026   1001         RETA
+   \   000028                REQUIRE ADC12CTL0
+   \   000028                REQUIRE ADC12MCTL10
+   \   000028                REQUIRE ADC12CTL1
+   \   000028                REQUIRE ADC12IFG
+   \   000028                REQUIRE ADC12MEM10
+    279          }
+    280          
+    281          /**************************************************************************************************
+    282          **************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      4   HalAdcCheckVdd
+      4   HalAdcInit
+      4   HalAdcRead
+        4   -> HalAdcReadJoyLevel
+        4   -> HalAdcReadPot
+        4   -> HalAdcReadTS
+      4   HalAdcReadJoyLevel
+      4   HalAdcReadPot
+      4   HalAdcReadTS
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      10  ?Subroutine0
+       2  ADC12CTL0
+       2  ADC12CTL1
+       2  ADC12IFG
+       1  ADC12MCTL0
+       1  ADC12MCTL10
+       1  ADC12MCTL6
+       2  ADC12MEM0
+       2  ADC12MEM10
+       2  ADC12MEM6
+      62  HalAdcCheckVdd
+      20  HalAdcInit
+      64  HalAdcRead
+      40  HalAdcReadJoyLevel
+      36  HalAdcReadPot
+      40  HalAdcReadTS
+       1  P6SEL
+
+ 
+ 272 bytes in segment CODE
+  16 bytes in segment DATA16_AN
+ 
+ 272 bytes of CODE memory
+   0 bytes of DATA memory (+ 16 bytes shared)
+
+Errors: none
+Warnings: none

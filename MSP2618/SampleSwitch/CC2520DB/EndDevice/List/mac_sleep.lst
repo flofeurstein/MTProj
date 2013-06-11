@@ -1,0 +1,466 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  17:10:45 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\ma #
+#                     c\low_level\srf04\mac_sleep.c                           #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\To #
+#                     ols\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0      #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wEndev.cfg" (-DCPU6MHZ -DMAC_CFG_TX_DATA_MAX=3         #
+#                     -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "C:\Texas     #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC          #
+#                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH         #
+#                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4          #
+#                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10         #
+#                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10        #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_lev #
+#                     el\srf04\mac_sleep.c" -D MSP430F2618 -D NWK_AUTO_POLL   #
+#                     -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC    #
+#                     -D LCD_SUPPORTED -lC "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\EndDevice\List\" -lA     #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\List #
+#                     \" --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826    #
+#                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\O #
+#                     bj\" --debug -D__MSP430F2618__ -e --double=32 --clib    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\" -I        #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sourc #
+#                     e\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Proje #
+#                     cts\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\. #
+#                     .\ZMain\MSP2618\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\target\MSP2618CC2520\" -I "C:\Texas               #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\high_level\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\" -I "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\dual_chip\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr #
+#                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\. #
+#                     .\..\..\..\Components\osal\include\" -I "C:\Texas       #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\osal\mcu\msp430\" -I "C:\Texas                        #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\saddr\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\sdata\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D #
+#                     B\..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sec\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sapi\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sys\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zcl\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zdo\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ #
+#                     Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\.. #
+#                     \..\..\..\..\Components\zmac\f8w\" --core=430X          #
+#                     --data_model=small -Ohz --multiplier=16s                #
+#                     --require_prototypes                                    #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\List\ #
+#                     mac_sleep.lst                                           #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\Obj\m #
+#                     ac_sleep.r43                                            #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_level\srf04\mac_sleep.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_sleep.c
+      3            Revised:        $Date: 2007-10-29 19:11:44 -0700 (Mon, 29 Oct 2007) $
+      4            Revision:       $Revision: 15810 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          
+     48          /* high-level */
+     49          #include "mac_pib.h"
+     50          
+     51          /* exported low-level */
+     52          #include "mac_low_level.h"
+     53          
+     54          /* low-level specific */
+     55          #include "mac_sleep.h"
+     56          #include "mac_radio.h"
+     57          #include "mac_tx.h"
+     58          #include "mac_rx.h"
+     59          #include "mac_rx_onoff.h"
+     60          
+     61          /* target specific */
+     62          #include "mac_radio_defs.h"
+
+   \                                 In  segment DATA16_AN, at 0x162
+   \   unsigned short volatile TACCTL0
+   \                     TACCTL0:
+   \   000000                DS8 2
+     63          
+     64          /* debug */
+     65          #include "mac_assert.h"
+     66          
+     67          
+     68          /* ------------------------------------------------------------------------------------------------
+     69           *                                         Global Variables
+     70           * ------------------------------------------------------------------------------------------------
+     71           */
+
+   \                                 In  segment DATA16_I, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_copy
+     72          uint8 macSleepState = MAC_SLEEP_STATE_RADIO_OFF;
+   \                     macSleepState:
+   \   000000                DS8 1
+   \   000001                REQUIRE `?<Initializer for macSleepState>`
+     73          
+     74          
+     75          /**************************************************************************************************
+     76           * @fn          macSleepWakeUp
+     77           *
+     78           * @brief       Wake up the radio from sleep mode.
+     79           *
+     80           * @param       none
+     81           *
+     82           * @return      none
+     83           **************************************************************************************************
+     84           */
+
+   \                                 In  segment CODE, align 2
+     85          MAC_INTERNAL_API void macSleepWakeUp(void)
+   \                     macSleepWakeUp:
+     86          {
+     87            /* don't wake up radio if it's already awake */
+     88            if (macSleepState == MAC_SLEEP_STATE_AWAKE)
+   \   000000   5E42....     MOV.B   &macSleepState, R14
+   \   000004   4E93         CMP.B   #0x0, R14
+   \   000006   1824         JEQ     ??macSleepWakeUp_1
+     89            {
+     90              return;
+     91            }
+     92          
+     93            /* wake up MAC timer */
+     94            MAC_RADIO_TIMER_WAKE_UP();
+   \   000008   F2900F00.... CMP.B   #0xf, &macPib + 9
+   \   00000E   0320         JNE     ??macSleepWakeUp_2
+   \   000010   B2D010006201 BIS.W   #0x10, &0x162
+     95          
+     96            /* if radio was completely off, restore from that state first */
+     97            if (macSleepState == MAC_SLEEP_STATE_RADIO_OFF)
+   \                     ??macSleepWakeUp_2:
+   \   000016   6E93         CMP.B   #0x2, R14
+   \   000018   0520         JNE     ??macSleepWakeUp_3
+     98            {
+     99              /* turn on radio power (turns on oscillator too) */
+    100              MAC_RADIO_TURN_ON_POWER();
+   \   00001A   ........     CALLA   #macDualchipTurnOnRadioPower
+    101          
+    102              /* power-up initialization of receive logic */
+    103              macRxRadioPowerUpInit();
+   \   00001E   ........     CALLA   #macRxRadioPowerUpInit
+   \   000022   063C         JMP     ??macSleepWakeUp_4
+    104            }
+    105            else
+    106            {
+    107              MAC_ASSERT(macSleepState == MAC_SLEEP_STATE_OSC_OFF);
+   \                     ??macSleepWakeUp_3:
+   \   000024   5E93         CMP.B   #0x1, R14
+   \   000026   0224         JEQ     ??macSleepWakeUp_5
+   \   000028   ........     CALLA   #halAssertHandler
+    108          
+    109              /* turn on the oscillator */
+    110              MAC_RADIO_TURN_ON_OSC();
+   \                     ??macSleepWakeUp_5:
+   \   00002C   ........     CALLA   #macDualchipTurnOnRadioOscillator
+    111            }
+    112          
+    113            /* update sleep state here before requesting to turn on receiver */
+    114            macSleepState = MAC_SLEEP_STATE_AWAKE;
+   \                     ??macSleepWakeUp_4:
+   \   000030   C243....     MOV.B   #0x0, &macSleepState
+    115          
+    116            /* turn on the receiver if enabled */
+    117            macRxOnRequest();
+   \   000034   ........     CALLA   #macRxOnRequest
+    118          }
+   \                     ??macSleepWakeUp_1:
+   \   000038   1001         RETA
+   \   00003A                REQUIRE TACCTL0
+    119          
+    120          
+    121          /**************************************************************************************************
+    122           * @fn          macSleep
+    123           *
+    124           * @brief       Puts radio into the selected sleep mode.
+    125           *
+    126           * @param       sleepState - selected sleep level, see #defines in .h file
+    127           *
+    128           * @return      TRUE if radio was successfully put into selected sleep mode.
+    129           *              FALSE if it was not safe for radio to go to sleep.
+    130           **************************************************************************************************
+    131           */
+
+   \                                 In  segment CODE, align 2
+    132          MAC_INTERNAL_API uint8 macSleep(uint8 sleepState)
+   \                     macSleep:
+    133          {
+   \   000000   1B15         PUSHM.W #0x2, R11
+   \   000002   4A4C         MOV.B   R12, R10
+    134            halIntState_t  s;
+    135          
+    136            /* disable interrupts until macSleepState can be set */
+    137            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000004   0B42         MOV.W   SR, R11
+   \   000006   32C2         dint
+   \   000008   0343         nop
+    138          
+    139            /* assert checks */
+    140            MAC_ASSERT(macSleepState == MAC_SLEEP_STATE_AWAKE); /* radio must be awake to put it to sleep */
+   \   00000A   C293....     CMP.B   #0x0, &macSleepState
+   \   00000E   0224         JEQ     ??macSleep_0
+   \   000010   ........     CALLA   #halAssertHandler
+    141            MAC_ASSERT(macRxFilter == RX_FILTER_OFF); /* do not sleep when scanning or in promiscuous mode */
+   \                     ??macSleep_0:
+   \   000014   C293....     CMP.B   #0x0, &macRxFilter
+   \   000018   0224         JEQ     ??macSleep_1
+   \   00001A   ........     CALLA   #halAssertHandler
+    142          
+    143            /* if either RX or TX is active or any RX enable flags are set, it's not OK to sleep */
+    144            if (macRxActive || macRxOutgoingAckFlag || macTxActive || macRxEnableFlags)
+   \                     ??macSleep_1:
+   \   00001E   C293....     CMP.B   #0x0, &macRxActive
+   \   000022   0920         JNE     ??macSleep_2
+   \   000024   C293....     CMP.B   #0x0, &macRxOutgoingAckFlag
+   \   000028   0620         JNE     ??macSleep_2
+   \   00002A   C293....     CMP.B   #0x0, &macTxActive
+   \   00002E   0320         JNE     ??macSleep_2
+   \   000030   C293....     CMP.B   #0x0, &macRxEnableFlags
+   \   000034   0324         JEQ     ??macSleep_3
+    145            {
+    146              HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??macSleep_2:
+   \   000036   024B         MOV.W   R11, SR
+    147              return(FALSE);
+   \   000038   4C43         MOV.B   #0x0, R12
+   \   00003A   183C         JMP     ??macSleep_4
+    148            }
+    149          
+    150            /* turn off the receiver */
+    151            macRxOff();
+   \                     ??macSleep_3:
+   \   00003C   ........     CALLA   #macRxOff
+    152          
+    153            /* update sleep state variable */
+    154            macSleepState = sleepState;
+   \   000040   C24A....     MOV.B   R10, &macSleepState
+    155          
+    156            /* macSleepState is now set, re-enable interrupts */
+    157            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000044   024B         MOV.W   R11, SR
+    158          
+    159            /* put MAC timer to sleep */
+    160            MAC_RADIO_TIMER_SLEEP();
+   \   000046   F2900F00.... CMP.B   #0xf, &macPib + 9
+   \   00004C   0320         JNE     ??macSleep_5
+   \   00004E   B2C010006201 BIC.W   #0x10, &0x162
+    161          
+    162            /* put radio in selected sleep mode */
+    163            if (sleepState == MAC_SLEEP_STATE_OSC_OFF)
+   \                     ??macSleep_5:
+   \   000054   5A93         CMP.B   #0x1, R10
+   \   000056   0320         JNE     ??macSleep_6
+    164            {
+    165              MAC_RADIO_TURN_OFF_OSC();
+   \   000058   ........     CALLA   #macDualchipTurnOffRadioOscillator
+   \   00005C   063C         JMP     ??macSleep_7
+    166            }
+    167            else
+    168            {
+    169              MAC_ASSERT(sleepState == MAC_SLEEP_STATE_RADIO_OFF); /* unknown sleep state */
+   \                     ??macSleep_6:
+   \   00005E   6A93         CMP.B   #0x2, R10
+   \   000060   0224         JEQ     ??macSleep_8
+   \   000062   ........     CALLA   #halAssertHandler
+    170              MAC_RADIO_TURN_OFF_POWER();
+   \                     ??macSleep_8:
+   \   000066   ........     CALLA   #macDualchipTurnOffRadioPower
+    171            }
+    172          
+    173            /* radio successfully entered sleep mode */
+    174            return(TRUE);
+   \                     ??macSleep_7:
+   \   00006A   5C43         MOV.B   #0x1, R12
+   \                     ??macSleep_4:
+   \   00006C   1A17         POPM.W  #0x2, R11
+   \   00006E   1001         RETA
+   \   000070                REQUIRE TACCTL0
+    175          }
+
+   \                                 In  segment DATA16_ID, align 1, align-sorted
+   \                     `?<Initializer for macSleepState>`:
+   \   000000   02           DC8 2
+    176          
+    177          
+    178          
+    179          /**************************************************************************************************
+    180           *                                  Compile Time Integrity Checks
+    181           **************************************************************************************************
+    182           */
+    183          #if ((MAC_SLEEP_STATE_AWAKE == MAC_SLEEP_STATE_OSC_OFF) ||  \
+    184               (MAC_SLEEP_STATE_AWAKE == MAC_SLEEP_STATE_RADIO_OFF))
+    185          #error "ERROR!  Non-unique state values."
+    186          #endif
+    187          
+    188          
+    189          /**************************************************************************************************
+    190          */
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      8   macSleep
+        8   -> halAssertHandler
+        8   -> macDualchipTurnOffRadioOscillator
+        8   -> macDualchipTurnOffRadioPower
+        8   -> macRxOff
+      4   macSleepWakeUp
+        4   -> halAssertHandler
+        4   -> macDualchipTurnOnRadioOscillator
+        4   -> macDualchipTurnOnRadioPower
+        4   -> macRxOnRequest
+        4   -> macRxRadioPowerUpInit
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Initializer for macSleepState>
+       2  TACCTL0
+     112  macSleep
+       1  macSleepState
+      58  macSleepWakeUp
+
+ 
+ 170 bytes in segment CODE
+   2 bytes in segment DATA16_AN
+   1 byte  in segment DATA16_I
+   1 byte  in segment DATA16_ID
+ 
+ 170 bytes of CODE  memory
+   1 byte  of CONST memory
+   1 byte  of DATA  memory (+ 2 bytes shared)
+
+Errors: none
+Warnings: none

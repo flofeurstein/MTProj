@@ -1,0 +1,1232 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       10/Jun/2013  16:30:22 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  32                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  small                                                   #
+#    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\ma #
+#                     c\low_level\srf04\dual_chip\mac_spi.c                   #
+#    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\To #
+#                     ols\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0      #
+#                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                       #
+#                     -DDEFAULT_CHANLIST=0x00000800                           #
+#                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100      #
+#                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                   #
+#                     -DBEACON_REQUEST_DELAY=100                              #
+#                     -DBEACON_REQ_DELAY_MASK=0x00FF                          #
+#                     -DLINK_STATUS_JITTER_MASK=0x007F                        #
+#                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED= #
+#                     3000 -DNWK_INDIRECT_MSG_TIMEOUT=7 -DMAX_RREQ_ENTRIES=8  #
+#                     -DAPSC_MAX_FRAME_RETRIES=3 -DNWK_MAX_DATA_RETRIES=2     #
+#                     -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9              #
+#                     -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40                #
+#                     -DNWK_MAX_BINDING_ENTRIES=4                             #
+#                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,       #
+#                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,   #
+#                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                    #
+#                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=2 #
+#                     0 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000           #
+#                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100         #
+#                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wRouter.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=TR #
+#                     UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8           #
+#                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618\f #
+#                     8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC          #
+#                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH         #
+#                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4          #
+#                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10         #
+#                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10        #
+#                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING -DZCL_PRICING  #
+#                     -DZCL_MESSAGE -DZCL_TUNNELING -DZCL_TOU)                #
+#                     -DZCL_DEVICE_MGMT "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_lev #
+#                     el\srf04\dual_chip\mac_spi.c" -D MSP430F2618 -D         #
+#                     ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D    #
+#                     LCD_SUPPORTED -lC "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\Router\List\" -lA        #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\"  #
+#                     --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826 -o    #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\Obj\"   #
+#                     --debug -D__MSP430F2618__ -e --double=32 --clib -I      #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\" -I           #
+#                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst #
+#                     ack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"    #
+#                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\ #
+#                     zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sourc #
+#                     e\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Proje #
+#                     cts\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\. #
+#                     .\ZMain\MSP2618\" -I "C:\Texas                          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\hal\target\MSP2618CC2520\" -I "C:\Texas               #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\include\" -I "C:\Texas                            #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\high_level\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\" -I "C:\Texas                    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mac\low_level\srf04\dual_chip\" -I "C:\Texas          #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr #
+#                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\. #
+#                     .\..\..\..\Components\osal\include\" -I "C:\Texas       #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\osal\mcu\msp430\" -I "C:\Texas                        #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\saddr\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\services\sdata\" -I "C:\Texas                         #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\af\" -I "C:\Texas Instruments\ZStack-MSP2618-2. #
+#                     5.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D #
+#                     B\..\..\..\..\..\Components\stack\nwk\" -I "C:\Texas    #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sec\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sapi\" -I "C:\Texas                             #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\sys\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zcl\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\stack\zdo\" -I "C:\Texas                              #
+#                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAu #
+#                     tomation\SampleSwitch\CC2520DB\..\..\..\..\..\Component #
+#                     s\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ #
+#                     Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\.. #
+#                     \..\..\..\..\Components\zmac\f8w\" --core=430X          #
+#                     --data_model=small -Ohz --multiplier=16s                #
+#                     --require_prototypes                                    #
+#    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\Router\List\mac #
+#                     _spi.lst                                                #
+#    Object file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zsta #
+#                     ck\HomeAutomation\SampleSwitch\CC2520DB\Router\Obj\mac_ #
+#                     spi.r43                                                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_level\srf04\dual_chip\mac_spi.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_spi.c
+      3            Revised:        $Date: 2007-05-02 13:41:12 -0700 (Wed, 02 May 2007) $
+      4            Revision:       $Revision: 14174 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          #include "hal_mac_cfg.h"
+
+   \                                 In  segment DATA16_AN, at 0x7
+   \   unsigned char volatile UC1IFG
+   \                     UC1IFG:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x31
+   \   unsigned char volatile P5OUT
+   \                     P5OUT:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xd8
+   \   unsigned char volatile UCB1CTL0
+   \                     UCB1CTL0:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xd9
+   \   unsigned char volatile UCB1CTL1
+   \                     UCB1CTL1:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xda
+   \   unsigned char volatile UCB1BR0
+   \                     UCB1BR0:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xdb
+   \   unsigned char volatile UCB1BR1
+   \                     UCB1BR1:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xde
+   \   unsigned char const volatile UCB1RXBUF
+   \                     UCB1RXBUF:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0xdf
+   \   unsigned char volatile UCB1TXBUF
+   \                     UCB1TXBUF:
+   \   000000                DS8 1
+     48          
+     49          /* low-level specific */
+     50          #include "mac_spi.h"
+     51          
+     52          /* SPI registers */
+     53          #include "mac_radio_defs.h"
+     54          
+     55          /* debug */
+     56          #include "mac_assert.h"
+     57          
+     58          
+     59          /* ------------------------------------------------------------------------------------------------
+     60           *                                            Defines
+     61           * ------------------------------------------------------------------------------------------------
+     62           */
+     63          #define SPI_ACCESS_BUF_LEN          3
+     64          
+     65          #define NUM_BYTES_STROBE_CMD        1
+     66          #define NUM_BYTES_REG_ACCESS        2
+     67          #define NUM_BYTES_MEM_ACCESS        3
+     68          #define NUM_BYTES_RANDOM            3
+     69          
+     70          #define FIFO_ACCESS_TX_WRITE        0
+     71          #define FIFO_ACCESS_RX_READ         1
+     72          
+     73          
+     74          /* ------------------------------------------------------------------------------------------------
+     75           *                                         Global Variables
+     76           * ------------------------------------------------------------------------------------------------
+     77           */
+
+   \                                 In  segment DATA16_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+     78          MAC_ASSERT_DECLARATION( uint8 macSpiRadioPower; )
+   \                     macSpiRadioPower:
+   \   000000                DS8 1
+     79          
+     80          
+     81          /* ------------------------------------------------------------------------------------------------
+     82           *                                       Local Prototypes
+     83           * ------------------------------------------------------------------------------------------------
+     84           */
+     85          static void spiFifoAccess(uint8 * pData, uint8 len, uint8 writeFlag);
+     86          static uint8 spiSendBytes(uint8 * pBytes, uint8 numBytes);
+     87          static void spiWriteRamByte(uint16 ramAddr, uint8 byte);
+     88          
+     89          
+     90          /**************************************************************************************************
+     91           * @fn          macSpiInit
+     92           *
+     93           * @brief       Initialize SPI.
+     94           *
+     95           * @param       none
+     96           *
+     97           * @return      none
+     98           **************************************************************************************************
+     99           */
+
+   \                                 In  segment CODE, align 2
+    100          void macSpiInit(void)
+   \                     macSpiInit:
+    101          {
+    102            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   000000   D2D33100     BIS.B   #0x1, &0x31
+    103            HAL_MAC_SPI_INIT();
+   \   000004   F2408100D900 MOV.B   #0x81, &0xd9
+   \   00000A   F240A900D800 MOV.B   #0xa9, &0xd8
+   \   000010   C243DA00     MOV.B   #0x0, &0xda
+   \   000014   C243DB00     MOV.B   #0x0, &0xdb
+   \   000018   D2C3D900     BIC.B   #0x1, &0xd9
+    104          }
+   \   00001C   1001         RETA
+   \   00001E                REQUIRE P5OUT
+   \   00001E                REQUIRE UCB1CTL1
+   \   00001E                REQUIRE UCB1CTL0
+   \   00001E                REQUIRE UCB1BR0
+   \   00001E                REQUIRE UCB1BR1
+    105          
+    106          
+    107          /**************************************************************************************************
+    108           * @fn          macSpiCmdStrobe
+    109           *
+    110           * @brief       Send command strobe to the radio.  Returns status byte read during transfer
+    111           *              of strobe command.
+    112           *
+    113           * @param       opCode - op code of the strobe command
+    114           *
+    115           * @return      status byte of radio
+    116           **************************************************************************************************
+    117           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   0C41         MOV.W   SP, R12
+   \   000002   2C52         ADD.W   #0x4, R12
+   \   000004   ........     BRA     #spiSendBytes
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   ........     CALLA   #?Subroutine1
+   \                     ??CrossCallReturnLabel_0:
+   \   000004   2152         ADD.W   #0x4, SP
+   \   000006   1001         RETA
+
+   \                                 In  segment CODE, align 2
+    118          uint8 macSpiCmdStrobe(uint8 opCode)
+   \                     macSpiCmdStrobe:
+    119          {
+   \   000000   2182         SUB.W   #0x4, SP
+    120            uint8 buf[SPI_ACCESS_BUF_LEN];
+    121          
+    122            /* set first byte of array as op code */
+    123            buf[0] = opCode;
+   \   000002   C14C0000     MOV.B   R12, 0(SP)
+    124          
+    125            /* send strobe command and pass up return value */
+    126            return( spiSendBytes(&buf[0], NUM_BYTES_STROBE_CMD) );
+   \   000006   5D43         MOV.B   #0x1, R13
+   \   000008   ....         JMP     ?Subroutine0
+    127          }
+    128          
+    129          
+    130          /**************************************************************************************************
+    131           * @fn          macSpiReadReg
+    132           *
+    133           * @brief       Read value from radio regiser.
+    134           *
+    135           * @param       regAddr - address of register
+    136           *
+    137           * @return      register value
+    138           **************************************************************************************************
+    139           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    140          uint8 macSpiReadReg(uint8 regAddr)
+   \                     macSpiReadReg:
+    141          {
+   \   000000   2182         SUB.W   #0x4, SP
+    142            uint8 buf[SPI_ACCESS_BUF_LEN];
+    143            uint8 len;
+    144          
+    145            /* fast register access is available for registers in first 0x40 bytes */
+    146            if (regAddr <= 0x3F)
+   \   000002   7C904000     CMP.B   #0x40, R12
+   \   000006   062C         JC      ??macSpiReadReg_0
+    147            {
+    148              /* set up a register read command */
+    149              buf[0] = REGRD | regAddr;
+   \   000008   7CD08000     BIS.B   #0x80, R12
+   \   00000C   C14C0000     MOV.B   R12, 0(SP)
+    150              len = NUM_BYTES_REG_ACCESS;
+   \   000010   6D43         MOV.B   #0x2, R13
+   \   000012   073C         JMP     ??macSpiReadReg_1
+    151            }
+    152            else
+    153            {
+    154              /* set up a memory read command, note memory above 0xFF not accessible via this function */
+    155              buf[0] = MEMRD;
+   \                     ??macSpiReadReg_0:
+   \   000014   F14010000000 MOV.B   #0x10, 0(SP)
+    156              buf[1] = regAddr;
+   \   00001A   C14C0100     MOV.B   R12, 0x1(SP)
+    157              len = NUM_BYTES_MEM_ACCESS;
+   \   00001E   7D400300     MOV.B   #0x3, R13
+    158            }
+    159          
+    160            /* send read command and pass up return value */
+    161            return( spiSendBytes(&buf[0], len) );
+   \                     ??macSpiReadReg_1:
+   \   000022                REQUIRE ?Subroutine0
+   \   000022                // Fall through to label ?Subroutine0
+    162          }
+    163          
+    164          
+    165          /**************************************************************************************************
+    166           * @fn          macSpiWriteReg
+    167           *
+    168           * @brief       Write value to radio register.
+    169           *
+    170           * @param       regAddr  - address of register
+    171           * @param       regValue - register value to write
+    172           *
+    173           * @return      none
+    174           **************************************************************************************************
+    175           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    176          void macSpiWriteReg(uint8 regAddr, uint8 regValue)
+   \                     macSpiWriteReg:
+    177          {
+   \   000000   2182         SUB.W   #0x4, SP
+    178            uint8 buf[SPI_ACCESS_BUF_LEN];
+    179            uint8 len;
+    180          
+    181            /* fast register access is available for registers in first 0x40 bytes */
+    182            if (regAddr <= 0x3F)
+   \   000002   7C904000     CMP.B   #0x40, R12
+   \   000006   082C         JC      ??macSpiWriteReg_0
+    183            {
+    184              /* set up a register write command */
+    185              buf[0] = REGWR | regAddr;
+   \   000008   7CD0C000     BIS.B   #0xc0, R12
+   \   00000C   C14C0000     MOV.B   R12, 0(SP)
+    186              buf[1] = regValue;
+   \   000010   C14D0100     MOV.B   R13, 0x1(SP)
+    187              len = NUM_BYTES_REG_ACCESS;
+   \   000014   6D43         MOV.B   #0x2, R13
+   \   000016   093C         JMP     ??macSpiWriteReg_1
+    188            }
+    189            else
+    190            {
+    191              /* set up a memory write command, note memory above 0xFF not accessible via this function */
+    192              buf[0] = MEMWR;
+   \                     ??macSpiWriteReg_0:
+   \   000018   F14020000000 MOV.B   #0x20, 0(SP)
+    193              buf[1] = regAddr;
+   \   00001E   C14C0100     MOV.B   R12, 0x1(SP)
+    194              buf[2] = regValue;
+   \   000022   C14D0200     MOV.B   R13, 0x2(SP)
+    195              len = NUM_BYTES_MEM_ACCESS;
+   \   000026   7D400300     MOV.B   #0x3, R13
+    196            }
+    197          
+    198            /* send write command */
+    199            spiSendBytes(&buf[0], len);
+   \                     ??macSpiWriteReg_1:
+   \   00002A   ....         JMP     ?Subroutine0
+    200          }
+    201          
+    202          
+    203          /*=================================================================================================
+    204           * @fn          spiSendBytes
+    205           *
+    206           * @brief       Primitive for sending byte via SPI.  Returns SPI transferred during sending
+    207           *              of last byte.
+    208           *
+    209           * @param       pSendBytes   - pointer to bytes to send over SPI
+    210           * @param       numSendBytes - number of bytes to send
+    211           *
+    212           * @return      byte read from SPI after last byte sent
+    213           *=================================================================================================
+    214           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D2D33100     BIS.B   #0x1, &0x31
+   \   000004   D2C33100     BIC.B   #0x1, &0x31
+   \   000008   1001         RETA
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    215          static uint8 spiSendBytes(uint8 * pBytes, uint8 numBytes)
+   \                     spiSendBytes:
+    216          {
+   \   000000   1B15         PUSHM.W #0x2, R11
+   \   000002   0B4C         MOV.W   R12, R11
+   \   000004   4A4D         MOV.B   R13, R10
+    217            halMacSpiIntState_t s;
+    218            uint8 returnValue;
+    219          
+    220            MAC_ASSERT(macSpiRadioPower & MAC_SPI_RADIO_POWER_VREG_ON);  /* radio must be powered */
+   \   000006   D2B3....     BIT.B   #0x1, &macSpiRadioPower
+   \   00000A   022C         JC      ??spiSendBytes_2
+   \   00000C   ........     CALLA   #halAssertHandler
+    221          
+    222            /*-------------------------------------------------------------------------------
+    223             *  Disable interrupts that call SPI functions.
+    224             */
+    225            HAL_MAC_SPI_ENTER_CRITICAL_SECTION(s);
+   \                     ??spiSendBytes_2:
+   \   000010   0F42         MOV.W   SR, R15
+   \   000012   32C2         dint
+   \   000014   0343         nop
+    226          
+    227            /*-------------------------------------------------------------------------------
+    228             *  Turn chip select "off" and then "on" to clear any current SPI access.
+    229             */
+    230            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   000016   ........     CALLA   #?Subroutine2
+    231            HAL_MAC_SPI_SET_CHIP_SELECT_ON();
+    232          
+    233            /*-------------------------------------------------------------------------------
+    234             *  execute based on type of access
+    235             */
+    236            while (numBytes)
+   \                     ??spiSendBytes_0:
+   \   00001A   4A93         CMP.B   #0x0, R10
+   \   00001C   0924         JEQ     ??spiSendBytes_3
+    237            {
+    238              HAL_MAC_SPI_WRITE_BYTE(*pBytes);
+   \   00001E   E2C20700     BIC.B   #0x4, &0x7
+   \   000022   F24BDF00     MOV.B   @R11+, &0xdf
+    239              pBytes++;
+    240              numBytes--;
+   \   000026   7A53         ADD.B   #0xff, R10
+    241              HAL_MAC_SPI_WAIT_DONE();
+   \                     ??spiSendBytes_1:
+   \   000028   E2B20700     BIT.B   #0x4, &0x7
+   \   00002C   F62F         JC      ??spiSendBytes_0
+   \   00002E   FC3F         JMP     ??spiSendBytes_1
+    242          
+    243             /*-------------------------------------------------------------------------------
+    244              *  SPI data register now contains the status byte. The status byte is
+    245              *  discarded.
+    246              */
+    247              if (numBytes > 0)
+    248              {
+    249                HAL_MAC_SPI_LUMINARY_READ_DUMMY_BYTE();
+    250              }
+    251            }
+    252          
+    253            /*-------------------------------------------------------------------------------
+    254             *  SPI data register now contains the status byte. The status byte is
+    255             *  discarded.
+    256             */
+    257            returnValue = HAL_MAC_SPI_READ_BYTE();
+   \                     ??spiSendBytes_3:
+   \   000030   5C42DE00     MOV.B   &0xde, R12
+    258          
+    259            /*-------------------------------------------------------------------------------
+    260             *  Turn off chip select.  Enable interrupts that call SPI functions.
+    261             */
+    262            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   000034   D2D33100     BIS.B   #0x1, &0x31
+    263            HAL_MAC_SPI_EXIT_CRITICAL_SECTION(s);
+   \   000038   024F         MOV.W   R15, SR
+    264          
+    265            return(returnValue);
+   \   00003A   1A17         POPM.W  #0x2, R11
+   \   00003C   1001         RETA
+   \   00003E                REQUIRE P5OUT
+   \   00003E                REQUIRE UC1IFG
+   \   00003E                REQUIRE UCB1TXBUF
+   \   00003E                REQUIRE UCB1RXBUF
+    266          }
+    267          
+    268          /**************************************************************************************************
+    269           * @fn          macSpiWriteRamUint16
+    270           *
+    271           * @brief       Write unsigned 16-bit value to radio RAM.
+    272           *
+    273           * @param       ramAddr    - radio RAM address
+    274           * @param       pWriteData - pointer to data to write
+    275           * @param       len        - length of data in bytes
+    276           *
+    277           * @return      none
+    278           **************************************************************************************************
+    279           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    280          void macSpiWriteRamUint16(uint16 ramAddr, uint16 data)
+   \                     macSpiWriteRamUint16:
+    281          {
+   \   000000   1B15         PUSHM.W #0x2, R11
+   \   000002   0B4C         MOV.W   R12, R11
+   \   000004   0A4D         MOV.W   R13, R10
+    282            spiWriteRamByte(ramAddr,   data & 0xFF);
+   \   000006   ........     CALLA   #spiWriteRamByte
+    283            spiWriteRamByte(ramAddr+1, data >> 8);
+   \   00000A                RPT     #0x8
+   \   00000A   47190A10     RRUX.W  R10
+   \   00000E   4D4A         MOV.B   R10, R13
+   \   000010   1B53         ADD.W   #0x1, R11
+   \   000012   0C4B         MOV.W   R11, R12
+   \   000014   ........     CALLA   #spiWriteRamByte
+    284          }
+   \   000018   1A17         POPM.W  #0x2, R11
+   \   00001A   1001         RETA
+    285          
+    286          
+    287          /**************************************************************************************************
+    288           * @fn          macSpiWriteRam
+    289           *
+    290           * @brief       Write data to radio RAM.
+    291           *
+    292           * @param       ramAddr - radio RAM address
+    293           * @param       pData   - pointer to data to write
+    294           * @param       len     - length of data in bytes
+    295           *
+    296           * @return      none
+    297           **************************************************************************************************
+    298           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    299          void macSpiWriteRam(uint16 ramAddr, uint8 * pData, uint8 len)
+   \                     macSpiWriteRam:
+    300          {
+   \   000000   3B15         PUSHM.W #0x4, R11
+   \   000002   0B4C         MOV.W   R12, R11
+   \   000004   084D         MOV.W   R13, R8
+   \   000006   4A4E         MOV.B   R14, R10
+   \   000008   063C         JMP     ??macSpiWriteRam_1
+    301            while (len)
+    302            {
+    303              spiWriteRamByte(ramAddr, *pData);
+   \                     ??macSpiWriteRam_0:
+   \   00000A   7D48         MOV.B   @R8+, R13
+   \   00000C   0C4B         MOV.W   R11, R12
+   \   00000E   ........     CALLA   #spiWriteRamByte
+    304              ramAddr++;
+   \   000012   1B53         ADD.W   #0x1, R11
+    305              pData++;
+    306              len--;
+   \   000014   7A53         ADD.B   #0xff, R10
+    307            }
+   \                     ??macSpiWriteRam_1:
+   \   000016   4A93         CMP.B   #0x0, R10
+   \   000018   F823         JNE     ??macSpiWriteRam_0
+    308          }
+   \   00001A   3817         POPM.W  #0x4, R11
+   \   00001C   1001         RETA
+    309          
+    310          
+    311          /*=================================================================================================
+    312           * @fn          spiWriteRamByte
+    313           *
+    314           * @brief       Write a byte to radio RAM.
+    315           *
+    316           * @param       ramAddr - radio RAM address
+    317           * @param       byte    - data byte to write to RAM
+    318           *
+    319           * @return      none
+    320           *=================================================================================================
+    321           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    322          static void spiWriteRamByte(uint16 ramAddr, uint8 byte)
+   \                     spiWriteRamByte:
+    323          {
+   \   000000   1B15         PUSHM.W #0x2, R11
+   \   000002   2182         SUB.W   #0x4, SP
+   \   000004   0B4C         MOV.W   R12, R11
+   \   000006   4A4D         MOV.B   R13, R10
+    324            uint8 buf[SPI_ACCESS_BUF_LEN];
+    325          
+    326            MAC_ASSERT(ramAddr <= 0xFFF); /* address out of range */
+   \   000008   3C900010     CMP.W   #0x1000, R12
+   \   00000C   0228         JNC     ??spiWriteRamByte_0
+   \   00000E   ........     CALLA   #halAssertHandler
+    327          
+    328            /* setup for a memory write */
+    329            buf[0] = MEMWR | (ramAddr >> 8);
+   \                     ??spiWriteRamByte_0:
+   \   000012   0F4B         MOV.W   R11, R15
+   \   000014                RPT     #0x8
+   \   000014   47190F10     RRUX.W  R15
+   \   000018   7FD02000     BIS.B   #0x20, R15
+   \   00001C   C14F0000     MOV.B   R15, 0(SP)
+    330            buf[1] = ramAddr & 0xFF;
+   \   000020   C14B0100     MOV.B   R11, 0x1(SP)
+    331            buf[2] = byte;
+   \   000024   C14A0200     MOV.B   R10, 0x2(SP)
+    332          
+    333            /* send bytes out via SPI */
+    334            spiSendBytes(&buf[0], NUM_BYTES_MEM_ACCESS);
+   \   000028   7D400300     MOV.B   #0x3, R13
+   \   00002C   ........     CALLA   #?Subroutine1
+    335          }
+   \                     ??CrossCallReturnLabel_1:
+   \   000030   2152         ADD.W   #0x4, SP
+   \   000032   1A17         POPM.W  #0x2, R11
+   \   000034   1001         RETA
+    336          
+    337          
+    338          /**************************************************************************************************
+    339           * @fn          macSpiReadRam
+    340           *
+    341           * @brief       Read data from radio RAM.
+    342           *
+    343           * @param       ramAddr     - radio RAM address
+    344           * @param       pReadData   - pointer to read data
+    345           * @param       len         - length of data in bytes
+    346           *
+    347           * @return      none
+    348           **************************************************************************************************
+    349           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    350          void macSpiReadRam(uint16 ramAddr, uint8 *pReadData, uint8 len)
+   \                     macSpiReadRam:
+    351          {
+   \   000000   3B15         PUSHM.W #0x4, R11
+   \   000002   0B4C         MOV.W   R12, R11
+   \   000004   084D         MOV.W   R13, R8
+   \   000006   4A4E         MOV.B   R14, R10
+    352            halMacSpiIntState_t s;
+    353            uint8 i;
+    354          
+    355            /* Address out of range */
+    356            MAC_ASSERT(ramAddr <= 0xFFF);
+   \   000008   3C900010     CMP.W   #0x1000, R12
+   \   00000C   0228         JNC     ??macSpiReadRam_7
+   \   00000E   ........     CALLA   #halAssertHandler
+    357          
+    358            /* Buffer must be valid */
+    359            MAC_ASSERT(pReadData != NULL);
+   \                     ??macSpiReadRam_7:
+   \   000012   0893         CMP.W   #0x0, R8
+   \   000014   0220         JNE     ??macSpiReadRam_8
+   \   000016   ........     CALLA   #halAssertHandler
+    360          
+    361            /* Radio must be powered */
+    362            MAC_ASSERT(macSpiRadioPower & MAC_SPI_RADIO_POWER_VREG_ON);
+   \                     ??macSpiReadRam_8:
+   \   00001A   D2B3....     BIT.B   #0x1, &macSpiRadioPower
+   \   00001E   022C         JC      ??macSpiReadRam_9
+   \   000020   ........     CALLA   #halAssertHandler
+    363          
+    364            /* Disable interrupts that call SPI functions. */
+    365            HAL_MAC_SPI_ENTER_CRITICAL_SECTION(s);
+   \                     ??macSpiReadRam_9:
+   \   000024   0E42         MOV.W   SR, R14
+   \   000026   32C2         dint
+   \   000028   0343         nop
+    366          
+    367            /*-------------------------------------------------------------------------------
+    368             *  Turn chip select "off" and then "on" to clear any current SPI access.
+    369             */
+    370            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   00002A   ........     CALLA   #?Subroutine2
+    371            HAL_MAC_SPI_SET_CHIP_SELECT_ON();
+    372          
+    373            /* Send MEMRD via SPI */
+    374            HAL_MAC_SPI_WRITE_BYTE(MEMRD | (ramAddr >> 8));
+   \                     ??CrossCallReturnLabel_3:
+   \   00002E   E2C20700     BIC.B   #0x4, &0x7
+   \   000032   0F4B         MOV.W   R11, R15
+   \   000034                RPT     #0x8
+   \   000034   47190F10     RRUX.W  R15
+   \   000038   7FD01000     BIS.B   #0x10, R15
+   \   00003C   C24FDF00     MOV.B   R15, &0xdf
+   \   000040   ........     CALLA   #?Subroutine3
+    375            HAL_MAC_SPI_WAIT_DONE();
+    376          
+    377            /* Dummy read to clear the SPI Rx buffer */
+    378            HAL_MAC_SPI_LUMINARY_READ_DUMMY_BYTE();
+    379          
+    380            HAL_MAC_SPI_WRITE_BYTE(ramAddr & 0xFF);
+   \                     ??CrossCallReturnLabel_5:
+   \   000044   E2C20700     BIC.B   #0x4, &0x7
+   \   000048   C24BDF00     MOV.B   R11, &0xdf
+   \   00004C   ........     CALLA   #?Subroutine3
+    381            HAL_MAC_SPI_WAIT_DONE();
+    382          
+    383            /* Dummy read to clear the SPI Rx buffer */
+    384            HAL_MAC_SPI_LUMINARY_READ_DUMMY_BYTE();
+    385          
+    386            /* Get the data */
+    387            for (i=0; i<len; i++)
+   \                     ??CrossCallReturnLabel_6:
+   \   000050   4F43         MOV.B   #0x0, R15
+   \   000052   0B3C         JMP     ??macSpiReadRam_10
+    388            {
+    389              /* Write 0 to SPI to get the data */
+    390              HAL_MAC_SPI_WRITE_BYTE(0);
+   \                     ??macSpiReadRam_3:
+   \   000054   E2C20700     BIC.B   #0x4, &0x7
+   \   000058   C243DF00     MOV.B   #0x0, &0xdf
+   \   00005C   ........     CALLA   #?Subroutine3
+    391              /* Wait for Done */
+    392              HAL_MAC_SPI_WAIT_DONE();
+    393              /* Fill up the buffer*/
+    394              *pReadData++ = HAL_MAC_SPI_READ_BYTE();
+   \                     ??CrossCallReturnLabel_7:
+   \   000060   D842DE000000 MOV.B   &0xde, 0(R8)
+   \   000066   1853         ADD.W   #0x1, R8
+    395            }
+   \   000068   5F53         ADD.B   #0x1, R15
+   \                     ??macSpiReadRam_10:
+   \   00006A   4F9A         CMP.B   R10, R15
+   \   00006C   F32B         JNC     ??macSpiReadRam_3
+    396          
+    397            /*-------------------------------------------------------------------------------
+    398             *  Turn off chip select and re-enable interrupts that use SPI.
+    399             */
+    400            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   00006E   D2D33100     BIS.B   #0x1, &0x31
+    401            HAL_MAC_SPI_EXIT_CRITICAL_SECTION(s);
+   \   000072   024E         MOV.W   R14, SR
+    402          }
+   \   000074   3817         POPM.W  #0x4, R11
+   \   000076   1001         RETA
+   \   000078                REQUIRE P5OUT
+   \   000078                REQUIRE UC1IFG
+   \   000078                REQUIRE UCB1TXBUF
+   \   000078                REQUIRE UCB1RXBUF
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   E2B20700     BIT.B   #0x4, &0x7
+   \   000004   FD2B         JNC     ?Subroutine3
+   \   000006   1001         RETA
+    403          
+    404          
+    405          /**************************************************************************************************
+    406           * @fn          macSpiWriteTxFifo
+    407           *
+    408           * @brief       Write data to radio FIFO.
+    409           *
+    410           * @param       pData - pointer for storing write data
+    411           * @param       len   - length of data in bytes
+    412           *
+    413           * @return      none
+    414           **************************************************************************************************
+    415           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    416          void macSpiWriteTxFifo(uint8 * pData, uint8 len)
+   \                     macSpiWriteTxFifo:
+    417          {
+    418            spiFifoAccess(pData, len, FIFO_ACCESS_TX_WRITE);
+   \   000000   4E43         MOV.B   #0x0, R14
+   \   000002   ........     BRA     #spiFifoAccess
+    419          }
+    420          
+    421          
+    422          /**************************************************************************************************
+    423           * @fn          macSpiReadRxFifo
+    424           *
+    425           * @brief       Read data from radio FIFO.
+    426           *
+    427           * @param       pData - pointer for storing read data
+    428           * @param       len   - length of data in bytes
+    429           *
+    430           * @return      none
+    431           **************************************************************************************************
+    432           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    433          void macSpiReadRxFifo(uint8 * pData, uint8 len)
+   \                     macSpiReadRxFifo:
+    434          {
+    435            spiFifoAccess(pData, len, FIFO_ACCESS_RX_READ);
+   \   000000   5E43         MOV.B   #0x1, R14
+   \   000002   ........     BRA     #spiFifoAccess
+    436          }
+    437          
+    438          
+    439          /*=================================================================================================
+    440           * @fn          spiFifoAccess
+    441           *
+    442           * @brief       Read/write data to or from radio FIFO.
+    443           *
+    444           * @param       pData - pointer to data to read or write
+    445           * @param       len   - length of data in bytes
+    446           *
+    447           * @return      none
+    448           *=================================================================================================
+    449           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    450          static void spiFifoAccess(uint8 * pData, uint8 len, uint8 accessType)
+   \                     spiFifoAccess:
+    451          {
+   \   000000   3B15         PUSHM.W #0x4, R11
+   \   000002   084C         MOV.W   R12, R8
+   \   000004   4A4D         MOV.B   R13, R10
+   \   000006   4B4E         MOV.B   R14, R11
+    452            halMacSpiIntState_t s;
+    453          
+    454            MAC_ASSERT(macSpiRadioPower & MAC_SPI_RADIO_POWER_OSC_ON);  /* oscillator must be on */
+   \   000008   E2B3....     BIT.B   #0x2, &macSpiRadioPower
+   \   00000C   022C         JC      ??spiFifoAccess_6
+   \   00000E   ........     CALLA   #halAssertHandler
+    455            MAC_ASSERT(len != 0); /* zero length is not allowed */
+   \                     ??spiFifoAccess_6:
+   \   000012   4A93         CMP.B   #0x0, R10
+   \   000014   0220         JNE     ??spiFifoAccess_7
+   \   000016   ........     CALLA   #halAssertHandler
+    456          
+    457            /*-------------------------------------------------------------------------------
+    458             *  Disable interrupts that call SPI functions.
+    459             */
+    460            HAL_MAC_SPI_ENTER_CRITICAL_SECTION(s);
+   \                     ??spiFifoAccess_7:
+   \   00001A   0F42         MOV.W   SR, R15
+   \   00001C   32C2         dint
+   \   00001E   0343         nop
+    461          
+    462            /*-------------------------------------------------------------------------------
+    463             *  Turn chip select "off" and then "on" to clear any current SPI access.
+    464             */
+    465            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \   000020   ........     CALLA   #?Subroutine2
+    466            HAL_MAC_SPI_SET_CHIP_SELECT_ON();
+    467          
+    468            /*-------------------------------------------------------------------------------
+    469             *  Main loop.  If the SPI access is interrupted, execution comes back to
+    470             *  the start of this loop.  Loop exits when nothing left to transfer.
+    471             *  (Note: previous test guarantees at least one byte to transfer.)
+    472             */
+    473            do
+    474            {
+    475              /*-------------------------------------------------------------------------------
+    476               *  Send FIFO access command byte.  Wait for SPI access to complete.
+    477               */
+    478              if (accessType == FIFO_ACCESS_TX_WRITE)
+   \                     ??spiFifoAccess_2:
+   \   000024   4B93         CMP.B   #0x0, R11
+   \   000026   E2C20700     BIC.B   #0x4, &0x7
+   \   00002A   0420         JNE     ??spiFifoAccess_8
+    479              {
+    480                HAL_MAC_SPI_WRITE_BYTE( TXBUF );
+   \   00002C   F2403A00DF00 MOV.B   #0x3a, &0xdf
+   \   000032   033C         JMP     ??spiFifoAccess_0
+    481              }
+    482              else
+    483              {
+    484                HAL_MAC_SPI_WRITE_BYTE( RXBUF );
+   \                     ??spiFifoAccess_8:
+   \   000034   F2403000DF00 MOV.B   #0x30, &0xdf
+    485              }
+   \                     ??spiFifoAccess_0:
+   \   00003A   ........     CALLA   #?Subroutine3
+    486              HAL_MAC_SPI_WAIT_DONE();
+    487          
+    488              /* Make a Dummy read to empty the SPI Rx buffer */
+    489              HAL_MAC_SPI_LUMINARY_READ_DUMMY_BYTE();
+    490          
+    491              /*-------------------------------------------------------------------------------
+    492               *  Inner loop.  This loop executes as long as the SPI access is not interrupted.
+    493               *  Loop completes when nothing left to transfer.
+    494               *  (Note: previous test guarantees at least one byte to transfer.)
+    495               */
+    496              do
+    497              {
+    498                HAL_MAC_SPI_WRITE_BYTE(*pData);
+   \                     ??spiFifoAccess_3:
+   \   00003E   E2C20700     BIC.B   #0x4, &0x7
+   \   000042   E248DF00     MOV.B   @R8, &0xdf
+    499          
+    500                /*-------------------------------------------------------------------------------
+    501                 *  Use idle time.  Perform increment/decrement operations before pending on
+    502                 *  completion of SPI access.
+    503                 *
+    504                 *  Decrement the length counter.  Wait for SPI access to complete.
+    505                 */
+    506                len--;
+   \   000046   7A53         ADD.B   #0xff, R10
+   \   000048   ........     CALLA   #?Subroutine3
+    507                HAL_MAC_SPI_WAIT_DONE();
+    508          
+    509                /*-------------------------------------------------------------------------------
+    510                 *  SPI data register holds data just read, store the value
+    511                 *  into memory.
+    512                 */
+    513                if (accessType != FIFO_ACCESS_TX_WRITE)
+   \                     ??CrossCallReturnLabel_4:
+   \   00004C   4B93         CMP.B   #0x0, R11
+   \   00004E   0324         JEQ     ??spiFifoAccess_9
+    514                {
+    515                  *pData = HAL_MAC_SPI_READ_BYTE();
+   \   000050   D842DE000000 MOV.B   &0xde, 0(R8)
+    516                }
+    517                else
+    518                {
+    519                  /* Dummy read to clear the SPI Rx buffer */
+    520                  HAL_MAC_SPI_LUMINARY_READ_DUMMY_BYTE();
+    521                }
+    522          
+    523                /*-------------------------------------------------------------------------------
+    524                 *  At least one byte of data has transferred.  Briefly enable (and then disable)
+    525                 *  interrupts that call SPI functions.  This provides a window for any timing
+    526                 *  critical interrupts that might be pending.
+    527                 *
+    528                 *  To improve latency, take care of pointer increment within the interrupt
+    529                 *  enabled window.
+    530                 */
+    531                HAL_MAC_SPI_EXIT_CRITICAL_SECTION(s);
+   \                     ??spiFifoAccess_9:
+   \   000056   024F         MOV.W   R15, SR
+    532                pData++;
+   \   000058   1853         ADD.W   #0x1, R8
+    533                HAL_MAC_SPI_ENTER_CRITICAL_SECTION(s);
+   \   00005A   0F42         MOV.W   SR, R15
+   \   00005C   32C2         dint
+   \   00005E   0343         nop
+    534          
+    535                /*-------------------------------------------------------------------------------
+    536                 *  If chip select is "off" the SPI access was interrupted.  In this case,
+    537                 *  turn back on chip select and break to the main loop.  The main loop will
+    538                 *  pick up where the access was interrupted.
+    539                 */
+    540                if (HAL_MAC_SPI_CHIP_SELECT_IS_OFF())
+   \   000060   D2B33100     BIT.B   #0x1, &0x31
+   \   000064   0528         JNC     ??spiFifoAccess_10
+    541                {
+    542                  HAL_MAC_SPI_SET_CHIP_SELECT_ON();
+   \   000066   D2C33100     BIC.B   #0x1, &0x31
+    543                  break;
+    544                }
+    545          
+    546              /*-------------------------------------------------------------------------------
+    547               */
+    548              } while (len); /* inner loop */
+    549            } while (len);   /* main loop */
+   \   00006A   4A93         CMP.B   #0x0, R10
+   \   00006C   DB23         JNE     ??spiFifoAccess_2
+   \   00006E   023C         JMP     ??spiFifoAccess_11
+   \                     ??spiFifoAccess_10:
+   \   000070   4A93         CMP.B   #0x0, R10
+   \   000072   E523         JNE     ??spiFifoAccess_3
+    550          
+    551            /*-------------------------------------------------------------------------------
+    552             *  Turn off chip select and re-enable interrupts that use SPI.
+    553             */
+    554            HAL_MAC_SPI_SET_CHIP_SELECT_OFF();
+   \                     ??spiFifoAccess_11:
+   \   000074   D2D33100     BIS.B   #0x1, &0x31
+    555            HAL_MAC_SPI_EXIT_CRITICAL_SECTION(s);
+   \   000078   024F         MOV.W   R15, SR
+    556          }
+   \   00007A   3817         POPM.W  #0x4, R11
+   \   00007C   1001         RETA
+   \   00007E                REQUIRE P5OUT
+   \   00007E                REQUIRE UC1IFG
+   \   00007E                REQUIRE UCB1TXBUF
+   \   00007E                REQUIRE UCB1RXBUF
+    557          
+    558          
+    559          /**************************************************************************************************
+    560           * @fn          macSpiRandomByte
+    561           *
+    562           * @brief       returns a random byte
+    563           *
+    564           * @param       none
+    565           *
+    566           * @return      a random byte
+    567           **************************************************************************************************
+    568           */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    569          uint8 macSpiRandomByte(void)
+   \                     macSpiRandomByte:
+    570          {
+   \   000000   2182         SUB.W   #0x4, SP
+    571            uint8 sendBytes[SPI_ACCESS_BUF_LEN];
+    572          
+    573            /* setup to send RANDOM command to radio*/
+    574            sendBytes[0] = RANDOM;
+   \   000002   F1403C000000 MOV.B   #0x3c, 0(SP)
+    575          
+    576            /*
+    577             *  Send RANDOM command via SPI. Note that valid return value needs
+    578             *  two dummy writes (i.e. NUM_BYTES_RANDOM equals 3). */
+    579            return( spiSendBytes(&sendBytes[0], NUM_BYTES_RANDOM) );
+   \   000008   7D400300     MOV.B   #0x3, R13
+   \   00000C   ....         JMP     ?Subroutine0
+    580          }
+    581          
+    582          /**************************************************************************************************
+    583           * @fn          macSpiSendECBO
+    584           *
+    585           * @brief       Send a ECBO command to spi
+    586           *
+    587           * @param       p - 0/1 low/high
+    588           *              k - address of the key at 16xk address
+    589           *              c - 16-c bytes of plaintext
+    590           *              a - input/output address where plaintext and converted text is stored
+    591           *
+    592           * @return      none
+    593           **************************************************************************************************
+    594           */
+
+   \                                 In  segment CODE, align 2
+    595          void macSpiSendECBO(uint8 p, uint8 k, uint8 c, uint16 a)
+   \                     macSpiSendECBO:
+    596          {
+   \   000000   3B15         PUSHM.W #0x4, R11
+   \   000002   2182         SUB.W   #0x4, SP
+   \   000004   4A4C         MOV.B   R12, R10
+   \   000006   4B4D         MOV.B   R13, R11
+   \   000008   484E         MOV.B   R14, R8
+   \   00000A   094F         MOV.W   R15, R9
+    597            uint8 pBuf[4];
+    598          
+    599            /* Address out of range */
+    600            MAC_ASSERT(a <= 0xFFF);
+   \   00000C   3F900010     CMP.W   #0x1000, R15
+   \   000010   0228         JNC     ??macSpiSendECBO_0
+   \   000012   ........     CALLA   #halAssertHandler
+    601          
+    602            /* Apply Encryption */
+    603            pBuf[0] = ECBO | (p & 0x01);
+   \                     ??macSpiSendECBO_0:
+   \   000016   5AF3         AND.B   #0x1, R10
+   \   000018   7AD07200     BIS.B   #0x72, R10
+   \   00001C   C14A0000     MOV.B   R10, 0(SP)
+    604            pBuf[1] = k;
+   \   000020   C14B0100     MOV.B   R11, 0x1(SP)
+    605            pBuf[2] = ((c & 0x0F) << 4) | (a >> 8);
+   \   000024   0F49         MOV.W   R9, R15
+   \   000026                RPT     #0x8
+   \   000026   47190F10     RRUX.W  R15
+   \   00002A                RPT     #0x4
+   \   00002A   43184858     RLAX.B  R8
+   \   00002E   48DF         BIS.B   R15, R8
+   \   000030   C1480200     MOV.B   R8, 0x2(SP)
+    606            pBuf[3] = a & 0xFF;
+   \   000034   C1490300     MOV.B   R9, 0x3(SP)
+    607          
+    608            /* send bytes out via SPI */
+    609            spiSendBytes(&pBuf[0], 4);
+   \   000038   6D42         MOV.B   #0x4, R13
+   \   00003A   ........     CALLA   #?Subroutine1
+    610          }
+   \                     ??CrossCallReturnLabel_2:
+   \   00003E   2152         ADD.W   #0x4, SP
+   \   000040   3817         POPM.W  #0x4, R11
+   \   000042   1001         RETA
+    611          
+    612          /**************************************************************************************************
+    613           *                                  Compile Time Integrity Checks
+    614           **************************************************************************************************
+    615           */
+    616          #if (MAC_SPI_RADIO_POWER_VREG_ON & MAC_SPI_RADIO_POWER_OSC_ON)
+    617          #error "ERROR!  Non-unique bit values for SPI radio power states."
+    618          #endif
+    619          
+    620          #if (FIFO_ACCESS_TX_WRITE != 0)
+    621          #error "ERROR!  Code optimized for FIFO_ACCESS_TX_WRITE equal to zero."
+    622          #endif
+    623          
+    624          /**************************************************************************************************
+    625          */
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      8   macSpiCmdStrobe
+        8   -> spiSendBytes
+      4   macSpiInit
+      8   macSpiRandomByte
+        8   -> spiSendBytes
+     12   macSpiReadRam
+       12   -> halAssertHandler
+      8   macSpiReadReg
+        8   -> spiSendBytes
+      4   macSpiReadRxFifo
+        4   -> spiFifoAccess
+     16   macSpiSendECBO
+       16   -> halAssertHandler
+       16   -> spiSendBytes
+     12   macSpiWriteRam
+       12   -> spiWriteRamByte
+      8   macSpiWriteRamUint16
+        8   -> spiWriteRamByte
+      8   macSpiWriteReg
+        8   -> spiSendBytes
+      4   macSpiWriteTxFifo
+        4   -> spiFifoAccess
+     12   spiFifoAccess
+       12   -> halAssertHandler
+      8   spiSendBytes
+        8   -> halAssertHandler
+     12   spiWriteRamByte
+       12   -> halAssertHandler
+       12   -> spiSendBytes
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ?Subroutine0
+       8  ?Subroutine1
+      10  ?Subroutine2
+       8  ?Subroutine3
+       1  P5OUT
+       1  UC1IFG
+       1  UCB1BR0
+       1  UCB1BR1
+       1  UCB1CTL0
+       1  UCB1CTL1
+       1  UCB1RXBUF
+       1  UCB1TXBUF
+      10  macSpiCmdStrobe
+      30  macSpiInit
+       1  macSpiRadioPower
+      14  macSpiRandomByte
+     120  macSpiReadRam
+      34  macSpiReadReg
+       6  macSpiReadRxFifo
+      68  macSpiSendECBO
+      30  macSpiWriteRam
+      28  macSpiWriteRamUint16
+      44  macSpiWriteReg
+       6  macSpiWriteTxFifo
+     126  spiFifoAccess
+      62  spiSendBytes
+      54  spiWriteRamByte
+
+ 
+ 666 bytes in segment CODE
+   8 bytes in segment DATA16_AN
+   1 byte  in segment DATA16_Z
+ 
+ 666 bytes of CODE memory
+   1 byte  of DATA memory (+ 8 bytes shared)
+
+Errors: none
+Warnings: none

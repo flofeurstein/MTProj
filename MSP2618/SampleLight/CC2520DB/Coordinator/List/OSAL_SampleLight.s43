@@ -1,0 +1,511 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:24:27 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleLight\Source\OSAL_SampleLight /
+//                     .c                                                     /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\T /
+//                     ools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0    /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wCoord.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=T /
+//                     RUE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         /
+//                     -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK) -f     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\..\..\Tool /
+//                     s\MSP2618\f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE          /
+//                     -DZCL_BASIC -DZCL_IDENTIFY -DZCL_ON_OFF                /
+//                     -DZCL_KEY_ESTABLISH -DZCL_KEY_ESTABLISHMENT_KEY_GENERA /
+//                     TE_TIMEOUT=4 -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIME /
+//                     OUT=10 -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=1 /
+//                     0 -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING             /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\Source\OSAL_SampleLight.c" -D    /
+//                     MSP430F2618 -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D   /
+//                     MT_ZDO_FUNC -D LCD_SUPPORTED -lC "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\Coordinator\List\" -lA  /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Coordinator\L /
+//                     ist\" --remarks --diag_suppress                        /
+//                     Pe001,Pe193,Pe236,Pe826 -o "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\Coordinator\Obj\"       /
+//                     --debug -D__MSP430F2618__ -e --double=32 --clib -I     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\" -I          /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\Source\"   /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\Sour /
+//                     ce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro /
+//                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\.. /
+//                     \..\ZMain\MSP2618\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\target\MSP2618CC2520\" -I "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\high_level\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\" -I "C:\Texas                  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\dual_chip\" -I "C:\Texas        /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ /
+//                     Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. /
+//                     \..\..\..\..\Components\osal\include\" -I "C:\Texas    /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\osal\mcu\msp430\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\saddr\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\sdata\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\af\" -I "C:\Texas                             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\nwk\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sec\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sapi\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sys\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zcl\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zdo\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5. /
+//                     1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ /
+//                     ..\..\..\..\..\Components\zmac\f8w\" --core=430X       /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleLight\CC2520DB\Coordinator\Li /
+//                     st\OSAL_SampleLight.s43                                /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME OSAL_SampleLight
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC osalInitTasks
+        FUNCTION osalInitTasks,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC tasksArr
+        PUBLIC tasksCnt
+        PUBLIC tasksEvents
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        EXTERN macTaskInit
+        FUNCTION macTaskInit,0202H
+        EXTERN nwk_init
+        FUNCTION nwk_init,0202H
+        EXTERN Hal_Init
+        FUNCTION Hal_Init,0202H
+        EXTERN MT_TaskInit
+        FUNCTION MT_TaskInit,0202H
+        EXTERN APS_Init
+        FUNCTION APS_Init,0202H
+        EXTERN APSF_Init
+        FUNCTION APSF_Init,0202H
+        EXTERN ZDApp_Init
+        FUNCTION ZDApp_Init,0202H
+        EXTERN ZDNwkMgr_Init
+        FUNCTION ZDNwkMgr_Init,0202H
+        EXTERN zcl_Init
+        FUNCTION zcl_Init,0202H
+        EXTERN zclSampleLight_Init
+        FUNCTION zclSampleLight_Init,0202H
+        EXTERN APSF_ProcessEvent
+        FUNCTION APSF_ProcessEvent,0602H
+        EXTERN APS_event_loop
+        FUNCTION APS_event_loop,0602H
+        EXTERN Hal_ProcessEvent
+        FUNCTION Hal_ProcessEvent,0602H
+        EXTERN MT_ProcessEvent
+        FUNCTION MT_ProcessEvent,0602H
+        EXTERN ZDApp_event_loop
+        FUNCTION ZDApp_event_loop,0602H
+        EXTERN ZDNwkMgr_event_loop
+        FUNCTION ZDNwkMgr_event_loop,0602H
+        EXTERN macEventLoop
+        FUNCTION macEventLoop,0602H
+        EXTERN nwk_event_loop
+        FUNCTION nwk_event_loop,0602H
+        EXTERN zclSampleLight_event_loop
+        FUNCTION zclSampleLight_event_loop,0602H
+        EXTERN zcl_event_loop
+        FUNCTION zcl_event_loop,0602H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAutomation\SampleLight\Source\OSAL_SampleLight.c
+//    1 /**************************************************************************************************
+//    2   Filename:       OSAL_SampleLight.c
+//    3   Revised:        $Date: 2008-02-07 12:10:00 -0800 (Thu, 07 Feb 2008) $
+//    4   Revision:       $Revision: 16360 $
+//    5 
+//    6   Description:    This file contains all the settings and other functions
+//    7                   that the user should set and change.
+//    8 
+//    9 
+//   10   Copyright 2006-2007 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License").  You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product.  Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com.
+//   39 **************************************************************************************************/
+//   40 
+//   41 /*********************************************************************
+//   42  * INCLUDES
+//   43  */
+//   44 
+//   45 #include "ZComDef.h"
+//   46 #include "hal_drivers.h"
+//   47 #include "OSAL.h"
+//   48 #include "OSAL_Tasks.h"
+//   49 
+//   50 #if defined ( MT_TASK )
+//   51   #include "MT.h"
+//   52   #include "MT_TASK.h"
+//   53 #endif
+//   54 
+//   55 #include "nwk.h"
+//   56 #include "APS.h"
+//   57 #include "ZDApp.h"
+//   58 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   59   #include "ZDNwkMgr.h"
+//   60 #endif
+//   61 #if defined ( ZIGBEE_FRAGMENTATION )
+//   62   #include "aps_frag.h"
+//   63 #endif
+//   64 
+//   65 #include "zcl_samplelight.h"
+//   66 
+//   67 /*********************************************************************
+//   68  * GLOBAL VARIABLES
+//   69  */
+//   70 
+//   71 // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(1)
+//   72 const pTaskEventHandlerFn tasksArr[] = {
+tasksArr:
+        DC32 macEventLoop, nwk_event_loop, Hal_ProcessEvent, MT_ProcessEvent
+        DC32 APS_event_loop, APSF_ProcessEvent, ZDApp_event_loop
+        DC32 ZDNwkMgr_event_loop, zcl_event_loop, zclSampleLight_event_loop
+//   73   macEventLoop,
+//   74   nwk_event_loop,
+//   75   Hal_ProcessEvent,
+//   76 #if defined( MT_TASK )
+//   77   MT_ProcessEvent,
+//   78 #endif
+//   79   APS_event_loop,
+//   80 #if defined ( ZIGBEE_FRAGMENTATION )
+//   81   APSF_ProcessEvent,
+//   82 #endif
+//   83   ZDApp_event_loop,
+//   84 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   85   ZDNwkMgr_event_loop,
+//   86 #endif
+//   87   zcl_event_loop,
+//   88   zclSampleLight_event_loop
+//   89 };
+//   90 
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   91 const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+tasksCnt:
+        DC8 10
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   92 uint16 *tasksEvents;
+tasksEvents:
+        DS8 2
+//   93 
+//   94 /*********************************************************************
+//   95  * FUNCTIONS
+//   96  *********************************************************************/
+//   97 
+//   98 /*********************************************************************
+//   99  * @fn      osalInitTasks
+//  100  *
+//  101  * @brief   This function invokes the initialization function for each task.
+//  102  *
+//  103  * @param   void
+//  104  *
+//  105  * @return  none
+//  106  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  107 void osalInitTasks( void )
+osalInitTasks:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function osalInitTasks
+//  108 {
+//  109   uint8 taskID = 0;
+//  110 
+//  111   tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+        FUNCALL osalInitTasks, osal_mem_alloc
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, osal_memset
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, macTaskInit
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, nwk_init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, Hal_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, MT_TaskInit
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, APS_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, APSF_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, ZDApp_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, ZDNwkMgr_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, zcl_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL osalInitTasks, zclSampleLight_Init
+        LOCFRAME CSTACK, 4, STACK
+        MOV.W   #0x14, R12
+        CALLA   #osal_mem_alloc
+        MOV.W   R12, &tasksEvents
+//  112   osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+        MOV.W   #0x14, R14
+        MOV.B   #0x0, R13
+        CALLA   #osal_memset
+//  113 
+//  114   macTaskInit( taskID++ );
+        MOV.B   #0x0, R12
+        CALLA   #macTaskInit
+//  115   nwk_init( taskID++ );
+        MOV.B   #0x1, R12
+        CALLA   #nwk_init
+//  116   Hal_Init( taskID++ );
+        MOV.B   #0x2, R12
+        CALLA   #Hal_Init
+//  117 #if defined( MT_TASK )
+//  118   MT_TaskInit( taskID++ );
+        MOV.B   #0x3, R12
+        CALLA   #MT_TaskInit
+//  119 #endif
+//  120   APS_Init( taskID++ );
+        MOV.B   #0x4, R12
+        CALLA   #APS_Init
+//  121 #if defined ( ZIGBEE_FRAGMENTATION )
+//  122   APSF_Init( taskID++ );
+        MOV.B   #0x5, R12
+        CALLA   #APSF_Init
+//  123 #endif
+//  124   ZDApp_Init( taskID++ );
+        MOV.B   #0x6, R12
+        CALLA   #ZDApp_Init
+//  125 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//  126   ZDNwkMgr_Init( taskID++ );
+        MOV.B   #0x7, R12
+        CALLA   #ZDNwkMgr_Init
+//  127 #endif
+//  128   zcl_Init( taskID++ );
+        MOV.B   #0x8, R12
+        CALLA   #zcl_Init
+//  129   zclSampleLight_Init( taskID );
+        MOV.B   #0x9, R12
+        BRA     #zclSampleLight_Init
+          CFI EndBlock cfiBlock0
+//  130 }
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  131 
+//  132 /*********************************************************************
+//  133 *********************************************************************/
+// 
+// 92 bytes in segment CODE
+// 41 bytes in segment DATA16_C
+//  2 bytes in segment DATA16_Z
+// 
+// 92 bytes of CODE  memory
+// 41 bytes of CONST memory
+//  2 bytes of DATA  memory
+//
+//Errors: none
+//Warnings: none

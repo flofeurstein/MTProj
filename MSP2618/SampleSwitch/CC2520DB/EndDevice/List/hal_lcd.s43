@@ -1,0 +1,1929 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  17:10:42 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\h /
+//                     al\target\MSP2618CC2520\hal_lcd.c                      /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\ /
+//                     Tools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0   /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wEndev.cfg" (-DCPU6MHZ -DMAC_CFG_TX_DATA_MAX=3      /
+//                     -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "C:\Texas    /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC       /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\hal\target /
+//                     \MSP2618CC2520\hal_lcd.c" -D MSP430F2618 -D            /
+//                     NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC    /
+//                     -D MT_ZDO_FUNC -D LCD_SUPPORTED -lC "C:\Texas          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\EndDevice\List\" -lA   /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\Li /
+//                     st\" --remarks --diag_suppress                         /
+//                     Pe001,Pe193,Pe236,Pe826 -o "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\EndDevice\Obj\"        /
+//                     --debug -D__MSP430F2618__ -e --double=32 --clib -I     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\" -I         /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"  /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sou /
+//                     rce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr /
+//                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\ /
+//                     ..\..\ZMain\MSP2618\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\target\MSP2618CC2520\" -I "C:\Texas            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\high_level\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\" -I "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\dual_chip\" -I "C:\Texas       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 /
+//                     \Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\ /
+//                     ..\..\..\..\..\Components\osal\include\" -I "C:\Texas  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\osal\mcu\msp430\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\saddr\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\sdata\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\af\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\nwk\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sec\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sapi\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sys\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zcl\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zdo\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 /
+//                     .1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D /
+//                     B\..\..\..\..\..\Components\zmac\f8w\" --core=430X     /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleSwitch\CC2520DB\EndDevice\Lis /
+//                     t\hal_lcd.s43                                          /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_lcd
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?DivMod8u
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC HalLcdDisplayPercentBar
+        FUNCTION HalLcdDisplayPercentBar,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 30, STACK
+        PUBLIC HalLcdInit
+        FUNCTION HalLcdInit,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC HalLcdWriteScreen
+        FUNCTION HalLcdWriteScreen,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC HalLcdWriteString
+        FUNCTION HalLcdWriteString,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC HalLcdWriteStringValue
+        FUNCTION HalLcdWriteStringValue,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 42, STACK
+        PUBLIC HalLcdWriteStringValueValue
+        FUNCTION HalLcdWriteStringValueValue,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 46, STACK
+        PUBLIC HalLcdWriteValue
+        FUNCTION HalLcdWriteValue,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 32, STACK
+        PUBLIC HalLcd_HW_Clear
+        FUNCTION HalLcd_HW_Clear,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC HalLcd_HW_ClearAllSpecChars
+        FUNCTION HalLcd_HW_ClearAllSpecChars,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC HalLcd_HW_Control
+        FUNCTION HalLcd_HW_Control,080203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC HalLcd_HW_Init
+        FUNCTION HalLcd_HW_Init,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC HalLcd_HW_SetContrast
+        FUNCTION HalLcd_HW_SetContrast,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC HalLcd_HW_Wait
+        FUNCTION HalLcd_HW_Wait,080203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC HalLcd_HW_Write
+        FUNCTION HalLcd_HW_Write,080203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC HalLcd_HW_WriteChar
+        FUNCTION HalLcd_HW_WriteChar,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC HalLcd_HW_WriteLine
+        FUNCTION HalLcd_HW_WriteLine,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        PUBWEAK IFG2
+        PUBWEAK P3SEL
+        PUBWEAK P6DIR
+        PUBWEAK P6OUT
+        PUBWEAK UCB0BR0
+        PUBWEAK UCB0BR1
+        PUBWEAK UCB0CTL0
+        PUBWEAK UCB0CTL1
+        PUBWEAK UCB0TXBUF
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+        EXTERN strlen
+        FUNCTION strlen,010202H
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        EXTERN _ltoa
+        FUNCTION _ltoa,0202H
+        EXTERN osal_strlen
+        FUNCTION osal_strlen,0202H
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        EXTERN debug_str
+        FUNCTION debug_str,0202H
+        EXTERN osal_mem_free
+        FUNCTION osal_mem_free,0202H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\hal\target\MSP2618CC2520\hal_lcd.c
+//    1 /**************************************************************************************************
+//    2   Filename:       hal_lcd.c
+//    3   Revised:        $Date: 2009-04-01 22:04:53 -0700 (Wed, 01 Apr 2009) $
+//    4   Revision:       $Revision: 19626 $
+//    5 
+//    6   Description:    This file contains the interface to the HAL LCD Service.
+//    7 
+//    8 
+//    9   Copyright 2007-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /**************************************************************************************************
+//   41  *                                           INCLUDES
+//   42  **************************************************************************************************/
+//   43 #include "hal_types.h"
+//   44 #include "hal_lcd.h"
+
+        ASEGN DATA16_AN:DATA:NOROOT,03H
+// unsigned char volatile IFG2
+IFG2:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,01bH
+// unsigned char volatile P3SEL
+P3SEL:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,035H
+// unsigned char volatile P6OUT
+P6OUT:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,036H
+// unsigned char volatile P6DIR
+P6DIR:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,068H
+// unsigned char volatile UCB0CTL0
+UCB0CTL0:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,069H
+// unsigned char volatile UCB0CTL1
+UCB0CTL1:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,06aH
+// unsigned char volatile UCB0BR0
+UCB0BR0:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,06bH
+// unsigned char volatile UCB0BR1
+UCB0BR1:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,06fH
+// unsigned char volatile UCB0TXBUF
+UCB0TXBUF:
+        DS8 1
+//   45 #include "OSAL.h"
+//   46 #include "OnBoard.h"
+//   47 #include "hal_assert.h"
+//   48 #include <stdlib.h>
+//   49 #include <string.h>
+//   50 
+//   51 #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+//   52   #include "DebugTrace.h"
+//   53 #endif
+//   54 
+//   55 /**************************************************************************************************
+//   56  *                                          CONSTANTS
+//   57  **************************************************************************************************/
+//   58 /* LCD lines */
+//   59 #define LCD_MAX_LINE_COUNT              3
+//   60 #define LCD_MAX_LINE_LENGTH             16
+//   61 #define LCD_MAX_BUF                     25
+//   62 
+//   63 /* Defines for HW LCD */
+//   64 
+//   65 /* Set power save mode */
+//   66 #define OSC_OFF                         0x00
+//   67 #define OSC_ON                          0x01
+//   68 #define POWER_SAVE_OFF                  0x00
+//   69 #define POWER_SAVE_ON                   0x02
+//   70 #define SET_POWER_SAVE_MODE(options)    HalLcd_HW_Control(0x0C | (options))
+//   71 
+//   72 /* Function Set */
+//   73 #define CGROM                           0x00
+//   74 #define CGRAM                           0x01
+//   75 #define COM_FORWARD                     0x00
+//   76 #define COM_BACKWARD                    0x02
+//   77 #define TWO_LINE                        0x00
+//   78 #define THREE_LINE                      0x04
+//   79 #define FUNCTION_SET(options)           HalLcd_HW_Control(0x10 | (options))
+//   80 
+//   81 /* Set Display Start Line */
+//   82 #define LINE1                           0x00
+//   83 #define LINE2                           0x01
+//   84 #define LINE3                           0x02
+//   85 #define LINE4                           0x03
+//   86 #define SET_DISPLAY_START_LINE(line)    HalLcd_HW_Control(0x18 | (line))
+//   87 
+//   88 /* Bias control */
+//   89 #define BIAS_1_5                        0x00
+//   90 #define BIAS_1_4                        0x01
+//   91 #define SET_BIAS_CTRL(bias)             HalLcd_HW_Control(0x1C | (bias))
+//   92 
+//   93 /* Power control */
+//   94 #define VOLTAGE_DIVIDER_OFF             0x00
+//   95 #define VOLTAGE_DIVIDER_ON              0x01
+//   96 #define CONVERTER_AND_REG_OFF           0x00
+//   97 #define CONVERTER_AND_REG_ON            0x04
+//   98 #define SET_POWER_CTRL(options)         HalLcd_HW_Control(0x20 | (options))
+//   99 
+//  100 // Set display control
+//  101 #define DISPLAY_CTRL_ON                 0x01
+//  102 #define DISPLAY_CTRL_OFF                0x00
+//  103 #define DISPLAY_CTRL_BLINK_ON           0x02
+//  104 #define DISPLAY_CTRL_BLINK_OFF          0x00
+//  105 #define DISPLAY_CTRL_CURSOR_ON          0x04
+//  106 #define DISPLAY_CTRL_CURSOR_OFF         0x00
+//  107 #define SET_DISPLAY_CTRL(options)       HalLcd_HW_Control(0x28 | (options))
+//  108 
+//  109 /* Set DD/ CGRAM address */
+//  110 #define SET_DDRAM_ADDR(charIndex)       HalLcd_HW_Control(0x80 | (charIndex))
+//  111 #define SET_GCRAM_CHAR(specIndex)       HalLcd_HW_Control(0xC0 | (specIndex))
+//  112 
+//  113 /* Set ICONRAM address */
+//  114 #define CONTRAST_CTRL_REGISTER          0x10
+//  115 #define SET_ICONRAM_ADDR(addr)          HalLcd_HW_Control(0x40 | (addr))
+//  116 
+//  117 /* Set double height */
+//  118 #define LINE_1_AND_2                    0x01
+//  119 #define LINE_2_AND_3                    0x02
+//  120 #define NORMAL_DISPLAY                  0x00
+//  121 #define SET_DOUBLE_HEIGHT(options)      HalLcd_HW_Control(0x08 | (options))
+//  122 
+//  123 /**************************************************************************************************
+//  124  *                                           MACROS
+//  125  **************************************************************************************************/
+//  126 /*
+//  127   LCD pin control
+//  128 
+//  129   P3.1 - SIMO
+//  130   P3.2 - SOMI
+//  131   P3.3 - CLK
+//  132   P6.2 - LCD_CS
+//  133   P6.3 - LCD_MODE
+//  134   P6.4 - LCD_FLASH_RESET
+//  135 */
+//  136 
+//  137 /* SPI interface control */
+//  138 #define LCD_SPI_BEGIN()                 {P6OUT &= ~BV(2);} //P6.2
+//  139 #define LCD_SPI_TX(x)                   { IFG2 &= ~UCB0RXIFG; UCB0TXBUF= x; }
+//  140 #define LCD_SPI_RX()                    UCB0RXBUF
+//  141 #define LCD_SPI_WAIT_RXRDY()            { while (!(IFG2 & UCB0RXIFG)); }
+//  142 #define LCD_SPI_END()                   { asm("NOP"); asm("NOP"); asm("NOP"); asm("NOP"); P6OUT |= BV(2); }
+//  143 
+//  144 /* Control macros */
+//  145 #define LCD_DO_WRITE()                  {P6OUT |= BV(3);}  //P6.3
+//  146 #define LCD_DO_CONTROL()                {P6OUT &= ~BV(3);} //P6.3
+//  147 #define LCD_ACTIVATE_RESET()            {P6OUT &= ~BV(4);} //P6.4
+//  148 #define LCD_RELEASE_RESET()             {P6OUT |= BV(4);}  //P6.4
+//  149 
+//  150 /* Port direction initialization */
+//  151 #define LCD_CTRL_INIT_PORTS()           st( P6DIR |= BV(3); P6DIR |= BV(4); )               //P6.3 P6.4
+//  152 #define LCD_SPI_INIT_PORTS()            st( P6DIR |= BV(2); P3SEL |= BV(1)|BV(2)|BV(3); )   //P6.2 P3.1.2.3
+//  153 
+//  154 
+//  155 /**************************************************************************************************
+//  156  *                                       GLOBAL VARIABLES
+//  157  **************************************************************************************************/
+//  158 #if (HAL_LCD == TRUE)
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//  159 static uint8 *Lcd_Line1;
+Lcd_Line1:
+        DS8 2
+//  160 #endif
+//  161 
+//  162 /**************************************************************************************************
+//  163  *                                       FUNCTIONS - API
+//  164  **************************************************************************************************/
+//  165 #if (HAL_LCD == TRUE)
+//  166 void HalLcd_HW_Init(void);
+//  167 void HalLcd_HW_Wait(uint16 i);
+//  168 void HalLcd_HW_Clear(void);
+//  169 void HalLcd_HW_ClearAllSpecChars(void);
+//  170 void HalLcd_HW_Control(uint8 cmd);
+//  171 void HalLcd_HW_Write(uint8 data);
+//  172 void HalLcd_HW_SetContrast(uint8 value);
+//  173 void HalLcd_HW_WriteChar(uint8 line, uint8 col, char text);
+//  174 void HalLcd_HW_WriteLine(uint8 line, const char *pText);
+//  175 #endif //LCD
+//  176 
+//  177 /**************************************************************************************************
+//  178  * @fn      HalLcdInit
+//  179  *
+//  180  * @brief   Initilize LCD Service
+//  181  *
+//  182  * @param   init - pointer to void that contains the initialized value
+//  183  *
+//  184  * @return  None
+//  185  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  186 void HalLcdInit(void)
+HalLcdInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function HalLcdInit
+//  187 {
+//  188 #if (HAL_LCD == TRUE)
+//  189   Lcd_Line1 = NULL;
+        FUNCALL HalLcdInit, HalLcd_HW_Init
+        LOCFRAME CSTACK, 4, STACK
+        MOV.W   #0x0, &Lcd_Line1
+//  190   HalLcd_HW_Init();
+        BRA     #HalLcd_HW_Init
+          CFI EndBlock cfiBlock0
+//  191 #endif
+//  192 }
+//  193 
+//  194 /*************************************************************************************************
+//  195  *                    LCD EMULATION FUNCTIONS
+//  196  *
+//  197  * Some evaluation boards are equipped with Liquid Crystal Displays
+//  198  * (LCD) which may be used to display diagnostic information. These
+//  199  * functions provide LCD emulation, sending the diagnostic strings
+//  200  * to Z-Tool via the RS232 serial port. These functions are enabled
+//  201  * when the "LCD_SUPPORTED" compiler flag is placed in the makefile.
+//  202  *
+//  203  * Most applications update both lines (1 and 2) of the LCD whenever
+//  204  * text is posted to the device. This emulator assumes that line 1 is
+//  205  * updated first (saved locally) and the formatting and send operation
+//  206  * is triggered by receipt of line 2. Nothing will be transmitted if
+//  207  * only line 1 is updated.
+//  208  *
+//  209  *************************************************************************************************/
+//  210 
+//  211 
+//  212 /**************************************************************************************************
+//  213  * @fn      HalLcdWriteString
+//  214  *
+//  215  * @brief   Write a string to the LCD
+//  216  *
+//  217  * @param   str    - pointer to the string that will be displayed
+//  218  *          option - display options
+//  219  *
+//  220  * @return  None
+//  221  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  222 void HalLcdWriteString ( char *str, uint8 option)
+HalLcdWriteString:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function HalLcdWriteString
+//  223 {
+        FUNCALL HalLcdWriteString, osal_mem_alloc
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, HalLcdWriteString
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_strlen
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_memcpy
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_strlen
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_mem_alloc
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_memcpy
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_memcpy
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, debug_str
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, osal_mem_free
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL HalLcdWriteString, HalLcd_HW_WriteLine
+        LOCFRAME CSTACK, 20, STACK
+        PUSHM.W #0x8, R11
+          CFI R4L Frame(CFA, -20)
+          CFI R5L Frame(CFA, -18)
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+20
+        MOV.W   R12, R9
+        MOV.B   R13, R8
+//  224 #if (HAL_LCD == TRUE)
+//  225   uint8 strLen = 0;
+//  226   uint8 totalLen = 0;
+//  227   uint8 *buf;
+//  228   uint8 tmpLen;
+//  229 
+//  230   if ( Lcd_Line1 == NULL )
+        CMP.W   #0x0, &Lcd_Line1
+        JNE     ??HalLcdWriteString_0
+//  231   {
+//  232     Lcd_Line1 = osal_mem_alloc( HAL_LCD_MAX_CHARS+1 );
+        MOV.W   #0x11, R12
+        CALLA   #osal_mem_alloc
+        MOV.W   R12, &Lcd_Line1
+//  233     HalLcdWriteString( "TexasInstruments", 1 );
+        MOV.B   #0x1, R13
+        MOV.W   #`?<Constant "TexasInstruments">`, R12
+        CALLA   #HalLcdWriteString
+//  234   }
+//  235 
+//  236   strLen = (uint8)osal_strlen( (char*)str );
+??HalLcdWriteString_0:
+        MOV.W   R9, R12
+        CALLA   #osal_strlen
+        MOV.B   R12, R10
+//  237 
+//  238   /* Check boundries */
+//  239   if ( strLen > HAL_LCD_MAX_CHARS )
+        CMP.B   #0x11, R12
+        JNC     ??HalLcdWriteString_1
+//  240     strLen = HAL_LCD_MAX_CHARS;
+        MOV.B   #0x10, R10
+//  241 
+//  242   if ( option == HAL_LCD_LINE_1 )
+??HalLcdWriteString_1:
+        MOV.B   R10, R6
+        MOV.B   R10, R7
+        MOV.W   #Lcd_Line1, R4
+        CMP.B   #0x1, R8
+        JNE     ??HalLcdWriteString_2
+//  243   {
+//  244     /* Line 1 gets saved for later */
+//  245     osal_memcpy( Lcd_Line1, str, strLen );
+        MOV.W   R7, R14
+        MOV.W   R9, R13
+        MOV.W   @R4, R12
+        CALLA   #osal_memcpy
+//  246     Lcd_Line1[strLen] = '\0';
+        MOV.W   @R4, R15
+        ADD.W   R6, R15
+        MOV.B   #0x0, 0(R15)
+        JMP     ??HalLcdWriteString_3
+//  247   }
+//  248   else
+//  249   {
+//  250     /* Line 2 triggers action */
+//  251     tmpLen = (uint8)osal_strlen( (char*)Lcd_Line1 );
+??HalLcdWriteString_2:
+        MOV.W   @R4, R12
+        CALLA   #osal_strlen
+        MOV.B   R12, R11
+//  252     totalLen =  tmpLen + 1 + strLen + 1;
+//  253     buf = osal_mem_alloc( totalLen );
+        ADD.B   R10, R12
+        ADD.B   #0x2, R12
+        CALLA   #osal_mem_alloc
+        MOV.W   R12, R10
+//  254     if ( buf != NULL )
+        CMP.W   #0x0, R12
+        JEQ     ??HalLcdWriteString_3
+//  255     {
+//  256       /* Concatenate strings */
+//  257       osal_memcpy( buf, Lcd_Line1, tmpLen );
+        MOV.B   R11, R14
+        MOV.W   @R4, R13
+        CALLA   #osal_memcpy
+//  258       buf[tmpLen++] = ' ';
+        MOV.W   R10, R15
+        ADD.W   R11, R15
+        MOV.B   #0x20, 0(R15)
+        ADD.B   #0x1, R11
+//  259       osal_memcpy( &buf[tmpLen], str, strLen );
+        MOV.W   R7, R14
+        MOV.W   R9, R13
+        MOV.W   R10, R12
+        ADD.W   R11, R12
+        CALLA   #osal_memcpy
+//  260       buf[tmpLen+strLen] = '\0';
+        ADD.W   R6, R11
+        MOV.W   R10, R15
+        ADD.W   R11, R15
+        MOV.B   #0x0, 0(R15)
+//  261 
+//  262       /* Send it out */
+//  263 #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+//  264       debug_str( (uint8*)buf );
+        MOV.W   R10, R12
+        CALLA   #debug_str
+//  265 #endif //ZTOOL_P1
+//  266 
+//  267       /* Free mem */
+//  268       osal_mem_free( buf );
+        MOV.W   R10, R12
+        CALLA   #osal_mem_free
+//  269     }
+//  270   }
+//  271 
+//  272   /* Display the string */
+//  273   HalLcd_HW_WriteLine (option, str);
+??HalLcdWriteString_3:
+        MOV.W   R9, R13
+        MOV.B   R8, R12
+        CALLA   #HalLcd_HW_WriteLine
+//  274 
+//  275 #endif //HAL_LCD
+//  276 }
+        POPM.W  #0x8, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+//  277 
+//  278 /**************************************************************************************************
+//  279  * @fn      HalLcdWriteValue
+//  280  *
+//  281  * @brief   Write a value to the LCD
+//  282  *
+//  283  * @param   value  - value that will be displayed
+//  284  *          radix  - 8, 10, 16
+//  285  *          option - display options
+//  286  *
+//  287  * @return  None
+//  288  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  289 void HalLcdWriteValue ( uint32 value, const uint8 radix, uint8 option)
+HalLcdWriteValue:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function HalLcdWriteValue
+//  290 {
+        FUNCALL HalLcdWriteValue, _ltoa
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL HalLcdWriteValue, HalLcdWriteString
+        LOCFRAME CSTACK, 32, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        SUB.W   #0x1a, SP
+          CFI CFA SP+32
+        MOV.B   R15, R10
+//  291 #if (HAL_LCD == TRUE)
+//  292   uint8 buf[LCD_MAX_BUF];
+//  293 
+//  294   _ltoa( value, &buf[0], radix );
+        MOV.B   R14, R15
+        MOV.W   SP, R14
+        ADD.W   #0x0, R14
+        CALLA   #_ltoa
+//  295   HalLcdWriteString( (char*)buf, option );
+        MOV.B   R10, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #HalLcdWriteString
+//  296 #endif
+//  297 }
+        ADD.W   #0x1a, SP
+          CFI CFA SP+6
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+//  298 
+//  299 /**************************************************************************************************
+//  300  * @fn      HalLcdWriteScreen
+//  301  *
+//  302  * @brief   Write a value to the LCD
+//  303  *
+//  304  * @param   line1  - string that will be displayed on line 1
+//  305  *          line2  - string that will be displayed on line 2
+//  306  *
+//  307  * @return  None
+//  308  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  309 void HalLcdWriteScreen( char *line1, char *line2 )
+HalLcdWriteScreen:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function HalLcdWriteScreen
+//  310 {
+        FUNCALL HalLcdWriteScreen, HalLcdWriteString
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL HalLcdWriteScreen, HalLcdWriteString
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.W   R13, R10
+//  311 #if (HAL_LCD == TRUE)
+//  312   HalLcdWriteString( line1, 1 );
+        MOV.B   #0x1, R13
+        CALLA   #HalLcdWriteString
+//  313   HalLcdWriteString( line2, 2 );
+        MOV.B   #0x2, R13
+        MOV.W   R10, R12
+        CALLA   #HalLcdWriteString
+//  314 #endif
+//  315 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+//  316 
+//  317 /**************************************************************************************************
+//  318  * @fn      HalLcdWriteStringValue
+//  319  *
+//  320  * @brief   Write a string followed by a value to the LCD
+//  321  *
+//  322  * @param   title  - Title that will be displayed before the value
+//  323  *          value  - value
+//  324  *          format - redix
+//  325  *          line   - line number
+//  326  *
+//  327  * @return  None
+//  328  **************************************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine4:
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI Function HalLcdWriteStringValueValue
+          CFI Conditional ??CrossCallReturnLabel_7
+          CFI R4L Frame(CFA, -20)
+          CFI R5L Frame(CFA, -18)
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+50
+          CFI Block cfiCond5 Using cfiCommon0
+          CFI (cfiCond5) Function HalLcdWriteStringValue
+          CFI (cfiCond5) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond5) R6L Frame(CFA, -16)
+          CFI (cfiCond5) R7L Frame(CFA, -14)
+          CFI (cfiCond5) R8L Frame(CFA, -12)
+          CFI (cfiCond5) R9L Frame(CFA, -10)
+          CFI (cfiCond5) R10L Frame(CFA, -8)
+          CFI (cfiCond5) R11L Frame(CFA, -6)
+          CFI (cfiCond5) CFA SP+46
+          CFI Block cfiPicker6 Using cfiCommon1
+          CFI (cfiPicker6) NoFunction
+          CFI (cfiPicker6) Picker
+        MOV.W   R9, R12
+        MOV.W   #0x0, R13
+        CALLA   #_ltoa
+        MOV.B   R11, R13
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiCond5
+          CFI EndBlock cfiPicker6
+        REQUIRE ??Subroutine5_0
+        // Fall through to label ??Subroutine5_0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+??Subroutine5_0:
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI Function HalLcdDisplayPercentBar
+          CFI Conditional ??CrossCallReturnLabel_5
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+34
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function HalLcdWriteStringValueValue
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_7
+          CFI (cfiCond8) R4L Frame(CFA, -20)
+          CFI (cfiCond8) R5L Frame(CFA, -18)
+          CFI (cfiCond8) R6L Frame(CFA, -16)
+          CFI (cfiCond8) R7L Frame(CFA, -14)
+          CFI (cfiCond8) R8L Frame(CFA, -12)
+          CFI (cfiCond8) R9L Frame(CFA, -10)
+          CFI (cfiCond8) R10L Frame(CFA, -8)
+          CFI (cfiCond8) R11L Frame(CFA, -6)
+          CFI (cfiCond8) CFA SP+50
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function HalLcdWriteStringValue
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond9) R6L Frame(CFA, -16)
+          CFI (cfiCond9) R7L Frame(CFA, -14)
+          CFI (cfiCond9) R8L Frame(CFA, -12)
+          CFI (cfiCond9) R9L Frame(CFA, -10)
+          CFI (cfiCond9) R10L Frame(CFA, -8)
+          CFI (cfiCond9) R11L Frame(CFA, -6)
+          CFI (cfiCond9) CFA SP+46
+          CFI Block cfiPicker10 Using cfiCommon1
+          CFI (cfiPicker10) NoFunction
+          CFI (cfiPicker10) Picker
+        MOV.W   R8, R12
+        BRA     #HalLcdWriteString
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiPicker10
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  329 void HalLcdWriteStringValue( char *title, uint16 value, uint8 format, uint8 line )
+HalLcdWriteStringValue:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function HalLcdWriteStringValue
+//  330 {
+        FUNCALL HalLcdWriteStringValue, osal_strlen
+        LOCFRAME CSTACK, 42, STACK
+        FUNCALL HalLcdWriteStringValue, osal_memcpy
+        LOCFRAME CSTACK, 42, STACK
+        FUNCALL HalLcdWriteStringValue, _ltoa
+        LOCFRAME CSTACK, 42, STACK
+        FUNCALL HalLcdWriteStringValue, HalLcdWriteString
+        LOCFRAME CSTACK, 42, STACK
+        PUSHM.W #0x6, R11
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+        SUB.W   #0x1a, SP
+          CFI CFA SP+42
+        MOV.W   R12, R7
+        MOV.W   R13, R9
+        MOV.B   R14, R6
+        MOV.B   R15, R11
+//  331 #if (HAL_LCD == TRUE)
+//  332   uint8 tmpLen;
+//  333   uint8 buf[LCD_MAX_BUF];
+//  334   uint32 err;
+//  335 
+//  336   tmpLen = (uint8)osal_strlen( (char*)title );
+        CALLA   #osal_strlen
+        MOV.B   R12, R10
+//  337   osal_memcpy( buf, title, tmpLen );
+        MOV.W   SP, R8
+        ADD.W   #0x0, R8
+        MOV.B   R12, R14
+        MOV.W   R7, R13
+        MOV.W   R8, R12
+        CALLA   #osal_memcpy
+//  338   buf[tmpLen] = ' ';
+        MOV.W   R8, R14
+        ADD.W   R10, R14
+        MOV.B   #0x20, 0(R14)
+//  339   err = (uint32)(value);
+//  340   _ltoa( err, &buf[tmpLen+1], format );
+        MOV.B   R6, R15
+        ADD.W   #0x1, R14
+        CALLA   #?Subroutine4
+//  341   HalLcdWriteString( (char*)buf, line );		
+//  342 #endif
+//  343 }
+??CrossCallReturnLabel_6:
+        ADD.W   #0x1a, SP
+          CFI CFA SP+16
+        POPM.W  #0x6, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock11
+//  344 
+//  345 /**************************************************************************************************
+//  346  * @fn      HalLcdWriteStringValue
+//  347  *
+//  348  * @brief   Write a string followed by a value to the LCD
+//  349  *
+//  350  * @param   title   - Title that will be displayed before the value
+//  351  *          value1  - value #1
+//  352  *          format1 - redix of value #1
+//  353  *          value2  - value #2
+//  354  *          format2 - redix of value #2
+//  355  *          line    - line number
+//  356  *
+//  357  * @return  None
+//  358  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  359 void HalLcdWriteStringValueValue( char *title, uint16 value1, uint8 format1,
+HalLcdWriteStringValueValue:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function HalLcdWriteStringValueValue
+//  360                                   uint16 value2, uint8 format2, uint8 line )
+//  361 {
+        FUNCALL HalLcdWriteStringValueValue, osal_strlen
+        LOCFRAME CSTACK, 46, STACK
+        FUNCALL HalLcdWriteStringValueValue, osal_memcpy
+        LOCFRAME CSTACK, 46, STACK
+        FUNCALL HalLcdWriteStringValueValue, _ltoa
+        LOCFRAME CSTACK, 46, STACK
+        FUNCALL HalLcdWriteStringValueValue, osal_strlen
+        LOCFRAME CSTACK, 46, STACK
+        FUNCALL HalLcdWriteStringValueValue, _ltoa
+        LOCFRAME CSTACK, 46, STACK
+        FUNCALL HalLcdWriteStringValueValue, HalLcdWriteString
+        LOCFRAME CSTACK, 46, STACK
+        PUSHM.W #0x8, R11
+          CFI R4L Frame(CFA, -20)
+          CFI R5L Frame(CFA, -18)
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+20
+        SUB.W   #0x1a, SP
+          CFI CFA SP+46
+        MOV.W   R12, R4
+        MOV.W   R13, R7
+        MOV.B   R14, R5
+        MOV.W   R15, R9
+        MOV.B   0x2e(SP), R6
+        MOV.B   0x30(SP), R11
+//  362 
+//  363 #if (HAL_LCD == TRUE)
+//  364   uint8 tmpLen;
+//  365   uint8 buf[LCD_MAX_BUF];
+//  366   uint32 err;
+//  367 
+//  368   tmpLen = (uint8)osal_strlen( (char*)title );
+        CALLA   #osal_strlen
+        MOV.B   R12, R10
+//  369   if ( tmpLen )
+        MOV.W   SP, R8
+        ADD.W   #0x0, R8
+        CMP.B   #0x0, R12
+        JEQ     ??HalLcdWriteStringValueValue_0
+//  370   {
+//  371     osal_memcpy( buf, title, tmpLen );
+        MOV.B   R12, R14
+        MOV.W   R4, R13
+        MOV.W   R8, R12
+        CALLA   #osal_memcpy
+//  372     buf[tmpLen++] = ' ';
+        MOV.W   R8, R15
+        ADD.W   R10, R15
+        MOV.B   #0x20, 0(R15)
+        ADD.B   #0x1, R10
+//  373   }
+//  374 
+//  375   err = (uint32)(value1);
+//  376   _ltoa( err, &buf[tmpLen], format1 );
+??HalLcdWriteStringValueValue_0:
+        MOV.B   R5, R15
+        MOV.W   R8, R14
+        ADD.W   R10, R14
+        MOV.W   R7, R12
+        MOV.W   #0x0, R13
+        CALLA   #_ltoa
+//  377   tmpLen = (uint8)osal_strlen( (char*)buf );
+        MOV.W   R8, R12
+        CALLA   #osal_strlen
+        MOV.B   R12, R10
+//  378 
+//  379   buf[tmpLen++] = ',';
+        MOV.W   R8, R15
+        ADD.W   R10, R15
+        MOV.B   #0x2c, 0(R15)
+        ADD.B   #0x1, R10
+//  380   buf[tmpLen++] = ' ';
+        MOV.W   R8, R15
+        ADD.W   R10, R15
+        MOV.B   #0x20, 0(R15)
+//  381   err = (uint32)(value2);
+//  382   _ltoa( err, &buf[tmpLen], format2 );
+        MOV.B   R6, R15
+        ADD.B   #0x1, R10
+        MOV.W   R8, R14
+        ADD.W   R10, R14
+        CALLA   #?Subroutine4
+//  383 
+//  384   HalLcdWriteString( (char *)buf, line );		
+//  385 
+//  386 #endif
+//  387 }
+??CrossCallReturnLabel_7:
+        ADD.W   #0x1a, SP
+          CFI CFA SP+20
+        POPM.W  #0x8, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock12
+//  388 
+//  389 /**************************************************************************************************
+//  390  * @fn      HalLcdDisplayPercentBar
+//  391  *
+//  392  * @brief   Display percentage bar on the LCD
+//  393  *
+//  394  * @param   title   -
+//  395  *          value   -
+//  396  *
+//  397  * @return  None
+//  398  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  399 void HalLcdDisplayPercentBar( char *title, uint8 value )
+HalLcdDisplayPercentBar:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function HalLcdDisplayPercentBar
+//  400 {
+        FUNCALL HalLcdDisplayPercentBar, HalLcdWriteString
+        LOCFRAME CSTACK, 30, STACK
+        FUNCALL HalLcdDisplayPercentBar, osal_memcpy
+        LOCFRAME CSTACK, 30, STACK
+        FUNCALL HalLcdDisplayPercentBar, _ltoa
+        LOCFRAME CSTACK, 30, STACK
+        FUNCALL HalLcdDisplayPercentBar, HalLcdWriteString
+        LOCFRAME CSTACK, 30, STACK
+        PUSHM.W #0x4, R11
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+12
+        SUB.W   #0x12, SP
+          CFI CFA SP+30
+        MOV.B   R13, R10
+//  401 #if (HAL_LCD == TRUE)
+//  402   uint8 percent;
+//  403   uint8 leftOver;
+//  404   uint8 buf[17];
+//  405   uint32 err;
+//  406   uint8 x;
+//  407 
+//  408   /* Write the title: */
+//  409   HalLcdWriteString( title, HAL_LCD_LINE_1 );
+        MOV.B   #0x1, R13
+        CALLA   #HalLcdWriteString
+//  410 
+//  411   if ( value > 100 )
+        CMP.B   #0x65, R10
+        JNC     ??HalLcdDisplayPercentBar_1
+//  412     value = 100;
+        MOV.B   #0x64, R10
+//  413 
+//  414   /* convert to blocks */
+//  415   percent = (uint8)(value / 10);
+??HalLcdDisplayPercentBar_1:
+        CALLA   #?Subroutine3
+??CrossCallReturnLabel_3:
+        MOV.B   R12, R9
+//  416   leftOver = (uint8)(value % 10);
+        CALLA   #?Subroutine3
+??CrossCallReturnLabel_4:
+        MOV.B   R14, R11
+//  417 
+//  418   /* Make window */
+//  419   osal_memcpy( buf, "[          ]  ", 15 );
+        MOV.W   SP, R8
+        ADD.W   #0x0, R8
+        MOV.W   #0xf, R14
+        MOV.W   #`?<Constant "[          ]  ">`, R13
+        MOV.W   R8, R12
+        CALLA   #osal_memcpy
+//  420 
+//  421   for ( x = 0; x < percent; x ++ )
+        MOV.B   #0x0, R15
+        JMP     ??HalLcdDisplayPercentBar_2
+//  422   {
+//  423     buf[1+x] = '>';
+??HalLcdDisplayPercentBar_0:
+        MOV.B   #0x3e, 0x1(R14)
+//  424   }
+        ADD.B   #0x1, R15
+??HalLcdDisplayPercentBar_2:
+        MOV.W   R8, R14
+        ADD.W   R15, R14
+        CMP.B   R9, R15
+        JNC     ??HalLcdDisplayPercentBar_0
+//  425 
+//  426   if ( leftOver >= 5 )
+        CMP.B   #0x5, R11
+        JNC     ??HalLcdDisplayPercentBar_3
+//  427     buf[1+x] = '+';
+        MOV.B   #0x2b, 0x1(R14)
+//  428 
+//  429   err = (uint32)value;
+//  430   _ltoa( err, (uint8*)&buf[13], 10 );
+??HalLcdDisplayPercentBar_3:
+        MOV.B   #0xa, R15
+        MOV.W   R8, R14
+        ADD.W   #0xd, R14
+        MOV.B   R10, R12
+        MOV.W   #0x0, R13
+        CALLA   #_ltoa
+//  431 
+//  432   HalLcdWriteString( (char*)buf, HAL_LCD_LINE_2 );
+        MOV.B   #0x2, R13
+        CALLA   #??Subroutine5_0
+//  433 
+//  434 #endif
+//  435 }
+??CrossCallReturnLabel_5:
+        ADD.W   #0x12, SP
+          CFI CFA SP+12
+        POPM.W  #0x4, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock13
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine3:
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI Function HalLcdDisplayPercentBar
+          CFI Conditional ??CrossCallReturnLabel_3
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+34
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function HalLcdDisplayPercentBar
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond15) R8L Frame(CFA, -12)
+          CFI (cfiCond15) R9L Frame(CFA, -10)
+          CFI (cfiCond15) R10L Frame(CFA, -8)
+          CFI (cfiCond15) R11L Frame(CFA, -6)
+          CFI (cfiCond15) CFA SP+34
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV.B   R10, R12
+        MOV.B   #0xa, R14
+        BRA     #?DivMod8u
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+//  436 
+//  437 /**************************************************************************************************
+//  438  *                                    HARDWARE LCD
+//  439  **************************************************************************************************/
+//  440 
+//  441 /**************************************************************************************************
+//  442  * @fn      HalLcd_HW_Init
+//  443  *
+//  444  * @brief   Initilize HW LCD Driver.
+//  445  *
+//  446  * @param   None
+//  447  *
+//  448  * @return  None
+//  449  **************************************************************************************************/
+//  450 #if (HAL_LCD == TRUE)
+//  451 
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  452 void HalLcd_HW_Init(void)
+HalLcd_HW_Init:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function HalLcd_HW_Init
+//  453 {
+//  454   /* Initialize SPI */
+//  455   UCB0CTL1 |= UCSWRST;
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Wait
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Wait
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Control
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_SetContrast
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Control
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Control
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Control
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Wait
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Clear
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_ClearAllSpecChars
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL HalLcd_HW_Init, HalLcd_HW_Control
+        LOCFRAME CSTACK, 4, STACK
+        BIS.B   #0x1, &0x69
+//  456   UCB0CTL0 |= UCMST | UCSYNC | UCCKPH | UCMSB;   /* MSB, Master mode, Sync mode, Data capture on the first UCLK edge */
+        BIS.B   #0xa9, &0x68
+//  457   UCB0CTL1 |= UCSSEL1;                           /* SMCLK */
+        BIS.B   #0x80, &0x69
+//  458   UCB0BR0  = 4;
+        MOV.B   #0x4, &0x6a
+//  459   UCB0BR1  = 0;
+        MOV.B   #0x0, &0x6b
+//  460   LCD_SPI_INIT_PORTS();
+        BIS.B   #0x4, &0x36
+        BIS.B   #0xe, &0x1b
+//  461   LCD_SPI_END();
+        NOP
+        NOP
+        NOP
+        NOP
+        BIS.B   #0x4, &0x35
+//  462   UCB0CTL1 &= ~UCSWRST;
+        BIC.B   #0x1, &0x69
+//  463 
+//  464   /* Init I/O */
+//  465   LCD_CTRL_INIT_PORTS();
+        BIS.B   #0x8, &0x36
+        BIS.B   #0x10, &0x36
+//  466 
+//  467   /* Perform reset */
+//  468   LCD_ACTIVATE_RESET();
+        BIC.B   #0x10, &0x35
+//  469   HalLcd_HW_Wait(15); // 15 ms
+        MOV.W   #0xf, R12
+        CALLA   #HalLcd_HW_Wait
+//  470   LCD_RELEASE_RESET();
+        BIS.B   #0x10, &0x35
+//  471   HalLcd_HW_Wait(15); // 15 us
+        MOV.W   #0xf, R12
+        CALLA   #HalLcd_HW_Wait
+//  472 
+//  473   /* Perform the initialization sequence */
+//  474   FUNCTION_SET(CGRAM | COM_FORWARD | THREE_LINE);
+        MOV.B   #0x15, R12
+        CALLA   #HalLcd_HW_Control
+//  475 
+//  476   /* Set contrast */
+//  477   HalLcd_HW_SetContrast(15);
+        MOV.B   #0xf, R12
+        CALLA   #HalLcd_HW_SetContrast
+//  478 
+//  479   /* Set power */
+//  480   SET_POWER_SAVE_MODE(OSC_OFF | POWER_SAVE_ON);
+        MOV.B   #0xe, R12
+        CALLA   #HalLcd_HW_Control
+//  481   SET_POWER_CTRL(VOLTAGE_DIVIDER_ON | CONVERTER_AND_REG_ON);
+        MOV.B   #0x25, R12
+        CALLA   #HalLcd_HW_Control
+//  482   SET_BIAS_CTRL(BIAS_1_5);
+        MOV.B   #0x1c, R12
+        CALLA   #HalLcd_HW_Control
+//  483   HalLcd_HW_Wait(20);// 21 ms
+        MOV.W   #0x14, R12
+        CALLA   #HalLcd_HW_Wait
+//  484 
+//  485   /* Clear the display */
+//  486   HalLcd_HW_Clear();
+        CALLA   #HalLcd_HW_Clear
+//  487   HalLcd_HW_ClearAllSpecChars();
+        CALLA   #HalLcd_HW_ClearAllSpecChars
+//  488   SET_DISPLAY_CTRL(DISPLAY_CTRL_ON | DISPLAY_CTRL_BLINK_OFF | DISPLAY_CTRL_CURSOR_OFF);
+        MOV.B   #0x29, R12
+        BRA     #HalLcd_HW_Control
+          CFI EndBlock cfiBlock17
+        REQUIRE UCB0CTL1
+        REQUIRE UCB0CTL0
+        REQUIRE UCB0BR0
+        REQUIRE UCB0BR1
+        REQUIRE P6DIR
+        REQUIRE P3SEL
+        REQUIRE P6OUT
+//  489 }
+
+        RSEG CODE:CODE:NOROOT(1)
+HalLcd_HW_Write:
+          CFI Block cfiBlock18 Using cfiCommon0
+          CFI Function HalLcd_HW_Write
+        BIC.B   #0x4, &0x35
+        BIS.B   #0x8, &0x35
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_0:
+        NOP
+        NOP
+        NOP
+        NOP
+          CFI EndBlock cfiBlock18
+        REQUIRE ?Subroutine0
+        REQUIRE P6OUT
+        REQUIRE IFG2
+        REQUIRE UCB0TXBUF
+        // Fall through to label ?Subroutine0
+//  490 
+//  491 /**************************************************************************************************
+//  492  * @fn      HalLcd_HW_Control
+//  493  *
+//  494  * @brief   Write 1 command to the LCD
+//  495  *
+//  496  * @param   uint8 cmd - command to be written to the LCD
+//  497  *
+//  498  * @return  None
+//  499  **************************************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine0:
+          CFI Block cfiBlock19 Using cfiCommon0
+          CFI NoFunction
+        BIS.B   #0x4, &0x35
+        RETA
+          CFI EndBlock cfiBlock19
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  500 void HalLcd_HW_Control(uint8 cmd)
+HalLcd_HW_Control:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI Function HalLcd_HW_Control
+//  501 {
+//  502   LCD_SPI_BEGIN();
+        BIC.B   #0x4, &0x35
+//  503   LCD_DO_CONTROL();
+        BIC.B   #0x8, &0x35
+//  504   LCD_SPI_TX(cmd);
+        CALLA   #?Subroutine1
+//  505   LCD_SPI_WAIT_RXRDY();
+//  506   LCD_SPI_END();
+??CrossCallReturnLabel_1:
+        NOP
+        NOP
+        NOP
+        NOP
+        JMP     ?Subroutine0
+          CFI EndBlock cfiBlock20
+        REQUIRE P6OUT
+        REQUIRE IFG2
+        REQUIRE UCB0TXBUF
+//  507 }
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine1:
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI Function HalLcd_HW_Write
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI CFA SP+8
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function HalLcd_HW_Control
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond22) CFA SP+8
+          CFI Block cfiPicker23 Using cfiCommon1
+          CFI (cfiPicker23) NoFunction
+          CFI (cfiPicker23) Picker
+//  508 
+//  509 /**************************************************************************************************
+//  510  * @fn      HalLcd_HW_Write
+//  511  *
+//  512  * @brief   Write 1 byte to the LCD
+//  513  *
+//  514  * @param   uint8 data - data to be written to the LCD
+//  515  *
+//  516  * @return  None
+//  517  **************************************************************************************************/
+//  518 void HalLcd_HW_Write(uint8 data)
+//  519 {
+//  520   LCD_SPI_BEGIN();
+//  521   LCD_DO_WRITE();
+//  522   LCD_SPI_TX(data);
+        BIC.B   #0x4, &0x3
+        MOV.B   R12, &0x6f
+//  523   LCD_SPI_WAIT_RXRDY();
+??HalLcd_HW_Write_0:
+        BIT.B   #0x4, &0x3
+        JNC     ??HalLcd_HW_Write_0
+        RETA
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiPicker23
+//  524   LCD_SPI_END();
+//  525 }
+//  526 
+//  527 /**************************************************************************************************
+//  528  * @fn          HalLcd_HW_SetContrast
+//  529  *
+//  530  * @brief       Set display contrast
+//  531  *
+//  532  * @param       uint8 value - contrast value
+//  533  *
+//  534  * @return      none
+//  535  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  536 void HalLcd_HW_SetContrast(uint8 value)
+HalLcd_HW_SetContrast:
+          CFI Block cfiBlock24 Using cfiCommon0
+          CFI Function HalLcd_HW_SetContrast
+//  537 {
+        FUNCALL HalLcd_HW_SetContrast, HalLcd_HW_Control
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL HalLcd_HW_SetContrast, HalLcd_HW_Write
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.B   R12, R10
+//  538   SET_ICONRAM_ADDR(CONTRAST_CTRL_REGISTER);
+        MOV.B   #0x50, R12
+        CALLA   #?Subroutine2
+//  539   HalLcd_HW_Write(value);
+//  540 }
+??CrossCallReturnLabel_2:
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock24
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine2:
+          CFI Block cfiCond25 Using cfiCommon0
+          CFI Function HalLcd_HW_WriteChar
+          CFI Conditional ??HalLcd_HW_WriteChar_0
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+10
+          CFI Block cfiCond26 Using cfiCommon0
+          CFI (cfiCond26) Function HalLcd_HW_SetContrast
+          CFI (cfiCond26) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond26) R10L Frame(CFA, -6)
+          CFI (cfiCond26) CFA SP+10
+          CFI Block cfiPicker27 Using cfiCommon1
+          CFI (cfiPicker27) NoFunction
+          CFI (cfiPicker27) Picker
+        CALLA   #HalLcd_HW_Control
+        MOV.B   R10, R12
+        BRA     #HalLcd_HW_Write
+          CFI EndBlock cfiCond25
+          CFI EndBlock cfiCond26
+          CFI EndBlock cfiPicker27
+//  541 
+//  542 /**************************************************************************************************
+//  543  * @fn      HalLcd_HW_Clear
+//  544  *
+//  545  * @brief   Clear the HW LCD
+//  546  *
+//  547  * @param   None
+//  548  *
+//  549  * @return  None
+//  550  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  551 void HalLcd_HW_Clear(void)
+HalLcd_HW_Clear:
+          CFI Block cfiBlock28 Using cfiCommon0
+          CFI Function HalLcd_HW_Clear
+//  552 {
+        FUNCALL HalLcd_HW_Clear, HalLcd_HW_Control
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL HalLcd_HW_Clear, HalLcd_HW_Write
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+//  553   uint8 n;
+//  554 
+//  555   SET_DDRAM_ADDR(0x00);
+        MOV.B   #0x80, R12
+        CALLA   #HalLcd_HW_Control
+//  556   for (n = 0; n < (LCD_MAX_LINE_COUNT * LCD_MAX_LINE_LENGTH); n++)
+        MOV.B   #0x30, R10
+//  557   {
+//  558     HalLcd_HW_Write(' ');
+??HalLcd_HW_Clear_0:
+        MOV.B   #0x20, R12
+        CALLA   #HalLcd_HW_Write
+//  559   }
+        ADD.B   #0xff, R10
+        JNE     ??HalLcd_HW_Clear_0
+//  560 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock28
+//  561 
+//  562 /**************************************************************************************************
+//  563  * @fn      HalLcd_HW_ClearAllSpecChars
+//  564  *
+//  565  * @brief   Clear all special chars
+//  566  *
+//  567  * @param   None
+//  568  *
+//  569  * @return  None
+//  570  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  571 void HalLcd_HW_ClearAllSpecChars(void)
+HalLcd_HW_ClearAllSpecChars:
+          CFI Block cfiBlock29 Using cfiCommon0
+          CFI Function HalLcd_HW_ClearAllSpecChars
+//  572 {
+        FUNCALL HalLcd_HW_ClearAllSpecChars, HalLcd_HW_Control
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL HalLcd_HW_ClearAllSpecChars, HalLcd_HW_Write
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+//  573   uint8 n = 0;
+//  574 
+//  575   SET_GCRAM_CHAR(0);
+        MOV.B   #0xc0, R12
+        CALLA   #HalLcd_HW_Control
+//  576   for (n = 0; n < (8 * 8); n++)
+        MOV.B   #0x40, R10
+//  577   {
+//  578     HalLcd_HW_Write(0x00);
+??HalLcd_HW_ClearAllSpecChars_0:
+        MOV.B   #0x0, R12
+        CALLA   #HalLcd_HW_Write
+//  579   }
+        ADD.B   #0xff, R10
+        JNE     ??HalLcd_HW_ClearAllSpecChars_0
+//  580 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock29
+//  581 
+//  582 /**************************************************************************************************
+//  583  * @fn      HalLcd_HW_WriteChar
+//  584  *
+//  585  * @brief   Write one char to the display
+//  586  *
+//  587  * @param   uint8 line - line number that the char will be displayed
+//  588  *          uint8 col - colum where the char will be displayed
+//  589  *
+//  590  * @return  None
+//  591  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  592 void HalLcd_HW_WriteChar(uint8 line, uint8 col, char text)
+HalLcd_HW_WriteChar:
+          CFI Block cfiBlock30 Using cfiCommon0
+          CFI Function HalLcd_HW_WriteChar
+//  593 {
+        FUNCALL HalLcd_HW_WriteChar, HalLcd_HW_Control
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL HalLcd_HW_WriteChar, HalLcd_HW_Write
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.B   R14, R10
+//  594   if (col < LCD_MAX_LINE_LENGTH)
+        CMP.B   #0x10, R13
+        JC      ??HalLcd_HW_WriteChar_0
+//  595   {
+//  596     SET_DDRAM_ADDR((line - 1) * LCD_MAX_LINE_LENGTH + col);
+        ADD.B   #0xff, R12
+        RPT     #0x4
+        RLAX.B  R12
+        ADD.B   R13, R12
+        BIS.B   #0x80, R12
+        CALLA   #?Subroutine2
+//  597     HalLcd_HW_Write(text);
+//  598   }
+//  599   else
+//  600   {
+//  601     return;
+//  602   }
+//  603 }
+??HalLcd_HW_WriteChar_0:
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock30
+//  604 
+//  605 /**************************************************************************************************
+//  606  * @fn          halLcdWriteLine
+//  607  *
+//  608  * @brief       Write one line on display
+//  609  *
+//  610  * @param       uint8 line - display line
+//  611  *              char *pText - text buffer to write
+//  612  *
+//  613  * @return      none
+//  614  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  615 void HalLcd_HW_WriteLine(uint8 line, const char *pText)
+HalLcd_HW_WriteLine:
+          CFI Block cfiBlock31 Using cfiCommon0
+          CFI Function HalLcd_HW_WriteLine
+//  616 {
+        FUNCALL HalLcd_HW_WriteLine, strlen
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL HalLcd_HW_WriteLine, HalLcd_HW_WriteChar
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL HalLcd_HW_WriteLine, HalLcd_HW_WriteChar
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.W #0x4, R11
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+12
+        MOV.B   R12, R11
+        MOV.W   R13, R8
+//  617   uint8 count;
+//  618   uint8 totalLength = strlen(pText);
+        MOV.W   R13, R12
+        CALLA   #strlen
+        MOV.B   R12, R10
+//  619 
+//  620   /* Write the content first */
+//  621   for (count=0; count<totalLength; count++)
+        MOV.B   #0x0, R9
+        JMP     ??HalLcd_HW_WriteLine_2
+//  622   {
+//  623     HalLcd_HW_WriteChar(line, count, (*(pText++)));
+??HalLcd_HW_WriteLine_0:
+        MOV.B   @R8+, R14
+        MOV.B   R9, R13
+        MOV.B   R11, R12
+        CALLA   #HalLcd_HW_WriteChar
+//  624   }
+        ADD.B   #0x1, R9
+??HalLcd_HW_WriteLine_2:
+        CMP.B   R10, R9
+        JNC     ??HalLcd_HW_WriteLine_0
+//  625 
+//  626   /* Write blank spaces to rest of the line */
+//  627   for(count=totalLength; count<LCD_MAX_LINE_LENGTH;count++)
+        MOV.B   R10, R9
+        JMP     ??HalLcd_HW_WriteLine_3
+//  628   {
+//  629     HalLcd_HW_WriteChar(line, count, ' ');
+??HalLcd_HW_WriteLine_1:
+        MOV.B   #0x20, R14
+        MOV.B   R9, R13
+        MOV.B   R11, R12
+        CALLA   #HalLcd_HW_WriteChar
+//  630   }
+        ADD.B   #0x1, R9
+??HalLcd_HW_WriteLine_3:
+        CMP.B   #0x10, R9
+        JNC     ??HalLcd_HW_WriteLine_1
+//  631 }
+        POPM.W  #0x4, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock31
+//  632 
+//  633 /**************************************************************************************************
+//  634  * @fn      HalLcd_HW_Wait
+//  635  *
+//  636  * @brief   wait for 4 "nop"
+//  637  *
+//  638  * @param   uint16 i - number of 4xNOP
+//  639  *
+//  640  * @return  None
+//  641  **************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  642 void HalLcd_HW_Wait(uint16 i)
+HalLcd_HW_Wait:
+          CFI Block cfiBlock32 Using cfiCommon0
+          CFI Function HalLcd_HW_Wait
+//  643 {
+        JMP     ??HalLcd_HW_Wait_1
+//  644   while(i--)
+//  645   {
+//  646     asm("nop");
+??HalLcd_HW_Wait_0:
+        nop
+//  647     asm("nop");
+        nop
+//  648     asm("nop");
+        nop
+//  649     asm("nop");
+        nop
+//  650   }
+??HalLcd_HW_Wait_1:
+        MOV.W   R12, R15
+        ADD.W   #0xffff, R12
+        CMP.W   #0x0, R15
+        JNE     ??HalLcd_HW_Wait_0
+//  651 }
+        RETA
+          CFI EndBlock cfiBlock32
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+`?<Constant "TexasInstruments">`:
+        DC8 "TexasInstruments"
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+`?<Constant "[          ]  ">`:
+        DC8 "[          ]  "
+
+        END
+//  652 #endif
+//  653 
+//  654 /**************************************************************************************************
+//  655 **************************************************************************************************/
+// 
+// 976 bytes in segment CODE
+//   9 bytes in segment DATA16_AN
+//  32 bytes in segment DATA16_C
+//   2 bytes in segment DATA16_Z
+// 
+// 976 bytes of CODE  memory
+//  32 bytes of CONST memory
+//   2 bytes of DATA  memory (+ 9 bytes shared)
+//
+//Errors: none
+//Warnings: none

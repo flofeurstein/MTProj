@@ -1,0 +1,935 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:30:21 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\m /
+//                     ac\low_level\srf04\mac_rx_onoff.c                      /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\ /
+//                     Tools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0   /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wRouter.cfg" (-DCPU6MHZ                             /
+//                     -DMAC_CFG_APP_PENDING_QUEUE=TRUE                       /
+//                     -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8             /
+//                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC       /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_le /
+//                     vel\srf04\mac_rx_onoff.c" -D MSP430F2618 -D ZTOOL_P1   /
+//                     -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D            /
+//                     LCD_SUPPORTED -lC "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\Router\List\" -lA      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\ /
+//                     " --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826    /
+//                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\Router\Ob /
+//                     j\" --debug -D__MSP430F2618__ -e --double=32 --clib    /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\" -I      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"  /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sou /
+//                     rce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr /
+//                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\ /
+//                     ..\..\ZMain\MSP2618\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\target\MSP2618CC2520\" -I "C:\Texas            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\high_level\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\" -I "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\dual_chip\" -I "C:\Texas       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 /
+//                     \Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\ /
+//                     ..\..\..\..\..\Components\osal\include\" -I "C:\Texas  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\osal\mcu\msp430\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\saddr\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\sdata\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\af\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\nwk\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sec\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sapi\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sys\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zcl\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zdo\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 /
+//                     .1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D /
+//                     B\..\..\..\..\..\Components\zmac\f8w\" --core=430X     /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\m /
+//                     ac_rx_onoff.s43                                        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME mac_rx_onoff
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBWEAK P1IFG
+        PUBLIC macRxDisable
+        FUNCTION macRxDisable,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxEnable
+        FUNCTION macRxEnable,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC macRxEnableFlags
+        PUBLIC macRxHardDisable
+        FUNCTION macRxHardDisable,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxOff
+        FUNCTION macRxOff,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxOffRequest
+        FUNCTION macRxOffRequest,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxOn
+        FUNCTION macRxOn,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxOnFlag
+        PUBLIC macRxOnOffInit
+        FUNCTION macRxOnOffInit,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macRxOnRequest
+        FUNCTION macRxOnRequest,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macRxSoftEnable
+        FUNCTION macRxSoftEnable,0a1203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+        EXTERN macSpiCmdStrobe
+        FUNCTION macSpiCmdStrobe,0202H
+        EXTERN macRxActive
+        EXTERN macRxOutgoingAckFlag
+        EXTERN macTxActive
+        EXTERN macRxHaltCleanup
+        FUNCTION macRxHaltCleanup,0202H
+        EXTERN halAssertHandler
+        FUNCTION halAssertHandler,0202H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_level\srf04\mac_rx_onoff.c
+//    1 /**************************************************************************************************
+//    2   Filename:       mac_rx_onoff.c
+//    3   Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
+//    4   Revision:       $Revision: 15371 $
+//    5 
+//    6   Description:    Describe the purpose and contents of the file.
+//    7 
+//    8 
+//    9   Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com. 
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 
+//   45 /* hal */
+//   46 #include "hal_defs.h"
+//   47 #include "hal_types.h"
+//   48 
+//   49 /* exported low-level */
+//   50 #include "mac_low_level.h"
+//   51 
+//   52 /* low-level specific */
+//   53 #include "mac_rx_onoff.h"
+//   54 #include "mac_rx.h"
+//   55 #include "mac_tx.h"
+//   56 
+//   57 /* target specific */
+//   58 #include "mac_radio_defs.h"
+
+        ASEGN DATA16_AN:DATA:NOROOT,023H
+// unsigned char volatile P1IFG
+P1IFG:
+        DS8 1
+//   59 
+//   60 /* debug */
+//   61 #include "mac_assert.h"
+//   62 
+//   63 
+//   64 /* ------------------------------------------------------------------------------------------------
+//   65  *                                         Global Variables
+//   66  * ------------------------------------------------------------------------------------------------
+//   67  */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   68 uint8 macRxOnFlag;
+macRxOnFlag:
+        DS8 1
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   69 uint8 macRxEnableFlags;
+macRxEnableFlags:
+        DS8 1
+//   70 
+//   71 
+//   72 /**************************************************************************************************
+//   73  * @fn          macRxOnOffInit
+//   74  *
+//   75  * @brief       Initialize variables for rx on/off module.
+//   76  *
+//   77  * @param       none
+//   78  *
+//   79  * @return      none
+//   80  **************************************************************************************************
+//   81  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//   82 MAC_INTERNAL_API void macRxOnOffInit(void)
+macRxOnOffInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function macRxOnOffInit
+//   83 {
+//   84   macRxEnableFlags = 0;
+        MOV.B   #0x0, &macRxEnableFlags
+//   85   macRxOnFlag = 0;
+        MOV.B   #0x0, &macRxOnFlag
+//   86 }
+        RETA
+          CFI EndBlock cfiBlock0
+//   87 
+//   88 
+//   89 /**************************************************************************************************
+//   90  * @fn          macRxEnable
+//   91  *
+//   92  * @brief       Set enable flags and then turn on receiver.
+//   93  *
+//   94  * @param       flags - byte containing rx enable flags to set
+//   95  *
+//   96  * @return      none
+//   97  **************************************************************************************************
+//   98  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//   99 MAC_INTERNAL_API void macRxEnable(uint8 flags)
+macRxEnable:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function macRxEnable
+//  100 {
+        FUNCALL macRxEnable, halAssertHandler
+        LOCFRAME CSTACK, 8, STACK
+        FUNCALL macRxEnable, macRxOn
+        LOCFRAME CSTACK, 8, STACK
+        PUSHM.W #0x2, R11
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.B   R12, R10
+//  101   halIntState_t  s;
+//  102 
+//  103   MAC_ASSERT(flags != 0); /* rx flags not affected */
+        CMP.B   #0x0, R12
+        JNE     ??macRxEnable_0
+        CALLA   #halAssertHandler
+//  104 
+//  105   /* set enable flags and then turn on receiver */
+//  106   HAL_ENTER_CRITICAL_SECTION(s);
+??macRxEnable_0:
+        MOV.W   SR, R11
+        dint
+        nop
+//  107   macRxEnableFlags |= flags;
+        BIS.B   R10, &macRxEnableFlags
+//  108   macRxOn();
+        CALLA   #macRxOn
+//  109   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R11, SR
+//  110 }
+        POPM.W  #0x2, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+//  111 
+//  112 
+//  113 /**************************************************************************************************
+//  114  * @fn          macRxSoftEnable
+//  115  *
+//  116  * @brief       Set enable flags but don't turn on the receiver.  Useful to leave the receiver
+//  117  *              on after a transmit, but without turning it on immediately.
+//  118  *
+//  119  * @param       flags - byte containing rx enable flags to set
+//  120  *
+//  121  * @return      none
+//  122  **************************************************************************************************
+//  123  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  124 MAC_INTERNAL_API void macRxSoftEnable(uint8 flags)
+macRxSoftEnable:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function macRxSoftEnable
+//  125 {
+        FUNCALL macRxSoftEnable, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine2
+//  126   halIntState_t  s;
+//  127 
+//  128   MAC_ASSERT(flags != 0); /* rx flags not affected */
+//  129 
+//  130   /* set the enable flags but do not turn on the receiver */
+//  131   HAL_ENTER_CRITICAL_SECTION(s);
+??CrossCallReturnLabel_3:
+        dint
+        nop
+//  132   macRxEnableFlags |= flags;
+        BIS.B   R10, &macRxEnableFlags
+//  133   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R15, SR
+//  134 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine2:
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI Function macRxDisable
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+10
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function macRxSoftEnable
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond4) R10L Frame(CFA, -6)
+          CFI (cfiCond4) CFA SP+10
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        MOV.B   R12, R10
+        CMP.B   #0x0, R12
+        JNE     ??macRxDisable_0
+        CALLA   #halAssertHandler
+??macRxDisable_0:
+        MOV.W   SR, R15
+        RETA
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+//  135 
+//  136 
+//  137 /**************************************************************************************************
+//  138  * @fn          macRxDisable
+//  139  *
+//  140  * @brief       Clear indicated rx enable flags.  If all flags are clear, turn off receiver
+//  141  *              unless there is an active receive or transmit.
+//  142  *
+//  143  * @param       flags - byte containg rx enable flags to clear
+//  144  *
+//  145  * @return      none
+//  146  **************************************************************************************************
+//  147  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  148 MAC_INTERNAL_API void macRxDisable(uint8 flags)
+macRxDisable:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function macRxDisable
+//  149 {
+        FUNCALL macRxDisable, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxDisable, macRxOffRequest
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine2
+//  150   halIntState_t  s;
+//  151 
+//  152   MAC_ASSERT(flags != 0); /* rx flags not affected */
+//  153 
+//  154   /* clear the indicated flags */
+//  155   HAL_ENTER_CRITICAL_SECTION(s);
+??CrossCallReturnLabel_2:
+        dint
+        nop
+//  156   macRxEnableFlags &= (flags ^ 0xFF);
+        XOR.B   #0xff, R10
+        AND.B   R10, &macRxEnableFlags
+//  157   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R15, SR
+//  158 
+//  159   /* turn off the radio if it is allowed */
+//  160   macRxOffRequest();
+        CALLA   #macRxOffRequest
+//  161 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock6
+//  162 
+//  163 
+//  164 /**************************************************************************************************
+//  165  * @fn          macRxHardDisable
+//  166  *
+//  167  * @brief       Clear all enable flags and turn off receiver.
+//  168  *
+//  169  * @param       none
+//  170  *
+//  171  * @return      none
+//  172  **************************************************************************************************
+//  173  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  174 MAC_INTERNAL_API void macRxHardDisable(void)
+macRxHardDisable:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function macRxHardDisable
+//  175 {
+        FUNCALL macRxHardDisable, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxHardDisable, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxHardDisable, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxHardDisable, macRxHaltCleanup
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+//  176   halIntState_t  s;
+//  177 
+//  178   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV.W   SR, R10
+        dint
+        nop
+//  179 
+//  180   macRxEnableFlags = 0;
+        MOV.B   #0x0, &macRxEnableFlags
+//  181   macRxOnFlag = 0;
+        CALLA   #?Subroutine1
+//  182 
+//  183   /* force receiver off */
+//  184   MAC_RADIO_RXTX_OFF();
+//  185   MAC_RADIO_FLUSH_RX_FIFO();
+//  186   MAC_DEBUG_TURN_OFF_RX_LED();
+//  187 
+//  188   HAL_EXIT_CRITICAL_SECTION(s);
+??CrossCallReturnLabel_0:
+        MOV.W   R10, SR
+//  189 
+//  190   /* clean up after being forced off */
+//  191   macRxHaltCleanup();
+        CALLA   #macRxHaltCleanup
+//  192 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock7
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine1:
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI Function macRxOff
+          CFI Conditional ??CrossCallReturnLabel_1
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+10
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function macRxHardDisable
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_0
+          CFI (cfiCond9) R10L Frame(CFA, -6)
+          CFI (cfiCond9) CFA SP+10
+          CFI Block cfiPicker10 Using cfiCommon1
+          CFI (cfiPicker10) NoFunction
+          CFI (cfiPicker10) Picker
+        MOV.B   #0x0, &macRxOnFlag
+        MOV.B   #0x45, R12
+        CALLA   #macSpiCmdStrobe
+        MOV.B   #0x47, R12
+        CALLA   #macSpiCmdStrobe
+        MOV.B   #0x47, R12
+        BRA     #macSpiCmdStrobe
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiPicker10
+
+        RSEG CODE:CODE:NOROOT(1)
+macRxOff:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function macRxOff
+        FUNCALL macRxOff, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxOff, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macRxOff, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.W   SR, R10
+        dint
+        nop
+        CMP.B   #0x0, &macRxOnFlag
+        JEQ     ??macRxOff_0
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_1:
+        BIC.B   #0x40, &0x23
+??macRxOff_0:
+        JMP     ?Subroutine0
+          CFI EndBlock cfiBlock11
+        REQUIRE P1IFG
+
+        RSEG CODE:CODE:NOROOT(1)
+macRxOn:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function macRxOn
+        FUNCALL macRxOn, macSpiCmdStrobe
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.W   SR, R10
+        dint
+        nop
+        CMP.B   #0x0, &macRxOnFlag
+        JNE     ??macRxOn_0
+        MOV.B   #0x1, &macRxOnFlag
+        MOV.B   #0x42, R12
+        CALLA   #macSpiCmdStrobe
+??macRxOn_0:
+        JMP     ?Subroutine0
+          CFI EndBlock cfiBlock12
+
+        RSEG CODE:CODE:NOROOT(1)
+macRxOffRequest:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function macRxOffRequest
+        FUNCALL macRxOffRequest, macRxOff
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.W   SR, R10
+        dint
+        nop
+        CMP.B   #0x0, &macRxEnableFlags
+        JNE     ??macRxOffRequest_0
+        CMP.B   #0x0, &macRxActive
+        JL      ??macRxOffRequest_0
+        CMP.B   #0x0, &macRxOutgoingAckFlag
+        JNE     ??macRxOffRequest_0
+        CMP.B   #0x0, &macTxActive
+        JL      ??macRxOffRequest_0
+        CALLA   #macRxOff
+          CFI EndBlock cfiBlock13
+??macRxOffRequest_0:
+        REQUIRE ?Subroutine0
+        // Fall through to label ?Subroutine0
+//  193 
+//  194 /**************************************************************************************************
+//  195  * @fn          macRxOnRequest
+//  196  *
+//  197  * @brief       Turn on the receiver if any rx enable flag is set.
+//  198  *
+//  199  * @param       none
+//  200  *
+//  201  * @return      none
+//  202  **************************************************************************************************
+//  203  */
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine0:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA SP+6
+          CFI R10L Frame(CFA, -6)
+        MOV.W   R10, SR
+        POP.W   R10
+          CFI CFA SP+4
+          CFI R10L SameValue
+        RETA
+          CFI EndBlock cfiBlock14
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  204 MAC_INTERNAL_API void macRxOnRequest(void)
+macRxOnRequest:
+          CFI Block cfiBlock15 Using cfiCommon0
+          CFI Function macRxOnRequest
+//  205 {
+        FUNCALL macRxOnRequest, macRxOn
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+//  206   halIntState_t  s;
+//  207 
+//  208   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV.W   SR, R10
+        dint
+        nop
+//  209   if (macRxEnableFlags)
+        CMP.B   #0x0, &macRxEnableFlags
+        JEQ     ??macRxOnRequest_0
+//  210   {
+//  211     macRxOn();
+        CALLA   #macRxOn
+//  212   }
+//  213   HAL_EXIT_CRITICAL_SECTION(s);
+??macRxOnRequest_0:
+        JMP     ?Subroutine0
+          CFI EndBlock cfiBlock15
+//  214 }
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  215 
+//  216 
+//  217 /**************************************************************************************************
+//  218  * @fn          macRxOffRequest
+//  219  *
+//  220  * @brief       Turn off receiver if permitted.
+//  221  *
+//  222  * @param       none
+//  223  *
+//  224  * @return      none
+//  225  **************************************************************************************************
+//  226  */
+//  227 MAC_INTERNAL_API void macRxOffRequest(void)
+//  228 {
+//  229   halIntState_t  s;
+//  230 
+//  231   HAL_ENTER_CRITICAL_SECTION(s);
+//  232   if (!macRxEnableFlags)
+//  233   {
+//  234     if (!MAC_RX_IS_PHYSICALLY_ACTIVE() && !MAC_TX_IS_PHYSICALLY_ACTIVE())
+//  235     {
+//  236       macRxOff();
+//  237     }
+//  238   }
+//  239   HAL_EXIT_CRITICAL_SECTION(s);
+//  240 }
+//  241 
+//  242 
+//  243 /**************************************************************************************************
+//  244  * @fn          macRxOn
+//  245  *
+//  246  * @brief       Turn on the receiver if it's not already on.
+//  247  *
+//  248  * @param       none
+//  249  *
+//  250  * @return      none
+//  251  **************************************************************************************************
+//  252  */
+//  253 MAC_INTERNAL_API void macRxOn(void)
+//  254 {
+//  255   halIntState_t  s;
+//  256 
+//  257   HAL_ENTER_CRITICAL_SECTION(s);
+//  258   if (!macRxOnFlag)
+//  259   {
+//  260     macRxOnFlag = 1;
+//  261     MAC_RADIO_RX_ON();
+//  262     MAC_DEBUG_TURN_ON_RX_LED();
+//  263   }
+//  264   HAL_EXIT_CRITICAL_SECTION(s);
+//  265 }
+//  266 
+//  267 
+//  268 /**************************************************************************************************
+//  269  * @fn          macRxOff
+//  270  *
+//  271  * @brief       Turn off the receiver if it's not already off.
+//  272  *
+//  273  * @param       none
+//  274  *
+//  275  * @return      none
+//  276  **************************************************************************************************
+//  277  */
+//  278 MAC_INTERNAL_API void macRxOff(void)
+//  279 {
+//  280   halIntState_t  s;
+//  281 
+//  282   HAL_ENTER_CRITICAL_SECTION(s);
+//  283   if (macRxOnFlag)
+//  284   {
+//  285     macRxOnFlag = 0;
+//  286     MAC_RADIO_RXTX_OFF();
+//  287     MAC_DEBUG_TURN_OFF_RX_LED();
+//  288     
+//  289     /* just in case a receive was about to start, flush the receive FIFO */
+//  290     MAC_RADIO_FLUSH_RX_FIFO();
+//  291 
+//  292     /* clear any receive interrupt that happened to squeak through */
+//  293     MAC_RADIO_CLEAR_RX_THRESHOLD_INTERRUPT_FLAG();
+//  294 
+//  295   }
+//  296   HAL_EXIT_CRITICAL_SECTION(s);
+//  297 }
+//  298 
+//  299 
+//  300 /**************************************************************************************************
+//  301 */
+// 
+// 272 bytes in segment CODE
+//   1 byte  in segment DATA16_AN
+//   2 bytes in segment DATA16_Z
+// 
+// 272 bytes of CODE memory
+//   2 bytes of DATA memory (+ 1 byte shared)
+//
+//Errors: none
+//Warnings: none

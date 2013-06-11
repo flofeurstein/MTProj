@@ -1,0 +1,1875 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:27:32 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\m /
+//                     ac\low_level\srf04\dual_chip\mac_mcu_timer.c           /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\T /
+//                     ools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0    /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wRouter.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE= /
+//                     TRUE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC        /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_le /
+//                     vel\srf04\dual_chip\mac_mcu_timer.c" -D MSP430F2618    /
+//                     -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC   /
+//                     -D LCD_SUPPORTED -lC "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\Router\List\" -lA       /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Router\List\" /
+//                      --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826 -o  /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Router\Obj\"  /
+//                     --debug -D__MSP430F2618__ -e --double=32 --clib -I     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\" -I          /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\Source\"   /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\Sour /
+//                     ce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro /
+//                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\.. /
+//                     \..\ZMain\MSP2618\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\target\MSP2618CC2520\" -I "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\high_level\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\" -I "C:\Texas                  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\dual_chip\" -I "C:\Texas        /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ /
+//                     Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. /
+//                     \..\..\..\..\Components\osal\include\" -I "C:\Texas    /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\osal\mcu\msp430\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\saddr\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\sdata\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\af\" -I "C:\Texas                             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\nwk\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sec\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sapi\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sys\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zcl\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zdo\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5. /
+//                     1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ /
+//                     ..\..\..\..\..\Components\zmac\f8w\" --core=430X       /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleLight\CC2520DB\Router\List\ma /
+//                     c_mcu_timer.s43                                        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME mac_mcu_timer
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?DivMod16u
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK `??halMacTimerCaptureCompareIsr??INTVEC 48`
+        PUBWEAK `??macTimerRolloverIsr??INTVEC 50`
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBWEAK TACCR0
+        PUBWEAK TACCR1
+        PUBWEAK TACCR2
+        PUBWEAK TACCTL0
+        PUBWEAK TACCTL1
+        PUBWEAK TACCTL2
+        PUBWEAK TACTL
+        PUBWEAK TAIV
+        PUBWEAK TAR
+        PUBLIC halMacTimerCaptureCompareIsr
+        FUNCTION halMacTimerCaptureCompareIsr,021233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC macMcuAccumulatedOverFlow
+        FUNCTION macMcuAccumulatedOverFlow,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuPrecisionCount
+        FUNCTION macMcuPrecisionCount,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerBackoffCapture
+        FUNCTION macMcuTimerBackoffCapture,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerBackoffCompare
+        PUBLIC macMcuTimerBackoffCount
+        PUBLIC macMcuTimerBackoffCountCapture
+        PUBLIC macMcuTimerBackoffRollover
+        PUBLIC macMcuTimerBackoffs
+        PUBLIC macMcuTimerCapture
+        FUNCTION macMcuTimerCapture,080203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerCompare
+        FUNCTION macMcuTimerCompare,041203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerConfigureUsecTimer
+        FUNCTION macMcuTimerConfigureUsecTimer,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC macMcuTimerCount
+        PUBLIC macMcuTimerForceDelay
+        FUNCTION macMcuTimerForceDelay,080203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macMcuTimerInit
+        FUNCTION macMcuTimerInit,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerProcessFallingEdgeSFDSync
+        PUBLIC macMcuTimerRecordMaxRssiFlag
+        PUBLIC macMcuTimerSlottedBackoffs
+        FUNCTION macMcuTimerSlottedBackoffs,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macMcuTimerTickCapture
+        FUNCTION macMcuTimerTickCapture,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC macMcuTimerTickCountCapture
+        PUBLIC macMcuTimerUnslottedBackoffs
+        FUNCTION macMcuTimerUnslottedBackoffs,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macMcuTimerUsecs
+        FUNCTION macMcuTimerUsecs,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macMcuTimerWaitUsecs
+        FUNCTION macMcuTimerWaitUsecs,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC macTimerRolloverIsr
+        FUNCTION macTimerRolloverIsr,0a1233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 16, STACK
+        PUBLIC mcuPrecisionCount
+        PUBLIC pFuncMacMcuTimerCallback
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+        
+          CFI Common cfiCommon2 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC or(load(2, DATA, add(CFA, literal(-2))), lshift(and(load(2, DATA, add(CFA, literal(-4))), 61440), 4))
+          CFI SR Frame(CFA, -4)
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon2
+        
+halMacTimerCaptureCompareIsr SYMBOL "halMacTimerCaptureCompareIsr"
+`??halMacTimerCaptureCompareIsr??INTVEC 48` SYMBOL "??INTVEC 48", halMacTimerCaptureCompareIsr
+macTimerRolloverIsr SYMBOL "macTimerRolloverIsr"
+`??macTimerRolloverIsr??INTVEC 50` SYMBOL "??INTVEC 50", macTimerRolloverIsr
+
+        EXTERN macBackoffTimerCompareIsr
+        FUNCTION macBackoffTimerCompareIsr,0202H
+        EXTERN macBackoffTimerPeriodIsr
+        FUNCTION macBackoffTimerPeriodIsr,0202H
+        EXTERN macDualchipRecordMaxRssiIsr
+        FUNCTION macDualchipRecordMaxRssiIsr,0202H
+        EXTERN halAssertHandler
+        FUNCTION halAssertHandler,0202H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mac\low_level\srf04\dual_chip\mac_mcu_timer.c
+//    1 /**************************************************************************************************
+//    2   Filename:       mac_mcu_timer.c
+//    3   Revised:        $Date: 2012-03-07 11:55:12 -0800 (Wed, 07 Mar 2012) $
+//    4   Revision:       $Revision: 29664 $
+//    5 
+//    6   Description:    Describe the purpose and contents of the file.
+//    7 
+//    8 
+//    9   Copyright 2006-2012 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 
+//   45 /* hal */
+//   46 #include "hal_types.h"
+//   47 #include "hal_defs.h"
+//   48 #include "hal_mac_cfg.h"
+
+        ASEGN DATA16_AN:DATA:NOROOT,012eH
+// unsigned short const volatile TAIV
+TAIV:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0160H
+// unsigned short volatile TACTL
+TACTL:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0162H
+// unsigned short volatile TACCTL0
+TACCTL0:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0164H
+// unsigned short volatile TACCTL1
+TACCTL1:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0166H
+// unsigned short volatile TACCTL2
+TACCTL2:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0170H
+// unsigned short volatile TAR
+TAR:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0172H
+// unsigned short volatile TACCR0
+TACCR0:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0174H
+// unsigned short volatile TACCR1
+TACCR1:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0176H
+// unsigned short volatile TACCR2
+TACCR2:
+        DS8 2
+//   49 #include "hal_sleep.h"
+//   50 
+//   51 /* high-level */
+//   52 #include "mac_spec.h"
+//   53 #include "mac_pib.h"
+//   54 
+//   55 /* exported low-level */
+//   56 #include "mac_low_level.h"
+//   57 
+//   58 /* low-level specific */
+//   59 #include "mac_mcu_timer.h"
+//   60 #include "mac_backoff_timer.h"
+//   61 #include "mac_tx.h"
+//   62 #include "mac_rx.h"
+//   63 #include "mac_rx_onoff.h"
+//   64 
+//   65 /* radio specific */
+//   66 #include "mac_radio_defs.h"
+//   67 
+//   68 /* debug */
+//   69 #include "mac_assert.h"
+//   70 #include "hal_board.h"
+//   71 
+//   72 /* ------------------------------------------------------------------------------------------------
+//   73  *                                         Global Variables
+//   74  * ------------------------------------------------------------------------------------------------
+//   75  */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   76 uint32 macMcuTimerBackoffCount;
+macMcuTimerBackoffCount:
+        DS8 4
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   77 uint32 macMcuTimerBackoffCompare;
+macMcuTimerBackoffCompare:
+        DS8 4
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   78 uint32 macMcuTimerBackoffRollover;
+macMcuTimerBackoffRollover:
+        DS8 4
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   79 uint8 macMcuTimerRecordMaxRssiFlag;
+macMcuTimerRecordMaxRssiFlag:
+        DS8 1
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   80 uint8 macMcuTimerBackoffs;
+macMcuTimerBackoffs:
+        DS8 1
+//   81 #ifdef HAL_BOARD_LM3S
+//   82   uint16 macMcuTimerLeftoverUsecs;
+//   83 #else
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   84   uint16 macMcuTimerCount;
+macMcuTimerCount:
+        DS8 2
+//   85 #endif
+//   86 /* snapshot of backoffCount when SFD occurs. */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   87 uint32 macMcuTimerBackoffCountCapture;
+macMcuTimerBackoffCountCapture:
+        DS8 4
+//   88 /* snapshot of TAR when SFD occurs. */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   89 uint16 macMcuTimerTickCountCapture;
+macMcuTimerTickCountCapture:
+        DS8 2
+//   90 /* SFD falling edge interrupt processing */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   91 uint8 macMcuTimerProcessFallingEdgeSFDSync = 0;
+macMcuTimerProcessFallingEdgeSFDSync:
+        DS8 1
+//   92 /* Free running counter driven by MAC timer (per higher layer requirement) */
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   93 uint32 mcuPrecisionCount = 0;
+mcuPrecisionCount:
+        DS8 4
+//   94 
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   95 void (* pFuncMacMcuTimerCallback)(void);
+pFuncMacMcuTimerCallback:
+        DS8 4
+//   96 
+//   97 /* ------------------------------------------------------------------------------------------------
+//   98  *                                          Local Functions
+//   99  * ------------------------------------------------------------------------------------------------
+//  100  */
+//  101 void macMcuTimerConfigureUsecTimer(uint16 usecs); /* intentionally not static so compiler can optimize out */
+//  102 void macMcuTimerCapture(void);
+//  103 void macMcuTimerCompare(void);
+//  104 
+//  105 #ifdef HAL_BOARD_LM3S
+//  106 void hal_mac_timer_compare_isr_function(void);
+//  107 void hal_mac_timer_rollover_isr_function(void);
+//  108 #endif
+//  109 
+//  110 /**************************************************************************************************
+//  111  * @fn          macMcuTimerInit
+//  112  *
+//  113  * @brief       Initialize the MCU timer functionality.
+//  114  *
+//  115  * @param       none
+//  116  *
+//  117  * @return      none
+//  118  **************************************************************************************************
+//  119  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  120 void macMcuTimerInit(void)
+macMcuTimerInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function macMcuTimerInit
+//  121 {
+//  122   macMcuTimerRecordMaxRssiFlag = 0;
+        MOV.B   #0x0, &macMcuTimerRecordMaxRssiFlag
+//  123 
+//  124 #ifdef HAL_BOARD_LM3S
+//  125 
+//  126   HAL_MAC_TIMER_A_INIT();
+//  127   HAL_MAC_TIMER_SET_ROLLOVER( MAC_RADIO_TIMER_TICKS_PER_BACKOFF() );
+//  128   HAL_MAC_TIMER_ROLLOVER_ENABLE_INTERRUPT();
+//  129   HAL_MAC_TIMER_START();
+//  130 
+//  131   HAL_MAC_TIMER_B_INIT();
+//  132   /* Timer B starts when ever it is required */
+//  133 
+//  134   HAL_SLEEP_TIMER_INIT();
+//  135 
+//  136 #else
+//  137 
+//  138   HAL_MAC_TIMER_INIT();
+        MOV.W   #0x0, &0x162
+        MOV.W   #0x0, &0x164
+        MOV.W   #0x0, &0x166
+//  139   HAL_MAC_TIMER_SET_ROLLOVER( MAC_RADIO_TIMER_TICKS_PER_BACKOFF() );
+        MOV.W   #0x77f, &0x172
+//  140   HAL_MAC_TIMER_START();
+        BIS.W   #0x210, &0x160
+//  141 
+//  142 #endif /* HAL_BOARD_LM3S */
+//  143 
+//  144   /* Configure Timer_A_1 in input capture mode */
+//  145   HAL_MAC_TIMER_CONFIGURE_INPUT_CAPTURE();
+        MOV.W   #0x0, &0x164
+        BIS.W   #0xc910, &0x164
+//  146 }
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE TACCTL0
+        REQUIRE TACCTL1
+        REQUIRE TACCTL2
+        REQUIRE TACCR0
+        REQUIRE TACTL
+//  147 
+//  148 
+//  149 /**************************************************************************************************
+//  150  * @fn          macMcuTimerWaitUsecs
+//  151  *
+//  152  * @brief       Wait the specified number of microseconds and then return.
+//  153  *
+//  154  * @param       usecs - microseconds to delay
+//  155  *
+//  156  * @return      none
+//  157  **************************************************************************************************
+//  158  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  159 void macMcuTimerWaitUsecs(uint16 usecs)
+macMcuTimerWaitUsecs:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function macMcuTimerWaitUsecs
+//  160 {
+        FUNCALL macMcuTimerWaitUsecs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macMcuTimerWaitUsecs, macMcuTimerConfigureUsecTimer
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine2
+//  161   MAC_ASSERT(!HAL_MAC_TIMER_COMPARE_INTERRUPT_IS_ENABLED());
+//  162 
+//  163   macMcuTimerConfigureUsecTimer(usecs);
+??CrossCallReturnLabel_4:
+        MOV.W   R10, R12
+        CALLA   #macMcuTimerConfigureUsecTimer
+        MOV.B   &macMcuTimerBackoffs, R14
+        JMP     ??macMcuTimerWaitUsecs_2
+//  164 
+//  165 #ifdef HAL_BOARD_LM3S
+//  166 
+//  167   HAL_MAC_TIMER_COMPARE_DISABLE_INTERRUPT();
+//  168   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  169 
+//  170   HAL_MAC_TIMER_COMPARE_TIMER_START();
+//  171   	
+//  172   for (;;)
+//  173   {
+//  174     while(!HAL_MAC_TIMER_COMPARE_FLAG())
+//  175     {
+//  176 
+//  177     }
+//  178     HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  179 
+//  180     if(macMcuTimerLeftoverUsecs)
+//  181     {
+//  182       macMcuTimerLeftoverUsecs = 0;
+//  183       if(macMcuTimerBackoffs != 0)
+//  184       {
+//  185         HAL_MAC_TIMER_COMPARE_TIMER_STOP();
+//  186         HAL_MAC_TIMER_COMPARE_CONFIGURE_CONT();
+//  187         HAL_MAC_TIMER_SET_COMPARE(MAC_SPEC_USECS_PER_BACKOFF);
+//  188         HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  189         HAL_MAC_TIMER_COMPARE_TIMER_START();	
+//  190       }
+//  191       else
+//  192       {
+//  193         HAL_MAC_TIMER_COMPARE_TIMER_STOP();			
+//  194         break;
+//  195       }
+//  196     }
+//  197     else
+//  198     {
+//  199       macMcuTimerBackoffs--;
+//  200       if (macMcuTimerBackoffs == 0)
+//  201       {
+//  202         HAL_MAC_TIMER_COMPARE_TIMER_STOP();			
+//  203         break;
+//  204       }	
+//  205     }
+//  206 
+//  207 #else
+//  208 
+//  209   for (;;)
+//  210   {
+//  211     if (macMcuTimerBackoffs == 0)
+//  212     {
+//  213       break;
+//  214     }
+//  215 
+//  216     while(!HAL_MAC_TIMER_COMPARE_FLAG());
+??macMcuTimerWaitUsecs_0:
+        BIT.W   #0x1, &0x166
+        JNC     ??macMcuTimerWaitUsecs_0
+//  217     HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+        BIC.W   #0x1, &0x166
+//  218 
+//  219     macMcuTimerBackoffs--;
+        ADD.B   #0xff, R14
+??macMcuTimerWaitUsecs_2:
+        CMP.B   #0x0, R14
+        JNE     ??macMcuTimerWaitUsecs_0
+        MOV.B   #0x0, &macMcuTimerBackoffs
+//  220 
+//  221 #endif /* HAL_BOARD_LM3S */
+//  222 
+//  223   }
+//  224 }
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+        REQUIRE TACCTL2
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine2:
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI Function macMcuTimerUsecs
+          CFI Conditional ??CrossCallReturnLabel_3
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+10
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI (cfiCond3) Function macMcuTimerWaitUsecs
+          CFI (cfiCond3) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond3) R10L Frame(CFA, -6)
+          CFI (cfiCond3) CFA SP+10
+          CFI Block cfiPicker4 Using cfiCommon1
+          CFI (cfiPicker4) NoFunction
+          CFI (cfiPicker4) Picker
+//  225 
+//  226 /**************************************************************************************************
+//  227  * @fn          macMcuTimerUsec
+//  228  *
+//  229  * @brief       Initiate MCU timer to trigger in the specified number of microseconds.
+//  230  *              When timer expires the function pointed to by pFuncMacMcuTimerCallback is executed.
+//  231  *              Normally accessed via macro supplied in this file's corresponding .h file.
+//  232  *
+//  233  * @param       usecs - timer expiration in microseconds
+//  234  *
+//  235  * @return      none
+//  236  **************************************************************************************************
+//  237  */
+//  238 void macMcuTimerUsecs(uint16 usecs)
+//  239 {
+        MOV.W   R12, R10
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiPicker4
+//  240   MAC_ASSERT(!HAL_MAC_TIMER_COMPARE_INTERRUPT_IS_ENABLED());
+        REQUIRE ?Subroutine3
+        // Fall through to label ?Subroutine3
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine3:
+          CFI Block cfiCond5 Using cfiCommon0
+          CFI Function macMcuTimerSlottedBackoffs
+          CFI Conditional ??CrossCallReturnLabel_2, ??CrossCallReturnLabel_0
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+14
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI (cfiCond6) Function macMcuTimerUnslottedBackoffs
+          CFI (cfiCond6) Conditional ??CrossCallReturnLabel_2, ??CrossCallReturnLabel_1
+          CFI (cfiCond6) R10L Frame(CFA, -6)
+          CFI (cfiCond6) CFA SP+14
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function macMcuTimerUsecs
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond7) R10L Frame(CFA, -6)
+          CFI (cfiCond7) CFA SP+10
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function macMcuTimerWaitUsecs
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond8) R10L Frame(CFA, -6)
+          CFI (cfiCond8) CFA SP+10
+          CFI Block cfiPicker9 Using cfiCommon1
+          CFI (cfiPicker9) NoFunction
+          CFI (cfiPicker9) Picker
+//  241   MAC_ASSERT(usecs > 100); /* must be reasonable value */
+//  242 
+//  243   macMcuTimerConfigureUsecTimer(usecs);
+//  244 
+//  245 #ifdef HAL_BOARD_LM3S
+//  246 
+//  247   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  248   HAL_MAC_TIMER_COMPARE_ENABLE_INTERRUPT();
+//  249   HAL_MAC_TIMER_COMPARE_TIMER_START();
+//  250 
+//  251 #else
+//  252 
+//  253   HAL_MAC_TIMER_COMPARE_ENABLE_INTERRUPT();
+//  254 
+//  255 #endif /* HAL_BOARD_LM3S */
+//  256 }
+//  257 
+//  258 /**************************************************************************************************
+//  259  * @fn          macMcuTimerConfigureUsecTimer
+//  260  *
+//  261  * @brief       Configures MCU timer to trigger in the specified number of microseconds.
+//  262  *
+//  263  * @param       usecs - microseconds to expiration
+//  264  *
+//  265  * @return      none
+//  266  **************************************************************************************************
+//  267  */
+//  268 void macMcuTimerConfigureUsecTimer(uint16 usecs)
+//  269 {
+//  270 #ifdef HAL_BOARD_LM3S
+//  271 
+//  272   /* calculate number of backoffs and number of intra-backoff microseconds */
+//  273   macMcuTimerBackoffs = (usecs / MAC_SPEC_USECS_PER_BACKOFF);
+//  274   macMcuTimerLeftoverUsecs = usecs % MAC_SPEC_USECS_PER_BACKOFF;
+//  275 
+//  276   if(macMcuTimerLeftoverUsecs != 0)
+//  277   {
+//  278     HAL_MAC_TIMER_COMPARE_CONFIGURE_ONESHOT();
+//  279     HAL_MAC_TIMER_SET_COMPARE(macMcuTimerLeftoverUsecs);
+//  280   }
+//  281   else
+//  282   {
+//  283     HAL_MAC_TIMER_COMPARE_CONFIGURE_CONT();
+//  284     HAL_MAC_TIMER_SET_COMPARE(MAC_SPEC_USECS_PER_BACKOFF);
+//  285   }
+//  286 
+//  287 #else
+//  288 
+//  289   uint16 intraBackoffUsecs;
+//  290   uint16 triggerCountNoWrap;
+//  291   uint16 currentCountNoWrap;
+//  292 
+//  293   /* calculate number of backoffs and number of intra-backoff microseconds */
+//  294   macMcuTimerBackoffs = (usecs / MAC_SPEC_USECS_PER_BACKOFF) + 1;
+//  295   intraBackoffUsecs = usecs % MAC_SPEC_USECS_PER_BACKOFF;
+//  296 
+//  297   /*
+//  298    *  Calculate the trigger point to account for the intrabackoff portion of
+//  299    *  the delay.  At this point, the value is not "wrapped around" to fit in the
+//  300    *  counter.  This is so the value can be directly compared to the current
+//  301    *  count which will be read and normalized to be "non wrap around."
+//  302    */
+//  303   triggerCountNoWrap = macMcuTimerCount + (intraBackoffUsecs * (MAC_RADIO_TIMER_TICKS_PER_BACKOFF() / MAC_SPEC_USECS_PER_BACKOFF));
+//  304 
+//  305   /* set the hardware compare count and immediately clear the compare flag */
+//  306   HAL_MAC_TIMER_SET_COMPARE(triggerCountNoWrap % MAC_RADIO_TIMER_TICKS_PER_BACKOFF());
+//  307   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  308 
+//  309   /* record the latest current count and normalize so there is no wraparound */
+//  310   currentCountNoWrap = HAL_MAC_TIMER_COUNT();
+//  311   if (currentCountNoWrap < macMcuTimerCount)
+//  312   {
+//  313     currentCountNoWrap += MAC_RADIO_TIMER_TICKS_PER_BACKOFF();
+//  314   }
+//  315 
+//  316   /*
+//  317    *  Catch any missed compare event that may have happened in the time it took
+//  318    *  to read the current count and set the trigger point.
+//  319    */
+//  320   if (!HAL_MAC_TIMER_COMPARE_FLAG() && (currentCountNoWrap >= triggerCountNoWrap))
+//  321   {
+//  322     macMcuTimerBackoffs--;
+//  323   }
+//  324 
+//  325 #endif /* HAL_BOARD_LM3S */
+//  326 }
+//  327 
+//  328 /**************************************************************************************************
+//  329  * @fn          macMcuTimerUnslottedBackoffs
+//  330  *
+//  331  * @brief       Initiate MCU timer to trigger in the specified number of backoffs.
+//  332  *              When timer expires the function pointed to by pFuncMacMcuTimerCallback is executed.
+//  333  *              Normally accessed via macro supplied in this file's corresponding .h file.
+//  334  *
+//  335  * @param       backoffs - timer expiration in backoffs
+//  336  *
+//  337  * @return      none
+//  338  **************************************************************************************************
+//  339  */
+//  340 void macMcuTimerUnslottedBackoffs(uint8 backoffs)
+//  341 {
+//  342   MAC_ASSERT(!HAL_MAC_TIMER_COMPARE_INTERRUPT_IS_ENABLED());
+        BIT.W   #0x10, &0x166
+        JNC     ??macMcuTimerSlottedBackoffs_0
+        CALLA   #halAssertHandler
+??macMcuTimerSlottedBackoffs_0:
+        RETA
+          CFI EndBlock cfiCond5
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiPicker9
+
+        RSEG CODE:CODE:NOROOT(1)
+macMcuTimerSlottedBackoffs:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI Function macMcuTimerSlottedBackoffs
+        FUNCALL macMcuTimerSlottedBackoffs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macMcuTimerSlottedBackoffs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_0:
+        MOV.W   #0x77f, &0x176
+          CFI EndBlock cfiBlock10
+        REQUIRE ?Subroutine0
+        REQUIRE TACCTL2
+        REQUIRE TACCR2
+        // Fall through to label ?Subroutine0
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine0:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA SP+6
+          CFI R10L Frame(CFA, -6)
+        BIC.W   #0x1, &0x166
+          CFI EndBlock cfiBlock11
+        REQUIRE ??Subroutine4_0
+        // Fall through to label ??Subroutine4_0
+
+        RSEG CODE:CODE:NOROOT(1)
+??Subroutine4_0:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA SP+6
+          CFI R10L Frame(CFA, -6)
+        BIS.W   #0x10, &0x166
+        POP.W   R10
+          CFI CFA SP+4
+          CFI R10L SameValue
+        RETA
+          CFI EndBlock cfiBlock12
+
+        RSEG CODE:CODE:NOROOT(1)
+macMcuTimerUnslottedBackoffs:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function macMcuTimerUnslottedBackoffs
+        FUNCALL macMcuTimerUnslottedBackoffs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macMcuTimerUnslottedBackoffs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_1:
+        MOV.W   &macMcuTimerCount, &0x176
+        JMP     ?Subroutine0
+          CFI EndBlock cfiBlock13
+        REQUIRE TACCTL2
+        REQUIRE TACCR2
+
+        RSEG CODE:CODE:NOROOT(1)
+?Subroutine1:
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI Function macMcuTimerSlottedBackoffs
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+10
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function macMcuTimerUnslottedBackoffs
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond15) R10L Frame(CFA, -6)
+          CFI (cfiCond15) CFA SP+10
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV.B   R12, R10
+        CALLA   #?Subroutine3
+??CrossCallReturnLabel_2:
+        CMP.B   #0x0, R10
+        JNE     ??macMcuTimerSlottedBackoffs_1
+        CALLA   #halAssertHandler
+??macMcuTimerSlottedBackoffs_1:
+        MOV.B   R10, &macMcuTimerBackoffs
+        RETA
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+
+        RSEG CODE:CODE:NOROOT(1)
+macMcuTimerConfigureUsecTimer:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function macMcuTimerConfigureUsecTimer
+        PUSHM.W #0x2, R11
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.W   R12, R10
+        MOV.W   #0x140, R14
+        CALLA   #?DivMod16u
+        ADD.B   #0x1, R12
+        MOV.B   R12, &macMcuTimerBackoffs
+        MOV.W   &macMcuTimerCount, R11
+        MOV.W   R10, R12
+        MOV.W   #0x140, R14
+        CALLA   #?DivMod16u
+        RPT     #0x6
+        ADDX.W  R14, R11
+        MOV.W   R11, R12
+        MOV.W   #0x780, R14
+        CALLA   #?DivMod16u
+        MOV.W   R14, &0x176
+        BIC.W   #0x1, &0x166
+        MOV.W   &0x170, R15
+        CMP.W   &macMcuTimerCount, R15
+        JC      ??macMcuTimerConfigureUsecTimer_0
+        ADD.W   #0x780, R15
+??macMcuTimerConfigureUsecTimer_0:
+        BIT.W   #0x1, &0x166
+        JC      ??macMcuTimerConfigureUsecTimer_1
+        CMP.W   R11, R15
+        JNC     ??macMcuTimerConfigureUsecTimer_1
+        ADD.B   #0xff, &macMcuTimerBackoffs
+??macMcuTimerConfigureUsecTimer_1:
+        POPM.W  #0x2, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock17
+        REQUIRE TACCR2
+        REQUIRE TACCTL2
+        REQUIRE TAR
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+macMcuTimerUsecs:
+          CFI Block cfiBlock18 Using cfiCommon0
+          CFI Function macMcuTimerUsecs
+        FUNCALL macMcuTimerUsecs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macMcuTimerUsecs, halAssertHandler
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL macMcuTimerUsecs, macMcuTimerConfigureUsecTimer
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        CALLA   #?Subroutine2
+??CrossCallReturnLabel_3:
+        CMP.W   #0x65, R10
+        JC      ??macMcuTimerUsecs_1
+        CALLA   #halAssertHandler
+??macMcuTimerUsecs_1:
+        MOV.W   R10, R12
+        CALLA   #macMcuTimerConfigureUsecTimer
+        JMP     ??Subroutine4_0
+          CFI EndBlock cfiBlock18
+        REQUIRE TACCTL2
+//  343   MAC_ASSERT(backoffs != 0); /* must be at least one backoff */
+//  344 
+//  345 #ifdef HAL_BOARD_LM3S
+//  346 
+//  347   macMcuTimerBackoffs = backoffs;
+//  348   macMcuTimerLeftoverUsecs = 0;
+//  349 
+//  350   HAL_MAC_TIMER_COMPARE_CONFIGURE_CONT();
+//  351   HAL_MAC_TIMER_SET_COMPARE(MAC_SPEC_USECS_PER_BACKOFF);
+//  352 
+//  353   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  354   HAL_MAC_TIMER_COMPARE_ENABLE_INTERRUPT();
+//  355 
+//  356   HAL_MAC_TIMER_COMPARE_TIMER_START();
+//  357 
+//  358 #else
+//  359 
+//  360   macMcuTimerBackoffs = backoffs;
+//  361   HAL_MAC_TIMER_SET_COMPARE(macMcuTimerCount);
+//  362 
+//  363   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  364   HAL_MAC_TIMER_COMPARE_ENABLE_INTERRUPT();
+//  365 
+//  366 #endif /* HAL_BOARD_LM3S */
+//  367 }
+//  368 
+//  369 /**************************************************************************************************
+//  370  * @fn          macMcuTimerSlottedBackoffs
+//  371  *
+//  372  * @brief       Initiate MCU timer to trigger in the specified number of backoffs on rollover.
+//  373  *              When timer expires the function pointed to by pFuncMacMcuTimerCallback is executed.
+//  374  *              Normally accessed via macro supplied in this file's corresponding .h file.
+//  375  *
+//  376  * @param       backoffs - timer expiration in backoffs
+//  377  *
+//  378  * @return      none
+//  379  **************************************************************************************************
+//  380  */
+//  381 void macMcuTimerSlottedBackoffs(uint8 backoffs)
+//  382 {
+//  383   MAC_ASSERT(!HAL_MAC_TIMER_COMPARE_INTERRUPT_IS_ENABLED());
+//  384   MAC_ASSERT(backoffs != 0); /* must be at least one backoff */
+//  385 
+//  386   macMcuTimerBackoffs = backoffs;
+//  387   HAL_MAC_TIMER_SET_COMPARE(MAC_RADIO_TIMER_TICKS_PER_BACKOFF()-1);
+//  388 
+//  389   HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  390   HAL_MAC_TIMER_COMPARE_ENABLE_INTERRUPT();
+//  391 }
+//  392 
+//  393 /**************************************************************************************************
+//  394  * @fn          halMacTimerCaptureCompareIsr
+//  395  *
+//  396  * @brief       -
+//  397  *
+//  398  * @param       none
+//  399  *
+//  400  * @return      none
+//  401  **************************************************************************************************
+//  402  */
+//  403 #ifdef HAL_BOARD_LM3S
+//  404 
+//  405 void hal_mac_timer_compare_isr_function(void)
+//  406 {
+//  407   if(HAL_MAC_TIMER_COMPARE_FLAG())
+//  408   {
+//  409     HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  410     macMcuTimerCompare();	
+//  411   }
+//  412 }
+//  413 
+//  414 #else /* !HAL_BOARD_LM3S */
+//  415 
+
+        RSEG ISR_CODE:CODE:REORDER:NOROOT(1)
+//  416 HAL_MAC_TIMER_CAPTURE_COMPARE_ISR_FUNCTION()
+halMacTimerCaptureCompareIsr:
+          CFI Block cfiBlock19 Using cfiCommon2
+          CFI Function halMacTimerCaptureCompareIsr
+//  417 {
+        FUNCALL halMacTimerCaptureCompareIsr, macMcuTimerCapture
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL halMacTimerCaptureCompareIsr, macMcuTimerCompare
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL halMacTimerCaptureCompareIsr, halAssertHandler
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.W #0x4, R15
+          CFI R12L Frame(CFA, -12)
+          CFI R13L Frame(CFA, -10)
+          CFI R14L Frame(CFA, -8)
+          CFI R15L Frame(CFA, -6)
+          CFI CFA SP+12
+//  418   uint16 value = HAL_MAC_TAIV();
+        MOV.W   &0x12e, R15
+//  419 
+//  420   /* Reading the TAIV value has a special effect.
+//  421      If more than one interrupt is pending (TAIV, TACCR1, TACCR2),
+//  422      the highest priority interrupt is cleared on reading the TAIV register.
+//  423      As soon as the RETI (return from isr) instruction is executed, the
+//  424      next pending interrupt is triggered.
+//  425 
+//  426      Hence in the following code, we return immediately upon processing
+//  427      each interrupt without checking for the other interrupt flags.
+//  428    */
+//  429   if (value & TAIV_TACCR1_CCIFG)
+        BIT.W   #0x2, R15
+        JNC     ??halMacTimerCaptureCompareIsr_2
+//  430   {
+//  431     /* RFC_SFD_SYNC signal from radio */
+//  432 
+//  433     /* The timer value will be captured on both rising edge as well as the
+//  434      * falling edge. But we are only interested in the value at the time
+//  435      * of rising edge.
+//  436      */
+//  437     if(HAL_MAC_TIMER_CAPTURED_INPUT_IS_HIGH())
+        BIT.W   #0x8, &0x164
+        JNC     ??halMacTimerCaptureCompareIsr_3
+//  438     {
+//  439       /* Since this is a rising edge, capture the tickCount and
+//  440        * backoffCount value.
+//  441        */
+//  442       macMcuTimerCapture();
+        CALLA   #macMcuTimerCapture
+        JMP     ??halMacTimerCaptureCompareIsr_1
+//  443     }
+//  444     else
+//  445     {
+//  446       /* We must read the value on the falling edge transition (even though we
+//  447        * don't care about it). Otherwise an overflow will occur and
+//  448        * future capture will not occur.
+//  449        */
+//  450       HAL_MAC_TIMER_SFD_CAPTURE();
+??halMacTimerCaptureCompareIsr_3:
+        CMP.W   #0x0, &0x174
+//  451 
+//  452       /* Now, if SFD processing flag is enabled it means we are interested in
+//  453        * processing this interrupt. We were waiting for transmission to
+//  454        * complete. TBD - the TX done is no longer indicated by SFD. The
+//  455        * HAL_MAC_SFD_INT related codes are candidates for removal. But some
+//  456        * of the logic may be used by CC2430/CC2530 so leave them alone for now.
+//  457        */
+//  458       if(HAL_MAC_SFD_INT_IS_ENABLED())
+        CMP.B   #0x0, &macMcuTimerProcessFallingEdgeSFDSync
+        JEQ     ??halMacTimerCaptureCompareIsr_1
+//  459       {
+//  460         HAL_MAC_DISABLE_SFD_INT();
+        MOV.B   #0x0, &macMcuTimerProcessFallingEdgeSFDSync
+//  461       }
+//  462     }
+//  463     return;
+        JMP     ??halMacTimerCaptureCompareIsr_1
+//  464   }
+//  465 
+//  466   if (value & TAIV_TACCR2_CCIFG)
+??halMacTimerCaptureCompareIsr_2:
+        BIT.W   #0x4, R15
+        JNC     ??halMacTimerCaptureCompareIsr_4
+//  467   {
+//  468     /* timer compare interrupt */
+//  469     macMcuTimerCompare();
+        CALLA   #macMcuTimerCompare
+//  470     return;
+        JMP     ??halMacTimerCaptureCompareIsr_1
+//  471   }
+//  472 
+//  473    /* Should never come here. Unrecognized interrupt */
+//  474   MAC_ASSERT(FALSE);
+??halMacTimerCaptureCompareIsr_4:
+        CALLA   #halAssertHandler
+//  475 }
+??halMacTimerCaptureCompareIsr_1:
+        POPM.W  #0x4, R15
+          CFI R12L SameValue
+          CFI R13L SameValue
+          CFI R14L SameValue
+          CFI R15L SameValue
+          CFI CFA SP+4
+        RETI
+          CFI EndBlock cfiBlock19
+        REQUIRE TAIV
+        REQUIRE TACCTL1
+        REQUIRE TACCR1
+//  476 
+//  477 /**************************************************************************************************
+//  478  * @fn          halMacTimerCapture
+//  479  *
+//  480  * @brief       -
+//  481  *
+//  482  * @param       none
+//  483  *
+//  484  * @return      none
+//  485  **************************************************************************************************
+//  486  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  487 void macMcuTimerCapture(void)
+macMcuTimerCapture:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI Function macMcuTimerCapture
+//  488 {
+//  489   halIntState_t  s;
+//  490 
+//  491   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV.W   SR, R15
+        dint
+        nop
+//  492 
+//  493   /* Copy the tick value at the time of SFD.
+//  494    * This is the tickCount used to populate timestamp2.
+//  495    */
+//  496   macMcuTimerTickCountCapture = HAL_MAC_TIMER_SFD_CAPTURE();
+        MOV.W   &0x174, &macMcuTimerTickCountCapture
+//  497 
+//  498   /* Copy the backoffCount at this instant.
+//  499    * The tickCount capture and backoffCount capture should happen at exact
+//  500    * same moment.
+//  501    * But since one of that is done in h/w (tick) while other (backoffCount) is
+//  502    * done in s/w (right here), we should be cautious. May be we could increment
+//  503    * the backoffCountCapture value by 1 if a pending rollover is observed
+//  504    * at this moment.
+//  505    */
+//  506   macMcuTimerBackoffCountCapture = macMcuTimerBackoffCount;
+        MOV.W   &macMcuTimerBackoffCount, &macMcuTimerBackoffCountCapture
+        MOV.W   &macMcuTimerBackoffCount + 2, &macMcuTimerBackoffCountCapture + 2
+//  507 
+//  508   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R15, SR
+//  509 }
+        RETA
+          CFI EndBlock cfiBlock20
+        REQUIRE TACCR1
+//  510 
+//  511 #endif /* HAL_BOARD_LM3S */
+//  512 
+//  513 /**************************************************************************************************
+//  514  * @fn          macMcuTimerBackoffCapture
+//  515  *
+//  516  * @brief       Returns the backoffCount value captured when SFD is detected.
+//  517  *
+//  518  * @param       none
+//  519  *
+//  520  * @return      none
+//  521  **************************************************************************************************
+//  522  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  523 uint32 macMcuTimerBackoffCapture(void)
+macMcuTimerBackoffCapture:
+          CFI Block cfiBlock21 Using cfiCommon0
+          CFI Function macMcuTimerBackoffCapture
+//  524 {
+//  525   return macMcuTimerBackoffCountCapture;
+        MOV.W   &macMcuTimerBackoffCountCapture, R12
+        MOV.W   &macMcuTimerBackoffCountCapture + 2, R13
+        RETA
+          CFI EndBlock cfiBlock21
+//  526 }
+//  527 
+//  528 /**************************************************************************************************
+//  529  * @fn          macMcuTimerTickCapture
+//  530  *
+//  531  * @brief       Returns the tickCount value captured when SFD is detected.
+//  532  *
+//  533  * @param       none
+//  534  *
+//  535  * @return      none
+//  536  **************************************************************************************************
+//  537  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  538 uint16 macMcuTimerTickCapture(void)
+macMcuTimerTickCapture:
+          CFI Block cfiBlock22 Using cfiCommon0
+          CFI Function macMcuTimerTickCapture
+//  539 {
+//  540   return macMcuTimerTickCountCapture;
+        MOV.W   &macMcuTimerTickCountCapture, R12
+        RETA
+          CFI EndBlock cfiBlock22
+//  541 }
+//  542 
+//  543 /**************************************************************************************************
+//  544  * @fn          macTimerCompareIsr
+//  545  *
+//  546  * @brief       Interrupt service routine that fires on a timer compare.  This is used to
+//  547  *              implement the MCU timer functionality.
+//  548  *
+//  549  * @param       none
+//  550  *
+//  551  * @return      none
+//  552  **************************************************************************************************
+//  553  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  554 void macMcuTimerCompare(void)
+macMcuTimerCompare:
+          CFI Block cfiBlock23 Using cfiCommon0
+          CFI Function macMcuTimerCompare
+//  555 {
+//  556 #ifdef HAL_BOARD_LM3S
+//  557 
+//  558   if(macMcuTimerLeftoverUsecs)
+//  559   {
+//  560     macMcuTimerLeftoverUsecs = 0;
+//  561     if(macMcuTimerBackoffs != 0)
+//  562     {
+//  563       HAL_MAC_TIMER_COMPARE_TIMER_STOP();
+//  564       HAL_MAC_TIMER_COMPARE_CONFIGURE_CONT();
+//  565       HAL_MAC_TIMER_SET_COMPARE(MAC_SPEC_USECS_PER_BACKOFF);
+//  566       HAL_MAC_TIMER_CLEAR_COMPARE_FLAG();
+//  567       HAL_MAC_TIMER_COMPARE_TIMER_START();	
+//  568     }
+//  569     else
+//  570     {
+//  571       HAL_MAC_TIMER_COMPARE_TIMER_STOP();
+//  572       HAL_MAC_TIMER_COMPARE_DISABLE_INTERRUPT();
+//  573       (* pFuncMacMcuTimerCallback)();
+//  574     }
+//  575   }
+//  576   else
+//  577   {
+//  578     macMcuTimerBackoffs--;
+//  579     if (macMcuTimerBackoffs == 0)
+//  580     {
+//  581       HAL_MAC_TIMER_COMPARE_TIMER_STOP();
+//  582       HAL_MAC_TIMER_COMPARE_DISABLE_INTERRUPT();
+//  583       (* pFuncMacMcuTimerCallback)();
+//  584     }	
+//  585   }
+//  586 
+//  587 #else
+//  588 
+//  589   macMcuTimerBackoffs--;
+        FUNCALL macMcuTimerCompare
+        LOCFRAME CSTACK, 4, STACK
+        ADD.B   #0xff, &macMcuTimerBackoffs
+//  590   if (macMcuTimerBackoffs == 0)
+        JNE     ??macMcuTimerCompare_0
+//  591   {
+//  592     HAL_MAC_TIMER_COMPARE_DISABLE_INTERRUPT();
+        BIC.W   #0x10, &0x166
+//  593     (* pFuncMacMcuTimerCallback)();
+        CALLA   &pFuncMacMcuTimerCallback
+//  594   }
+//  595 
+//  596 #endif /* HAL_BOARD_LM3S */
+//  597 
+//  598 }
+??macMcuTimerCompare_0:
+        RETA
+          CFI EndBlock cfiBlock23
+        REQUIRE TACCTL2
+//  599 
+//  600 /**************************************************************************************************
+//  601  * @fn          macMcuTimerForceDelay
+//  602  *
+//  603  * @brief       Stretches the clock by tickDelay number of ticks.
+//  604  *
+//  605  * @param       tickDelay
+//  606  *
+//  607  * @return      none
+//  608  **************************************************************************************************
+//  609  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  610 void macMcuTimerForceDelay(uint16 tickDelay)
+macMcuTimerForceDelay:
+          CFI Block cfiBlock24 Using cfiCommon0
+          CFI Function macMcuTimerForceDelay
+//  611 {
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+//  612   halIntState_t  s;
+//  613   uint16 originalTickCount;
+//  614   uint16 originalRolloverTicks;
+//  615   uint8  restorePendingRolloverFlag = 0;
+        MOV.B   #0x0, R14
+//  616 
+//  617   if(tickDelay <= MAC_MCU_TIMER_MIN_TICK_DELAY)
+        CMP.W   #0x79, R12
+        JNC     ??macMcuTimerForceDelay_2
+//  618   {
+//  619     /* Since the CPU and timer are both running on the same clk,
+//  620      * there is an overhead of about 120 ticks for stretching the timer.
+//  621      * So a request for tickDelay less than 120 ticks will result in
+//  622      * a delay that is longer than necessary.
+//  623      * In that case, we can just ignore the delay operation.
+//  624      */
+//  625     return;
+//  626   }
+//  627   else
+//  628   {
+//  629     /* Reduce the delay ticks by our overhead.
+//  630      * The compare count is programmed to (tickDelay-1). If tickDealy is
+//  631      * 1 or less it will result in compare value of zero and
+//  632      * the compare flag will never be set.
+//  633      * Hence we deduct 119 instead of 120 so that tickDelay will be
+//  634      * atleast 2.
+//  635      */
+//  636     tickDelay = tickDelay - MAC_MCU_TIMER_MIN_TICK_DELAY + 1;
+        ADD.W   #0xff89, R12
+//  637   }
+//  638 
+//  639   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV.W   SR, R15
+        dint
+        nop
+//  640 
+//  641   HAL_MAC_TIMER_STOP();
+        BIC.W   #0x10, &0x160
+//  642 
+//  643   if(HAL_MAC_TIMER_ROLLOVER_FLAG())
+        BIT.W   #0x1, &0x162
+        JNC     ??macMcuTimerForceDelay_3
+//  644   {
+//  645     /* Must set this pending flag again after tick delay is done. */
+//  646     restorePendingRolloverFlag = 1;
+        MOV.B   #0x1, R14
+//  647     /* Clear the interrupt pending flag. */
+//  648     HAL_MAC_TIMER_ROLLOVER_CLEAR_INTERRUPT();
+        BIC.W   #0x1, &0x162
+//  649   }
+//  650 
+//  651   /* Save the current count value to be restore at the end of delay */
+//  652   originalTickCount     = HAL_MAC_TIMER_COUNT();
+??macMcuTimerForceDelay_3:
+        MOV.W   &0x170, R13
+//  653 
+//  654   /* Save the rollover tick count. Must add 1 since the SET_ROLLOVER macro
+//  655    * will substract one when we call it to restore this value.
+//  656    */
+//  657   originalRolloverTicks = HAL_MAC_TIMER_GET_ROLLOVER() + 1;
+        MOV.W   &0x172, R10
+        ADD.W   #0x1, R10
+//  658 
+//  659 
+//  660   /* Prepare timer for delay loop */
+//  661   HAL_MAC_TIMER_SET_COUNT(0);
+        MOV.W   #0x0, &0x170
+//  662   HAL_MAC_TIMER_SET_ROLLOVER(tickDelay);
+        ADD.W   #0xffff, R12
+        MOV.W   R12, &0x172
+//  663   HAL_MAC_TIMER_ROLLOVER_DISABLE_INTERRUPT();
+        BIC.W   #0x10, &0x162
+//  664 
+//  665   /* Delay loop */
+//  666   HAL_MAC_TIMER_START();
+        BIS.W   #0x210, &0x160
+//  667   while(!HAL_MAC_TIMER_ROLLOVER_FLAG());
+??macMcuTimerForceDelay_0:
+        BIT.W   #0x1, &0x162
+        JNC     ??macMcuTimerForceDelay_0
+//  668   HAL_MAC_TIMER_STOP();
+        BIC.W   #0x10, &0x160
+//  669 
+//  670   /* - Clear the interrupt flag
+//  671    * - Restore the tickCount and rolloverTicks
+//  672    * - Re-enable the rollover interrupt
+//  673    */
+//  674   HAL_MAC_TIMER_ROLLOVER_CLEAR_INTERRUPT();
+        BIC.W   #0x1, &0x162
+//  675   HAL_MAC_TIMER_SET_COUNT(originalTickCount);
+        MOV.W   R13, &0x170
+//  676   HAL_MAC_TIMER_SET_ROLLOVER(originalRolloverTicks);
+        ADD.W   #0xffff, R10
+        MOV.W   R10, &0x172
+//  677   HAL_MAC_TIMER_ROLLOVER_ENABLE_INTERRUPT();
+        BIS.W   #0x10, &0x162
+//  678 
+//  679   if(restorePendingRolloverFlag)
+        BIT.B   #0x1, R14
+        JNC     ??macMcuTimerForceDelay_4
+//  680   {
+//  681     /* Must force the interrupt pending flag since this last rollover
+//  682      * interrupt occurred while we were doing the realignment and it
+//  683      * has not been processed yet.
+//  684      */
+//  685     HAL_MAC_TIMER_ROLLOVER_FORCE_INTERRUPT();
+        BIS.W   #0x1, &0x162
+//  686   }
+//  687 
+//  688   /* Re-start the timer */
+//  689   HAL_MAC_TIMER_START();
+??macMcuTimerForceDelay_4:
+        BIS.W   #0x210, &0x160
+//  690 
+//  691   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R15, SR
+//  692 }
+??macMcuTimerForceDelay_2:
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock24
+        REQUIRE TACTL
+        REQUIRE TACCTL0
+        REQUIRE TAR
+        REQUIRE TACCR0
+//  693 
+//  694 /**************************************************************************************************
+//  695  * @fn          macMcuTimerRolloverIsr
+//  696  *
+//  697  * @brief       Interrupt service routine that fires every timer rollover.
+//  698  *
+//  699  * @param       none
+//  700  *
+//  701  * @return      none
+//  702  **************************************************************************************************
+//  703  */
+//  704 #ifdef HAL_BOARD_LM3S
+//  705 
+//  706 void hal_mac_timer_rollover_isr_function(void)
+//  707 {
+//  708   halIntState_t  s;
+//  709 
+//  710 #ifdef POWER_SAVING
+//  711   halSleepExit();
+//  712 #endif
+//  713   HAL_MAC_TIMER_ROLLOVER_CLEAR_INTERRUPT();
+//  714 
+//  715   HAL_ENTER_CRITICAL_SECTION(s);
+//  716 
+//  717   macMcuTimerBackoffCount++;
+//  718 
+//  719   if (macMcuTimerBackoffCount == macMcuTimerBackoffCompare)
+//  720   {
+//  721     macBackoffTimerCompareIsr();
+//  722   }
+//  723 
+//  724   if (macMcuTimerBackoffCount == macMcuTimerBackoffRollover)
+//  725   {
+//  726     MAC_RADIO_BACKOFF_SET_COUNT(0);
+//  727     macBackoffTimerPeriodIsr();
+//  728   }
+//  729 
+//  730   if (macMcuTimerRecordMaxRssiFlag)
+//  731   {
+//  732     macDualchipRecordMaxRssiIsr();
+//  733   }
+//  734 
+//  735   /* Free running counter used by higher layer */
+//  736   mcuPrecisionCount++;
+//  737 
+//  738   HAL_EXIT_CRITICAL_SECTION(s);
+//  739 }
+//  740 
+//  741 #else /* !HAL_BOARD_LM3S */
+//  742 
+
+        RSEG ISR_CODE:CODE:REORDER:NOROOT(1)
+//  743 HAL_MAC_TIMER_ROLLOVER_ISR_FUNCTION()
+macTimerRolloverIsr:
+          CFI Block cfiBlock25 Using cfiCommon2
+          CFI Function macTimerRolloverIsr
+//  744 {
+        FUNCALL macTimerRolloverIsr, macBackoffTimerCompareIsr
+        LOCFRAME CSTACK, 16, STACK
+        FUNCALL macTimerRolloverIsr, macBackoffTimerPeriodIsr
+        LOCFRAME CSTACK, 16, STACK
+        FUNCALL macTimerRolloverIsr, macDualchipRecordMaxRssiIsr
+        LOCFRAME CSTACK, 16, STACK
+        PUSHM.W #0x6, R15
+          CFI R10L Frame(CFA, -16)
+          CFI R11L Frame(CFA, -14)
+          CFI R12L Frame(CFA, -12)
+          CFI R13L Frame(CFA, -10)
+          CFI R14L Frame(CFA, -8)
+          CFI R15L Frame(CFA, -6)
+          CFI CFA SP+16
+//  745   halIntState_t  s;
+//  746 
+//  747 #ifdef POWER_SAVING
+//  748   __low_power_mode_off_on_exit();
+//  749 #endif
+//  750 
+//  751   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV.W   SR, R10
+        dint
+        nop
+//  752 
+//  753   macMcuTimerBackoffCount++;
+        ADD.W   #0x1, &macMcuTimerBackoffCount
+        ADDC.W  #0x0, &macMcuTimerBackoffCount + 2
+//  754 
+//  755   if (macMcuTimerBackoffCount == macMcuTimerBackoffCompare)
+        CMP.W   &macMcuTimerBackoffCompare, &macMcuTimerBackoffCount
+        JNE     ??macTimerRolloverIsr_0
+        CMP.W   &macMcuTimerBackoffCompare + 2, &macMcuTimerBackoffCount + 2
+        JNE     ??macTimerRolloverIsr_0
+//  756   {
+//  757     macBackoffTimerCompareIsr();
+        CALLA   #macBackoffTimerCompareIsr
+//  758   }
+//  759   
+//  760   if (macMcuTimerBackoffCount == macMcuTimerBackoffRollover)
+??macTimerRolloverIsr_0:
+        CMP.W   &macMcuTimerBackoffRollover, &macMcuTimerBackoffCount
+        JNE     ??macTimerRolloverIsr_1
+        CMP.W   &macMcuTimerBackoffRollover + 2, &macMcuTimerBackoffCount + 2
+        JNE     ??macTimerRolloverIsr_1
+//  761   {
+//  762     MAC_RADIO_BACKOFF_SET_COUNT(0);
+        MOV.W   #0x0, &macMcuTimerBackoffCount
+        MOV.W   #0x0, &macMcuTimerBackoffCount + 2
+//  763     macBackoffTimerPeriodIsr();
+        CALLA   #macBackoffTimerPeriodIsr
+//  764   }  
+//  765 
+//  766   if (macMcuTimerRecordMaxRssiFlag)
+??macTimerRolloverIsr_1:
+        CMP.B   #0x0, &macMcuTimerRecordMaxRssiFlag
+        JEQ     ??macTimerRolloverIsr_2
+//  767   {
+//  768     macDualchipRecordMaxRssiIsr();
+        CALLA   #macDualchipRecordMaxRssiIsr
+//  769   }
+//  770 
+//  771   /* Free running counter used by higher layer */
+//  772   mcuPrecisionCount++;
+??macTimerRolloverIsr_2:
+        ADD.W   #0x1, &mcuPrecisionCount
+        ADDC.W  #0x0, &mcuPrecisionCount + 2
+//  773 
+//  774   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV.W   R10, SR
+//  775 }
+        POPM.W  #0x6, R15
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R12L SameValue
+          CFI R13L SameValue
+          CFI R14L SameValue
+          CFI R15L SameValue
+          CFI CFA SP+4
+        RETI
+          CFI EndBlock cfiBlock25
+//  776 
+//  777 #endif /* HAL_BOARD_LM3S */
+//  778 
+//  779 /**************************************************************************************************
+//  780  * @fn          macMcuPrecisionCount
+//  781  *
+//  782  * @brief       This function is used by higher layer to read a free running counter driven by
+//  783  *              MAC timer.
+//  784  *
+//  785  * @param       none
+//  786  *
+//  787  * @return      mcuPrecisionCount
+//  788  **************************************************************************************************
+//  789  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  790 uint32 macMcuPrecisionCount(void)
+macMcuPrecisionCount:
+          CFI Block cfiBlock26 Using cfiCommon0
+          CFI Function macMcuPrecisionCount
+//  791 {
+//  792   return(mcuPrecisionCount);
+        MOV.W   &mcuPrecisionCount, R12
+        MOV.W   &mcuPrecisionCount + 2, R13
+        RETA
+          CFI EndBlock cfiBlock26
+//  793 }
+//  794 
+//  795 #ifdef POWER_SAVING
+//  796 /**************************************************************************************************
+//  797  * @fn          macMcuPrecisionCountSleepUpdate
+//  798  *
+//  799  * @brief       This function is used by sleep module to update the macPrecisionCount after
+//  800  *              waking up from sleep.
+//  801  *
+//  802  * @param       elapsed time in sleep
+//  803  *
+//  804  * @return      none
+//  805  **************************************************************************************************
+//  806  */
+//  807 void macMcuPrecisionCountSleepUpdate(uint32 elapsed_time)
+//  808 {
+//  809   mcuPrecisionCount += elapsed_time;
+//  810 }
+//  811 #endif /* POWER_SAVING */
+//  812 
+//  813 /**************************************************************************************************
+//  814  * @fn          macMcuAccumulatedOverFlow
+//  815  *
+//  816  * @brief       This function is used to accumulate overflow if applicable on the relevant platform
+//  817  *
+//  818  * @param       none
+//  819  *
+//  820  * @return      none
+//  821  **************************************************************************************************
+//  822  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  823 void macMcuAccumulatedOverFlow(void)
+macMcuAccumulatedOverFlow:
+          CFI Block cfiBlock27 Using cfiCommon0
+          CFI Function macMcuAccumulatedOverFlow
+//  824 {
+//  825   /* Stub */
+//  826 }
+        RETA
+          CFI EndBlock cfiBlock27
+
+        COMMON INTVEC:CONST:ROOT(1)
+        ORG 48
+`??halMacTimerCaptureCompareIsr??INTVEC 48`:
+        DC16    halMacTimerCaptureCompareIsr
+
+        COMMON INTVEC:CONST:ROOT(1)
+        ORG 50
+`??macTimerRolloverIsr??INTVEC 50`:
+        DC16    macTimerRolloverIsr
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  827 
+//  828 
+// 
+// 464 bytes in segment CODE
+//  18 bytes in segment DATA16_AN
+//  31 bytes in segment DATA16_Z
+//   4 bytes in segment INTVEC
+// 144 bytes in segment ISR_CODE
+// 
+// 608 bytes of CODE  memory
+//   0 bytes of CONST memory (+  4 bytes shared)
+//  31 bytes of DATA  memory (+ 18 bytes shared)
+//
+//Errors: none
+//Warnings: none

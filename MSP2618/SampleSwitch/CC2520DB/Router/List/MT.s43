@@ -1,0 +1,1364 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:30:10 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\m /
+//                     t\MT.c                                                 /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\ /
+//                     Tools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0   /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wRouter.cfg" (-DCPU6MHZ                             /
+//                     -DMAC_CFG_APP_PENDING_QUEUE=TRUE                       /
+//                     -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8             /
+//                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC       /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\mt\MT.c"   /
+//                     -D MSP430F2618 -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC   /
+//                     -D MT_ZDO_FUNC -D LCD_SUPPORTED -lC "C:\Texas          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\Router\List\" -lA      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\ /
+//                     " --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826    /
+//                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\Router\Ob /
+//                     j\" --debug -D__MSP430F2618__ -e --double=32 --clib    /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\" -I      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"  /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sou /
+//                     rce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr /
+//                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\ /
+//                     ..\..\ZMain\MSP2618\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\target\MSP2618CC2520\" -I "C:\Texas            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\high_level\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\" -I "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\dual_chip\" -I "C:\Texas       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 /
+//                     \Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\ /
+//                     ..\..\..\..\..\Components\osal\include\" -I "C:\Texas  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\osal\mcu\msp430\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\saddr\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\sdata\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\af\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\nwk\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sec\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sapi\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sys\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zcl\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zdo\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 /
+//                     .1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D /
+//                     B\..\..\..\..\..\Components\zmac\f8w\" --core=430X     /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\M /
+//                     T.s43                                                  /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?IndCallR15
+        EXTERN ?cstart_init_copy
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC MTProcessAppRspMsg
+        FUNCTION MTProcessAppRspMsg,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC MT_BuildAndSendZToolResponse
+        FUNCTION MT_BuildAndSendZToolResponse,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 18, STACK
+        PUBLIC MT_BuildEndpointDesc
+        FUNCTION MT_BuildEndpointDesc,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC MT_BuildSPIMsg
+        FUNCTION MT_BuildSPIMsg,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC MT_Init
+        FUNCTION MT_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC MT_ProcessIncoming
+        FUNCTION MT_ProcessIncoming,061203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC MT_ReverseBytes
+        FUNCTION MT_ReverseBytes,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC MT_Word2Buf
+        FUNCTION MT_Word2Buf,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC debugCompId
+        PUBLIC debugThreshold
+        PUBLIC mtProcessIncoming
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H 0
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H 0
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H 0
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H 0
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+        EXTERN afFindEndPointDesc
+        FUNCTION afFindEndPointDesc,0202H
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        EXTERN osal_mem_free
+        FUNCTION osal_mem_free,0202H
+        EXTERN MT_TransportAlloc
+        FUNCTION MT_TransportAlloc,0202H
+        EXTERN MT_TransportSend
+        FUNCTION MT_TransportSend,0202H
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        EXTERN MT_ZdoInit
+        FUNCTION MT_ZdoInit,0202H
+        EXTERN MT_SysResetInd
+        FUNCTION MT_SysResetInd,0202H
+        EXTERN MT_SysCommandProcessing
+        FUNCTION MT_SysCommandProcessing,0602H
+        EXTERN MT_ZdoCommandProcessing
+        FUNCTION MT_ZdoCommandProcessing,0602H
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mt\MT.c
+//    1 /***************************************************************************************************
+//    2   Filename:       MT.c
+//    3   Revised:        $Date: 2011-06-07 12:12:44 -0700 (Tue, 07 Jun 2011) $
+//    4   Revision:       $Revision: 26238 $
+//    5 
+//    6   Description:    MonitorTest Event Loop functions.
+//    7                   Everything in the MonitorTest Task (except the serial driver).
+//    8 
+//    9 
+//   10   Copyright 2007-2011 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License").  You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product.  Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com.
+//   39 
+//   40  **************************************************************************************************/
+//   41 
+//   42 /**************************************************************************************************
+//   43  * INCLUDES
+//   44  **************************************************************************************************/
+//   45 
+//   46 #include "ZComDef.h"
+//   47 #include "MT.h"
+//   48 #include "MT_APP.h"
+//   49 #include "MT_DEBUG.h"
+//   50 #include "MT_UTIL.h"
+//   51 #include "MT_SYS.h"
+//   52 
+//   53 #include "OnBoard.h"
+//   54 #include "OSAL.h"
+//   55 #include "OSAL_Memory.h"
+//   56 #include "OSAL_Nv.h"
+//   57 
+//   58 #include "DebugTrace.h"
+//   59 #include "ZMAC.h"
+//   60 
+//   61 #if !defined ( NONWK )
+//   62   #include "NLMEDE.h"
+//   63   #include "nwk_bufs.h"
+//   64   #include "ZDObject.h"
+//   65   #include "ssp.h"
+//   66   #include "nwk_util.h"
+//   67   #include "AF.h"
+//   68   #include "MT_SAPI.h"
+//   69 #endif
+//   70 
+//   71 #if defined( MT_MAC_FUNC ) || defined( MT_MAC_CB_FUNC )
+//   72   #include "MT_MAC.h"
+//   73 #endif
+//   74 #if defined( MT_NWK_FUNC ) || defined( MT_NWK_CB_FUNC )
+//   75   #include "MT_NWK.h"
+//   76   #include "nwk.h"
+//   77   #include "nwk_bufs.h"
+//   78 #endif
+//   79 #if defined( MT_AF_FUNC ) || defined( MT_AF_CB_FUNC )
+//   80   #include "MT_AF.h"
+//   81 #endif
+//   82 #if defined( MT_USER_TEST_FUNC )
+//   83   #include "AF.h"
+//   84 #endif
+//   85 #if defined( MT_ZDO_FUNC )
+//   86   #include "MT_ZDO.h"
+//   87 #endif
+//   88 #if defined (MT_SAPI_FUNC)
+//   89 	#include "MT_SAPI.h"
+//   90 #endif
+//   91 #if defined (MT_OTA_FUNC)
+//   92   #include "MT_OTA.h"
+//   93 #endif
+//   94 
+//   95 #if defined( APP_TP )
+//   96  #include "TestProfile.h"
+//   97 #endif
+//   98 #if defined( APP_TP2 )
+//   99  #include "TestProfile2.h"
+//  100 #endif
+//  101 
+//  102 #if defined(APP_TGEN)
+//  103   #include "TrafficGenApp.h"
+//  104 #endif
+//  105 #if defined(APP_DEBUG)
+//  106 	#include "DebugApp.h"
+//  107 #endif
+//  108 #if defined (NWK_TEST)
+//  109 	#include "HWTTApp.h"
+//  110 #endif
+//  111 
+//  112 /* HAL */
+//  113 #include "hal_uart.h"
+//  114 #include "hal_led.h"
+//  115 #include "hal_key.h"
+//  116 #include "MT_UART.h"
+//  117 
+//  118 /**************************************************************************************************
+//  119  * CONSTANTS
+//  120  **************************************************************************************************/
+//  121 
+
+        RSEG DATA16_I:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_copy
+//  122 mtProcessMsg_t mtProcessIncoming[] =
+mtProcessIncoming:
+        DS8 44
+        REQUIRE `?<Initializer for mtProcessIncoming>`
+//  123 {
+//  124   NULL,
+//  125 
+//  126 #if defined (MT_SYS_FUNC)
+//  127   MT_SysCommandProcessing,
+//  128 #else
+//  129   NULL,
+//  130 #endif
+//  131 
+//  132 #if defined (MT_MAC_FUNC)
+//  133   MT_MacCommandProcessing,
+//  134 #else
+//  135   NULL,
+//  136 #endif
+//  137 
+//  138 #if defined (MT_NWK_FUNC)
+//  139   MT_NwkCommandProcessing,
+//  140 #else
+//  141   NULL,
+//  142 #endif
+//  143 
+//  144 #if defined (MT_AF_FUNC)
+//  145   MT_AfCommandProcessing,
+//  146 #else
+//  147   NULL,
+//  148 #endif
+//  149 
+//  150 #if defined (MT_ZDO_FUNC)
+//  151   MT_ZdoCommandProcessing,
+//  152 #else
+//  153   NULL,
+//  154 #endif
+//  155 
+//  156 #if defined (MT_SAPI_FUNC)
+//  157   MT_SapiCommandProcessing,
+//  158 #else
+//  159   NULL,
+//  160 #endif
+//  161 
+//  162 #if defined (MT_UTIL_FUNC)
+//  163   MT_UtilCommandProcessing,
+//  164 #else
+//  165   NULL,
+//  166 #endif
+//  167 
+//  168 #if defined (MT_DEBUG_FUNC)
+//  169   MT_DebugCommandProcessing,
+//  170 #else
+//  171   NULL,
+//  172 #endif
+//  173 
+//  174 #if defined (MT_APP_FUNC)
+//  175   MT_AppCommandProcessing,
+//  176 #else
+//  177   NULL,
+//  178 #endif
+//  179 
+//  180 #if defined (MT_OTA_FUNC)
+//  181   MT_OtaCommandProcessing,
+//  182 #else
+//  183   NULL,
+//  184 #endif
+//  185 };
+//  186 
+//  187 /**************************************************************************************************
+//  188  * GLOBAL VARIABLES
+//  189  **************************************************************************************************/
+//  190 
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//  191 byte debugThreshold;
+debugThreshold:
+        DS8 1
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//  192 byte debugCompId;
+debugCompId:
+        DS8 1
+//  193 
+//  194 /**************************************************************************************************
+//  195  * LOCAL FUNCTIONS
+//  196  **************************************************************************************************/
+//  197 
+//  198 void MT_MsgQueueInit( void );
+//  199 void MT_ResetMsgQueue( void );
+//  200 byte MT_QueueMsg( byte *msg , byte len );
+//  201 void MT_ProcessQueue( void );
+//  202 
+//  203 #if defined ( MT_USER_TEST_FUNC )
+//  204 void MT_ProcessAppUserCmd( byte *pData );
+//  205 #endif
+//  206 
+//  207 /**************************************************************************************************
+//  208  * @fn         MT_Init
+//  209  *
+//  210  * @brief      This function is the secondary initialization that resolves conflicts during
+//  211  *             osalInitTasks(). For example, since MT is the highest priority task, and
+//  212  *             specifically because the MT task is initialized before the ZDApp task, if MT_Init()
+//  213  *             registers anything with ZDO_RegisterForZdoCB(), it is wiped out when ZDApp task
+//  214  *             initialization invokes ZDApp_InitZdoCBFunc().
+//  215  *             There may be other existing or future such races, so try to do all possible
+//  216  *             MT initialization here vice in MT_TaskInit().
+//  217  *
+//  218  * input parameters
+//  219  *
+//  220  * None.
+//  221  *
+//  222  * output parameters
+//  223  *
+//  224  * None.
+//  225  *
+//  226  * @return      None.
+//  227  **************************************************************************************************
+//  228  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  229 void MT_Init(void)
+MT_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function MT_Init
+//  230 {
+//  231 #if defined (MT_ZDO_FUNC)
+//  232   MT_ZdoInit();
+        FUNCALL MT_Init, MT_ZdoInit
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL MT_Init, MT_SysResetInd
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #MT_ZdoInit
+//  233 #endif
+//  234   MT_SysResetInd();
+        BRA     #MT_SysResetInd
+          CFI EndBlock cfiBlock0
+//  235 }
+//  236 
+//  237 /***************************************************************************************************
+//  238  * @fn      MT_BuildSPIMsg
+//  239  *
+//  240  * @brief
+//  241  *
+//  242  *   Format an SPI message.
+//  243  *
+//  244  * @param   UINT16 cmd - command id
+//  245  * @param   byte *msg - pointer to message buffer
+//  246  * @param   byte dataLen - length of data field
+//  247  * @param   byte *pData - pointer to data field
+//  248  *
+//  249  * @return  void
+//  250  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  251 void MT_BuildSPIMsg( uint8 cmdType, uint8 cmdId, byte *msg, byte dataLen, byte *pData )
+MT_BuildSPIMsg:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function MT_BuildSPIMsg
+//  252 {
+        FUNCALL MT_BuildSPIMsg, osal_memcpy
+        LOCFRAME CSTACK, 6, STACK
+        PUSH.W  R10
+          CFI R10L Frame(CFA, -6)
+          CFI CFA SP+6
+        MOV.B   R12, R10
+        MOV.W   R14, R12
+//  253   /* Fill in the CMD and Data Length */
+//  254   *msg++ = dataLen;
+        MOV.B   R15, 0(R14)
+        ADD.W   #0x1, R12
+//  255   *msg++ = cmdType;
+        MOV.B   R10, 0(R12)
+        ADD.W   #0x1, R12
+//  256   *msg++ = cmdId;
+        MOV.B   R13, 0(R12)
+        ADD.W   #0x1, R12
+        MOV.W   0x6(SP), R13
+//  257 
+//  258   /* Fill in the data */
+//  259   if ( pData )
+        CMP.W   #0x0, R13
+        JEQ     ??MT_BuildSPIMsg_0
+//  260   {
+//  261     osal_memcpy( msg, pData, dataLen );
+        MOV.B   R15, R14
+        CALLA   #osal_memcpy
+//  262   }
+//  263 }
+??MT_BuildSPIMsg_0:
+        POP.W   R10
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+//  264 
+//  265 /***************************************************************************************************
+//  266  * @fn      MT_BuildAndSendZToolResponse
+//  267  *
+//  268  * @brief   Build and send a ZTOOL msg
+//  269  * @param   uint8 cmdType - include type and subsystem
+//  270  *          uint8 cmdId - command ID
+//  271  *          byte dataLen
+//  272  *          byte *pData
+//  273  *
+//  274  * @return  void
+//  275  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  276 void MT_BuildAndSendZToolResponse(uint8 cmdType, uint8 cmdId, uint8 dataLen, uint8 *pData)
+MT_BuildAndSendZToolResponse:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function MT_BuildAndSendZToolResponse
+//  277 {
+        FUNCALL MT_BuildAndSendZToolResponse, MT_TransportAlloc
+        LOCFRAME CSTACK, 16, STACK
+        FUNCALL MT_BuildAndSendZToolResponse, MT_BuildSPIMsg
+        LOCFRAME CSTACK, 18, STACK
+        FUNCALL MT_BuildAndSendZToolResponse, MT_TransportSend
+        LOCFRAME CSTACK, 18, STACK
+        PUSHM.W #0x6, R11
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+        MOV.B   R12, R11
+        MOV.B   R13, R8
+        MOV.B   R14, R10
+        MOV.W   R15, R9
+//  278   uint8 *msg_ptr;
+//  279 
+//  280   /* Allocate memory including SOP and FCS */
+//  281   msg_ptr = MT_TransportAlloc((mtRpcCmdType_t)(cmdType & 0xE0), dataLen);
+        MOV.B   R14, R13
+        AND.B   #0xe0, R12
+        CALLA   #MT_TransportAlloc
+        MOV.W   R12, R6
+//  282 
+//  283   if (msg_ptr)
+        CMP.W   #0x0, R12
+        JEQ     ??MT_BuildAndSendZToolResponse_0
+//  284   {
+//  285     /* Build the message */
+//  286     MT_BuildSPIMsg(cmdType, cmdId, msg_ptr, dataLen, pData);
+        PUSH.W  R9
+          CFI CFA SP+18
+        MOV.B   R10, R15
+        MOV.W   R12, R14
+        MOV.B   R8, R13
+        MOV.B   R11, R12
+        CALLA   #MT_BuildSPIMsg
+//  287     /* Send out the msg */
+//  288     MT_TransportSend(msg_ptr);
+        MOV.W   R6, R12
+        CALLA   #MT_TransportSend
+        ADD.W   #0x2, SP
+          CFI CFA SP+16
+//  289   }
+//  290 }
+??MT_BuildAndSendZToolResponse_0:
+        POPM.W  #0x6, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+//  291 
+//  292 /***************************************************************************************************
+//  293  * @fn      MT_ProcessIncoming
+//  294  *
+//  295  * @brief  Process Incoming Message.
+//  296  *
+//  297  * @param   byte *pBuf - pointer to event message
+//  298  *
+//  299  * @return  void
+//  300  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  301 void MT_ProcessIncoming(uint8 *pBuf)
+MT_ProcessIncoming:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function MT_ProcessIncoming
+//  302 {
+        FUNCALL MT_ProcessIncoming
+        LOCFRAME CSTACK, 8, STACK
+        FUNCALL MT_ProcessIncoming, MT_BuildAndSendZToolResponse
+        LOCFRAME CSTACK, 8, STACK
+        SUB.W   #0x4, SP
+          CFI CFA SP+8
+//  303   mtProcessMsg_t func;
+//  304   uint8 rsp[MT_RPC_FRAME_HDR_SZ];
+//  305 
+//  306   /* pre-build response message:  | status | cmd0 | cmd1 | */
+//  307   rsp[1] = pBuf[MT_RPC_POS_CMD0];
+        MOV.B   0x1(R12), R15
+        MOV.B   R15, 0x1(SP)
+//  308   rsp[2] = pBuf[MT_RPC_POS_CMD1];
+        MOV.B   0x2(R12), 0x2(SP)
+//  309 
+//  310   /* check length */
+//  311   if (pBuf[MT_RPC_POS_LEN] > MT_RPC_DATA_MAX)
+        CMP.B   #0xfb, 0(R12)
+        JNC     ??MT_ProcessIncoming_0
+//  312   {
+//  313     rsp[0] = MT_RPC_ERR_LENGTH;
+        MOV.B   #0x4, 0(SP)
+        JMP     ??MT_ProcessIncoming_1
+//  314   }
+//  315   /* check subsystem range */
+//  316   else if ((rsp[1] & MT_RPC_SUBSYSTEM_MASK) < MT_RPC_SYS_MAX)
+??MT_ProcessIncoming_0:
+        MOV.B   R15, R14
+        AND.B   #0x1f, R14
+        CMP.B   #0xb, R14
+        JC      ??MT_ProcessIncoming_2
+//  317   {
+//  318     /* look up processing function */
+//  319     func = mtProcessIncoming[rsp[1] & MT_RPC_SUBSYSTEM_MASK];
+        AND.W   #0x1f, R15
+        RLAM.W  #0x2, R15
+        MOV.W   mtProcessIncoming(R15), R14
+        MOV.W   mtProcessIncoming + 2(R15), R15
+//  320     if (func)
+        MOV.W   R14, R13
+        BIS.W   R15, R13
+        CMP.W   #0x0, R13
+        JEQ     ??MT_ProcessIncoming_2
+//  321     {
+//  322       /* execute processing function */
+//  323       rsp[0] = (*func)(pBuf);
+        CALLA   #?IndCallR15
+        MOV.B   R12, 0(SP)
+//  324     }
+//  325     else
+//  326     {
+//  327       rsp[0] = MT_RPC_ERR_SUBSYSTEM;
+//  328     }
+//  329   }
+//  330   else
+//  331   {
+//  332     rsp[0] = MT_RPC_ERR_SUBSYSTEM;
+//  333   }
+//  334 
+//  335   /* if error and this was an SREQ, send error message */
+//  336   if ((rsp[0] != MT_RPC_SUCCESS) && ((rsp[1] & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SREQ))
+        CMP.B   #0x0, R12
+        JNE     ??MT_ProcessIncoming_1
+        JMP     ??MT_ProcessIncoming_3
+??MT_ProcessIncoming_2:
+        MOV.B   #0x1, 0(SP)
+??MT_ProcessIncoming_1:
+        MOV.B   0x1(SP), R14
+        AND.B   #0xe0, R14
+        CMP.B   #0x20, R14
+        JNE     ??MT_ProcessIncoming_3
+//  337   {
+//  338     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_RES0), 0,
+//  339                                                                   MT_RPC_FRAME_HDR_SZ, rsp);
+        MOV.W   SP, R15
+        ADD.W   #0x0, R15
+        MOV.B   #0x3, R14
+        MOV.B   #0x0, R13
+        MOV.B   #0x60, R12
+        CALLA   #MT_BuildAndSendZToolResponse
+//  340   }
+//  341 }
+??MT_ProcessIncoming_3:
+        ADD.W   #0x4, SP
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+//  342 
+//  343 /***************************************************************************************************
+//  344  * @fn      MTProcessAppRspMsg
+//  345  *
+//  346  * @brief   Process the User App Response Message
+//  347  *
+//  348  * @param   data - output serial buffer.  The first byte must be the
+//  349  *          endpoint that send this message.
+//  350  * @param   len - data length
+//  351  *
+//  352  * @return  none
+//  353  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  354 void MTProcessAppRspMsg( byte *pData, byte len )
+MTProcessAppRspMsg:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function MTProcessAppRspMsg
+//  355 {
+//  356   /* Send out Reset Response message */
+//  357   MT_BuildAndSendZToolResponse( ((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), MT_APP_RSP, len, pData );
+        FUNCALL MTProcessAppRspMsg, MT_BuildAndSendZToolResponse
+        LOCFRAME CSTACK, 4, STACK
+        MOV.W   R12, R15
+        MOV.B   R13, R14
+        MOV.B   #0x80, R13
+        MOV.B   #0x69, R12
+        BRA     #MT_BuildAndSendZToolResponse
+          CFI EndBlock cfiBlock4
+//  358 }
+//  359 
+//  360 
+//  361 /***************************************************************************************************
+//  362  * @fn      MT_ReverseBytes
+//  363  *
+//  364  * @brief
+//  365  *
+//  366  *   Reverses bytes within an array
+//  367  *
+//  368  * @param   data - ptr to data buffer to reverse
+//  369  * @param    len - number of bytes in buffer
+//  370  *
+//  371  * @return  void
+//  372  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  373 void MT_ReverseBytes( byte *pData, byte len )
+MT_ReverseBytes:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function MT_ReverseBytes
+//  374 {
+        PUSHM.W #0x4, R11
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+12
+//  375   byte i,j;
+//  376   byte temp;
+//  377 
+//  378   for ( i = 0, j = len-1; len > 1; len-=2 )
+        MOV.B   #0x0, R14
+        MOV.B   R13, R15
+        ADD.B   #0xff, R15
+        JMP     ??MT_ReverseBytes_1
+//  379   {
+//  380     temp = pData[i];
+??MT_ReverseBytes_0:
+        MOV.W   R12, R10
+        ADD.W   R14, R10
+        MOV.B   @R10, R11
+//  381     pData[i++] = pData[j];
+        MOV.W   R12, R8
+        ADD.W   R15, R8
+        MOV.B   @R8, 0(R10)
+        ADD.B   #0x1, R14
+//  382     pData[j--] = temp;
+        MOV.B   R11, 0(R8)
+        ADD.B   #0xff, R15
+//  383   }
+        SUB.B   #0x2, R13
+??MT_ReverseBytes_1:
+        CMP.B   #0x2, R13
+        JC      ??MT_ReverseBytes_0
+//  384 }
+        POPM.W  #0x4, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock5
+//  385 
+//  386 
+//  387 /***************************************************************************************************
+//  388  * @fn      MT_Word2Buf
+//  389  *
+//  390  * @brief   Copy a uint16 array to a byte array, little endian.
+//  391  *
+//  392  * @param   pBuf - byte array
+//  393  * @param   pWord - uint16 array
+//  394  * @param   len - length of uint16 array
+//  395  *
+//  396  * @return  pointer to end of byte array
+//  397  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  398 uint8 *MT_Word2Buf( uint8 *pBuf, uint16 *pWord, uint8 len )
+MT_Word2Buf:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function MT_Word2Buf
+//  399 {
+        JMP     ??MT_Word2Buf_1
+//  400   while ( len-- > 0 )
+//  401   {
+//  402     *pBuf++ = LO_UINT16( *pWord );
+??MT_Word2Buf_0:
+        MOV.B   @R13, 0(R12)
+        ADD.W   #0x1, R12
+//  403     *pBuf++ = HI_UINT16( *pWord );
+        MOV.W   @R13+, R15
+        RPT     #0x8
+        RRUX.W  R15
+        MOV.B   R15, 0(R12)
+        ADD.W   #0x1, R12
+//  404     pWord++;
+//  405   }
+??MT_Word2Buf_1:
+        MOV.B   R14, R15
+        ADD.B   #0xff, R14
+        CMP.B   #0x0, R15
+        JNE     ??MT_Word2Buf_0
+//  406 
+//  407   return pBuf;
+        RETA
+          CFI EndBlock cfiBlock6
+//  408 }
+//  409 #if !defined(NONWK)
+//  410 /***************************************************************************************************
+//  411  * @fn      MT_BuildEndpointDesc
+//  412  *
+//  413  * @brief   Build endpoint descriptor and simple descriptor structure from incoming buffer
+//  414  *
+//  415  * @param   pBuf - byte array
+//  416  *
+//  417  * @return  epDesc - pointer to the endpoint descriptor
+//  418  ***************************************************************************************************/
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  419 uint8 MT_BuildEndpointDesc( uint8 *pBuf, void *param )
+MT_BuildEndpointDesc:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function MT_BuildEndpointDesc
+//  420 {
+        FUNCALL MT_BuildEndpointDesc, afFindEndPointDesc
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_alloc
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_alloc
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_alloc
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_free
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_free
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL MT_BuildEndpointDesc, osal_mem_free
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.W #0x4, R11
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+12
+        MOV.W   R12, R10
+        MOV.W   R13, R8
+//  421   uint8 i;
+//  422   uint8 ret = ZSuccess;
+        MOV.B   #0x0, R11
+//  423   endPointDesc_t *epDesc;
+//  424 
+//  425   epDesc = (endPointDesc_t *)param;
+//  426   /* check if this endpoint is already registered */
+//  427   if ( afFindEndPointDesc( *pBuf ) != NULL )
+        MOV.B   @R10, R12
+        CALLA   #afFindEndPointDesc
+        CMP.W   #0x0, R12
+        JEQ     ??MT_BuildEndpointDesc_2
+//  428   {
+//  429     ret = ZApsDuplicateEntry;
+        MOV.B   #0xb8, R11
+        JMP     ??MT_BuildEndpointDesc_3
+//  430   }
+//  431   else if ( epDesc )
+??MT_BuildEndpointDesc_2:
+        CMP.W   #0x0, R8
+        JEQ     ??MT_BuildEndpointDesc_3
+//  432   {
+//  433     epDesc->endPoint = *pBuf;
+        MOV.B   @R10, 0(R8)
+//  434 
+//  435     /* Ignore the latency reqs */
+//  436     epDesc->latencyReq = noLatencyReqs;
+        MOV.B   #0x0, 0x6(R8)
+//  437 
+//  438     /* allocate memory for the simple descriptor */
+//  439     epDesc->simpleDesc = (SimpleDescriptionFormat_t *) osal_mem_alloc(sizeof(SimpleDescriptionFormat_t));
+        MOV.W   #0xe, R12
+        CALLA   #osal_mem_alloc
+        MOV.W   R12, 0x4(R8)
+//  440     if (epDesc->simpleDesc)
+        MOV.B   #0x10, R9
+        CMP.W   #0x0, R12
+        JEQ     ??MT_BuildEndpointDesc_4
+//  441     {
+//  442       /* Endpoint */
+//  443       epDesc->simpleDesc->EndPoint = *pBuf++;
+        ADD.W   #0x4, R8
+        MOV.B   @R10+, 0(R12)
+//  444 
+//  445       /* AppProfId */
+//  446       epDesc->simpleDesc->AppProfId = BUILD_UINT16(pBuf[0], pBuf[1]);
+        CALLA   #?Subroutine0
+??CrossCallReturnLabel_0:
+        MOV.W   R14, 0x2(R15)
+//  447       pBuf += sizeof(uint16);
+        ADD.W   #0x2, R10
+//  448 
+//  449       /* AppDeviceId */
+//  450       epDesc->simpleDesc->AppDeviceId = BUILD_UINT16(pBuf[0],pBuf[1]);
+        CALLA   #?Subroutine0
+??CrossCallReturnLabel_1:
+        MOV.W   R14, 0x4(R15)
+//  451       pBuf += sizeof(uint16);
+        ADD.W   #0x2, R10
+//  452 
+//  453       /* AppDevVer */
+//  454       epDesc->simpleDesc->AppDevVer = (*pBuf++) & AF_APP_DEV_VER_MASK ;
+        MOV.B   @R10+, R14
+        AND.B   #0xf, R14
+        MOV.W   @R8, R15
+        MOV.B   0x6(R15), R13
+        AND.B   #0xf0, R13
+        BIS.B   R14, R13
+        MOV.B   R13, 0x6(R15)
+//  455 
+//  456       /* LatencyReq */
+//  457       pBuf++;
+        ADD.W   #0x1, R10
+//  458 
+//  459       /* AppNumInClusters */
+//  460       epDesc->simpleDesc->AppNumInClusters = *pBuf++;
+        MOV.W   @R8, R15
+        MOV.B   @R10+, 0x7(R15)
+        MOV.W   @R8, R15
+        MOV.B   0x7(R15), R12
+        CMP.B   #0x0, R12
+        JEQ     ??MT_BuildEndpointDesc_5
+//  461       if (epDesc->simpleDesc->AppNumInClusters)
+//  462       {
+//  463         epDesc->simpleDesc->pAppInClusterList = (uint16 *)
+//  464                   osal_mem_alloc((epDesc->simpleDesc->AppNumInClusters)*sizeof(uint16));
+        RLA.W   R12
+        CALLA   #osal_mem_alloc
+        MOV.W   @R8, R15
+        MOV.W   R12, 0x8(R15)
+//  465         if ( epDesc->simpleDesc->pAppInClusterList )
+        MOV.W   @R8, R15
+        CMP.W   #0x0, 0x8(R15)
+        JEQ     ??MT_BuildEndpointDesc_6
+//  466         {
+//  467           for (i=0; i<(epDesc->simpleDesc->AppNumInClusters); i++)
+        MOV.B   #0x0, R14
+??MT_BuildEndpointDesc_0:
+        MOV.W   @R8, R12
+        CMP.B   0x7(R12), R14
+        JC      ??MT_BuildEndpointDesc_5
+//  468           {
+//  469             epDesc->simpleDesc->pAppInClusterList[i] = BUILD_UINT16(*pBuf, *(pBuf+1));
+        CALLA   #?Subroutine2
+//  470             pBuf += 2;
+//  471           }
+//  472         }
+??CrossCallReturnLabel_4:
+        MOV.W   0x8(R12), R15
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_2:
+        JMP     ??MT_BuildEndpointDesc_0
+//  473         else
+//  474         {
+//  475           ret = ZMemError;
+??MT_BuildEndpointDesc_6:
+        MOV.B   R9, R11
+//  476         }
+//  477       }
+//  478 
+//  479       /* AppNumOutClusters */
+//  480       epDesc->simpleDesc->AppNumOutClusters = *pBuf++;
+??MT_BuildEndpointDesc_5:
+        MOV.W   @R8, R15
+        MOV.B   @R10+, 0xa(R15)
+        MOV.W   @R8, R15
+        MOV.B   0xa(R15), R12
+        CMP.B   #0x0, R12
+        JEQ     ??MT_BuildEndpointDesc_7
+//  481       if (epDesc->simpleDesc->AppNumOutClusters)
+//  482       {
+//  483         epDesc->simpleDesc->pAppOutClusterList = (uint16 *)
+//  484                           osal_mem_alloc((epDesc->simpleDesc->AppNumOutClusters)*sizeof(uint16));
+        RLA.W   R12
+        CALLA   #osal_mem_alloc
+        MOV.W   @R8, R15
+        MOV.W   R12, 0xc(R15)
+//  485         if (epDesc->simpleDesc->pAppOutClusterList)
+        MOV.W   @R8, R15
+        CMP.W   #0x0, 0xc(R15)
+        JEQ     ??MT_BuildEndpointDesc_8
+//  486         {
+//  487           for (i=0; i<(epDesc->simpleDesc->AppNumOutClusters); i++)
+        MOV.B   #0x0, R14
+??MT_BuildEndpointDesc_1:
+        MOV.W   @R8, R12
+        CMP.B   0xa(R12), R14
+        JC      ??MT_BuildEndpointDesc_7
+//  488           {
+//  489             epDesc->simpleDesc->pAppOutClusterList[i] = BUILD_UINT16(*pBuf, *(pBuf+1));
+        CALLA   #?Subroutine2
+//  490             pBuf += 2;
+//  491           }
+//  492         }
+??CrossCallReturnLabel_5:
+        MOV.W   0xc(R12), R15
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_3:
+        JMP     ??MT_BuildEndpointDesc_1
+//  493         else
+//  494         {
+//  495           ret = ZMemError;
+??MT_BuildEndpointDesc_8:
+        MOV.B   R9, R11
+        JMP     ??MT_BuildEndpointDesc_9
+//  496         }
+//  497       }
+//  498 
+//  499       /* if any list cannot be allocated...free all */
+//  500       if ( ret == ZMemError )
+??MT_BuildEndpointDesc_7:
+        CMP.B   R9, R11
+        JNE     ??MT_BuildEndpointDesc_3
+??MT_BuildEndpointDesc_9:
+        MOV.W   @R8, R15
+        MOV.W   0x8(R15), R12
+        CMP.W   #0x0, R12
+        JEQ     ??MT_BuildEndpointDesc_10
+//  501       {
+//  502         if (epDesc->simpleDesc->pAppInClusterList)
+//  503         {
+//  504           osal_mem_free(epDesc->simpleDesc->pAppInClusterList);
+        CALLA   #osal_mem_free
+//  505         }
+//  506 
+//  507         if (epDesc->simpleDesc->AppNumOutClusters)
+??MT_BuildEndpointDesc_10:
+        MOV.W   @R8, R15
+        CMP.B   #0x0, 0xa(R15)
+        JEQ     ??MT_BuildEndpointDesc_11
+//  508         {
+//  509           osal_mem_free(epDesc->simpleDesc->pAppOutClusterList);
+        MOV.W   0xc(R15), R12
+        CALLA   #osal_mem_free
+//  510         }
+//  511 
+//  512         osal_mem_free(epDesc->simpleDesc);
+??MT_BuildEndpointDesc_11:
+        MOV.W   @R8, R12
+        CALLA   #osal_mem_free
+        JMP     ??MT_BuildEndpointDesc_3
+//  513       }
+//  514     }
+//  515     else
+//  516     {
+//  517       ret = ZMemError;
+??MT_BuildEndpointDesc_4:
+        MOV.B   R9, R11
+//  518     }
+//  519   }
+//  520 
+//  521   return ret;
+??MT_BuildEndpointDesc_3:
+        MOV.B   R11, R12
+        POPM.W  #0x4, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock7
+//  522 }
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine2:
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI Function MT_BuildEndpointDesc
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function MT_BuildEndpointDesc
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond9) R8L Frame(CFA, -12)
+          CFI (cfiCond9) R9L Frame(CFA, -10)
+          CFI (cfiCond9) R10L Frame(CFA, -8)
+          CFI (cfiCond9) R11L Frame(CFA, -6)
+          CFI (cfiCond9) CFA SP+16
+          CFI Block cfiPicker10 Using cfiCommon1
+          CFI (cfiPicker10) NoFunction
+          CFI (cfiPicker10) Picker
+        MOV.B   @R10, R13
+        MOV.B   0x1(R10), R15
+        RPT     #0x8
+        RLAX.W  R15
+        ADD.W   R15, R13
+        RETA
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiPicker10
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine1:
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI Function MT_BuildEndpointDesc
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI (cfiCond12) Function MT_BuildEndpointDesc
+          CFI (cfiCond12) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond12) R8L Frame(CFA, -12)
+          CFI (cfiCond12) R9L Frame(CFA, -10)
+          CFI (cfiCond12) R10L Frame(CFA, -8)
+          CFI (cfiCond12) R11L Frame(CFA, -6)
+          CFI (cfiCond12) CFA SP+16
+          CFI Block cfiPicker13 Using cfiCommon1
+          CFI (cfiPicker13) NoFunction
+          CFI (cfiPicker13) Picker
+        MOV.B   R14, R12
+        RLA.W   R12
+        ADD.W   R12, R15
+        MOV.W   R13, 0(R15)
+        ADD.W   #0x2, R10
+        ADD.B   #0x1, R14
+        RETA
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiPicker13
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine0:
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI Function MT_BuildEndpointDesc
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function MT_BuildEndpointDesc
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond15) R8L Frame(CFA, -12)
+          CFI (cfiCond15) R9L Frame(CFA, -10)
+          CFI (cfiCond15) R10L Frame(CFA, -8)
+          CFI (cfiCond15) R11L Frame(CFA, -6)
+          CFI (cfiCond15) CFA SP+16
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV.B   @R10, R14
+        MOV.B   0x1(R10), R15
+        RPT     #0x8
+        RLAX.W  R15
+        ADD.W   R15, R14
+        MOV.W   @R8, R15
+        RETA
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+
+        RSEG DATA16_ID:CONST:SORT:NOROOT(1)
+`?<Initializer for mtProcessIncoming>`:
+        DC32 0H, MT_SysCommandProcessing, 0H, 0H, 0H, MT_ZdoCommandProcessing
+        DC32 0H, 0H, 0H, 0H, 0H
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  523 #endif
+//  524 /***************************************************************************************************
+//  525 ***************************************************************************************************/
+// 
+// 636 bytes in segment CODE
+//  44 bytes in segment DATA16_I
+//  44 bytes in segment DATA16_ID
+//   2 bytes in segment DATA16_Z
+// 
+// 636 bytes of CODE  memory
+//  44 bytes of CONST memory
+//  46 bytes of DATA  memory
+//
+//Errors: none
+//Warnings: none

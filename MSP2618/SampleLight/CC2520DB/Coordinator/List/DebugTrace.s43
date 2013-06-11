@@ -1,0 +1,562 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:24:23 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\m /
+//                     t\DebugTrace.c                                         /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\..\T /
+//                     ools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0    /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\Tools\MSP2618\ /
+//                     f8wCoord.cfg" (-DCPU6MHZ -DMAC_CFG_APP_PENDING_QUEUE=T /
+//                     RUE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         /
+//                     -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK) -f     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\..\..\Tool /
+//                     s\MSP2618\f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE          /
+//                     -DZCL_BASIC -DZCL_IDENTIFY -DZCL_ON_OFF                /
+//                     -DZCL_KEY_ESTABLISH -DZCL_KEY_ESTABLISHMENT_KEY_GENERA /
+//                     TE_TIMEOUT=4 -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIME /
+//                     OUT=10 -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=1 /
+//                     0 -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING             /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Components\mt\DebugTr /
+//                     ace.c" -D MSP430F2618 -D ZTOOL_P1 -D MT_TASK -D        /
+//                     MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED -lC        /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\Coordinator\L /
+//                     ist\" -lA "C:\Texas Instruments\ZStack-MSP2618-2.5.1\P /
+//                     rojects\zstack\HomeAutomation\SampleLight\CC2520DB\Coo /
+//                     rdinator\List\" --remarks --diag_suppress              /
+//                     Pe001,Pe193,Pe236,Pe826 -o "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\Coordinator\Obj\"       /
+//                     --debug -D__MSP430F2618__ -e --double=32 --clib -I     /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\" -I          /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleLight\CC2520DB\..\Source\"   /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleLight\CC2520DB\..\..\Sour /
+//                     ce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pro /
+//                     jects\zstack\HomeAutomation\SampleLight\CC2520DB\..\.. /
+//                     \..\ZMain\MSP2618\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\hal\target\MSP2618CC2520\" -I "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\include\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\high_level\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\" -I "C:\Texas                  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mac\low_level\srf04\dual_chip\" -I "C:\Texas        /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\ /
+//                     Projects\zstack\HomeAutomation\SampleLight\CC2520DB\.. /
+//                     \..\..\..\..\Components\osal\include\" -I "C:\Texas    /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\osal\mcu\msp430\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\saddr\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\services\sdata\" -I "C:\Texas                       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\af\" -I "C:\Texas                             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\nwk\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sec\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sapi\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\sys\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zcl\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\stack\zdo\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleLight\CC2520DB\..\..\..\..\..\Componen /
+//                     ts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5. /
+//                     1\Projects\zstack\HomeAutomation\SampleLight\CC2520DB\ /
+//                     ..\..\..\..\..\Components\zmac\f8w\" --core=430X       /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleLight\CC2520DB\Coordinator\Li /
+//                     st\DebugTrace.s43                                      /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME DebugTrace
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC debug_msg
+        FUNCTION debug_msg,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 16, STACK
+        PUBLIC debug_str
+        FUNCTION debug_str,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H 0
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H 0
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H 0
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H 0
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H 0
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H 0
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H 0
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H 0
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN osal_strlen
+        FUNCTION osal_strlen,0202H
+        EXTERN osal_msg_allocate
+        FUNCTION osal_msg_allocate,0202H
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        EXTERN MT_TaskID
+        EXTERN osal_msg_send
+        FUNCTION osal_msg_send,0202H
+        EXTERN debugThreshold
+        EXTERN debugCompId
+
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Components\mt\DebugTrace.c
+//    1 /**************************************************************************************************
+//    2   Filename:       DebugTrace.c
+//    3   Revised:        $Date: 2008-01-17 12:22:57 -0800 (Thu, 17 Jan 2008) $
+//    4   Revision:       $Revision: 16223 $
+//    5 
+//    6 
+//    7   Description:    This interface provides quick one-function-call functions to
+//    8                   Monitor and Test reporting mechanisms.
+//    9 
+//   10 
+//   11   Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+//   12 
+//   13   IMPORTANT: Your use of this Software is limited to those specific rights
+//   14   granted under the terms of a software license agreement between the user
+//   15   who downloaded the software, his/her employer (which must be your employer)
+//   16   and Texas Instruments Incorporated (the "License").  You may not use this
+//   17   Software unless you agree to abide by the terms of the License. The License
+//   18   limits your use, and you acknowledge, that the Software may not be modified,
+//   19   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   20   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   21   frequency transceiver, which is integrated into your product.  Other than for
+//   22   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   23   works of, modify, distribute, perform, display or sell this Software and/or
+//   24   its documentation for any purpose.
+//   25 
+//   26   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   27   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   28   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   29   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   30   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   31   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   32   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   33   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   34   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   35   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   36   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   37 
+//   38   Should you have any questions regarding your right to use this Software,
+//   39   contact Texas Instruments Incorporated at www.TI.com.
+//   40 
+//   41 **************************************************************************************************/
+//   42 
+//   43 #if defined( MT_TASK ) || defined( APP_DEBUG )
+//   44 
+//   45 /*********************************************************************
+//   46  * INCLUDES
+//   47  */
+//   48 #include "ZComDef.h"
+//   49 #include "OSAL.h"
+//   50 #include "MT.h"
+//   51 #include "MT_TASK.h"
+//   52 #include "MT_DEBUG.h"
+//   53 #include "DebugTrace.h"
+//   54 
+//   55 #if defined ( APP_DEBUG )
+//   56   #include "DebugApp.h"
+//   57 #endif
+//   58 
+//   59  /*********************************************************************
+//   60  * MACROS
+//   61  */
+//   62 
+//   63 /*********************************************************************
+//   64  * CONSTANTS
+//   65  */
+//   66 
+//   67 
+//   68 /*********************************************************************
+//   69  * TYPEDEFS
+//   70  */
+//   71 
+//   72 /*********************************************************************
+//   73  * GLOBAL VARIABLES
+//   74  */
+//   75 
+//   76 /*********************************************************************
+//   77  * EXTERNAL VARIABLES
+//   78  */
+//   79 
+//   80 /*********************************************************************
+//   81  * EXTERNAL FUNCTIONS
+//   82  */
+//   83 
+//   84  /*********************************************************************
+//   85  * LOCAL VARIABLES
+//   86  */
+//   87 
+//   88 /*********************************************************************
+//   89  * LOCAL FUNCTIONS
+//   90  */
+//   91 
+//   92 /*********************************************************************
+//   93  * @fn      debug_msg
+//   94  *
+//   95  * @brief
+//   96  *
+//   97  *   This feature allows modules to display debug information as
+//   98  *   applications execute in real-time.  This feature will work similar
+//   99  *   to "printf()" but will output to the serial port for display in
+//  100  *   the Z-Test tool.
+//  101  *
+//  102  *   This feature will most likely be compiled out in the production code
+//  103  *   to save code space.
+//  104  *
+//  105  * @param   byte compID - Component ID
+//  106  * @param   byte severity - CRITICAL(0x01), ERROR(0x02), INFORMATION(0x03)
+//  107  *                          or TRACE(0x04)
+//  108  * @param   byte numParams - number of parameter fields (param1-3)
+//  109  * @param   UINT16 param1 - user defined data
+//  110  * @param   UINT16 param2 - user defined data
+//  111  * @param   UINT16 param3 - user defined data
+//  112  *
+//  113  * @return  void
+//  114  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  115 void debug_msg( byte compID, byte severity, byte numParams, UINT16 param1,
+debug_msg:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function debug_msg
+//  116 																								UINT16 param2, UINT16 param3 )
+//  117 {
+        FUNCALL debug_msg, osal_msg_allocate
+        LOCFRAME CSTACK, 16, STACK
+        FUNCALL debug_msg, osal_msg_send
+        LOCFRAME CSTACK, 16, STACK
+        PUSHM.W #0x6, R11
+          CFI R6L Frame(CFA, -16)
+          CFI R7L Frame(CFA, -14)
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+16
+        MOV.B   R12, R10
+        MOV.B   R13, R11
+        MOV.B   R14, R8
+        MOV.W   R15, R9
+        MOV.W   0x10(SP), R6
+        MOV.W   0x12(SP), R7
+//  118 
+//  119   mtDebugMsg_t *mtDebugMsg;
+//  120   UINT16 timestamp;
+//  121 
+//  122   if ( debugThreshold == 0 || debugCompId != compID )
+        CMP.B   #0x0, &debugThreshold
+        JEQ     ??debug_msg_0
+        CMP.B   R12, &debugCompId
+        JNE     ??debug_msg_0
+//  123     return;
+//  124 
+//  125   // Fill in the timestamp
+//  126   timestamp = 0;
+//  127 
+//  128   // Get a message buffer to build the debug message
+//  129   mtDebugMsg = (mtDebugMsg_t *)osal_msg_allocate( sizeof( mtDebugMsg_t ) );
+        MOV.W   #0xe, R12
+        CALLA   #osal_msg_allocate
+//  130   if ( mtDebugMsg )
+        CMP.W   #0x0, R12
+        JEQ     ??debug_msg_0
+//  131   {
+//  132       mtDebugMsg->hdr.event = CMD_DEBUG_MSG;
+        MOV.B   #0x2, 0(R12)
+//  133       mtDebugMsg->compID = compID;
+        MOV.B   R10, 0x2(R12)
+//  134       mtDebugMsg->severity = severity;
+        MOV.B   R11, 0x3(R12)
+//  135       mtDebugMsg->numParams = numParams;
+        MOV.B   R8, 0x4(R12)
+//  136 
+//  137       mtDebugMsg->param1 = param1;
+        MOV.W   R9, 0x6(R12)
+//  138       mtDebugMsg->param2 = param2;
+        MOV.W   R6, 0x8(R12)
+//  139       mtDebugMsg->param3 = param3;
+        MOV.W   R7, 0xa(R12)
+//  140       mtDebugMsg->timestamp = timestamp;
+        MOV.W   #0x0, 0xc(R12)
+//  141 
+//  142       osal_msg_send( MT_TaskID, (uint8 *)mtDebugMsg );
+        MOV.W   R12, R13
+        MOV.B   &MT_TaskID, R12
+        CALLA   #osal_msg_send
+//  143   }
+//  144 
+//  145 } /* debug_msg() */
+??debug_msg_0:
+        POPM.W  #0x6, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock0
+//  146 
+//  147 /*********************************************************************
+//  148  * @fn      debug_str
+//  149  *
+//  150  * @brief
+//  151  *
+//  152  *   This feature allows modules to display a debug text string as
+//  153  *   applications execute in real-time. This feature will output to
+//  154  *   the serial port for display in the Z-Test tool.
+//  155  *
+//  156  *   This feature will most likely be compiled out in the production
+//  157  *   code in order to save code space.
+//  158  *
+//  159  * @param   byte *str_ptr - pointer to null-terminated string
+//  160  *
+//  161  * @return  void
+//  162  */
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+//  163 void debug_str( byte *str_ptr )
+debug_str:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function debug_str
+//  164 {
+        FUNCALL debug_str, osal_strlen
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL debug_str, osal_msg_allocate
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL debug_str, osal_memcpy
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL debug_str, osal_msg_send
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.W #0x4, R11
+          CFI R8L Frame(CFA, -12)
+          CFI R9L Frame(CFA, -10)
+          CFI R10L Frame(CFA, -8)
+          CFI R11L Frame(CFA, -6)
+          CFI CFA SP+12
+        MOV.W   R12, R11
+//  165   mtDebugStr_t *msg;
+//  166   byte mln;
+//  167   byte strLen;
+//  168 
+//  169   // Text string length
+//  170   strLen = (byte)osal_strlen( (void*)str_ptr );
+        CALLA   #osal_strlen
+        MOV.B   R12, R10
+//  171 
+//  172   // Debug string message length
+//  173   mln = sizeof ( mtDebugStr_t ) + strLen;
+//  174 
+//  175   // Get a message buffer to build the debug message
+//  176   msg = (mtDebugStr_t *)osal_msg_allocate( mln );
+        ADD.B   #0x6, R12
+        CALLA   #osal_msg_allocate
+        MOV.W   R12, R8
+//  177   if ( msg )
+        CMP.W   #0x0, R12
+        JEQ     ??debug_str_0
+//  178   {
+//  179     // Message type, length
+//  180     msg->hdr.event = CMD_DEBUG_STR;
+        MOV.B   #0x6, 0(R12)
+//  181     msg->strLen = strLen;
+        MOV.B   R10, 0x2(R12)
+//  182 
+//  183     // Append message, no terminator
+//  184     msg->pString = (uint8 *)(msg+1);
+        MOV.W   R12, R15
+        ADD.W   #0x6, R15
+        MOV.W   R15, 0x4(R12)
+//  185     osal_memcpy ( msg->pString, str_ptr, strLen );
+        MOV.B   R10, R14
+        MOV.W   R11, R13
+        MOV.W   R15, R12
+        CALLA   #osal_memcpy
+//  186 
+//  187     osal_msg_send( MT_TaskID, (uint8 *)msg );
+        MOV.W   R8, R13
+        MOV.B   &MT_TaskID, R12
+        CALLA   #osal_msg_send
+//  188   }
+//  189 } // debug_str()
+??debug_str_0:
+        POPM.W  #0x4, R11
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  190 
+//  191 /*********************************************************************
+//  192 *********************************************************************/
+//  193 #endif  // MT_TASK
+// 
+// 156 bytes in segment CODE
+// 
+// 156 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

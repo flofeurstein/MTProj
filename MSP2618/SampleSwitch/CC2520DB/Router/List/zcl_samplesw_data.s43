@@ -1,0 +1,559 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      10/Jun/2013  16:30:24 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  32                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  small                                                  /
+//    Source file   =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_da /
+//                     ta.c                                                   /
+//    Command line  =  -f "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\..\ /
+//                     Tools\MSP2618\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0   /
+//                     -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                      /
+//                     -DDEFAULT_CHANLIST=0x00000800                          /
+//                     -DZDAPP_CONFIG_PAN_ID=0xFFFF -DNWK_START_DELAY=100     /
+//                     -DEXTENDED_JOINING_RANDOM_MASK=0x007F                  /
+//                     -DBEACON_REQUEST_DELAY=100                             /
+//                     -DBEACON_REQ_DELAY_MASK=0x00FF                         /
+//                     -DLINK_STATUS_JITTER_MASK=0x007F                       /
+//                     -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_POLLED /
+//                     =3000 -DNWK_INDIRECT_MSG_TIMEOUT=7                     /
+//                     -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3        /
+//                     -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2  /
+//                     -DMAX_BCAST=9 -DAPS_MAX_GROUPS=16                      /
+//                     -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4       /
+//                     -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,      /
+//                     0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02,  /
+//                     0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"                   /
+//                     -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS= /
+//                     20 -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000         /
+//                     -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100        /
+//                     -DREJOIN_POLL_RATE=440) -f "C:\Texas                   /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wRouter.cfg" (-DCPU6MHZ                             /
+//                     -DMAC_CFG_APP_PENDING_QUEUE=TRUE                       /
+//                     -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8             /
+//                     -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\Tools\MSP2618 /
+//                     \f8wZCL.cfg" (-DZCL_READ -DZCL_WRITE -DZCL_BASIC       /
+//                     -DZCL_IDENTIFY -DZCL_ON_OFF -DZCL_KEY_ESTABLISH        /
+//                     -DZCL_KEY_ESTABLISHMENT_KEY_GENERATE_TIMEOUT=4         /
+//                     -DZCL_KEY_ESTABLISHMENT_MAC_GENERATE_TIMEOUT=10        /
+//                     -DZCL_KEY_ESTABLISHMENT_EKEY_GENERATE_TIMEOUT=10       /
+//                     -DZCL_LOAD_CONTROL -DZCL_SIMPLE_METERING               /
+//                     -DZCL_PRICING -DZCL_MESSAGE -DZCL_TUNNELING            /
+//                     -DZCL_TOU) -DZCL_DEVICE_MGMT "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\Source\zcl_samplesw_data.c" -D  /
+//                     MSP430F2618 -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D   /
+//                     MT_ZDO_FUNC -D LCD_SUPPORTED -lC "C:\Texas             /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\Router\List\" -lA      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\ /
+//                     " --remarks --diag_suppress Pe001,Pe193,Pe236,Pe826    /
+//                     -o "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\Router\Ob /
+//                     j\" --debug -D__MSP430F2618__ -e --double=32 --clib    /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\" -I      /
+//                     "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zs /
+//                     tack\HomeAutomation\SampleSwitch\CC2520DB\..\Source\"  /
+//                     -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects /
+//                     \zstack\HomeAutomation\SampleSwitch\CC2520DB\..\..\Sou /
+//                     rce\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1\Pr /
+//                     ojects\zstack\HomeAutomation\SampleSwitch\CC2520DB\..\ /
+//                     ..\..\ZMain\MSP2618\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\hal\target\MSP2618CC2520\" -I "C:\Texas            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\include\" -I "C:\Texas                         /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\high_level\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\" -I "C:\Texas                 /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mac\low_level\srf04\dual_chip\" -I "C:\Texas       /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\mt\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5.1 /
+//                     \Projects\zstack\HomeAutomation\SampleSwitch\CC2520DB\ /
+//                     ..\..\..\..\..\Components\osal\include\" -I "C:\Texas  /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\osal\mcu\msp430\" -I "C:\Texas                     /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\saddr\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\services\sdata\" -I "C:\Texas                      /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\af\" -I "C:\Texas                            /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\nwk\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sec\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sapi\" -I "C:\Texas                          /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\sys\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zcl\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\stack\zdo\" -I "C:\Texas                           /
+//                     Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeA /
+//                     utomation\SampleSwitch\CC2520DB\..\..\..\..\..\Compone /
+//                     nts\zmac\" -I "C:\Texas Instruments\ZStack-MSP2618-2.5 /
+//                     .1\Projects\zstack\HomeAutomation\SampleSwitch\CC2520D /
+//                     B\..\..\..\..\..\Components\zmac\f8w\" --core=430X     /
+//                     --data_model=small -Ohz --multiplier=16s               /
+//                     --require_prototypes                                   /
+//    List file     =  C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zst /
+//                     ack\HomeAutomation\SampleSwitch\CC2520DB\Router\List\z /
+//                     cl_samplesw_data.s43                                   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zcl_samplesw_data
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "small"
+        RTMODEL "__double_size", "32"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_copy
+        EXTERN ?cstart_init_zero
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC zclSampleSw_Attrs
+        PUBLIC zclSampleSw_DateCode
+        PUBLIC zclSampleSw_DeviceEnable
+        PUBLIC zclSampleSw_HWRevision
+        PUBLIC zclSampleSw_IdentifyTime
+        PUBLIC zclSampleSw_InClusterList
+        PUBLIC zclSampleSw_LocationDescription
+        PUBLIC zclSampleSw_ManufacturerName
+        PUBLIC zclSampleSw_ModelId
+        PUBLIC zclSampleSw_OnOff
+        PUBLIC zclSampleSw_OutClusterList
+        PUBLIC zclSampleSw_PhysicalEnvironment
+        PUBLIC zclSampleSw_PowerSource
+        PUBLIC zclSampleSw_SimpleDesc
+        PUBLIC zclSampleSw_ZCLVersion
+// C:\Texas Instruments\ZStack-MSP2618-2.5.1\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_data.c
+//    1 /**************************************************************************************************
+//    2   Filename:       zcl_samplesw_data.c
+//    3   Revised:        $Date: 2008-03-11 11:01:35 -0700 (Tue, 11 Mar 2008) $
+//    4   Revision:       $Revision: 16570 $
+//    5 
+//    6 
+//    7   Description:    Zigbee Cluster Library - sample device application.
+//    8 
+//    9 
+//   10   Copyright 2006-2007 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License").  You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product.  Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com. 
+//   39 **************************************************************************************************/
+//   40 
+//   41 /*********************************************************************
+//   42  * INCLUDES
+//   43  */
+//   44 #include "ZComDef.h"
+//   45 #include "OSAL.h"
+//   46 #include "AF.h"
+//   47 #include "ZDConfig.h"
+//   48 
+//   49 #include "zcl.h"
+//   50 #include "zcl_general.h"
+//   51 #include "zcl_ha.h"
+//   52 
+//   53 #include "zcl_samplesw.h"
+//   54 
+//   55 /*********************************************************************
+//   56  * CONSTANTS
+//   57  */
+//   58 
+//   59 #define SAMPLESW_DEVICE_VERSION     0
+//   60 #define SAMPLESW_FLAGS              0
+//   61 
+//   62 #define SAMPLESW_HWVERSION          0
+//   63 #define SAMPLESW_ZCLVERSION         0
+//   64 
+//   65 /*********************************************************************
+//   66  * TYPEDEFS
+//   67  */
+//   68 
+//   69 /*********************************************************************
+//   70  * MACROS
+//   71  */
+//   72 
+//   73 /*********************************************************************
+//   74  * GLOBAL VARIABLES
+//   75  */
+//   76 
+//   77 // Basic Cluster
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   78 const uint8 zclSampleSw_HWRevision = SAMPLESW_HWVERSION;
+zclSampleSw_HWRevision:
+        DC8 0
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   79 const uint8 zclSampleSw_ZCLVersion = SAMPLESW_ZCLVERSION;
+zclSampleSw_ZCLVersion:
+        DC8 0
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   80 const uint8 zclSampleSw_ManufacturerName[] = { 16, 'T','e','x','a','s','I','n','s','t','r','u','m','e','n','t','s' };
+zclSampleSw_ManufacturerName:
+        DC8 16, 84, 101, 120, 97, 115, 73, 110, 115, 116, 114, 117, 109, 101
+        DC8 110, 116, 115
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   81 const uint8 zclSampleSw_ModelId[] = { 16, 'T','I','0','0','0','1',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+zclSampleSw_ModelId:
+        DC8 16, 84, 73, 48, 48, 48, 49, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   82 const uint8 zclSampleSw_DateCode[] = { 16, '2','0','0','6','0','8','3','1',' ',' ',' ',' ',' ',' ',' ',' ' };
+zclSampleSw_DateCode:
+        DC8 16, 50, 48, 48, 54, 48, 56, 51, 49, 32, 32, 32, 32, 32, 32, 32, 32
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(0)
+//   83 const uint8 zclSampleSw_PowerSource = POWER_SOURCE_MAINS_1_PHASE;
+zclSampleSw_PowerSource:
+        DC8 1
+//   84 
+
+        RSEG DATA16_I:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_copy
+//   85 uint8 zclSampleSw_LocationDescription[17] = { 16, ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+zclSampleSw_LocationDescription:
+        DS8 17
+        REQUIRE `?<Initializer for zclSampleSw_LocationDescript`
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   86 uint8 zclSampleSw_PhysicalEnvironment = 0;
+zclSampleSw_PhysicalEnvironment:
+        DS8 1
+
+        RSEG DATA16_I:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_copy
+//   87 uint8 zclSampleSw_DeviceEnable = DEVICE_ENABLED;
+zclSampleSw_DeviceEnable:
+        DS8 1
+        REQUIRE `?<Initializer for zclSampleSw_DeviceEnable>`
+//   88 
+//   89 // Identify Cluster
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero
+//   90 uint16 zclSampleSw_IdentifyTime = 0;
+zclSampleSw_IdentifyTime:
+        DS8 2
+//   91 
+//   92 // On/Off Cluster
+
+        RSEG DATA16_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero
+//   93 uint8  zclSampleSw_OnOff = LIGHT_OFF;
+zclSampleSw_OnOff:
+        DS8 1
+//   94 
+//   95 /*********************************************************************
+//   96  * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
+//   97  */
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(1)
+//   98 CONST zclAttrRec_t zclSampleSw_Attrs[SAMPLESW_MAX_ATTRIBUTES] =
+zclSampleSw_Attrs:
+        DC16 0, 3
+        DC8 32, 1
+        DC16 zclSampleSw_HWRevision, 0, 0
+        DC8 32, 1
+        DC16 zclSampleSw_ZCLVersion, 0, 4
+        DC8 66, 1
+        DC16 zclSampleSw_ManufacturerName, 0, 5
+        DC8 66, 1
+        DC16 zclSampleSw_ModelId, 0, 6
+        DC8 66, 1
+        DC16 zclSampleSw_DateCode, 0, 7
+        DC8 32, 1
+        DC16 zclSampleSw_PowerSource, 0, 16
+        DC8 66, 3
+        DC16 zclSampleSw_LocationDescription, 0, 17
+        DC8 32, 3
+        DC16 zclSampleSw_PhysicalEnvironment, 0, 18
+        DC8 32, 3
+        DC16 zclSampleSw_DeviceEnable, 3, 0
+        DC8 33, 3
+        DC16 zclSampleSw_IdentifyTime, 6, 0
+        DC8 32, 1
+        DC16 zclSampleSw_OnOff
+//   99 {
+//  100   // *** General Basic Cluster Attributes ***
+//  101   {
+//  102     ZCL_CLUSTER_ID_GEN_BASIC,             // Cluster IDs - defined in the foundation (ie. zcl.h)
+//  103     {  // Attribute record
+//  104       ATTRID_BASIC_HW_VERSION,            // Attribute ID - Found in Cluster Library header (ie. zcl_general.h)
+//  105       ZCL_DATATYPE_UINT8,                 // Data Type - found in zcl.h
+//  106       ACCESS_CONTROL_READ,                // Variable access control - found in zcl.h
+//  107       (void *)&zclSampleSw_HWRevision  // Pointer to attribute variable
+//  108     }
+//  109   },
+//  110   {
+//  111     ZCL_CLUSTER_ID_GEN_BASIC,
+//  112     { // Attribute record
+//  113       ATTRID_BASIC_ZCL_VERSION,
+//  114       ZCL_DATATYPE_UINT8,
+//  115       ACCESS_CONTROL_READ,
+//  116       (void *)&zclSampleSw_ZCLVersion
+//  117     }
+//  118   },
+//  119   {
+//  120     ZCL_CLUSTER_ID_GEN_BASIC,
+//  121     { // Attribute record
+//  122       ATTRID_BASIC_MANUFACTURER_NAME,
+//  123       ZCL_DATATYPE_CHAR_STR,
+//  124       ACCESS_CONTROL_READ,
+//  125       (void *)zclSampleSw_ManufacturerName
+//  126     }
+//  127   },
+//  128   {
+//  129     ZCL_CLUSTER_ID_GEN_BASIC,
+//  130     { // Attribute record
+//  131       ATTRID_BASIC_MODEL_ID,
+//  132       ZCL_DATATYPE_CHAR_STR,
+//  133       ACCESS_CONTROL_READ,
+//  134       (void *)zclSampleSw_ModelId
+//  135     }
+//  136   },
+//  137   {
+//  138     ZCL_CLUSTER_ID_GEN_BASIC,
+//  139     { // Attribute record
+//  140       ATTRID_BASIC_DATE_CODE,
+//  141       ZCL_DATATYPE_CHAR_STR,
+//  142       ACCESS_CONTROL_READ,
+//  143       (void *)zclSampleSw_DateCode
+//  144     }
+//  145   },
+//  146   {
+//  147     ZCL_CLUSTER_ID_GEN_BASIC,
+//  148     { // Attribute record
+//  149       ATTRID_BASIC_POWER_SOURCE,
+//  150       ZCL_DATATYPE_UINT8,
+//  151       ACCESS_CONTROL_READ,
+//  152       (void *)&zclSampleSw_PowerSource
+//  153     }
+//  154   },
+//  155   {
+//  156     ZCL_CLUSTER_ID_GEN_BASIC,
+//  157     { // Attribute record
+//  158       ATTRID_BASIC_LOCATION_DESC,
+//  159       ZCL_DATATYPE_CHAR_STR,
+//  160       (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+//  161       (void *)zclSampleSw_LocationDescription
+//  162     }
+//  163   },
+//  164   {
+//  165     ZCL_CLUSTER_ID_GEN_BASIC,
+//  166     { // Attribute record
+//  167       ATTRID_BASIC_PHYSICAL_ENV,
+//  168       ZCL_DATATYPE_UINT8,
+//  169       (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+//  170       (void *)&zclSampleSw_PhysicalEnvironment
+//  171     }
+//  172   },
+//  173   {
+//  174     ZCL_CLUSTER_ID_GEN_BASIC,
+//  175     { // Attribute record
+//  176       ATTRID_BASIC_DEVICE_ENABLED,
+//  177       ZCL_DATATYPE_UINT8,
+//  178       (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+//  179       (void *)&zclSampleSw_DeviceEnable
+//  180     }
+//  181   },
+//  182   
+//  183   // *** Identify Cluster Attribute ***
+//  184   {
+//  185     ZCL_CLUSTER_ID_GEN_IDENTIFY,
+//  186     { // Attribute record
+//  187       ATTRID_IDENTIFY_TIME,
+//  188       ZCL_DATATYPE_UINT16,
+//  189       (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+//  190       (void *)&zclSampleSw_IdentifyTime
+//  191     }
+//  192   },
+//  193   
+//  194   // *** On / Off Cluster Attributes ***
+//  195   {
+//  196     ZCL_CLUSTER_ID_GEN_ON_OFF,
+//  197     { // Attribute record
+//  198       ATTRID_ON_OFF,
+//  199       ZCL_DATATYPE_UINT8,
+//  200       ACCESS_CONTROL_READ,
+//  201       (void *)&zclSampleSw_OnOff
+//  202     }
+//  203   },
+//  204 };
+//  205 
+//  206 /*********************************************************************
+//  207  * SIMPLE DESCRIPTOR
+//  208  */
+//  209 // This is the Cluster ID List and should be filled with Application
+//  210 // specific cluster IDs.
+//  211 #define ZCLSAMPLESW_MAX_INCLUSTERS       1
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(1)
+//  212 const cId_t zclSampleSw_InClusterList[ZCLSAMPLESW_MAX_INCLUSTERS] =
+zclSampleSw_InClusterList:
+        DC16 0
+//  213 {
+//  214   ZCL_CLUSTER_ID_GEN_BASIC
+//  215 };
+//  216 
+//  217 #define ZCLSAMPLESW_MAX_OUTCLUSTERS       1
+
+        RSEG DATA16_C:CONST:SORT:NOROOT(1)
+//  218 const cId_t zclSampleSw_OutClusterList[ZCLSAMPLESW_MAX_OUTCLUSTERS] =
+zclSampleSw_OutClusterList:
+        DC16 6
+//  219 {
+//  220   ZCL_CLUSTER_ID_GEN_ON_OFF
+//  221 };
+//  222 
+
+        RSEG DATA16_I:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_copy
+//  223 SimpleDescriptionFormat_t zclSampleSw_SimpleDesc =
+zclSampleSw_SimpleDesc:
+        DS8 14
+        REQUIRE `?<Initializer for zclSampleSw_SimpleDesc>`
+
+        RSEG DATA16_ID:CONST:SORT:NOROOT(0)
+`?<Initializer for zclSampleSw_LocationDescript`:
+        DC8 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32
+
+        RSEG DATA16_ID:CONST:SORT:NOROOT(0)
+`?<Initializer for zclSampleSw_DeviceEnable>`:
+        DC8 1
+
+        RSEG DATA16_ID:CONST:SORT:NOROOT(1)
+`?<Initializer for zclSampleSw_SimpleDesc>`:
+        DC8 12, 0
+        DC16 260, 0
+        DC8 0, 1
+        DC16 zclSampleSw_InClusterList
+        DC8 1, 0
+        DC16 zclSampleSw_OutClusterList
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+//  224 {
+//  225   SAMPLESW_ENDPOINT,                  //  int Endpoint;
+//  226   ZCL_HA_PROFILE_ID,                  //  uint16 AppProfId[2];
+//  227   ZCL_HA_DEVICEID_ON_OFF_SWITCH,      //  uint16 AppDeviceId[2];
+//  228   SAMPLESW_DEVICE_VERSION,            //  int   AppDevVer:4;
+//  229   SAMPLESW_FLAGS,                     //  int   AppFlags:4;
+//  230   ZCLSAMPLESW_MAX_INCLUSTERS,         //  byte  AppNumInClusters;
+//  231   (cId_t *)zclSampleSw_InClusterList, //  byte *pAppInClusterList;
+//  232   ZCLSAMPLESW_MAX_OUTCLUSTERS,        //  byte  AppNumInClusters;
+//  233   (cId_t *)zclSampleSw_OutClusterList //  byte *pAppInClusterList;
+//  234 };
+//  235 
+//  236 /*********************************************************************
+//  237  * GLOBAL FUNCTIONS
+//  238  */
+//  239 
+//  240 /*********************************************************************
+//  241  * LOCAL FUNCTIONS
+//  242  */
+//  243 
+//  244 /****************************************************************************
+//  245 ****************************************************************************/
+//  246 
+//  247 
+// 
+// 146 bytes in segment DATA16_C
+//  32 bytes in segment DATA16_I
+//  32 bytes in segment DATA16_ID
+//   4 bytes in segment DATA16_Z
+// 
+// 178 bytes of CONST memory
+//  36 bytes of DATA  memory
+//
+//Errors: none
+//Warnings: none
