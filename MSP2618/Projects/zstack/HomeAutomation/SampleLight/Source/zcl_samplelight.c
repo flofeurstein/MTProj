@@ -116,6 +116,7 @@ static void zclSampleLight_IdentifyCB( zclIdentify_t *pCmd );
 static void zclSampleLight_IdentifyQueryRspCB( zclIdentifyQueryRsp_t *pRsp );
 static void zclSampleLight_OnOffCB( uint8 cmd );
 static void zclSampleLight_ProcessIdentifyTimeChange( void );
+static void zclSampleLight_UARTWrite(unsigned char* buff, int len);
 
 // Functions to process ZCL Foundation incoming Command/Response messages 
 static void zclSampleLight_ProcessIncomingMsg( zclIncomingMsg_t *msg );
@@ -186,6 +187,7 @@ void zclSampleLight_Init( byte task_id )
 
   // Register for a test endpoint
   afRegister( &sampleLight_TestEp );
+  
 }
 
 /*********************************************************************
@@ -260,6 +262,7 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
 static void zclSampleLight_HandleKeys( byte shift, byte keys )
 {
   zAddrType_t dstAddr;
+  
   
   (void)shift;  // Intentionally unreferenced parameter
 
@@ -374,13 +377,15 @@ static void zclSampleLight_IdentifyQueryRspCB(  zclIdentifyQueryRsp_t *pRsp )
 static void zclSampleLight_OnOffCB( uint8 cmd )
 {
   // Turn on the light
-  if ( cmd == COMMAND_ON )
+  if ( cmd == COMMAND_ON ){
     zclSampleLight_OnOff = LIGHT_ON;
-
+    zclSampleLight_UARTWrite("LightOn", 8);
+  }
   // Turn off the light
-  else if ( cmd == COMMAND_OFF )
+  else if ( cmd == COMMAND_OFF ){
     zclSampleLight_OnOff = LIGHT_OFF;
-
+    zclSampleLight_UARTWrite("LightOff", 9);
+  }
   // Toggle the light
   else
   {
@@ -389,12 +394,16 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
     else
       zclSampleLight_OnOff = LIGHT_OFF;
   }
-
+  
   // In this sample app, we use LED4 to simulate the Light
-  if ( zclSampleLight_OnOff == LIGHT_ON )
+  if ( zclSampleLight_OnOff == LIGHT_ON ){
     HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
-  else
+    zclSampleLight_UARTWrite("LightToggleON", 14);
+  }
+  else{
     HalLedSet( HAL_LED_4, HAL_LED_MODE_OFF );
+    zclSampleLight_UARTWrite("LightToggleOFF", 15);
+  }
 }
 
 
@@ -561,6 +570,20 @@ static uint8 zclSampleLight_ProcessInDiscRspCmd( zclIncomingMsg_t *pInMsg )
   return TRUE;
 }
 #endif // ZCL_DISCOVER
+
+/*********************************************************************
+ * @fn      zclSampleLight_UARTWrite
+ *
+ * @brief   write buffer to uart
+ *
+ * @param   buff - buffer to write to uart
+ * @param   len - length of buffer
+ *
+ * @return  none
+ */
+static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
+  HalUARTWrite(HAL_UART_PORT_0, buff, len);
+}
 
 
 /****************************************************************************
