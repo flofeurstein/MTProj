@@ -102,7 +102,7 @@ void MT_UartInit ()
 
   /* Initialize APP ID */
   App_TaskID = 0;
-
+ 
   /* UART Configuration */
   uartConfig.configured           = TRUE;
   uartConfig.baudRate             = MT_UART_DEFAULT_BAUDRATE;

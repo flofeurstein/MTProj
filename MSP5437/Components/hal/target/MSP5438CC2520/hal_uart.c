@@ -51,48 +51,48 @@
  ------------------------------------------------------------------------------------------------*/
 
 /* Get 1 byte from UART */
-#define HAL_UART_GETBYTE() UCA1RXBUF
+#define HAL_UART_GETBYTE() UCA0RXBUF
 
 /* Put 1 byte into the UART */
-#define HAL_UART_PUTBYTE(x)            { UCA1TXBUF = (x); }
+#define HAL_UART_PUTBYTE(x)            { UCA0TXBUF = (x); }
 
 /* Set Baud rate */
-#define HAL_UART_SETBAUDRATE(baudrate) { UCA1BR1 = (baudrate) >> 8;  UCA1BR0 = (baudrate); }
+#define HAL_UART_SETBAUDRATE(baudrate) { UCA0BR1 = (baudrate) >> 8;  UCA0BR0 = (baudrate); }
 
 /* Set Source Clock */
-#define HAL_UART_SET_SRC_CLK()         { UCA1CTL1 |= UCSSEL_3; } /* SMCLK */
+#define HAL_UART_SET_SRC_CLK()         { UCA0CTL1 |= UCSSEL_3; } /* SMCLK */
 
 /* Setup TXD and RXD Port */
-#define HAL_UART_PORT_CONFIG()         { P5SEL |= BV(6) | BV(7); P5DIR |= BV(6); P5DIR &= ~BV(7); }  /* P5.6, P5.7 - UCA0TXD and RXD */
+#define HAL_UART_PORT_CONFIG()         { P3SEL |= BV(4) | BV(5); P3DIR |= BV(4); P3DIR &= ~BV(5); }  /* P3.4, P3.5 - UCA0TXD and RXD */
 
 /* Setup format frame */
-#define HAL_UART_FRAME_CONFIG()        { UCA1CTL0 = UCMODE_0;   /* UART Mode */        \
-                                         UCA1CTL0 &= ~UCPEN;    /* Disable parity */   \
-                                         UCA1CTL0 &= ~UCSPB;    /* 1 stop bit */       \
-                                         UCA1CTL0 &= ~UC7BIT;   /* 8bit data*/         \
-                                         UCA1CTL0 &= ~UCSYNC; } /* Asynchronous mode */
+#define HAL_UART_FRAME_CONFIG()        { UCA0CTL0 = UCMODE_0;   /* UART Mode */        \
+                                         UCA0CTL0 &= ~UCPEN;    /* Disable parity */   \
+                                         UCA0CTL0 &= ~UCSPB;    /* 1 stop bit */       \
+                                         UCA0CTL0 &= ~UC7BIT;   /* 8bit data*/         \
+                                         UCA0CTL0 &= ~UCSYNC; } /* Asynchronous mode */
 
 /* Enable/Disable TX INT */
-#define HAL_UART_TX_INT_ENABLE()       { UCA1IE |= UCTXIE; }
-#define HAL_UART_TX_INT_DISABLE()      { UCA1IE &= ~UCTXIE; }
+#define HAL_UART_TX_INT_ENABLE()       { UCA0IE |= UCTXIE; }
+#define HAL_UART_TX_INT_DISABLE()      { UCA0IE &= ~UCTXIE; }
 
 /* Enable/Disable RX */
 #define HAL_UART_RX_ENABLE()           /* N/A */
 #define HAL_UART_RX_DISABLE()          /* N/A */
 
 /* Enable/Disable TX INT */
-#define HAL_UART_RX_INT_ENABLE()       { UCA1IE |= UCRXIE; }
-#define HAL_UART_RX_INT_DISABLE()      { UCA1IE &= ~UCRXIE; }
+#define HAL_UART_RX_INT_ENABLE()       { UCA0IE |= UCRXIE; }
+#define HAL_UART_RX_INT_DISABLE()      { UCA0IE &= ~UCRXIE; }
 
 /* Enable/Disable SWRST */
-#define HAL_UART_SWRST_ENABLE()        { UCA1CTL1 |= UCSWRST; }
-#define HAL_UART_SWRST_DISABLE()       { UCA1CTL1 &= ~UCSWRST; }
+#define HAL_UART_SWRST_ENABLE()        { UCA0CTL1 |= UCSWRST; }
+#define HAL_UART_SWRST_DISABLE()       { UCA0CTL1 &= ~UCSWRST; }
 
 /* Get Rx/Tx status bit */
-#define HAL_UART_GET_RXTX_STATUS()    (UCA1IFG & (UCRXIFG | UCRXIFG))
-#define HAL_UART_GET_RX_STATUS()      (UCA1IFG & UCRXIFG)
-#define HAL_UART_GET_TX_STATUS()      (UCA1IFG & UCTXIFG)
-#define HAL_UART_CLR_TX_STATUS()      (UCA1IFG &= ~UCTXIFG)
+#define HAL_UART_GET_RXTX_STATUS()    (UCA0IFG & (UCRXIFG | UCRXIFG))
+#define HAL_UART_GET_RX_STATUS()      (UCA0IFG & UCRXIFG)
+#define HAL_UART_GET_TX_STATUS()      (UCA0IFG & UCTXIFG)
+#define HAL_UART_CLR_TX_STATUS()      (UCA0IFG &= ~UCTXIFG)
 
 /* UART CTS and RTS */
 #define HAL_UART_CTS_PORT             /* N/A */
@@ -142,6 +142,13 @@ static void Hal_UART_SendCallBack(uint8 port, uint8 event);
  *************************************************************************************************/
 void HalUARTInit ( void )
 {
+  //init uart
+   halUARTCfg_t uartConfig;
+
+  uartConfig.configured           = TRUE;              
+  
+  uartConfig.intEnable            = TRUE;              
+
   Hal_UART_BufferInit();
 }
 
@@ -156,7 +163,17 @@ void HalUARTInit ( void )
  *************************************************************************************************/
 static void Hal_UART_BufferInit (void)
 {
-  uartRecord.configured        = FALSE;
+  uartRecord.configured           = TRUE;
+  uartRecord.rx.bufferHead        = 0;
+  uartRecord.rx.bufferTail        = 0;
+  uartRecord.rx.pBuffer           = (uint8 *)NULL;
+  uartRecord.tx.bufferHead        = 0;
+  uartRecord.tx.bufferTail        = 0;
+  uartRecord.tx.pBuffer           = (uint8 *)NULL;
+  uartRecord.rxChRvdTime          = 0;
+  uartRecord.intEnable            = TRUE;
+  
+  /*uartRecord.configured        = FALSE;
   uartRecord.rx.bufferHead     = 0;
   uartRecord.rx.bufferTail     = 0;
   uartRecord.rx.pBuffer        = (uint8 *)NULL;
@@ -164,7 +181,7 @@ static void Hal_UART_BufferInit (void)
   uartRecord.tx.bufferTail     = 0;
   uartRecord.tx.pBuffer        = (uint8 *)NULL;
   uartRecord.rxChRvdTime       = 0;
-  uartRecord.intEnable         = FALSE;
+  uartRecord.intEnable         = FALSE;*/
 }
 
 /*************************************************************************************************

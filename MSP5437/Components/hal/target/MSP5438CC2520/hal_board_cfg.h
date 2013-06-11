@@ -313,7 +313,7 @@
 #define INTERRUPT_TIMERB_OC_CC1_6()   HAL_ISR_FUNCTION( haBoardTimerB1Isr, TIMERB1_VECTOR )
 
 /* ----------- UART interrupts ---------- */
-#define INTERRUPT_UART()    HAL_ISR_FUNCTION( halBoardUart1Isr, USCI_A1_VECTOR /*USCIA1_VECTOR*/ )
+#define INTERRUPT_UART()    HAL_ISR_FUNCTION( halBoardUart1Isr, USCI_A0_VECTOR /*USCIA0_VECTOR*/ )
 
 /* ----------- key interrupts ---------- */
 #define INTERRUPT_KEYBD()             HAL_ISR_FUNCTION( halBoardPort1Isr, PORT2_VECTOR )

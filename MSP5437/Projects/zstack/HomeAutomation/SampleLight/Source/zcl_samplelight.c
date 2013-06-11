@@ -107,6 +107,9 @@ static endPointDesc_t sampleLight_TestEp =
   (afNetworkLatencyReq_t)0            // No Network Latency req
 };
 
+/* set compliance mode */
+const uint8 u8ComplianceMode = FCC_COMPLIANT;
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -187,6 +190,7 @@ void zclSampleLight_Init( byte task_id )
 
   // Register for a test endpoint
   afRegister( &sampleLight_TestEp );
+  
 }
 
 /*********************************************************************
@@ -243,6 +247,52 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
   // Discard unknown events
   return 0;
 }
+
+/* change power or channel */
+#ifdef LSR_CODE
+//////////////////////////////////////////////////////////////////////////////////
+//Name:               LimitPowerVsChannel
+//Purpose:            This function will check the power setting vs the channel
+//							 to reduce power if necessary on band edge channels
+//
+//Parameters          u8Channel - the rf channel the module is operating on
+//							 u8Power - the desired RF power on that channel
+//
+//Returns             uint8 - RF power to use
+//////////////////////////////////////////////////////////////////////////////////
+static uint8 LimitPowerVsChannel(uint8 u8Channel, uint8 u8Power)
+{
+	uint8 u8ReturnValue;
+
+	u8ReturnValue = u8Power;
+
+	if (u8ComplianceMode == FCC_COMPLIANT)
+	{
+		if ( ( (u8Channel <= MAC_CHAN_13) || (u8Channel == MAC_CHAN_25) ) &&
+			  (u8Power > FCC_POWER_LIMIT_EDGE_CHANNEL) )
+		{
+			u8ReturnValue = FCC_POWER_LIMIT_EDGE_CHANNEL;	
+		}
+	}
+	
+	else if (u8ComplianceMode == ETSI_INTERNAL_ANT)
+	{
+		if (u8Power > ETSI_INTERNAL_ANT_POWER_LIMIT)
+		{
+			u8ReturnValue = ETSI_INTERNAL_ANT_POWER_LIMIT;	
+		}
+	}
+	
+	else //(u8ComplianceMode == ETSI_EXTERNAL_ANT)
+	{
+		if (u8Power > ETSI_EXTERNAL_ANT_POWER_LIMIT)
+		{
+			u8ReturnValue = ETSI_EXTERNAL_ANT_POWER_LIMIT;	
+		}
+	}
+	return (u8ReturnValue);	
+}
+#endif
 
 /*********************************************************************
  * @fn      zclSampleLight_HandleKeys
@@ -580,7 +630,7 @@ static uint8 zclSampleLight_ProcessInDiscRspCmd( zclIncomingMsg_t *pInMsg )
  * @return  none
  */
 static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
-  HalUARTWrite(HAL_UART_PORT_0, buff, len);
+  HalUARTWrite(SERIAL_APP_PORT, buff, len);
 }
 
 /****************************************************************************

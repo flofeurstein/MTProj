@@ -63,6 +63,56 @@ extern "C"
 
 // Application Events
 #define SAMPLELIGHT_IDENTIFY_TIMEOUT_EVT     0x0001
+  
+#if !defined( SERIAL_APP_PORT )
+#define SERIAL_APP_PORT  0
+#endif
+
+#if !defined( SERIAL_APP_BAUD )
+#define SERIAL_APP_BAUD  HAL_UART_BR_38400
+//#define SERIAL_APP_BAUD  HAL_UART_BR_115200
+#endif
+
+// When the Rx buf space is less than this threshold, invoke the Rx callback.
+#if !defined( SERIAL_APP_THRESH )
+#define SERIAL_APP_THRESH  48
+#endif
+
+#if !defined( SERIAL_APP_RX_SZ )
+#define SERIAL_APP_RX_SZ  128
+#endif
+
+#if !defined( SERIAL_APP_TX_SZ )
+#define SERIAL_APP_TX_SZ  128
+#endif
+
+// Millisecs of idle time after a byte is received before invoking Rx callback.
+#if !defined( SERIAL_APP_IDLE )
+#define SERIAL_APP_IDLE  6
+#endif
+
+// Loopback Rx bytes to Tx for throughput testing.
+#if !defined( SERIAL_APP_LOOPBACK )
+#define SERIAL_APP_LOOPBACK  FALSE
+#endif
+
+// This is the max byte count per OTA message.
+#if !defined( SERIAL_APP_TX_MAX )
+#define SERIAL_APP_TX_MAX  128
+#endif
+
+#define SERIAL_APP_RSP_CNT  4 
+  
+/* definitions */
+enum
+{
+	FCC_COMPLIANT,
+	ETSI_INTERNAL_ANT,
+	ETSI_EXTERNAL_ANT
+};
+#define ETSI_INTERNAL_ANT_POWER_LIMIT			12 //10-12 same power level
+#define ETSI_EXTERNAL_ANT_POWER_LIMIT			9  //0-9 same power level
+#define FCC_POWER_LIMIT_EDGE_CHANNEL			15 //15,16 same power level
 
 /*********************************************************************
  * MACROS
