@@ -234,15 +234,15 @@
 #define HAL_PUSH_BUTTON2()        (PUSH2_POLARITY (PUSH2_PORT & PUSH2_BV))
 
 /* ----------- LED's ---------- */
-#define HAL_TURN_OFF_LED1()       st( LED1_PORT &= ~LED1_BV; )
-#define HAL_TURN_OFF_LED2()       st( LED2_PORT &= ~LED2_BV; )
-#define HAL_TURN_OFF_LED3()       st( LED3_PORT &= ~LED3_BV; )
-#define HAL_TURN_OFF_LED4()       st( LED4_PORT &= ~LED4_BV; )
+#define HAL_TURN_ON_LED1()       st( LED1_PORT &= ~LED1_BV; )
+#define HAL_TURN_ON_LED2()       st( LED2_PORT &= ~LED2_BV; )
+#define HAL_TURN_ON_LED3()       st( LED3_PORT &= ~LED3_BV; )
+#define HAL_TURN_ON_LED4()       st( LED4_PORT &= ~LED4_BV; )
 
-#define HAL_TURN_ON_LED1()        st( LED1_PORT |=  LED1_BV; )
-#define HAL_TURN_ON_LED2()        st( LED2_PORT |=  LED2_BV; )
-#define HAL_TURN_ON_LED3()        st( LED3_PORT |=  LED3_BV; )
-#define HAL_TURN_ON_LED4()        st( LED4_PORT |=  LED4_BV; )
+#define HAL_TURN_OFF_LED1()        st( LED1_PORT |=  LED1_BV; )
+#define HAL_TURN_OFF_LED2()        st( LED2_PORT |=  LED2_BV; )
+#define HAL_TURN_OFF_LED3()        st( LED3_PORT |=  LED3_BV; )
+#define HAL_TURN_OFF_LED4()        st( LED4_PORT |=  LED4_BV; )
 
 #define HAL_TOGGLE_LED1()         st( LED1_PORT ^=  LED1_BV; )
 #define HAL_TOGGLE_LED2()         st( LED2_PORT ^=  LED2_BV; )
