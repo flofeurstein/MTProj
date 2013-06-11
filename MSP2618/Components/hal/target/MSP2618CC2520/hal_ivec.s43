@@ -1,0 +1,196 @@
+/******************************************************************************
+  Filename:       hal_ivec.s43
+  Revised:        $Date: 2010-11-18 08:22:50 -0800 (Thu, 18 Nov 2010) $
+  Revision:       $Revision: 24438 $
+
+  Description:    IVEC redirection to support MSP430 Boot Code.
+  Notes:          This version targets the Texas Instruments MSP2618
+
+
+  Copyright 2008-2010 Texas Instruments Incorporated. All rights reserved.
+
+  IMPORTANT: Your use of this Software is limited to those specific rights
+  granted under the terms of a software license agreement between the user
+  who downloaded the software, his/her employer (which must be your employer)
+  and Texas Instruments Incorporated (the "License").  You may not use this
+  Software unless you agree to abide by the terms of the License. The License
+  limits your use, and you acknowledge, that the Software may not be modified,
+  copied or distributed unless embedded on a Texas Instruments microcontroller
+  or used solely and exclusively in conjunction with a Texas Instruments radio
+  frequency transceiver, which is integrated into your product.  Other than for
+  the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+  works of, modify, distribute, perform, display or sell this Software and/or
+  its documentation for any purpose.
+
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+  TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+  INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+  OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+  OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+
+  Should you have any questions regarding your right to use this Software,
+  contact Texas Instruments Incorporated at www.TI.com.
+******************************************************************************/
+  EXTERN  IVECX_BEG
+  EXTERN  IVEC2_BEG
+  EXTERN  bootMain
+
+  ; This symbol allows the boot code to invoke the user's startup code.
+  PUBLIC  _ivecRst2
+
+
+  ; This fills in the IVEC "jump" table to the sequences that Xfer control to Application ISR's.
+  RSEG IVEC
+_ivecX    SET  IVECX_BEG  ; Allows linker to fill-in address of the PC control Xfer block.
+
+  REPT 31                 ; Generate address of each branch sequence.
+  DC16    _ivecX
+_ivecX    SET  _ivecX+4   ; Next control Xfer sequence 4 bytes up
+  ENDR
+
+  ; IVEC #32 is the reset vector - usurped by boot code to check code sanity.
+  DC16    bootMain
+
+
+  ; This code generates a branch sequence (coded as a MOV to PC) for each interrupt vector.
+  ; The target value is the two-byte IVEC table entry generated for the INTVEC table for the
+  ; Application code. This Application INTVEC table has been relocated to a known offset,
+  ; represented by the external symbol 'IVEC2_BEG'. When an interrupt occurs the target
+  ; address is loaded into the PC so that the PC is set to the interrupt handler in the Application.
+  ;
+  ; This technique introduces 3 cycles of added interrupt latency.
+  ;  ---- ----------- ---------- - ------ -- ----- --------- -------
+  RSEG    IVECX
+_newPC    SET     IVEC2_BEG  ; Causes the linker to patch the MOV instructions properly
+
+  REPT 31                    ; Generate branch sequences for each possible IVEC.
+  MOV     _newPC, R0
+_newPC    SET     _newPC+2   ; Next user interrupt target 2 bytes up
+  ENDR
+
+_ivecRst2:                   ; Entry point for boot code to start user's code.
+  MOV     _newPC,R0
+; END
+
+;-------------------------------------------------------------------------------
+#include <msp430x26x.h>
+
+  PUBLIC  TI_SetDCO_Boot
+  RSEG    HAL_BOOT_SEG
+  EVEN
+
+#ifndef TACCTL2_                            ; For Timer_A2 devices
+  #define TACCTL2 TACCTL0
+  #define TACCR2 TACCR0
+#endif
+
+;-------------------------------------------------------------------------------
+TI_SetDCO_Boot;     Subroutine: Sets DCO to selected frequency based on Delta.
+;           R14 and R15 are used, ACLK = 32768/8 Timer_A clocked by DCOCLK
+;           R13 used to hold old BCSCTL1 value
+;           R12 is the parameter specifying the delta value, MCLK = delta * 4096
+;           returns in R12:
+;           0 - DCO Set Correctly
+;           1 - DCO running at slowest setting
+;           2 - DCO running at fastest setting
+;           0xff - Timeout Occured while setting DCO
+;-------------------------------------------------------------------------------
+            push.w  &TACTL
+            push.w  &TACCTL2
+            mov.w   #10000, r11             ; max number of times to loop
+            clr.w   r15                     ;
+            mov.b   &BCSCTL1, r13           ; Copy BC settings to preserve
+            #ifndef __MSP430_HAS_BC2__
+            and.w   #0xF8,    r13           ; Mask out bits which will change (0-2) 1xx
+            #else
+            and.w   #0xF0,    r13           ; Mask out bits which will change (0-3) 2xx
+            #endif
+SetupBC     bis.b   #XT2OFF+DIVA_3,&BCSCTL1 ; ACLK=LFXT1CLK/8, XT2OFF to make a known state
+SetupCC2    mov.w   #CM_1+CCIS_1+CAP,&TACCTL2 ; CAP, ACLK
+            mov.w   #TASSEL_2+MC_2+TACLR, &TACTL; SMCLK, cont-mode, clear
+firstTest   bit.w   #CCIFG,&TACCTL2         ; Test capture flag, skip first short ACLK to avoid error
+            jz      firstTest               ;
+            bic.w   #CCIFG,&TACCTL2         ; Clear capture flag
+TestDCO     dec.w   r11
+            jz      ExitTimeOutError        ;
+TestDCO2    bit.w   #CCIFG,&TACCTL2         ; Test capture flag
+            jz      TestDCO2                ;
+            bic.w   #CCIFG,&TACCTL2         ; Clear capture flag
+                                            ;
+AdjDCO      mov.w   &TACCR2,r14             ; R14 = captured SMCLK
+            sub.w   r15,r14                 ; R14 = capture difference
+            mov.w   &TACCR2,r15             ; R15 = captured SMCLK
+            mov.w   r14, r10                ; r10 = capture difference
+            sub.w   r12, r10                ; r10 = difference between desired and actual
+            jz      ExitNoError             ; if r12 = r10, DCO set exactly
+            cmp.w   #0xFFFF, r10            ; DCO can be off by 1 for a tolerance
+            jeq     ExitNoError
+            cmp.w   r12,   r14              ; Delta = SMCLK/(32768/8)
+            jlo     IncDCO                  ;
+DecDCO      dec.b   &DCOCTL                 ; Slow DCO with DCO and MOD
+            jc      TestDCO                 ; Slower?
+            #ifndef __MSP430_HAS_BC2__
+            bit.b   #0x7, &BCSCTL1          ; Can RSEL.x be decremented? 1xx
+            #else
+            bit.b   #0xF, &BCSCTL1          ; Can RSEL.x be decremented? 2xx
+            #endif
+            jz      ExitSlowestSetting      ; jmp>DCO at slowest setting
+            dec.b   &BCSCTL1                ; Decrement RSEL.x
+            jmp     TestDCO                 ;
+IncDCO
+            #ifndef __MSP430_HAS_BC2__
+            inc.b   &DCOCTL                 ; Speed DCO with DCO and MOD
+            jnc     TestDCO                 ; Faster?
+            cmp.b   #XT2OFF+DIVA_3+0x7, &BCSCTL1 ; Can RSEL.x be increased? 1xx
+            jeq     ExitFastestSetting      ; jmp> DCO at fastest setting
+            inc.b   &BCSCTL1                ; Increment RSEL.x
+            jmp     TestDCO                 ;
+            #else
+            inc.b   &DCOCTL                 ; Speed DCO with DCO and MOD
+            jnc     TestFor16MHz
+            cmp.b   #XT2OFF+DIVA_3+0xF, &BCSCTL1 ; Can RSEL.x be increased? 2xx
+            jeq     ExitFastestSetting      ; jmp> DCO at fastest setting
+            inc.b   &BCSCTL1                ; Increment RSEL.x
+            jmp     TestDCO                 ;
+            ;-------Compare to built in values
+TestFor16MHz
+            cmp.b   &CALDCO_16MHZ, &DCOCTL  ; compare current DCO to built in DCO constants
+            jne     TestDCO                 ; if they are not equal, leave
+            mov.b   &CALBC1_16MHZ, r14      ; move cal values into R14 for manipulation
+            bis.b   #XT2OFF+DIVA_3, r14     ; make sure BCSCTL1 cal has same state
+            cmp.b   r14, &BCSCTL1           ; if they are the same
+            jeq     ExitFastestSetting2xx   ; leave all values in place and exit
+            jmp     TestDCO
+            ;-------Compare to built in values
+            #endif
+ExitSlowestSetting
+            clr.b   &DCOCTL
+            mov.w   #0x01, r12
+            jmp     SetDCO_Exit
+ExitFastestSetting
+            mov.b   #0xFF, &DCOCTL          ; since the DCO previously rolled over
+ExitFastestSetting2xx
+            mov.w   #0x02, r12
+            jmp     SetDCO_Exit
+ExitTimeOutError
+            mov.w   #0xff, r12
+            jmp     SetDCO_Exit
+ExitNoError clr.w   r12
+SetDCO_Exit clr.w   &TACCTL2                ; Stop CCR2
+            #ifndef __MSP430_HAS_BC2__
+            bic.b   #0xF8,    &BCSCTL1      ; Mask out bits which will change (0-2) 1xx
+            #else
+            bic.b   #0xF0,    &BCSCTL1      ; Mask out bits which will change (0-3) 2xx
+            #endif
+            bis.b   r13, &BCSCTL1           ; copy in old non-DCO BC settings
+            pop.w   &TACCTL2
+            pop.w   &TACTL
+            reta                            ; Return from subroutine
+                                            ;
+  END
