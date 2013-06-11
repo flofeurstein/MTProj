@@ -277,13 +277,13 @@ static void zclSampleLight_HandleKeys( byte shift, byte keys )
                            TRUE );
   }
 
-  if ( keys & HAL_KEY_SW_3 )
+  /*if ( keys & HAL_KEY_SW_3 )
   {
   }
 
   if ( keys & HAL_KEY_SW_4 )
   {
-  }
+  }*/
 }
 
 /*********************************************************************
