@@ -116,6 +116,7 @@ static void zclSampleLight_IdentifyCB( zclIdentify_t *pCmd );
 static void zclSampleLight_IdentifyQueryRspCB( zclIdentifyQueryRsp_t *pRsp );
 static void zclSampleLight_OnOffCB( uint8 cmd );
 static void zclSampleLight_ProcessIdentifyTimeChange( void );
+static void zclSampleLight_UARTWrite(unsigned char* buff, int len);
 
 // Functions to process ZCL Foundation incoming Command/Response messages 
 static void zclSampleLight_ProcessIncomingMsg( zclIncomingMsg_t *msg );
@@ -374,13 +375,15 @@ static void zclSampleLight_IdentifyQueryRspCB(  zclIdentifyQueryRsp_t *pRsp )
 static void zclSampleLight_OnOffCB( uint8 cmd )
 {
   // Turn on the light
-  if ( cmd == COMMAND_ON )
+  if ( cmd == COMMAND_ON ){
     zclSampleLight_OnOff = LIGHT_ON;
-
+    zclSampleLight_UARTWrite("LightOn", 8);
+  }
   // Turn off the light
-  else if ( cmd == COMMAND_OFF )
+  else if ( cmd == COMMAND_OFF ){
     zclSampleLight_OnOff = LIGHT_OFF;
-
+    zclSampleLight_UARTWrite("LightOff", 9);
+  }
   // Toggle the light
   else
   {
@@ -389,12 +392,16 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
     else
       zclSampleLight_OnOff = LIGHT_OFF;
   }
-
+  
   // In this sample app, we use LED4 to simulate the Light
-  if ( zclSampleLight_OnOff == LIGHT_ON )
+  if ( zclSampleLight_OnOff == LIGHT_ON ){
     HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
-  else
+    zclSampleLight_UARTWrite("LightToggleON", 14);
+  }
+  else{
     HalLedSet( HAL_LED_4, HAL_LED_MODE_OFF );
+    zclSampleLight_UARTWrite("LightToggleOFF", 15);
+  }
 }
 
 
@@ -562,6 +569,19 @@ static uint8 zclSampleLight_ProcessInDiscRspCmd( zclIncomingMsg_t *pInMsg )
 }
 #endif // ZCL_DISCOVER
 
+/*********************************************************************
+ * @fn      zclSampleLight_UARTWrite
+ *
+ * @brief   write buffer to uart
+ *
+ * @param   buff - buffer to write to uart
+ * @param   len - length of buffer
+ *
+ * @return  none
+ */
+static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
+  HalUARTWrite(HAL_UART_PORT_0, buff, len);
+}
 
 /****************************************************************************
 ****************************************************************************/
