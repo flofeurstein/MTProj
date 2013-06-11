@@ -106,9 +106,9 @@
 #define LED3_DDR          P4DIR
 
 /* LED4 - not supported - set to LED2 for now */
-#define LED4_BV           LED3_BV
-#define LED4_PORT         LED3_PORT
-#define LED4_DDR          LED3_DDR
+#define LED4_BV           LED2_BV
+#define LED4_PORT         LED2_PORT
+#define LED4_DDR          LED2_DDR
 
 
 
@@ -120,41 +120,15 @@
 #define ACTIVE_LOW        !
 #define ACTIVE_HIGH       !!    /* double negation forces result to be '1' */
 
-/* UP */
-#define PUSH1_BV          BV(4)
+/* Button 1 (User 1) */
+#define PUSH1_BV          BV(3)
 #define PUSH1_PORT        P4IN
 #define PUSH1_POLARITY    ACTIVE_LOW
 
-/* RIGHT */
-#define PUSH2_BV          BV(3)
+/* Button 2 (User 2) */
+#define PUSH2_BV          BV(4)
 #define PUSH2_PORT        P4IN
 #define PUSH2_POLARITY    ACTIVE_LOW
-
-/* not supported */
-/* DOWN */
-#define PUSH3_BV          BV(5)
-#define PUSH3_PORT        P2IN
-#define PUSH3_POLARITY    ACTIVE_LOW
-
-/* LEFT */
-#define PUSH4_BV          BV(1)
-#define PUSH4_PORT        P2IN
-#define PUSH4_POLARITY    ACTIVE_LOW
-
-/* PUSH */
-#define PUSH5_BV          BV(3)
-#define PUSH5_PORT        P2IN
-#define PUSH5_POLARITY    ACTIVE_LOW
-
-/* BUTTON 1 */
-#define PUSH6_BV          BV(6)
-#define PUSH6_PORT        P2IN
-#define PUSH6_POLARITY    ACTIVE_LOW
-
-/* BUTTON 2 */
-#define PUSH7_BV          BV(7)
-#define PUSH7_PORT        P2IN
-#define PUSH7_POLARITY    ACTIVE_LOW
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -258,11 +232,6 @@
 /* ----------- Push Buttons ---------- */
 #define HAL_PUSH_BUTTON1()        (PUSH1_POLARITY (PUSH1_PORT & PUSH1_BV))
 #define HAL_PUSH_BUTTON2()        (PUSH2_POLARITY (PUSH2_PORT & PUSH2_BV))
-#define HAL_PUSH_BUTTON3()        (PUSH3_POLARITY (PUSH3_PORT & PUSH3_BV))
-#define HAL_PUSH_BUTTON4()        (PUSH4_POLARITY (PUSH4_PORT & PUSH4_BV))
-#define HAL_PUSH_BUTTON5()        (PUSH5_POLARITY (PUSH5_PORT & PUSH5_BV))
-#define HAL_PUSH_BUTTON6()        (PUSH6_POLARITY (PUSH6_PORT & PUSH6_BV))
-#define HAL_PUSH_BUTTON7()        (PUSH7_POLARITY (PUSH7_PORT & PUSH7_BV))
 
 /* ----------- LED's ---------- */
 #define HAL_TURN_OFF_LED1()       st( LED1_PORT &= ~LED1_BV; )

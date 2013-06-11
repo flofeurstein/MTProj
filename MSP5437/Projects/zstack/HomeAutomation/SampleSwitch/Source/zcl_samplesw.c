@@ -343,7 +343,7 @@ static void zclSampleSw_HandleKeys( byte shift, byte keys )
                            TRUE );
   }
 
-  if ( keys & HAL_KEY_SW_3 )
+  /*if ( keys & HAL_KEY_SW_3 )
   {
   }
 
@@ -359,7 +359,7 @@ static void zclSampleSw_HandleKeys( byte shift, byte keys )
                        ZCLSAMPLESW_BINDINGLIST, bindingOutClusters,
                        0, NULL,   // No incoming clusters to bind
                        FALSE );
-  }
+  }*/
 }
 
 /*********************************************************************

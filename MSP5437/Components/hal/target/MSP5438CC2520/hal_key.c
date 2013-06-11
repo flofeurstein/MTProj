@@ -51,7 +51,7 @@
 /**************************************************************************************************
  *                                            CONSTANTS
  **************************************************************************************************/
-#define HAL_KEY_SW_MASK 0x7F  /* Total of 7 switches - UP, DOWN, LEFT, RIGHT, PUSH, B1, B2 */
+#define HAL_KEY_SW_MASK 0x3  /* Total of 2 switches - User 1 and User 2 */
 
 
 /**************************************************************************************************
@@ -65,27 +65,17 @@
 {                                                 \
   x  = (HAL_PUSH_BUTTON1() != 0) * HAL_KEY_SW_1;  \
   x |= (HAL_PUSH_BUTTON2() != 0) * HAL_KEY_SW_2;  \
-  x |= (HAL_PUSH_BUTTON3() != 0) * HAL_KEY_SW_3;  \
-  x |= (HAL_PUSH_BUTTON4() != 0) * HAL_KEY_SW_4;  \
-  x |= (HAL_PUSH_BUTTON5() != 0) * HAL_KEY_SW_5;  \
-  x |= (HAL_PUSH_BUTTON6() != 0) * HAL_KEY_SW_6;  \
-  x |= (HAL_PUSH_BUTTON7() != 0) * HAL_KEY_SW_7;  \
 }
 
 /* Interrupt key read */
 #define HAL_KEY_KEYS_INT       P2IFG
-#define HAL_KEY_KEYS_INT_BIT   0xFE  /* JOY interrupt P2.1:7 */
+#define HAL_KEY_KEYS_INT_BIT   0x18  /* Key interrupt P4.3 and P4.4 */
 
 /* Interrupt key read */
 #define HAL_KEY_INT_KEYS(x)                       \
 {                                                 \
   x  = ((P2IFG & PUSH1_BV) != 0) * HAL_KEY_SW_1;  \
   x |= ((P2IFG & PUSH2_BV) != 0) * HAL_KEY_SW_2;  \
-  x |= ((P2IFG & PUSH3_BV) != 0) * HAL_KEY_SW_3;  \
-  x |= ((P2IFG & PUSH4_BV) != 0) * HAL_KEY_SW_4;  \
-  x |= ((P2IFG & PUSH5_BV) != 0) * HAL_KEY_SW_5;  \
-  x |= ((P2IFG & PUSH6_BV) != 0) * HAL_KEY_SW_6;  \
-  x |= ((P2IFG & PUSH7_BV) != 0) * HAL_KEY_SW_7;  \
 }
 
 #define HAL_KEY_WAKE_INIT()
@@ -100,7 +90,7 @@
   P2OUT |= HAL_KEY_KEYS_INT_BIT;                 \
 }
 
-// Joystick interrupt on P2.1:7
+// Button interrupt on P4.3 and P4.4
 #define HAL_ENABLE_KEY_INT()       { P2IE  |= HAL_KEY_KEYS_INT_BIT;     /* Enable Interrupt */           \
                                      P2IES |= HAL_KEY_KEYS_INT_BIT;     /* Interrupt Edge Select H->L */ \
                                      P2IFG &= ~HAL_KEY_KEYS_INT_BIT; }  /* Clear pending interrupt */
@@ -261,7 +251,7 @@ void HalKeyPoll( void )
 
   /* Callback */
   if (pHal_KeyProcessFunction)
-    (pHal_KeyProcessFunction) (keys, ((keys & HAL_KEY_SW_6) ? HAL_KEY_STATE_SHIFT : HAL_KEY_STATE_NORMAL));
+    (pHal_KeyProcessFunction) (keys, ((keys & HAL_KEY_SW_2) ? HAL_KEY_STATE_SHIFT : HAL_KEY_STATE_NORMAL));
 
 #endif /* HAL_KEY */
 }
