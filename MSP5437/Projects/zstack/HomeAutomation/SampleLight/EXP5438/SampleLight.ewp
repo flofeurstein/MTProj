@@ -1110,7 +1110,7 @@
         </option>
         <option>
           <name>OGChipSelectMenu</name>
-          <state>MSP430F5438	MSP430F5438</state>
+          <state>MSP430F5437	MSP430F5437</state>
         </option>
         <option>
           <name>GStackHeapOverride</name>
@@ -1182,6 +1182,8 @@
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
           <state>LCD_SUPPORTED</state>
+          <state>HAL_PA_LNA</state>
+          <state>LSR_CODE</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -2012,7 +2014,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state></state>
+          <state>$PROJ_FNAME$.ulp</state>
         </option>
         <option>
           <name>ULPStatus</name>
