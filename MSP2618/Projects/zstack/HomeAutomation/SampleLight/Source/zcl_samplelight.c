@@ -424,6 +424,9 @@ static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
   char buff[20];
   sprintf(buff, "moveToLevel %d \r\n", pCmd->level);
   zclSampleLight_UARTWrite((unsigned char*)buff, 20);
+  //osal_start_timerEx( zclSampleLight_TaskID, SAMPLELIGHT_IDENTIFY_TIMEOUT_EVT, 1000 );
+  //void HalLedBlink ( uint8 leds, uint8 numBlinks, uint8 percent, uint16 period )
+  HalLedBlink ( HAL_LED_4, 0xff, ((pCmd->level)/3 + 10), 10 );
   //zclSampleLight_UARTWrite("moveToLevel\r\n", 14);
 }
 

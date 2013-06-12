@@ -64,6 +64,7 @@
 #include "hal_lcd.h"
 #include "hal_led.h"
 #include "hal_key.h"
+#include "hal_adc.h"
 
 
 /*********************************************************************
@@ -81,6 +82,7 @@
  * GLOBAL VARIABLES
  */
 byte zclSampleSw_TaskID;
+uint16 oldPotiVal =  0;
 
 /*********************************************************************
  * GLOBAL FUNCTIONS
@@ -229,7 +231,7 @@ uint16 zclSampleSw_event_loop( uint8 task_id, uint16 events )
         default:
           break;
       }
-
+      
       // Release the memory
       osal_msg_deallocate( (uint8 *)MSGpkt );
     }
@@ -346,21 +348,10 @@ static void zclSampleSw_HandleKeys( byte shift, byte keys )
 
   if ( keys & HAL_KEY_SW_3 )
   {
-    // Using this as the "Level Control"
-#ifdef ZCL_LEVEL_CTRL
-    zclGeneral_SendLevelControlMoveToLevel( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, 10, 20,false, 0 );
-    //zclGeneral_SendLevelControlMoveRequest( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, COMMAND_LEVEL_MOVE_TO_LEVEL, 10, 20,false, 0 );
-    /*uint8 buf[3];
-uint16 transTime = 20;
-  buf[0] = 10;
-  buf[1] = LO_UINT16( transTime );
-  buf[2] = HI_UINT16( transTime );
-
-  zcl_SendCommand( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
-                          COMMAND_LEVEL_MOVE_TO_LEVEL, TRUE, ZCL_FRAME_CLIENT_SERVER_DIR,
-                          false, 0, 0, 3, buf );*/
-#endif
-
+    #ifdef ZCL_LEVEL_CTRL
+      uint16 potiVal =  HalAdcRead ( SAMPLESW_POTI_CHANNEL, HAL_ADC_RESOLUTION_8 );
+      zclGeneral_SendLevelControlMoveToLevel( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, potiVal, SAMPLESW_STD_TRANSTIME, false, 0 );
+    #endif
   }
 
   if ( keys & HAL_KEY_SW_4 )
@@ -614,8 +605,28 @@ static uint8 zclSampleSw_ProcessInDiscRspCmd( zclIncomingMsg_t *pInMsg )
 }
 #endif // ZCL_DISCOVER
 
+#ifdef ZCL_LEVEL_CTRL
+/*********************************************************************
+ * @fn      zclSampleSw_TestPotiVal
+ *
+ * @brief   Process the "Profile" Discover Response Command
+ *
+ * @param   pInMsg - incoming message to process
+ *
+ * @return  none
+ */
+/*static uint8 zclSampleSw_TestPotiVal()
+{
+  uint16 potiVal;
+  potiVal potiVal =  HalAdcRead ( SAMPLESW_POTI_CHANNEL, HAL_ADC_RESOLUTION_8 );
+  if(potiVal != oldPotiVal)
+  {  
+    zclGeneral_SendLevelControlMoveToLevel( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, potiVal, SAMPLESW_STD_TRANSTIME, false, 0 ); 
+  }
+
+  oldPotiVal = potiVal;
+}*/
+#endif
 
 /****************************************************************************
 ****************************************************************************/
-
-

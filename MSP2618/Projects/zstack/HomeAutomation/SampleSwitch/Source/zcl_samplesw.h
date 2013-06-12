@@ -64,6 +64,10 @@ extern "C"
   
 // Events for the sample app
 #define SAMPLESW_IDENTIFY_TIMEOUT_EVT         0x0001
+   
+#define SAMPLESW_POTI_CHANNEL HAL_ADC_CHANNEL_0
+#define SAMPLESW_TEMP_CHANNEL HAL_ADC_CHANNEL_TEMP
+#define SAMPLESW_STD_TRANSTIME 20
 
 /*********************************************************************
  * MACROS
