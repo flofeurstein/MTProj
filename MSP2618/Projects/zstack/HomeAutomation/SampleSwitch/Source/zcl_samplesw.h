@@ -57,7 +57,7 @@ extern "C"
  */
 #define SAMPLESW_ENDPOINT           12
 
-#define SAMPLESW_MAX_ATTRIBUTES     11
+#define SAMPLESW_MAX_ATTRIBUTES     12
 
 #define LIGHT_OFF                       0x00
 #define LIGHT_ON                        0x01
@@ -82,6 +82,8 @@ extern CONST zclAttrRec_t zclSampleSw_Attrs[];
 extern uint8  zclSampleSw_OnOff;
 
 extern uint16 zclSampleSw_IdentifyTime;
+
+extern uint16 zclSampleSw_CurrLevel;
 
 /*********************************************************************
  * FUNCTIONS

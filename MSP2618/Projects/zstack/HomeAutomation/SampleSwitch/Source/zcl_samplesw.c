@@ -91,10 +91,11 @@ byte zclSampleSw_TaskID;
  */
 static afAddrType_t zclSampleSw_DstAddr;
 
-#define ZCLSAMPLESW_BINDINGLIST       1
+#define ZCLSAMPLESW_BINDINGLIST       2
 static cId_t bindingOutClusters[ZCLSAMPLESW_BINDINGLIST] =
 {
-  ZCL_CLUSTER_ID_GEN_ON_OFF
+  ZCL_CLUSTER_ID_GEN_ON_OFF,
+  ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL
 };
 
 // Test Endpoint to allow SYS_APP_MSGs
@@ -318,7 +319,6 @@ static void zclSampleSw_HandleKeys( byte shift, byte keys )
 {
   zAddrType_t dstAddr;
   (void)shift;  // Intentionally unreferenced parameter
-  HalLedSet ( HAL_LED_4, HAL_LED_MODE_ON );
 
   if ( keys & HAL_KEY_SW_1 )
   {
@@ -346,6 +346,21 @@ static void zclSampleSw_HandleKeys( byte shift, byte keys )
 
   if ( keys & HAL_KEY_SW_3 )
   {
+    // Using this as the "Level Control"
+#ifdef ZCL_LEVEL_CTRL
+    zclGeneral_SendLevelControlMoveToLevel( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, 10, 20,false, 0 );
+    //zclGeneral_SendLevelControlMoveRequest( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, COMMAND_LEVEL_MOVE_TO_LEVEL, 10, 20,false, 0 );
+    /*uint8 buf[3];
+uint16 transTime = 20;
+  buf[0] = 10;
+  buf[1] = LO_UINT16( transTime );
+  buf[2] = HI_UINT16( transTime );
+
+  zcl_SendCommand( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+                          COMMAND_LEVEL_MOVE_TO_LEVEL, TRUE, ZCL_FRAME_CLIENT_SERVER_DIR,
+                          false, 0, 0, 3, buf );*/
+#endif
+
   }
 
   if ( keys & HAL_KEY_SW_4 )

@@ -65,6 +65,7 @@
 #include "hal_led.h"
 #include "hal_key.h"
 
+#include <stdio.h>
 
 /*********************************************************************
  * MACROS
@@ -420,7 +421,10 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
  * @return  none
  */
 static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
-  zclSampleLight_UARTWrite("moveToLevel\r\n", 14);
+  char buff[20];
+  sprintf(buff, "moveToLevel %d \r\n", pCmd->level);
+  zclSampleLight_UARTWrite((unsigned char*)buff, 20);
+  //zclSampleLight_UARTWrite("moveToLevel\r\n", 14);
 }
 
 /*********************************************************************

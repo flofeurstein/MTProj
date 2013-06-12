@@ -92,6 +92,9 @@ uint16 zclSampleSw_IdentifyTime = 0;
 // On/Off Cluster
 uint8  zclSampleSw_OnOff = LIGHT_OFF;
 
+// Level Control Cluster
+uint16 zclSampleSw_CurrLevel = 10;
+
 /*********************************************************************
  * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
  */
@@ -201,6 +204,16 @@ CONST zclAttrRec_t zclSampleSw_Attrs[SAMPLESW_MAX_ATTRIBUTES] =
       (void *)&zclSampleSw_OnOff
     }
   },
+    // *** Level Control Cluster Attributes ***
+  {
+    ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    { // Attribute record
+      ATTRID_LEVEL_CURRENT_LEVEL,
+      ZCL_DATATYPE_UINT16,
+      ACCESS_CONTROL_READ,
+      (void *)&zclSampleSw_CurrLevel
+    }
+  },
 };
 
 /*********************************************************************
@@ -214,10 +227,11 @@ const cId_t zclSampleSw_InClusterList[ZCLSAMPLESW_MAX_INCLUSTERS] =
   ZCL_CLUSTER_ID_GEN_BASIC
 };
 
-#define ZCLSAMPLESW_MAX_OUTCLUSTERS       1
+#define ZCLSAMPLESW_MAX_OUTCLUSTERS       2
 const cId_t zclSampleSw_OutClusterList[ZCLSAMPLESW_MAX_OUTCLUSTERS] =
 {
-  ZCL_CLUSTER_ID_GEN_ON_OFF
+  ZCL_CLUSTER_ID_GEN_ON_OFF,
+    ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL
 };
 
 SimpleDescriptionFormat_t zclSampleSw_SimpleDesc =
