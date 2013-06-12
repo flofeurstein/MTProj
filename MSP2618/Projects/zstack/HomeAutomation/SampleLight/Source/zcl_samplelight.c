@@ -116,7 +116,10 @@ static void zclSampleLight_IdentifyCB( zclIdentify_t *pCmd );
 static void zclSampleLight_IdentifyQueryRspCB( zclIdentifyQueryRsp_t *pRsp );
 static void zclSampleLight_OnOffCB( uint8 cmd );
 static void zclSampleLight_ProcessIdentifyTimeChange( void );
-static void zclSampleLight_UARTWrite(unsigned char* buff, int len);
+static void zclSampleLight_UARTWrite( unsigned char* buff, int len );
+static void zclSampleLight_MoveToLevelCB( zclLCMoveToLevel_t *pCmd );
+static void zclSampleLight_CtlMoveCB( zclLCMove_t *pCmd );
+static void zclSampleLight_CtlStepCB( zclLCStep_t *pCmd );
 
 // Functions to process ZCL Foundation incoming Command/Response messages 
 static void zclSampleLight_ProcessIncomingMsg( zclIncomingMsg_t *msg );
@@ -140,9 +143,9 @@ static zclGeneral_AppCallbacks_t zclSampleLight_CmdCallbacks =
   zclSampleLight_IdentifyCB,                // Identify command  
   zclSampleLight_IdentifyQueryRspCB,        // Identify Query Response command
   zclSampleLight_OnOffCB,                   // On/Off cluster command
-  NULL,                                     // Level Control Move to Level command
-  NULL,                                     // Level Control Move command
-  NULL,                                     // Level Control Step command
+  zclSampleLight_MoveToLevelCB,             // Level Control Move to Level command
+  zclSampleLight_CtlMoveCB,                 // Level Control Move command
+  zclSampleLight_CtlStepCB,                 // Level Control Step command
   NULL,                                     // Group Response commands
   NULL,                                     // Scene Store Request command
   NULL,                                     // Scene Recall Request command
@@ -379,12 +382,12 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
   // Turn on the light
   if ( cmd == COMMAND_ON ){
     zclSampleLight_OnOff = LIGHT_ON;
-    zclSampleLight_UARTWrite("LightOn", 8);
+    zclSampleLight_UARTWrite("LightOn\r\n", 10);
   }
   // Turn off the light
   else if ( cmd == COMMAND_OFF ){
     zclSampleLight_OnOff = LIGHT_OFF;
-    zclSampleLight_UARTWrite("LightOff", 9);
+    zclSampleLight_UARTWrite("LightOff\r\n", 11);
   }
   // Toggle the light
   else
@@ -398,14 +401,55 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
   // In this sample app, we use LED4 to simulate the Light
   if ( zclSampleLight_OnOff == LIGHT_ON ){
     HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
-    zclSampleLight_UARTWrite("LightToggleON", 14);
+    zclSampleLight_UARTWrite("LightToggleON\r\n", 16);
   }
   else{
     HalLedSet( HAL_LED_4, HAL_LED_MODE_OFF );
-    zclSampleLight_UARTWrite("LightToggleOFF", 15);
+    zclSampleLight_UARTWrite("LightToggleOFF\r\n", 17);
   }
 }
 
+/*********************************************************************
+ * @fn      zclSampleLight_MoveToLevelCB
+ *
+ * @brief   Callback from the ZCL General Cluster Library when
+ *          it received an MoveToLevel Command for this application.
+ *
+ * @param   pCmd - new level command
+ *
+ * @return  none
+ */
+static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
+  zclSampleLight_UARTWrite("moveToLevel\r\n", 14);
+}
+
+/*********************************************************************
+ * @fn      zclSampleLight_CtlMoveCB
+ *
+ * @brief   Callback from the ZCL General Cluster Library when
+ *          it received an level control move Command for this application.
+ *
+ * @param   pCmd - move command
+ *
+ * @return  none
+ */
+static void zclSampleLight_CtlMoveCB(zclLCMove_t *pCmd){
+  zclSampleLight_UARTWrite("ctlMove\r\n", 10);
+}
+
+/*********************************************************************
+ * @fn      zclSampleLight_CtlStepCB
+ *
+ * @brief   Callback from the ZCL General Cluster Library when
+ *          it received an level control step Command for this application.
+ *
+ * @param   pCmd - step command
+ *
+ * @return  none
+ */
+static void zclSampleLight_CtlStepCB(zclLCStep_t *pCmd){
+  zclSampleLight_UARTWrite("ctlStep\r\n", 10);
+}
 
 /****************************************************************************** 
  * 
