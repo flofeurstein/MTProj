@@ -51,6 +51,9 @@
 #include "OSAL.h"
 #include "AF.h"
 #include "ZDApp.h"
+   
+#include "MT.h"
+#include "MT_RPC.h"
 
 #include "zcl.h"
 #include "zcl_general.h"
@@ -117,7 +120,10 @@ static void zclSampleLight_IdentifyCB( zclIdentify_t *pCmd );
 static void zclSampleLight_IdentifyQueryRspCB( zclIdentifyQueryRsp_t *pRsp );
 static void zclSampleLight_OnOffCB( uint8 cmd );
 static void zclSampleLight_ProcessIdentifyTimeChange( void );
+
+/*my functions*/
 static void zclSampleLight_UARTWrite( unsigned char* buff, int len );
+static void zclSampleLight_UARTWriteNr(unsigned char* text, int nr);
 static void zclSampleLight_MoveToLevelCB( zclLCMoveToLevel_t *pCmd );
 static void zclSampleLight_CtlMoveCB( zclLCMove_t *pCmd );
 static void zclSampleLight_CtlStepCB( zclLCStep_t *pCmd );
@@ -207,6 +213,8 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
 {
   afIncomingMSGPacket_t *MSGpkt;
   
+  volatile int command;
+  
   (void)task_id;  // Intentionally unreferenced parameter
 
   if ( events & SYS_EVENT_MSG )
@@ -227,7 +235,7 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
         default:
           break;
       }
-
+      
       // Release the memory
       osal_msg_deallocate( (uint8 *)MSGpkt );
     }
@@ -383,12 +391,13 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
   // Turn on the light
   if ( cmd == COMMAND_ON ){
     zclSampleLight_OnOff = LIGHT_ON;
-    zclSampleLight_UARTWrite("LightOn\r\n", 10);
+    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, 0, 0);
+    //zclSampleLight_UARTWrite("LightOn\r\n", 10);
   }
   // Turn off the light
   else if ( cmd == COMMAND_OFF ){
     zclSampleLight_OnOff = LIGHT_OFF;
-    zclSampleLight_UARTWrite("LightOff\r\n", 11);
+    //zclSampleLight_UARTWrite("LightOff\r\n", 11);
   }
   // Toggle the light
   else
@@ -402,11 +411,13 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
   // In this sample app, we use LED4 to simulate the Light
   if ( zclSampleLight_OnOff == LIGHT_ON ){
     HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
-    zclSampleLight_UARTWrite("LightToggleON\r\n", 16);
+    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, 0, 0);
+    zclSampleLight_UARTWrite("\r\n", 2);
   }
   else{
     HalLedSet( HAL_LED_4, HAL_LED_MODE_OFF );
-    zclSampleLight_UARTWrite("LightToggleOFF\r\n", 17);
+    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_OFF, 0, 0);
+    zclSampleLight_UARTWrite("\r\n", 2);
   }
 }
 
@@ -421,9 +432,11 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
  * @return  none
  */
 static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
-  char buff[20];
-  sprintf(buff, "moveToLevel %d \r\n", pCmd->level);
-  zclSampleLight_UARTWrite((unsigned char*)buff, 20);
+  //char buff[20];
+  //sprintf(buff, "moveToLevel %d \r\n", pCmd->level);
+  //zclSampleLight_UARTWrite((unsigned char*)buff, 20);
+  MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_DIM_LEVEL, sizeof(zclLCMoveToLevel_t), (uint8*)pCmd);
+  zclSampleLight_UARTWrite("\r\n", 2);
   //osal_start_timerEx( zclSampleLight_TaskID, SAMPLELIGHT_IDENTIFY_TIMEOUT_EVT, 1000 );
   //void HalLedBlink ( uint8 leds, uint8 numBlinks, uint8 percent, uint16 period )
   HalLedBlink ( HAL_LED_4, 0xff, ((pCmd->level)/3 + 10), 10 );
@@ -636,6 +649,12 @@ static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
   HalUARTWrite(HAL_UART_PORT_0, buff, len);
 }
 
+
+static void zclSampleLight_UARTWriteNr(unsigned char* text, int nr){
+  char buff[10];
+  sprintf(buff, "%s %d \r\n", text, nr);
+  zclSampleLight_UARTWrite((unsigned char*)buff, 10);
+}
 
 /****************************************************************************
 ****************************************************************************/

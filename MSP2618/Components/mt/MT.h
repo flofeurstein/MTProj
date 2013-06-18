@@ -397,6 +397,20 @@ extern "C"
 #define MT_OTA_NEXT_IMG_RSP                   0x81
 #define MT_OTA_STATUS_IND                     0x82
 
+/***************************************************************************************************
+ * HAGATE COMMANDS
+ ***************************************************************************************************/
+
+/* SREQ/SRSP: */
+/*#define MT_APP_MSG                           0x00
+#define MT_APP_USER_TEST                     0x01*/
+
+/* AREQ */
+#define MT_HAGATE_LIGHT_ON                     0x80
+#define MT_HAGATE_LIGHT_OFF                    0x81
+#define MT_HAGATE_LIGHT_TOGGLE                 0x82
+#define MT_HAGATE_LIGHT_DIM_LEVEL              0x83
+  
 /*
  *  Definitions to allow conditional compiling -
  *  To use these in an embedded environment include them as a compiler

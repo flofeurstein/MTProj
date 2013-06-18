@@ -91,6 +91,9 @@
 #if defined (MT_OTA_FUNC)
   #include "MT_OTA.h"
 #endif
+#if defined (MT_HAGATE_FUNC)
+  #include "MT_HAGATE.h"
+#endif
 
 #if defined( APP_TP )
  #include "TestProfile.h"
@@ -179,6 +182,12 @@ mtProcessMsg_t mtProcessIncoming[] =
 
 #if defined (MT_OTA_FUNC)
   MT_OtaCommandProcessing,
+#else
+  NULL,
+#endif
+
+#if defined (MT_HAGATE_FUNC)
+  MT_HaGateCommandProcessing,
 #else
   NULL,
 #endif

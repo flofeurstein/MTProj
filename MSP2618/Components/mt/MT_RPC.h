@@ -110,6 +110,7 @@ typedef enum {
   MT_RPC_SYS_DBG,
   MT_RPC_SYS_APP,
   MT_RPC_SYS_OTA,
+  MT_RPC_SYS_HAGATE,
   MT_RPC_SYS_MAX     /* Maximum value, must be last */
   /* 10-32 available, not yet assigned. */
 } mtRpcSysType_t;
