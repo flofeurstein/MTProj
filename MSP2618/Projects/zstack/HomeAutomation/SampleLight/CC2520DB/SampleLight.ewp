@@ -169,6 +169,7 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
+          <state>MT_ZDO_CP_FUNC</state>
           <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
         </option>
