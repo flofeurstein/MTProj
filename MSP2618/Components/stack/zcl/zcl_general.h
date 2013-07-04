@@ -1036,9 +1036,14 @@ typedef struct
 
 typedef struct
 {
-  uint8  level;          // new level to move to
-  uint16 transitionTime; // time to take to move to the new level (in seconds)
-  uint8  withOnOff;      // with On/off command
+  uint8                 cmdID;
+} zclOnOff_t;
+
+typedef struct
+{
+  uint8                 level;          // new level to move to
+  uint16                transitionTime; // time to take to move to the new level (in seconds)
+  uint8                 withOnOff;      // with On/off command
 } zclLCMoveToLevel_t;
 
 typedef struct
@@ -1150,11 +1155,15 @@ typedef void (*zclGCB_Identify_t)( zclIdentify_t *pCmd );
 typedef void (*zclGCB_IdentifyQueryRsp_t)( zclIdentifyQueryRsp_t *pRsp );
 
 // This callback is called to process an incoming On, Off or Toggle command.
+//   srcAddr - address of sender
+//   ieeeAddr - ieee address of sender
 //   cmd - received command, which will be either COMMAND_ON, COMMAND_OFF
 //         or COMMAND_TOGGLE.
-typedef void (*zclGCB_OnOff_t)( uint8 cmd );
+typedef void (*zclGCB_OnOff_t)( zclOnOff_t *pCmd );
 
 // This callback is called to process a Level Control - Move to Level command
+//   srcAddr - address of sender
+//   ieeeAddr - ieee address of sender
 //   level - new level to move to
 //   tansitionTime - time to take to move to the new level (in seconds)
 //   withOnOff - with On/off command

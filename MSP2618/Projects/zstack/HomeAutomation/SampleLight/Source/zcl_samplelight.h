@@ -63,6 +63,8 @@ extern "C"
 
 // Application Events
 #define SAMPLELIGHT_IDENTIFY_TIMEOUT_EVT     0x0001
+   
+#define SAMPLESW_ENDPOINT               12
 
 /*********************************************************************
  * MACROS

@@ -1181,6 +1181,7 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
+          <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
         </option>
         <option>
@@ -3313,6 +3314,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_DEBUG.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_HAGATE.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_HAGATE.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_NWK.c</name>

@@ -65,6 +65,7 @@
 #include "hal_led.h"
 #include "hal_key.h"
 #include "hal_adc.h"
+#include "OSAL_NV.h"
 
 
 /*********************************************************************
@@ -87,6 +88,31 @@ uint16 oldPotiVal =  0;
 /*********************************************************************
  * GLOBAL FUNCTIONS
  */
+
+/*********************************************************************
+ * IEEE Addresses
+ */
+//#define LSR_LIGHT
+//#define LSR_SWITCH
+//#define SMARTRF_LIGHT
+#define SMARTRF_SWITCH
+
+#ifdef LSR_LIGHT
+ZLongAddr_t ieeeAddr = {0x64, 0x00, 0x02, 0x00, 0x02, 0xCA, 0x25, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x25, 0xCA, 0x02, 0x00, 0x02, 0x00, 0x64};
+#endif
+#ifdef LSR_SWITCH
+ZLongAddr_t ieeeAddr = {0x64, 0x00, 0x02, 0x00, 0x02, 0xCA, 0x25, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x25, 0xCA, 0x02, 0x00, 0x02, 0x00, 0x64};
+#endif
+#ifdef SMARTRF_LIGHT
+ZLongAddr_t ieeeAddr = {0xFA, 0x12, 0x0A, 0x00, 0x00, 0x4B, 0x12, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x12, 0x4B, 0x00, 0x00, 0x0A, 0x12, 0xFA};
+#endif
+#ifdef SMARTRF_SWITCH
+ZLongAddr_t ieeeAddr = {0x88, 0x12, 0x0A, 0x00, 0x00, 0x4B, 0x12, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x12, 0x4B, 0x00, 0x00, 0x0A, 0x12, 0x88};
+#endif
 
 /*********************************************************************
  * LOCAL VARIABLES
@@ -166,6 +192,7 @@ static zclGeneral_AppCallbacks_t zclSampleSw_CmdCallbacks =
  */
 void zclSampleSw_Init( byte task_id )
 {
+  osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, ieeeAddr);
   zclSampleSw_TaskID = task_id;
 
   // Set destination address to indirect

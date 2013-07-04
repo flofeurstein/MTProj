@@ -2534,13 +2534,18 @@ static ZStatus_t zclGeneral_ProcessInScenesClient( zclIncoming_t *pInMsg,
 static ZStatus_t zclGeneral_ProcessInOnOff( zclIncoming_t *pInMsg,
                                             zclGeneral_AppCallbacks_t *pCBs )
 {
+
   if ( zcl_ServerCmd( pInMsg->hdr.fc.direction ) )
   {
     if ( pInMsg->hdr.commandID > COMMAND_TOGGLE )
       return ( ZFailure );   // Error ignore the command
 
     if ( pCBs->pfnOnOff )
-      pCBs->pfnOnOff( pInMsg->hdr.commandID );
+    {
+      zclOnOff_t cmd;
+      cmd.cmdID = pInMsg->hdr.commandID;
+      pCBs->pfnOnOff( &cmd );
+    }
   }
   // no Client command
 
@@ -2575,7 +2580,6 @@ static ZStatus_t zclGeneral_ProcessInLevelControl( zclIncoming_t *pInMsg,
         if ( pCBs->pfnLevelControlMoveToLevel )
         {
           zclLCMoveToLevel_t cmd;
-
           cmd.level = pInMsg->pData[0];
           cmd.transitionTime = BUILD_UINT16( pInMsg->pData[1], pInMsg->pData[2] );
           cmd.withOnOff = withOnOff;

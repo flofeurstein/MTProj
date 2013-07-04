@@ -62,6 +62,9 @@
 #include "zcl_samplelight.h"
 
 #include "onboard.h"
+   
+#include "OSAL_NV.h"
+#include "ZDObject.h"
 
 /* HAL */
 #include "hal_lcd.h"
@@ -91,12 +94,45 @@ byte zclSampleLight_TaskID;
  */
 
 /*********************************************************************
+ * IEEE Addresses
+ */
+//#define LSR_LIGHT
+//#define LSR_SWITCH
+#define SMARTRF_LIGHT
+//#define SMARTRF_SWITCH
+
+#ifdef LSR_LIGHT
+ZLongAddr_t ieeeAddr = {0x64, 0x00, 0x02, 0x00, 0x02, 0xCA, 0x25, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x25, 0xCA, 0x02, 0x00, 0x02, 0x00, 0x64};
+#endif
+#ifdef LSR_SWITCH
+ZLongAddr_t ieeeAddr = {0x12, 0x00, 0x02, 0x00, 0x02, 0xCA, 0x25, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x25, 0xCA, 0x02, 0x00, 0x02, 0x00, 0x64};
+#endif
+#ifdef SMARTRF_LIGHT
+ZLongAddr_t ieeeAddr = {0xFA, 0x12, 0x0A, 0x00, 0x00, 0x4B, 0x12, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x12, 0x4B, 0x00, 0x00, 0x0A, 0x12, 0xFA};
+#endif
+#ifdef SMARTRF_SWITCH
+ZLongAddr_t ieeeAddr = {0x88, 0x12, 0x0A, 0x00, 0x00, 0x4B, 0x12, 0x00}; //LSB first
+//ZLongAddr_t ieeeAddr = {0x00, 0x12, 0x4B, 0x00, 0x00, 0x0A, 0x12, 0x88};
+#endif
+
+/*********************************************************************
  * LOCAL VARIABLES
  */
-//static afAddrType_t zclSampleLight_DstAddr;
+
+static afAddrType_t zclSampleLight_DstAddr;
 
 #define ZCLSAMPLELIGHT_BINDINGLIST       2
 static cId_t bindingInClusters[ZCLSAMPLELIGHT_BINDINGLIST] =
+{
+  ZCL_CLUSTER_ID_GEN_ON_OFF,
+  ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL
+};
+
+#define ZCLSAMPLESW_BINDINGLIST         2
+static cId_t bindingOutClusters[ZCLSAMPLESW_BINDINGLIST] =
 {
   ZCL_CLUSTER_ID_GEN_ON_OFF,
   ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL
@@ -118,12 +154,13 @@ static void zclSampleLight_HandleKeys( byte shift, byte keys );
 static void zclSampleLight_BasicResetCB( void );
 static void zclSampleLight_IdentifyCB( zclIdentify_t *pCmd );
 static void zclSampleLight_IdentifyQueryRspCB( zclIdentifyQueryRsp_t *pRsp );
-static void zclSampleLight_OnOffCB( uint8 cmd );
+static void zclSampleLight_OnOffCB( zclOnOff_t *pCmd );
 static void zclSampleLight_ProcessIdentifyTimeChange( void );
+void zclSampleLight_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
 
 /*my functions*/
-static void zclSampleLight_UARTWrite( unsigned char* buff, int len );
-static void zclSampleLight_UARTWriteNr(unsigned char* text, int nr);
+//static void zclSampleLight_UARTWrite( unsigned char* buff, int len );
+//static void zclSampleLight_UARTWriteNr(unsigned char* text, int nr);
 static void zclSampleLight_MoveToLevelCB( zclLCMoveToLevel_t *pCmd );
 static void zclSampleLight_CtlMoveCB( zclLCMove_t *pCmd );
 static void zclSampleLight_CtlStepCB( zclLCStep_t *pCmd );
@@ -175,11 +212,6 @@ void zclSampleLight_Init( byte task_id )
 {
   zclSampleLight_TaskID = task_id;
 
-  // Set destination address to indirect
-  //zclSampleLight_DstAddr.addrMode = (afAddrMode_t)AddrNotPresent;
-  //zclSampleLight_DstAddr.endPoint = 0;
-  //zclSampleLight_DstAddr.addr.shortAddr = 0;
-
   // This app is part of the Home Automation Profile
   zclHA_Init( &zclSampleLight_SimpleDesc );
 
@@ -198,6 +230,10 @@ void zclSampleLight_Init( byte task_id )
   // Register for a test endpoint
   afRegister( &sampleLight_TestEp );
   
+  ZDO_RegisterForZDOMsg( zclSampleLight_TaskID, End_Device_Bind_rsp );
+  ZDO_RegisterForZDOMsg( zclSampleLight_TaskID, Match_Desc_rsp );
+  
+  osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, ieeeAddr);
 }
 
 /*********************************************************************
@@ -227,7 +263,11 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
           // Incoming ZCL Foundation command/response messages
           zclSampleLight_ProcessIncomingMsg( (zclIncomingMsg_t *)MSGpkt );
           break;
-          
+        
+        case ZDO_CB_MSG:
+          zclSampleLight_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
+          break;
+        
         case KEY_CHANGE:
           zclSampleLight_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
           break;
@@ -258,6 +298,56 @@ uint16 zclSampleLight_event_loop( uint8 task_id, uint16 events )
 }
 
 /*********************************************************************
+ * @fn      zclSampleSw_ProcessZDOMsgs()
+ *
+ * @brief   Process response messages
+ *
+ * @param   none
+ *
+ * @return  none
+ */
+void zclSampleLight_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )
+{
+  switch ( inMsg->clusterID )
+  {
+    case End_Device_Bind_rsp:
+      if ( ZDO_ParseBindRsp( inMsg ) == ZSuccess )
+      {
+        // Light LED
+        HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+      }
+#if defined(BLINK_LEDS)
+      else
+      {
+        // Flash LED to show failure
+        HalLedSet ( HAL_LED_4, HAL_LED_MODE_FLASH );
+      }
+#endif
+      break;
+
+    case Match_Desc_rsp:
+      {
+        ZDO_ActiveEndpointRsp_t *pRsp = ZDO_ParseEPListRsp( inMsg );
+        if ( pRsp )
+        {
+          if ( pRsp->status == ZSuccess && pRsp->cnt )
+          {
+            zclSampleLight_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+            zclSampleLight_DstAddr.addr.shortAddr = pRsp->nwkAddr;
+            // Take the first endpoint, Can be changed to search through endpoints
+            zclSampleLight_DstAddr.endPoint = pRsp->epList[0];
+
+            // Light LED
+            HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+          }
+          osal_mem_free( pRsp );
+        }
+      }
+      break;
+  }
+}
+
+/*********************************************************************
  * @fn      zclSampleLight_HandleKeys
  *
  * @brief   Handles all key events for this device.
@@ -278,6 +368,14 @@ static void zclSampleLight_HandleKeys( byte shift, byte keys )
   
   (void)shift;  // Intentionally unreferenced parameter
 
+/*  if ( keys & HAL_KEY_SW_1 )
+  {
+    // Using this as the "Light Switch"
+#ifdef ZCL_ON_OFF
+    zclGeneral_SendOnOff_CmdToggle( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, false, 0 );
+#endif
+  }*/
+  
   if ( keys & HAL_KEY_SW_2 )
   {
     // Initiate an End Device Bind Request, this bind request will
@@ -288,17 +386,26 @@ static void zclSampleLight_HandleKeys( byte shift, byte keys )
                            SAMPLELIGHT_ENDPOINT,
                            ZCL_HA_PROFILE_ID,
                            ZCLSAMPLELIGHT_BINDINGLIST, bindingInClusters,
-                           0, NULL,   // No Outgoing clusters to bind
+                           ZCLSAMPLESW_BINDINGLIST, bindingOutClusters,   // No Outgoing clusters to bind
                            TRUE );
   }
 
   if ( keys & HAL_KEY_SW_3 )
   {
+    /*dstAddr.addrMode = afAddr16Bit;
+    dstAddr.addr.shortAddr = 0;   // Coordinator makes the match
+    ZDP_EndDeviceBindReq( &dstAddr, NLME_GetShortAddr(),
+                           SAMPLELIGHT_ENDPOINT,
+                           ZCL_HA_PROFILE_ID,
+                           0, NULL, // No Incoming clusters to bind
+                           ZCLSAMPLESW_BINDINGLIST, bindingOutClusters,   
+                           TRUE );*/
   }
 
   if ( keys & HAL_KEY_SW_4 )
   {
   }
+
 }
 
 /*********************************************************************
@@ -382,20 +489,20 @@ static void zclSampleLight_IdentifyQueryRspCB(  zclIdentifyQueryRsp_t *pRsp )
  * @brief   Callback from the ZCL General Cluster Library when
  *          it received an On/Off Command for this application.
  *
- * @param   cmd - COMMAND_ON, COMMAND_OFF or COMMAND_TOGGLE
+ * @param   pCmd - COMMAND_ON, COMMAND_OFF or COMMAND_TOGGLE
  *
  * @return  none
  */
-static void zclSampleLight_OnOffCB( uint8 cmd )
+static void zclSampleLight_OnOffCB( zclOnOff_t *pCmd )
 {
   // Turn on the light
-  if ( cmd == COMMAND_ON ){
+  if ( pCmd->cmdID == COMMAND_ON ){
     zclSampleLight_OnOff = LIGHT_ON;
-    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, 0, 0);
+    //MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, 0, 0);
     //zclSampleLight_UARTWrite("LightOn\r\n", 10);
   }
   // Turn off the light
-  else if ( cmd == COMMAND_OFF ){
+  else if ( pCmd->cmdID == COMMAND_OFF ){
     zclSampleLight_OnOff = LIGHT_OFF;
     //zclSampleLight_UARTWrite("LightOff\r\n", 11);
   }
@@ -411,13 +518,13 @@ static void zclSampleLight_OnOffCB( uint8 cmd )
   // In this sample app, we use LED4 to simulate the Light
   if ( zclSampleLight_OnOff == LIGHT_ON ){
     HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
-    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, 0, 0);
-    zclSampleLight_UARTWrite("\r\n", 2);
+    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_ON, sizeof(zclOnOff_t), (uint8*)pCmd);
+    //zclSampleLight_UARTWrite("\r\n", 2);
   }
   else{
     HalLedSet( HAL_LED_4, HAL_LED_MODE_OFF );
-    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_OFF, 0, 0);
-    zclSampleLight_UARTWrite("\r\n", 2);
+    MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_OFF, sizeof(zclOnOff_t), (uint8*)pCmd);
+    //zclSampleLight_UARTWrite("\r\n", 2);
   }
 }
 
@@ -436,7 +543,7 @@ static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
   //sprintf(buff, "moveToLevel %d \r\n", pCmd->level);
   //zclSampleLight_UARTWrite((unsigned char*)buff, 20);
   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_HAGATE), MT_HAGATE_LIGHT_DIM_LEVEL, sizeof(zclLCMoveToLevel_t), (uint8*)pCmd);
-  zclSampleLight_UARTWrite("\r\n", 2);
+  //zclSampleLight_UARTWrite("\r\n", 2);
   //osal_start_timerEx( zclSampleLight_TaskID, SAMPLELIGHT_IDENTIFY_TIMEOUT_EVT, 1000 );
   //void HalLedBlink ( uint8 leds, uint8 numBlinks, uint8 percent, uint16 period )
   HalLedBlink ( HAL_LED_4, 0xff, ((pCmd->level)/3 + 10), 10 );
@@ -454,7 +561,7 @@ static void zclSampleLight_MoveToLevelCB(zclLCMoveToLevel_t *pCmd){
  * @return  none
  */
 static void zclSampleLight_CtlMoveCB(zclLCMove_t *pCmd){
-  zclSampleLight_UARTWrite("ctlMove\r\n", 10);
+  //zclSampleLight_UARTWrite("ctlMove\r\n", 10);
 }
 
 /*********************************************************************
@@ -468,7 +575,7 @@ static void zclSampleLight_CtlMoveCB(zclLCMove_t *pCmd){
  * @return  none
  */
 static void zclSampleLight_CtlStepCB(zclLCStep_t *pCmd){
-  zclSampleLight_UARTWrite("ctlStep\r\n", 10);
+  //zclSampleLight_UARTWrite("ctlStep\r\n", 10);
 }
 
 /****************************************************************************** 
@@ -645,7 +752,7 @@ static uint8 zclSampleLight_ProcessInDiscRspCmd( zclIncomingMsg_t *pInMsg )
  *
  * @return  none
  */
-static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
+/*static void zclSampleLight_UARTWrite(unsigned char* buff, int len){
   HalUARTWrite(HAL_UART_PORT_0, buff, len);
 }
 
@@ -654,7 +761,7 @@ static void zclSampleLight_UARTWriteNr(unsigned char* text, int nr){
   char buff[10];
   sprintf(buff, "%s %d \r\n", text, nr);
   zclSampleLight_UARTWrite((unsigned char*)buff, 10);
-}
+}*/
 
 /****************************************************************************
 ****************************************************************************/

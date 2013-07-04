@@ -172,6 +172,9 @@
           <state>MT_ZDO_CP_FUNC</state>
           <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
+          <state>NV_RESTORE</state>
+          <state>NV_INIT</state>
+          <state>ZCL_REPORT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>

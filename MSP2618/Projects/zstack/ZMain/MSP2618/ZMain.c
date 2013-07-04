@@ -92,7 +92,7 @@ int main( void )
 
   // Initialize the MAC
   ZMacInit();
-
+  
   // Determine the extended address
   zmain_ext_addr();
 

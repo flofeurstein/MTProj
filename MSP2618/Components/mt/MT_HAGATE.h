@@ -27,14 +27,18 @@ extern "C"
 #pragma pack(1)
 typedef struct
 {
-  /*uint8             deviceId;
-  uint16            nwkAddr;
-  ZLongAddr_t       IEEEAddr;*/
+  ZLongAddr_t       IEEEAddr;
   uint8             endpoint;
   uint8             dataLen;
   uint8             *msgData;
 } mtHaGateMsg_t;
 #pragma pack()
+
+/***************************************************************************************************
+ * CONSTANTS
+ ***************************************************************************************************/
+#define SAMPLELIGHT_ENDPOINT            13
+#define SAMPLESW_ENDPOINT               12
 
 /***************************************************************************************************
  * EXTERNAL FUNCTIONS
