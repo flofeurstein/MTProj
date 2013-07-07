@@ -169,7 +169,12 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
+          <state>MT_ZDO_CP_FUNC</state>
+          <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
+          <state>NV_RESTORE</state>
+          <state>NV_INIT</state>
+          <state>ZCL_REPORT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -682,7 +687,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>HaGateConcentrator.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -876,7 +881,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>HaGateConcentrator.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -987,7 +992,11 @@
         <debug>1</debug>
         <option>
           <name>CUTest</name>
-          <state>###Uninitialized###</state>
+          <state>-I$TOOLKIT_DIR$\inc</state>
+          <state>-@$TOOLKIT_DIR$\bin\iar.cmd</state>
+          <state>-@$PROJ_DIR$\source.txt</state>
+          <state>-@$PROJ_DIR$\include.txt</state>
+          <state>--preinclude=$PROJ_DIR$\IAR_ULPAdvisor_Defs.h</state>
         </option>
         <option>
           <name>ULPRules</name>
@@ -1181,10 +1190,7 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
-          <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
-          <state>NV_RESTORE</state>
-          <state>NV_INIT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1697,7 +1703,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>HaGateConcentrator.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -1891,7 +1897,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>HaGateConcentrator.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -2015,7 +2021,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>$PROJ_FNAME$.ulp</state>
+          <state></state>
         </option>
         <option>
           <name>ULPStatus</name>
@@ -2710,7 +2716,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>HaGateConcentrator.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -2904,7 +2910,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>HaGateConcentrator.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -3045,16 +3051,16 @@
   <group>
     <name>Application</name>
     <file>
-      <name>$PROJ_DIR$\..\Source\OSAL_SampleSw.c</name>
+      <name>$PROJ_DIR$\..\Source\OSAL_HaGateConcentrator.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw.c</name>
+      <name>$PROJ_DIR$\..\Source\zcl_HaGateConcentrator.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw.h</name>
+      <name>$PROJ_DIR$\..\Source\zcl_HaGateConcentrator.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw_data.c</name>
+      <name>$PROJ_DIR$\..\Source\zcl_HaGateConcentrator_data.c</name>
     </file>
   </group>
   <group>

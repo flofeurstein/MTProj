@@ -10,7 +10,7 @@
     <debug>1</debug>
     <settings>
       <name>General</name>
-      <archiveVersion>12</archiveVersion>
+      <archiveVersion>9</archiveVersion>
       <data>
         <version>28</version>
         <wantNonLocal>1</wantNonLocal>
@@ -62,8 +62,8 @@
         </option>
         <option>
           <name>Input variant</name>
-          <version>2</version>
-          <state>5</state>
+          <version>1</version>
+          <state>3</state>
         </option>
         <option>
           <name>Input description</name>
@@ -71,8 +71,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>6</state>
+          <version>1</version>
+          <state>4</state>
         </option>
         <option>
           <name>Output description</name>
@@ -159,7 +159,7 @@
       <name>ICC430</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>35</version>
+        <version>33</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -453,6 +453,14 @@
           <state>DIFUNCT</state>
         </option>
         <option>
+          <name>AggressiveInlining</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>AggressiveUnrolling</name>
+          <state>0</state>
+        </option>
+        <option>
           <name>IccCppInlineSemantics</name>
           <state>0</state>
         </option>
@@ -472,21 +480,13 @@
           <name>CNoRwDynamicInit</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>ADefines</name>
-          <state></state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>A430</name>
-      <archiveVersion>5</archiveVersion>
+      <archiveVersion>4</archiveVersion>
       <data>
-        <version>14</version>
+        <version>13</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -642,10 +642,6 @@
           <name>AUserIncludes</name>
           <state></state>
         </option>
-        <option>
-          <name>ACPUTAG</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -673,7 +669,7 @@
       <name>XLINK</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>23</version>
+        <version>22</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -682,7 +678,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>SampleLight.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -876,7 +872,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>SampleLight.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -950,11 +946,6 @@
           <name>XLibraryHeap20</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -979,36 +970,6 @@
       </data>
     </settings>
     <settings>
-      <name>ULP430</name>
-      <archiveVersion>1</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CUTest</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>ULPRules</name>
-          <version>0</version>
-          <state>1111111111111111111</state>
-        </option>
-        <option>
-          <name>ULPEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OutputFile</name>
-          <state>$PROJ_FNAME$.ulp</state>
-        </option>
-        <option>
-          <name>ULPStatus</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>BILINK</name>
       <archiveVersion>0</archiveVersion>
       <data/>
@@ -1022,7 +983,7 @@
     <debug>1</debug>
     <settings>
       <name>General</name>
-      <archiveVersion>12</archiveVersion>
+      <archiveVersion>9</archiveVersion>
       <data>
         <version>28</version>
         <wantNonLocal>1</wantNonLocal>
@@ -1074,8 +1035,8 @@
         </option>
         <option>
           <name>Input variant</name>
-          <version>2</version>
-          <state>5</state>
+          <version>1</version>
+          <state>3</state>
         </option>
         <option>
           <name>Input description</name>
@@ -1083,8 +1044,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>6</state>
+          <version>1</version>
+          <state>4</state>
         </option>
         <option>
           <name>Output description</name>
@@ -1171,7 +1132,7 @@
       <name>ICC430</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>35</version>
+        <version>33</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1181,10 +1142,7 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
-          <state>MT_HAGATE_FUNC</state>
           <state>LCD_SUPPORTED</state>
-          <state>NV_RESTORE</state>
-          <state>NV_INIT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1468,6 +1426,14 @@
           <state>DIFUNCT</state>
         </option>
         <option>
+          <name>AggressiveInlining</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>AggressiveUnrolling</name>
+          <state>0</state>
+        </option>
+        <option>
           <name>IccCppInlineSemantics</name>
           <state>0</state>
         </option>
@@ -1487,21 +1453,13 @@
           <name>CNoRwDynamicInit</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>ADefines</name>
-          <state></state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>A430</name>
-      <archiveVersion>5</archiveVersion>
+      <archiveVersion>4</archiveVersion>
       <data>
-        <version>14</version>
+        <version>13</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1657,10 +1615,6 @@
           <name>AUserIncludes</name>
           <state></state>
         </option>
-        <option>
-          <name>ACPUTAG</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -1688,7 +1642,7 @@
       <name>XLINK</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>23</version>
+        <version>22</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1697,7 +1651,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>SampleLight.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -1891,7 +1845,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>SampleLight.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -1965,11 +1919,6 @@
           <name>XLibraryHeap20</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -1994,36 +1943,6 @@
       </data>
     </settings>
     <settings>
-      <name>ULP430</name>
-      <archiveVersion>1</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CUTest</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>ULPRules</name>
-          <version>0</version>
-          <state>1111111111111111111</state>
-        </option>
-        <option>
-          <name>ULPEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OutputFile</name>
-          <state>$PROJ_FNAME$.ulp</state>
-        </option>
-        <option>
-          <name>ULPStatus</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>BILINK</name>
       <archiveVersion>0</archiveVersion>
       <data/>
@@ -2037,7 +1956,7 @@
     <debug>1</debug>
     <settings>
       <name>General</name>
-      <archiveVersion>12</archiveVersion>
+      <archiveVersion>9</archiveVersion>
       <data>
         <version>28</version>
         <wantNonLocal>1</wantNonLocal>
@@ -2089,8 +2008,8 @@
         </option>
         <option>
           <name>Input variant</name>
-          <version>2</version>
-          <state>5</state>
+          <version>1</version>
+          <state>3</state>
         </option>
         <option>
           <name>Input description</name>
@@ -2098,8 +2017,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>6</state>
+          <version>1</version>
+          <state>4</state>
         </option>
         <option>
           <name>Output description</name>
@@ -2186,7 +2105,7 @@
       <name>ICC430</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>35</version>
+        <version>33</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2481,6 +2400,14 @@
           <state>DIFUNCT</state>
         </option>
         <option>
+          <name>AggressiveInlining</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>AggressiveUnrolling</name>
+          <state>0</state>
+        </option>
+        <option>
           <name>IccCppInlineSemantics</name>
           <state>0</state>
         </option>
@@ -2500,21 +2427,13 @@
           <name>CNoRwDynamicInit</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>ADefines</name>
-          <state></state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>A430</name>
-      <archiveVersion>5</archiveVersion>
+      <archiveVersion>4</archiveVersion>
       <data>
-        <version>14</version>
+        <version>13</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2670,10 +2589,6 @@
           <name>AUserIncludes</name>
           <state></state>
         </option>
-        <option>
-          <name>ACPUTAG</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -2701,7 +2616,7 @@
       <name>XLINK</name>
       <archiveVersion>4</archiveVersion>
       <data>
-        <version>23</version>
+        <version>22</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2710,7 +2625,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>SampleSwitch.d43</state>
+          <state>SampleLight.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -2904,7 +2819,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>SampleSwitch.a43</state>
+          <state>SampleLight.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -2978,11 +2893,6 @@
           <name>XLibraryHeap20</name>
           <state>1</state>
         </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -3007,36 +2917,6 @@
       </data>
     </settings>
     <settings>
-      <name>ULP430</name>
-      <archiveVersion>1</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CUTest</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>ULPRules</name>
-          <version>0</version>
-          <state>1111111111111111111</state>
-        </option>
-        <option>
-          <name>ULPEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OutputFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>ULPStatus</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>BILINK</name>
       <archiveVersion>0</archiveVersion>
       <data/>
@@ -3045,16 +2925,16 @@
   <group>
     <name>Application</name>
     <file>
-      <name>$PROJ_DIR$\..\Source\OSAL_SampleSw.c</name>
+      <name>$PROJ_DIR$\..\Source\OSAL_SampleLight.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw.c</name>
+      <name>$PROJ_DIR$\..\Source\zcl_samplelight.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw.h</name>
+      <name>$PROJ_DIR$\..\Source\zcl_samplelight.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\Source\zcl_samplesw_data.c</name>
+      <name>$PROJ_DIR$\..\Source\zcl_samplelight_data.c</name>
     </file>
   </group>
   <group>
@@ -3316,12 +3196,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_DEBUG.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_HAGATE.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_HAGATE.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\Components\mt\MT_NWK.c</name>
