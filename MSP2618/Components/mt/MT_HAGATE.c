@@ -48,7 +48,7 @@ void MT_HaGateLightMoveToLevel(uint8* pBuf);
 /***************************************************************************************************
  * @fn      MT_HaGateCommandProcessing
  *
- * @brief  Process all the APP commands that are issued by test tool
+ * @brief  Process all the HAGATE commands that are issued by test tool
  *
  * @param   pBuf - pointer to the received buffer
  *

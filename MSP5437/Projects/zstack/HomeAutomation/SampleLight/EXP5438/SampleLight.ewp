@@ -1181,9 +1181,10 @@
           <state>MT_TASK</state>
           <state>MT_SYS_FUNC</state>
           <state>MT_ZDO_FUNC</state>
-          <state>LCD_SUPPORTED</state>
           <state>HAL_PA_LNA</state>
           <state>LSR_CODE</state>
+          <state>NV_RESTORE</state>
+          <state>NV_INIT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
